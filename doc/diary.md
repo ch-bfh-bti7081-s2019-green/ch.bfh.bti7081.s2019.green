@@ -1,13 +1,13 @@
 # Diary
 ## Legend
 
-| Team Member      | Shorthand |
-| ---------------- | --------- |
-| Christian Kocher | CK        |
-| Fabio Caggiano   | FC        |
-| Marc Häsler      | MH        |
-| Marius Schär     | MS        |
-| Severin Kaderli  | SK        |
+| Team Member      | Shorthand | GitHub Username |
+| ---------------- | --------- | --------------- |
+| Christian Kocher | CK        | ???             |
+| Fabio Caggiano   | FC        | ???             |
+| Marc Häsler      | MH        | @haesler        |
+| Marius Schär     | MS        | @martyschaer    |
+| Severin Kaderli  | SK        | @severinkaderli |
 
 # 2019-03-15
 ## Attendees
