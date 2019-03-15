@@ -8,8 +8,8 @@
 | Marc Häsler      | MH        |
 | Marius Schär     | MS        |
 | Severin Kaderli  | SK        |
-# 2019-03-15
 
+# 2019-03-15
 ## Attendees
 Attending: MH, MS, SK
 Missing: CK, FC
