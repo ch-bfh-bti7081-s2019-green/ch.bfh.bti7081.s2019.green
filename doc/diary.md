@@ -24,5 +24,5 @@ Missing: CK, FC
 - Repository setup
 - Preparing interview questions
 
-## Todo until 2019-03-xx
-- [SK] Conduct interview
+## Todo until 2019-03-20
+- [ALL] Think of questions for the interview
