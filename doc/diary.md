@@ -11,8 +11,8 @@
 
 # 2019-03-15
 ## Attendees
-Attending: MH, MS, SK  
-Missing: CK, FC
+Attending: MH, MS, SK, FC 
+Missing: CK
 
 ## Topics
 - Team creation
