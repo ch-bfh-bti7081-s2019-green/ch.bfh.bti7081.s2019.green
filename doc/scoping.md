@@ -1,0 +1,9 @@
+- Depressed Patient
+  - Problems
+    - Suicidal
+    - No income
+  - Therapy
+    - Regular sessions
+  - Medication
+  - Broken family environment
+  - Insurance
