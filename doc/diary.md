@@ -4,15 +4,15 @@
 | Team Member      | Shorthand | GitHub Username                                      |
 | ---------------- | --------- | ---------------------------------------------------- |
 | Christian Kocher | CK        | ???                                                  |
-| Fabio Caggiano   | FC        | ???                                                  |
+| Fabio Caggiano   | FC        | [@jmpout](https://github.com/jmpout)                 |
 | Marc Häsler      | MH        | [@haesler](https://github.com/haesler)               |
 | Marius Schär     | MS        | [@martyschaer](https://github.com/martyschaer)       |
 | Severin Kaderli  | SK        | [@severinkaderli](https://github.com/severinkaderli) |
 
 # 2019-03-15
 ## Attendees
-Attending: MH, MS, SK  
-Missing: CK, FC
+Attending: MH, MS, SK, FC 
+Missing: CK
 
 ## Topics
 - Team creation
