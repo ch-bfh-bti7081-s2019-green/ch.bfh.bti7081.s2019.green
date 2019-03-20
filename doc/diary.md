@@ -24,5 +24,19 @@ Missing: CK, FC
 - Repository setup
 - Preparing interview questions
 
-## Todo until 2019-03-20
+## Todo until 2019-03-22
 - [ALL] Think of questions for the interview
+
+# 2019-03-20
+## Attendees
+Attending: MH, MS, SK, FC
+Missing: CK
+
+## Topics
+- Organisation
+
+## Done
+
+## Todo until 2019-03-22
+- [ALL] Think of questions for the interview
+- [ALL] Think about scoping
