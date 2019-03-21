@@ -1,9 +1,23 @@
 - Depressed Patient
   - Problems
     - Suicidal
+      - Emergency Contacts/Hotline
     - No income
+      - public financial support
+    - missing knwoledge
+      - Contacts of specialists
+      - Information about Problem
+        - Search engine
   - Therapy
-    - Regular sessions
+    - Appointment
+      - Reminder
+      - Regular sessions
+    - History
   - Medication
+    - Prescription
   - Broken family environment
+    - Contacts
   - Insurance
+    - Cost Overview
+    - Bills
+    
