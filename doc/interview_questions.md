@@ -1,5 +1,5 @@
-- Who and when Datas are saved?
-- Which information are required for a new patient?
+- How and when are data saved?
+- Which information is required for a new patient?
 - How will a psychological session be prepared?
   - What are the results?
     - Documentations
@@ -12,3 +12,4 @@
 - Which factors are used to select the dose/rythm of a medication?
 - Who made an appointment?
   - How does the patient make an appointment? 
+- Do patients have trouble keeping appointments?
