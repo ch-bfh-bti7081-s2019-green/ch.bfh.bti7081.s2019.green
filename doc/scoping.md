@@ -5,5 +5,17 @@
   - Therapy
     - Regular sessions
   - Medication
-  - Broken family environment
+  - Relationships heavily affected
   - Insurance
+  - Depression
+    - Duration of Episode >2 weeks
+    - Symptoms
+      - Loss of interest
+      - low self-esteem
+      - pain
+      - Suicidal (2-8% of patients die by suicide)
+      - hallucinations
+    - Treatment
+      - Antidepressants
+      - Cognitive Behavioral Therapy
+      - Interpersonal Therapy
