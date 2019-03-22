@@ -1,15 +1,22 @@
-- How and when are data saved?
-- Which information is required for a new patient?
-- How will a psychological session be prepared?
+---
+- How and when are data saved for a new patient?
+  - Which information is required for a new patient?
+- How will a psychological (therapy) session be prepared from patient/doctor view?
+  - Regular vs. First time?
   - What are the results?
     - Documentations
-      - Are there requirements?
-      - What for attachments?
-      - Should the editmask be structured?
+      - Are there requirements for the content of the document?
+      - Any attachments (Images/Audio etc.)?
+      - Structured data entry or free text?
       - Should be everything visible for the patient?
-- What for sources exists for a diagnose?
+- What sources exists for a diagnosis?
+  - Who reported the patient?
   - How it will be documented?
-- Which factors are used to select the dose/rythm of a medication?
-- Who made an appointment?
-  - How does the patient make an appointment? 
-- Do patients have trouble keeping appointments?
+- How are treatments selected and monitored?
+  - Which factors are used to select the dose/rythm of a medication?
+  - How are data on the success of the treatment gathered?
+- Appointment organization:
+  - How does the patient make an appointment (telephone/mail/online)? 
+  - Do patients have trouble keeping appointments?
+    - Why?
+    - How to help?
