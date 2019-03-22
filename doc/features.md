@@ -1,0 +1,14 @@
+Features
+   - Medication Reminders
+     - Tick off ingested medication
+   - Prescription Paperwork
+   - Communication
+     - with other patients (self help)
+     - with doctor
+     - Emergency Numbers
+     - Suicide Hotline
+   - *Document Share*
+   - Mood Diary
+   - *Appointment*
+   - *Information Pages*
+   - Financial Information (Insurance)
