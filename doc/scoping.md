@@ -24,11 +24,25 @@
     - Duration of Episode >2 weeks
     - Symptoms
       - Loss of interest
-      - low self-esteem
-      - pain
+      - Low self-esteem
+      - Pain
       - Suicidal (2-8% of patients die by suicide)
-      - hallucinations
+      - Hallucinations (rare)
     - Treatment
       - Antidepressants
       - Cognitive Behavioral Therapy
       - Interpersonal Therapy
+  - Features
+    - Medication Reminders
+      - Tick off ingested medication
+    - Prescription Paperwork
+    - Communication
+      - with other patients (self help)
+      - with doctor
+      - Emergency Numbers
+      - Suicide Hotline
+    - *Document Share*
+    - Mood Diary
+    - *Appointment*
+    - *Information Pages*
+    - Financial Information (Insurance)
