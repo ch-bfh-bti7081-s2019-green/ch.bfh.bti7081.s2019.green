@@ -8,12 +8,12 @@ the item like so:
 ```
 
 # Storyboards
-- Information page
+- [MH] Information page
 - Medication Reminders
 - Picking up a prescription
 - Communication with health care professional
 - Communication with other patients (self help)
 - Suicide hotline
 - Mood diary
-- Making an appointment
+- [MH] Making an appointment
 - Show invoice
