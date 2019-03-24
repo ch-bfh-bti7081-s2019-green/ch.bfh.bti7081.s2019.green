@@ -11,7 +11,7 @@ the item like so:
 # Storyboards
 - [ ] [MH] Information page
 - [x] [MS] Medication Reminders
-- [ ] [MS] Picking up a prescription
+- [x] [MS] Picking up a prescription
 - [ ] Communication with health care professional
 - [ ] Communication with other patients (self help)
 - [ ] Suicide hotline
