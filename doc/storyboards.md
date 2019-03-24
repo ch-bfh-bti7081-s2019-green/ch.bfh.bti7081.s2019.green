@@ -12,9 +12,9 @@ the item like so:
 - [ ] [MH] Information page
 - [x] [MS] Medication Reminders
 - [x] [MS] Picking up a prescription
-- [ ] Communication with health care professional
+- [x] [FC] Communication with health care professional
 - [ ] Communication with other patients (self help)
 - [ ] Suicide hotline
-- [ ] Mood diary
+- [x] [FC] Mood diary
 - [ ] [MH] Making an appointment
 - [ ] Show invoice
