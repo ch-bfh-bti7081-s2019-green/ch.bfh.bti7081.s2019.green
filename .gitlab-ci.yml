@@ -1,0 +1,17 @@
+image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
+
+stages:
+  - Build
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+PDF:
+  stage: Build
+  script:
+    - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
+    - .latex/build.sh ./diary.md
+    - .latex/build.sh ./Task_01/Task_01.md
+  artifacts:
+    paths:
+      - "*.pdf"
