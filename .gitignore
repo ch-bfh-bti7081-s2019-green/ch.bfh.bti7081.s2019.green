@@ -3,3 +3,5 @@
 
 # TMP Files
 **/*.tmp
+
+*.pdf
