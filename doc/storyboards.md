@@ -13,8 +13,8 @@ the item like so:
 - [x] [MS] Medication Reminders
 - [x] [MS] Picking up a prescription
 - [x] [FC] Communication with health care professional
-- [ ] Communication with other patients (self help)
+- [x] [SK] Communication with other patients (self help)
 - [ ] Suicide hotline
 - [x] [FC] Mood diary
 - [ ] [MH] Making an appointment
-- [ ] Show invoice
+- [x] [SK] Show invoice
