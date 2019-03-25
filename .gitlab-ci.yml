@@ -8,7 +8,7 @@ PDF:
   script:
     - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
     - .latex/build.sh ./diary.md
-    - .latex/build.sh ./Task_01/Task_01.md
+    - .latex/build.sh ./task_01/task_01.md
   artifacts:
     paths:
       - "*.pdf"
