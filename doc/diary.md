@@ -1,9 +1,22 @@
+---
+title: "Diary"
+subtitle: "Team Green"
+author:
+    - Fabio Caggiano
+    - Christian Kocher
+    - Marc Häsler
+    - Marius Schär
+    - Severin Kaderli
+extra-info: false
+lang: "de-CH"
+...
+
 # Diary
 ## Legend
 
-| Team Member      | Shorthand | GitHub Username                                      |
-| ---------------- | --------- | ---------------------------------------------------- |
-| Christian Kocher | CK        | ???                                                  |
+| Team Member      | Shorthand | GitHub Username                                       |
+| ---------------- | --------- | ----------------------------------------------------- |
+| Christian Kocher | CK        | ???                                                   |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                 |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)               |
 | Marius Schär     | MS        | [\@martyschaer](https://github.com/martyschaer)       |
@@ -11,7 +24,7 @@
 
 # 2019-03-15
 ## Attendees
-Attending: MH, MS, SK, FC 
+Attending: MH, MS, SK, FC  
 Missing: CK
 
 ## Topics
@@ -29,7 +42,7 @@ Missing: CK
 
 # 2019-03-20
 ## Attendees
-Attending: MH, MS, SK, FC
+Attending: MH, MS, SK, FC  
 Missing: CK
 
 ## Topics
@@ -43,8 +56,8 @@ Missing: CK
 
 # 2019-03-22
 ## Attendees
-Attending: MH, MS, SK
-Excused: FC
+Attending: MH, MS, SK  
+Excused: FC  
 Missing: CK
 
 ## Topics
