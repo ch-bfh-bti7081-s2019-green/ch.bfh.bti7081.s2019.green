@@ -3,7 +3,6 @@ title: "Diary"
 subtitle: "Team Green"
 author:
     - Fabio Caggiano
-    - Christian Kocher
     - Marc Häsler
     - Marius Schär
     - Severin Kaderli
@@ -18,7 +17,6 @@ lang: "de-CH"
 
 | Team Member      | Shorthand | GitHub Username                                       |
 | ---------------- | --------- | ----------------------------------------------------- |
-| Christian Kocher | CK        | ???                                                   |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                 |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)               |
 | Marius Schär     | MS        | [\@martyschaer](https://github.com/martyschaer)       |
@@ -78,3 +76,13 @@ Missing: CK
 ## Todo until 2019-03-27
 - [FC,SK] Interview
 
+# 2019-03-25
+## Attendees
+Attending: MH, MS, SK, FC  
+Removed: CK
+
+## Topics
+- Review of Storyboards and Prototypes
+
+## Todo until 2019-03-27
+- [FC,SK] Interview
