@@ -173,6 +173,7 @@ Stichpunkte zum Thema Depression:
 ![Communication](./prototypes/communication.jpg)
 
 ![Mood diary part 1](./prototypes/mood-diary-1.jpg)
+
 ![Mood diary part 2](./prototypes/mood-diary-2.jpg)
 
 ![Medication Reminders](./prototypes/medication-reminders.jpg)
