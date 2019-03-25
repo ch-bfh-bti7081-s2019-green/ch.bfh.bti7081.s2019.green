@@ -6,6 +6,7 @@ stages:
 PDF:
   stage: Build
   script:
+    - export GIT_SSL_NO_VERIFY=1
     - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
     - .latex/build.sh ./diary.md
     - .latex/build.sh ./task_01/task_01.md
