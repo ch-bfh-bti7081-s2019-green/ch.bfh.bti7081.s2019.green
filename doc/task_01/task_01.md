@@ -153,6 +153,10 @@ Stichpunkte zum Thema Depression:
 
 ## Storyboards Christian Kocher
 ## Storbyboards Marc Häsler
+![Information Page](./storyboards/information-page.jpg)
+
+![Making an appointment](./storyboards/making-appointment.jpg)
+
 ## Storbyboards Marius Schär
 ![Pick-up Prescription](./storyboards/pick-up-prescription.png)
 
@@ -166,5 +170,11 @@ Stichpunkte zum Thema Depression:
 
 
 # Prototype
+![Communication](./prototypes/communication.jpg)
+
+![Mood diary part 1](./prototypes/mood-diary-1.jpg)
+![Mood diary part 2](./prototypes/mood-diary-2.jpg)
+
+![Medication Reminders](./prototypes/medication-reminders.jpg)
 
 # Validate
