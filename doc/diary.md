@@ -8,6 +8,7 @@ author:
     - Marius Schär
     - Severin Kaderli
 extra-info: false
+rule-color: 00ba34
 lang: "de-CH"
 ...
 
