@@ -154,6 +154,8 @@ Stichpunkte zum Thema Depression:
 - Hobbies: Hackathons, Reddit, Post eVoting
 - Medical History: Since Childhood, Unipolar, Moderate impact on life
 
+Mallorie hat erblich bedingt Depressionen seit der Kindheit. Sie studierte Informatik und arbeitet beim BACOM. Sie wohnt seit einigen Jahren alleine. Sie tauscht sich in der Freizeit online mit anderen Cyber Security enthuitasten aus und macht gerne an Hackathons mit. Sie ist bereits seit sie 12 ist Patient bei einer psychiatischen Klinik. Sie hat das Ziel ihre Motivation trotz der Depression aufrecht zu erhalten, so dass es weiterhin keinen gröberen Einfluss auf ihr Leben nimmt.
+
 ## Persona: Bob Baires (50)
 ![Bob Baires](./assets/bob.png)
 
