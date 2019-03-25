@@ -145,6 +145,24 @@ Stichpunkte zum Thema Depression:
 
 # Synthesize
 
+## Persona: Mallorie Picconie (24)
+![Mallorie Picconie](./assets/mallorie.png)
+
+- Job: Cyber Security Expert
+- Civil Status: Single
+- Residence: Bern
+- Hobbies: Hackathons, Reddit, Post eVoting
+- Medical History: Since Childhood, Unipolar, Moderate impact on life
+
+## Persona: Bob Baires (50)
+![Bob Baires](./assets/bob.png)
+
+- Job: Banker
+- Civil Status: Married (2x), 1 child
+- Residence: Zürich
+- Hobbies: Golf, Poker
+- Medical History: Since 39 (triggered by economic crisis), Unipolar, Heavy impact on life
+
 # Design
 ## Storyboards Fabio Caggiano
 ![Communication with Health Care Professional](./storyboards/communication-with-health-care-professional.jpg)

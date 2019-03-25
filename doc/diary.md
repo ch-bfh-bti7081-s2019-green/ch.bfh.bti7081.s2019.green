@@ -86,3 +86,6 @@ Removed: CK
 
 ## Todo until 2019-03-27
 - [FC,SK] Interview
+- [ALL] Prepare for Validation Step
+- [ALL] Research
+- [MS] Prototype for "Picking up prescription"
