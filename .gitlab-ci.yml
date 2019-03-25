@@ -3,9 +3,6 @@ image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
 stages:
   - Build
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 PDF:
   stage: Build
   script:
