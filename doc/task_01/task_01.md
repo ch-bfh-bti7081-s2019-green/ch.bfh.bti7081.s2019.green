@@ -2,8 +2,8 @@
 title: "Design Thinking"
 subtitle: "Task 01 - Team Green"
 author:
-    - Fabio Caggiano
     - Christian Kocher
+    - Fabio Caggiano
     - Marc Häsler
     - Marius Schär
     - Severin Kaderli
@@ -224,6 +224,33 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 
 # Synthesize
 
+## Persona: Mallorie Picconie (24)
+![Mallorie Picconie](./assets/mallorie.png)
+
+- Job: Cyber Security Expert
+- Civil Status: Single
+- Residence: Bern
+- Hobbies: Hackathons, Reddit, Post eVoting
+- Medical History: Since Childhood, Unipolar, Moderate impact on life
+
+Mallorie hat erblich bedingt Depressionen seit der Kindheit.
+Sie studierteInformatik und arbeitet beim BACOM.
+Sie wohnt seit einigen Jahren alleine.
+Sie tauscht sich in der Freizeit online mit anderen Cyber Security Enthuitasten
+aus und macht gerne an Hackathons mit.
+Sie ist bereits seit sie 12 ist Patient bei einer psychiatrischen Klinik.
+Sie hat das Ziel ihre Motivation trotz der Depression aufrecht zu erhalten,
+so dass es weiterhin keinen grösseren Einfluss auf ihr Leben nimmt.
+
+## Persona: Bob Baires (50)
+![Bob Baires](./assets/bob.png)
+
+- Job: Banker
+- Civil Status: Married (2x), 1 child
+- Residence: Zürich
+- Hobbies: Golf, Poker
+- Medical History: Since 39 (triggered by economic crisis), Unipolar, Heavy impact on life
+
 # Design
 ## Storyboards Fabio Caggiano
 ![Communication with Health Care Professional](./storyboards/communication-with-health-care-professional.jpg)
@@ -232,6 +259,10 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 
 ## Storyboards Christian Kocher
 ## Storbyboards Marc Häsler
+![Information Page](./storyboards/information-page.jpg)
+
+![Making an appointment](./storyboards/making-appointment.jpg)
+
 ## Storbyboards Marius Schär
 ![Pick-up Prescription](./storyboards/pick-up-prescription.png)
 
@@ -245,5 +276,12 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 
 
 # Prototype
+![Communication](./prototypes/communication.jpg)
+
+![Mood diary part 1](./prototypes/mood-diary-1.jpg)
+
+![Mood diary part 2](./prototypes/mood-diary-2.jpg)
+
+![Medication Reminders](./prototypes/medication-reminders.jpg)
 
 # Validate
