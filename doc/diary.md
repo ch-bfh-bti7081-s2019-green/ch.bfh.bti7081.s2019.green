@@ -2,6 +2,7 @@
 title: "Diary"
 subtitle: "Team Green"
 author:
+    - Christian Kocher
     - Fabio Caggiano
     - Marc Häsler
     - Marius Schär
@@ -15,12 +16,13 @@ lang: "de-CH"
 # Diary
 ## Legend
 
-| Team Member      | Shorthand | GitHub Username                                       |
-| ---------------- | --------- | ----------------------------------------------------- |
-| Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                 |
-| Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)               |
-| Marius Schär     | MS        | [\@martyschaer](https://github.com/martyschaer)       |
-| Severin Kaderli  | SK        | [\@severinkaderli](https://github.com/severinkaderli) |
+| Team Member      | Shorthand | GitHub Username                                           |
+| ---------------- | --------- | --------------------------------------------------------- |
+| Christian Kocher | CK        | [\@christiankocher7](https://github.com/christiankocher7) |
+| Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                     |
+| Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)                   |
+| Marius Schär     | MS        | [\@martyschaer](https://github.com/martyschaer)           |
+| Severin Kaderli  | SK        | [\@severinkaderli](https://github.com/severinkaderli)     |
 
 # 2019-03-15
 ## Attendees
@@ -79,13 +81,15 @@ Missing: CK
 # 2019-03-25
 ## Attendees
 Attending: MH, MS, SK, FC  
-Removed: CK
+Missing: CK
 
 ## Topics
 - Review of Storyboards and Prototypes
+- Personae
 
 ## Todo until 2019-03-27
 - [FC,SK] Interview
 - [ALL] Prepare for Validation Step
 - [ALL] Research
 - [MS] Prototype for "Picking up prescription"
+- [MS/MH] Write patient stories
