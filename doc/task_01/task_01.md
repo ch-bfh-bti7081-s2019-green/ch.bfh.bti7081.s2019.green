@@ -233,14 +233,14 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 - Hobbies: Hackathons, Reddit, Post eVoting
 - Medical History: Since Childhood, Unipolar, Moderate impact on life
 
-Mallorie hat erblich bedingt Depressionen seit der Kindheit.
-Sie studierte Informatik und arbeitet beim BACOM.
-Sie wohnt seit einigen Jahren alleine.
-Sie tauscht sich in der Freizeit online mit anderen Cyber Security Enthuitasten
-aus und macht gerne an Hackathons mit.
-Sie ist bereits seit sie 12 Jahre alt ist Patient bei einer psychiatrischen Klinik.
-Sie hat das Ziel ihre Motivation trotz Depressionen aufrecht zu erhalten,
-so dass es weiterhin keinen grösseren Einfluss auf ihr Leben nimmt.
+Mallorie has depression due to genetic factors, and is diagnosed since childhood.
+Mallorie studied computer science and now works at BACOM.
+She moved out from home a few years ago and now lives alone.
+In her free time, she likes to talk about cybersecurity online with other enthusiasts,
+and likes to participate in hackathons.  
+She was diagnosed with depression at 12 years old and has been in treatment since.
+She wants to keep her treatment going, so that her depression continues
+not to impact her life too much.
 
 ## Persona: Bob Baires (50)
 ![Bob Baires](./assets/bob.png)
