@@ -93,55 +93,134 @@ Stichpunkte zum Thema Depression:
 * Man sollte den jemand mit Depression offen fragen, ob ihn etwas bedrückt, da er nicht mehr so ist, wie man ihn kennt. Und ihn darauf aufmerksam machen, dass es etwas ist, das häufig vorkommt und es eine Krankheit wie jede andere ist. Dabei geht man wie bei jeder Krankheit auch zum Arzt, um nach Rat zu fragen und folgt bei Überzeugung dem Rat. Der Arzt sucht auch gleich das passende Therapieschema und die passende Medikation in Verbindung einer Gesprächstherapie.
 
 ## Interview 1
-**Interviewpartner:** John Doe  
-**Datum:** Any day  
-**Ort:**  
+**Interviewpartner:** Chantal Gerber  
+**Datum:** 2019-03-26  
+**Ort:** Heimberg
 
 ### Neue Patienten
 #### Wie und wann werden Daten eines Patienten gespeichert?
+> Das meiste wird elektronisch gespeichert. Während den Sitzungen werden 
+> jedoch Notizen meistens manuell auf Papier erstellt.
+
 #### Welche Informationen werden von einem neuen Patienten benötigt?
+> * Name
+> * Alter
+> * Zivilstand
+> * Beruf
+> * Diagnose
+
 #### Wie läuft eine erste Begutachtung eines Patienten ab?
+> * Befragung des Patienten durch Fragen über Stressverhalten und Befinden
+> * Frage nach der Orientierung des Patienten (Zeitlich, Räumlich)
 
-### Vorbereitung auf einen Termin mit einem depressionskranken Patienten
+### Vorbereitung auf einen Termin
 #### Wie bereitet sich ein Therapeut auf einen Termin mit einem Patienten vor?
-#### Wie bereitet sich ein Patient auf den Termin vor, was wird von ihm verlangt?
-#### Wie machen Patienten Termine mit dem Therapeuten aus (Telefon, Mail, Online-Formular)?
-#### Haben Patienten Mühe, Termine einzuhalten?
-* Warum haben sie Mühe?
-* Wie könnte man Helfen, dass sie keine Mühe mehr haben?
+> 1. Krankenakte des Patienten anschauen
+> 2. Letztes Gespräch / Informationen nachschauen
+> 3. Notizen für neue Sitzung vorbereiten (Fragen, Nächste Schritte)
 
-### Während dem Termin/Gespräch mit dem depressionskranken Patienten
+#### Wie bereitet sich ein Patient auf den Termin vor, was wird von ihm verlangt?
+> Er sollte sich nicht speziell vorbereiten und einfach zur Sitzung gehen. 
+> Er soll einfach von seinen Problemen / Ängsten zu reden.
+
+
+#### Wie machen Patienten Termine mit dem Therapeuten aus (Telefon, Mail, Online-Formular)?
+> Am Ende einer Sitzung wird normalerweise direkt der nächste Termin ausgemacht.
+
+#### Haben Patienten Mühe, Termine einzuhalten?
+Warum haben sie Mühe?
+
+> Sie schämen sich
+
+Wie könnte man Helfen, dass sie keine Mühe mehr haben?
+
+> Begleitung durch Anruf oder SMS, damit immer ein Therapeut vorhanden ist.
+
+### Während dem Termin
 #### Was sind die zu erwartenden Resultate eines Gesprächs?
-* Was für Dokumentationen werden geführt (pers. Journal, Krankenakte/Patientendossier)?
-* Gibt es Anforderungen an die Art und Weise einer Dokumentation?
-* Irgendwelche Anhänge wie Bilder/Audioaufnahmen/Video die erstellt werden?
-* Gibt es eine strukturierte Vorgabe oder beruht alles auf Freitext?
-* Darf der Patient Einblicke in die erstellte Dokumentation haben?
+Was für Dokumentationen werden geführt (pers. Journal, Krankenakte/Patientendossier)?
+
+> Es wird eine Krankenakte für den Patienten geführt. Je nach Situation
+> wird auch mit dem Patienten zusammen ein Plan erstellt.
+ 
+Gibt es Anforderungen an die Art und Weise einer Dokumentation?
+
+> Die Dokumentation muss objektiv und nicht wertend geschrieben werden.
+
+Irgendwelche Anhänge wie Bilder/Audioaufnahmen/Video die erstellt werden?
+
+> Je nach Situation kann das nützlich sein. Vorallem Audioaufnahmen werden
+> von Zeit zu Zeit verwendet.
+
+Gibt es eine strukturierte Vorgabe oder beruht alles auf Freitext?
+
+> Meistens gibt es Vorgaben.
+
+Darf der Patient Einblicke in die erstellte Dokumentation haben?
+
+> Ja, das darf er.
 
 ### Behandlungsablauf des Patienten
 #### Auf was für Informationsquellen werden zugegriffen, um eine Diagnose zu erstellen?
-* Wer meldete den Patienten?
-* Wie wird es dokumentiert?
+Wer meldete den Patienten?
+
+> Normalerweise wird der Patient vom Hausarzt überwiesen oder der
+> Patient meldet sich selber.
+
+Wie wird es dokumentiert?
+
+> Durch ein Überweisungsschreiben.
   
 #### Wie werden Behandlungen ausgewählt und Erfolge überprüft?
-* Welche Faktoren sind relevant für die Dosierung/Rythmus einer Medikation?
-* Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
+Welche Faktoren sind relevant für die Dosierung/Rythmus einer Medikation?
+
+> Der Hauptfaktor ist der Schweregrad der Diagnose und ob es am morgen
+> oder am Abend die meisten Beschwerden gibt. Zudem wird zuerst mit einer
+> kleineren Dosis gestartet um zu sehen wie die Medikation anschlägt. 
+
+Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
+
+> Die Dokumentation wird fortlaufen weitergeführt und anhand vom Verlauf
+> kann man die Resultate ablesen.
 
 ### Zur Patienten-App
 #### Was ist Ihre Meinung zu den folgenden Features des Patienten-Apps?
 * Medikamenten-Einnahme Erinnerung
     * Eingenommene Medikation abhaken
+
+      > Super, sehr hilfreich für junge (vergessliche) Patienten
 * Ausgestellte Rezepte
+  
+  > Gut
 * Kommunikationsmöglichkeiten
     * Mit anderen Patienten (Selbsthilfe)
+  
+      > Gut, wenn erwünscht von Patient
     * Chat mit Doktor
+  
+      > Gut, evtl. mit Medgate Zugang
     * Notrufnummern-Übersicht
+  
+      > Gut
     * Suizid-Hotline
+  
+      > Gut
 * Dokumentenablage (sharing)
+
+  > Gut
 * Tagebuch für den Patienten über seine Stimmung
+
+  > Gut
 * Termine-Übersicht (Könnte der Patient Termine auch gleich über die App mit dem Therapeuten abmachen?)
+
+  > Gut
 * Informationsseite zur Krankheit
+
+  > Gut, kommt auf den Patienten an, manche haben Probleme, wenn sie ihre
+  > Krankheit besser kennen.
 * Finanzielle Informationen (z.B. Versicherung)
+
+  > Gut
 
 # Synthesize
 
