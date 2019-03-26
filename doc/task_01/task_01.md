@@ -2,8 +2,8 @@
 title: "Design Thinking"
 subtitle: "Task 01 - Team Green"
 author:
-    - Fabio Caggiano
     - Christian Kocher
+    - Fabio Caggiano
     - Marc Häsler
     - Marius Schär
     - Severin Kaderli
@@ -154,7 +154,14 @@ Stichpunkte zum Thema Depression:
 - Hobbies: Hackathons, Reddit, Post eVoting
 - Medical History: Since Childhood, Unipolar, Moderate impact on life
 
-Mallorie hat erblich bedingt Depressionen seit der Kindheit. Sie studierte Informatik und arbeitet beim BACOM. Sie wohnt seit einigen Jahren alleine. Sie tauscht sich in der Freizeit online mit anderen Cyber Security enthuitasten aus und macht gerne an Hackathons mit. Sie ist bereits seit sie 12 ist Patient bei einer psychiatischen Klinik. Sie hat das Ziel ihre Motivation trotz der Depression aufrecht zu erhalten, so dass es weiterhin keinen gröberen Einfluss auf ihr Leben nimmt.
+Mallorie hat erblich bedingt Depressionen seit der Kindheit.
+Sie studierteInformatik und arbeitet beim BACOM.
+Sie wohnt seit einigen Jahren alleine.
+Sie tauscht sich in der Freizeit online mit anderen Cyber Security Enthuitasten
+aus und macht gerne an Hackathons mit.
+Sie ist bereits seit sie 12 ist Patient bei einer psychiatrischen Klinik.
+Sie hat das Ziel ihre Motivation trotz der Depression aufrecht zu erhalten,
+so dass es weiterhin keinen grösseren Einfluss auf ihr Leben nimmt.
 
 ## Persona: Bob Baires (50)
 ![Bob Baires](./assets/bob.png)
