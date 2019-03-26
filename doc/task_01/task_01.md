@@ -245,15 +245,24 @@ not to impact her life too much.
 ## Persona: Bob Baires (50)
 ![Bob Baires](./assets/bob.png)
 
-- Job: Banker
+- Job: Banker (Previously)
 - Civil Status: Married (2x), 1 child
 - Residence: Zürich
-- Hobbies: Golf, Poker
-- Medical History: Since 39 (triggered by economic crisis), Unipolar, Heavy impact on life
+- Hobbies: Golf, Poker, spending time with his wife and son
+- Medical History: Since 6 months (triggered by a traumatic event), Unipolar, Heavy impact on life
 
-Bob hatte ein erfülltes Leben. Er konnte bereits sehr früh grosse Erfolge im Job feiern. Mit 22 Jahren heiratete Bob seine erste Frau. Sie verliess ihn leider schon 2 Jahre später wieder. Er konnte diesen
-Rückschlag verkraften und heiratet kurz darauf seine zweite Frau. Sie bekamen ein Kind. Sie lebten glücklich als Familie in einer grossen Villa. Als er 39 Jahre alt wurde bekam Bob Depressionen. Sein Vermögen, sowie das seiner Kunden
-verlor innert kürzester Zeit an viel Wert durch die Wirtschaftskrise. HIER MÜSSTE MAN DIE GESCHICHTE NOCH EIN WENIG ERWEITERN...
+Bob had had a fullfilling life, doing what he loved.
+He was successful early on in his career.
+He married his first wife at 22, altough she left him 2 years later.
+He met another woman and married her soon after.
+They had a son together and lived happily.
+At 49 Bob experienced a traumatic event in his life, which triggered his depression.
+Due to an error on his part he lost a lot of money and got fired from his job.
+Although Bob was now unable to work, their family was fine thanks to
+savings and his wife still working.
+Bob only recently entered therapy and has not yet settled into his new life.
+He hopes to get to a point where he can enjoy life with his family again,
+and possibly even work.
 
 # Design
 ## Storyboards Fabio Caggiano
