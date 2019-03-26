@@ -234,12 +234,12 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 - Medical History: Since Childhood, Unipolar, Moderate impact on life
 
 Mallorie hat erblich bedingt Depressionen seit der Kindheit.
-Sie studierteInformatik und arbeitet beim BACOM.
+Sie studierte Informatik und arbeitet beim BACOM.
 Sie wohnt seit einigen Jahren alleine.
 Sie tauscht sich in der Freizeit online mit anderen Cyber Security Enthuitasten
 aus und macht gerne an Hackathons mit.
-Sie ist bereits seit sie 12 ist Patient bei einer psychiatrischen Klinik.
-Sie hat das Ziel ihre Motivation trotz der Depression aufrecht zu erhalten,
+Sie ist bereits seit sie 12 Jahre alt ist Patient bei einer psychiatrischen Klinik.
+Sie hat das Ziel ihre Motivation trotz Depressionen aufrecht zu erhalten,
 so dass es weiterhin keinen grösseren Einfluss auf ihr Leben nimmt.
 
 ## Persona: Bob Baires (50)
@@ -250,6 +250,10 @@ so dass es weiterhin keinen grösseren Einfluss auf ihr Leben nimmt.
 - Residence: Zürich
 - Hobbies: Golf, Poker
 - Medical History: Since 39 (triggered by economic crisis), Unipolar, Heavy impact on life
+
+Bob hatte ein erfülltes Leben. Er konnte bereits sehr früh grosse Erfolge im Job feiern. Mit 22 Jahren heiratete Bob seine erste Frau. Sie verliess ihn leider schon 2 Jahre später wieder. Er konnte diesen
+Rückschlag verkraften und heiratet kurz darauf seine zweite Frau. Sie bekamen ein Kind. Sie lebten glücklich als Familie in einer grossen Villa. Als er 39 Jahre alt wurde bekam Bob Depressionen. Sein Vermögen, sowie das seiner Kunden
+verlor innert kürzester Zeit an viel Wert durch die Wirtschaftskrise. HIER MÜSSTE MAN DIE GESCHICHTE NOCH EIN WENIG ERWEITERN...
 
 # Design
 ## Storyboards Fabio Caggiano
