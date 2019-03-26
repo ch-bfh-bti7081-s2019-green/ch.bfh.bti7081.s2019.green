@@ -91,5 +91,5 @@ Missing: CK
 - [FC,SK] Interview
 - [ALL] Prepare for Validation Step
 - [ALL] Research
-- [MS] Prototype for "Picking up prescription"
-- [MS/MH] Write patient stories
+- [x][MS] Prototype for "Picking up prescription"
+- [x][MS/MH] Write patient stories

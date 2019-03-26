@@ -297,4 +297,6 @@ and possibly even work.
 
 ![Medication Reminders](./prototypes/medication-reminders.jpg)
 
+![Picking up Prescription](./prototypes/picking-up-prescription.png)
+
 # Validate
