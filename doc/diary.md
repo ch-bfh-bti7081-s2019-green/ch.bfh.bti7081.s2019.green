@@ -88,8 +88,21 @@ Missing: CK
 - Personae
 
 ## Todo until 2019-03-27
-- [FC,SK] Interview
-- [ALL] Prepare for Validation Step
-- [ALL] Research
+- [X] [FC,SK] Interview
+- [X] [ALL] Prepare for Validation Step
+- [X] [ALL] Research
 - [x] [MS] Prototype for "Picking up prescription"
 - [x] [MS/MH] Write patient stories
+
+# 2019-03-27
+## Attendees
+Attending: CK, MH, MS, SK, FC  
+
+## Topics
+- Validate completed
+- Prepared presentation for task01
+- Prepared documentation for task02
+
+## Todo until 2019-03-29
+- [ ] [MS] Finish presentation
+- [ ] [MH] Check presentation and documentation for completeness
