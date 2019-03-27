@@ -314,8 +314,8 @@ their patients.
 
 ### findings:
 - The base concept holds up. Both interviewees reacted positively to our concept.
-- The stand-out features were the chat system for doctor-patient, the medication reminders.
+- The stand-out features were the chat system for doctor-patient and the medication reminders.
 - We realised that some features would require permissions from the doctor e.g. patient-patient 
   chat system
-- We received good inputs a well such as a mood rating system that allows the doctor to quickly 
+- We received good inputs such as a mood rating system that allows the doctor to quickly 
   determine the status of a patient.
