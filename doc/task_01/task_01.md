@@ -312,7 +312,7 @@ interview candidates.
 The idea being that they would be able to determine the usability based on their experiences with 
 their patients.
 
-## findings:
+### findings:
 - The base concept holds up. Both interviewees reacted positively to our concept.
 - The stand-out features were the chat system for doctor-patient, the medication reminders.
 - We realised that some features would require permissions from the doctor e.g. patient-patient 
