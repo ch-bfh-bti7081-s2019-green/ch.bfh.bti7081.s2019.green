@@ -110,50 +110,65 @@ header-includes: |
 
 # Design
 ## Medication Reminder
+\centering
 ![](./storyboards/medication-reminder.png)
 
 ## Pick up Prescription
+\centering
 ![](./storyboards/pick-up-prescription.png)
 
 ## Mood Diary
+\centering
 ![](./storyboards/mood-diary.jpg)
 
 ## Show Invoices
+\centering
 ![](./storyboards/show-invoices.png)
 
 ## Emergency Contact
+\centering
 ![](./storyboards/finding-and-calling-emergency-numbers.jpg)
 
 ## Sharing Documents
+\centering
 ![](./storyboards/sharing-documents.jpg)
 
 ## Making an appointment
+\centering
 ![](./storyboards/making-appointment.jpg)
 
 ## Information Page
+\centering
 ![](./storyboards/information-page.jpg)
 
 ## Communication with other Patients
+\centering
 ![](./storyboards/communication-with-other-patients.png)
 
 ## Communication with Health Care Profesisonal
+\centering
 ![](./storyboards/communication-with-health-care-professional.jpg)
 
 # Prototype
 
 ## Communication
+\centering
 ![](./prototypes/communication.jpg)
 
 ## Mood Diary (I)
+\centering
 ![](./prototypes/mood-diary-1.jpg)
 
 ## Mood Diary (II)
+\centering
 ![](./prototypes/mood-diary-2.jpg)
 
 ## Medication Reminders
+\centering
 ![](./prototypes/medication-reminders.jpg)
 
 ## Picking up Prescription
+\centering
 ![](./prototypes/picking-up-prescription.png)
 
 # Validate
