@@ -7,15 +7,9 @@ author:
     - Marc Häsler
     - Marius Schär
     - Severin Kaderli
-extra-info: false
 rule-color: 00ba34
 link-color: 00ba34
 lang: "en"
-aspectratio: 169
-header-includes: |
-    \newcommand{\colsbegin}{\begin{columns}}
-    \newcommand{\colsend}{\end{columns}}
-    \def\col#1{\column{.#1\textwidth}}
 ...
 
 # Scoping
