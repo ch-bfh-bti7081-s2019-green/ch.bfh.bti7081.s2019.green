@@ -41,30 +41,30 @@ header-includes: |
 
 # Research
 
+## Research
+- Interview with a Professor of Psychiatry by Helsana Health Insurance
+- Interviews with healthcare professionals (2x)
+- Wikipedia Articles on
+  * Major Depressive Disorder
+  * Management of Depresseion
+
 # Synthesize
 
 ## Persona: Mallorie Picconie (24)
 \colsbegin
 \col{40}
 
-![](./assets/mallorie.png){ width=60% }
+\centering
+![](./assets/mallorie.png)
 
-- Job: Cyber Security Expert
-- Civil Status: Single
-- Residence: Bern
-- Hobbies: Hackathons, Reddit, Post eVoting
-- Medical History: Since Childhood, Unipolar, Moderate impact on life
 
 \col{60}
 
-> Mallorie has depression due to genetic factors, and is diagnosed since childhood.
-> Mallorie studied computer science and now works at BACOM.
-> She moved out from home a few years ago and now lives alone.
-> In her free time, she likes to talk about cybersecurity online with other
-> enthusiasts, and likes to participate in hackathons.
-> She was diagnosed with depression at 12 years old and has been in treatment since.
-> She wants to keep her treatment going, so that her depression continues
-> not to impact her life too much.
+- Job: Cyber Security Expert
+- CivStat: Single
+- Residence: Bern
+- Hobbies: Hackathons, Reddit
+- Medical History: Since Childhood, Unipolar, Moderate impact on life
 
 \colsend
 
@@ -72,48 +72,119 @@ header-includes: |
 \colsbegin
 \col{40}
 
-![](./assets/bob.png){ width=60% }
-
-- Job: Banker (Previously)
-- Civil Status: Married (2x), 1 child
-- Residence: Zürich
-- Hobbies: Golf, Poker, spending time with his wife and son
-- Medical History: Since 6 months (triggered by a traumatic event), Unipolar, Heavy impact on life
+\centering
+![](./assets/bob.png)
 
 \col{60}
+- Job: Banker (Previously)
+- CivStat: Married (2x), 1 child
+- Residence: Zürich
+- Hobbies: Golf, Poker, Family
+- Medical History: Since 6 months, Unipolar, Heavy impact on life
 
-Bob had had a fullfilling life, doing what he loved.
-He was successful early on in his career.
-He married his first wife at 22, altough she left him 2 years later.
-He met another woman and married her soon after.
-They had a son together and lived happily.
-At 49 Bob experienced a traumatic event in his life, which triggered his depression.
-Due to an error on his part he lost a lot of money and got fired from his job.
-Although Bob was now unable to work, their family was fine thanks to
-savings and his wife still working.
-Bob only recently entered therapy and has not yet settled into his new life.
-He hopes to get to a point where he can enjoy life with his family again,
-and possibly even work.
+\colsend
+
+## Features
+\colsbegin
+\col{50}
+
+- Medication Reminders
+  * Tick off ingested medication
+- Picking up Prescriptions
+- Mood Diary
+- Financial Information (Insurance)
+- Communication
+  - Emergency Numbers
+  - Suicide Hotline
+  - with doctor
+
+\col{50}
+
+- Document sharing
+- Appointments
+- Information Page
+- Communication
+  - with other patients (self help)
 
 \colsend
 
 # Design
+## Medication Reminder
+\centering
+![](./storyboards/medication-reminder.png)
+
+## Pick up Prescription
+\centering
+![](./storyboards/pick-up-prescription.png)
+
+## Mood Diary
+\centering
+![](./storyboards/mood-diary.jpg)
+
+## Show Invoices
+\centering
+![](./storyboards/show-invoices.png)
+
+## Emergency Contact
+\centering
+![](./storyboards/finding-and-calling-emergency-numbers.jpg)
+
+## Sharing Documents
+\centering
+![](./storyboards/sharing-documents.jpg)
+
+## Making an appointment
+\centering
+![](./storyboards/making-appointment.jpg)
+
+## Information Page
+\centering
+![](./storyboards/information-page.jpg)
+
+## Communication with other Patients
+\centering
+![](./storyboards/communication-with-other-patients.png)
+
+## Communication with Health Care Profesisonal
+\centering
+![](./storyboards/communication-with-health-care-professional.jpg)
 
 # Prototype
 
 ## Communication
-![Communication](./prototypes/communication.jpg)
+\centering
+![](./prototypes/communication.jpg)
 
-## Mood Diary
-![Mood Diary Part I](./prototypes/mood-diary-1.jpg)
+## Mood Diary (I)
+\centering
+![](./prototypes/mood-diary-1.jpg)
 
-## Mood Diary
-![Mood Diary Part II](./prototypes/mood-diary-2.jpg)
+## Mood Diary (II)
+\centering
+![](./prototypes/mood-diary-2.jpg)
 
 ## Medication Reminders
-![Medication Reminders](./prototypes/medication-reminders.jpg)
+\centering
+![](./prototypes/medication-reminders.jpg)
 
 ## Picking up Prescription
-![Picking up Prescription](./prototypes/picking-up-prescription.png)
+\centering
+![](./prototypes/picking-up-prescription.png)
 
 # Validate
+
+## Validate
+
+### Methodology
+
+- Interview partners
+- Prototypes
+
+### Findings
+
+- The basic concept holds up
+- Medication Reminders & Chat system
+- Permissions from the doctor (patient-patient chat)
+- Good Inputs
+  - Mood rating system
+  - Quick status check of patient

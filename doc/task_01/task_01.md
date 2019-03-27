@@ -313,7 +313,7 @@ The idea being that they would be able to determine the usability based on their
 their patients.
 
 ### findings:
-- The base concept holds up. Both interviewees reacted positively to our concept.
+- The basic concept holds up. Both interviewees reacted positively to our concept.
 - The stand-out features were the chat system for doctor-patient and the medication reminders.
 - We realised that some features would require permissions from the doctor e.g. patient-patient 
   chat system
