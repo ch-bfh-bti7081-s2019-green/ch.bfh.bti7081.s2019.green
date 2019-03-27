@@ -18,3 +18,5 @@ the item like so:
 - [x] [FC] Mood diary
 - [ ] [MH] Making an appointment
 - [x] [SK] Show invoice
+- [x] [CK] Sharing Documents
+- [x] [CK] Finding and contacting emergency numbers

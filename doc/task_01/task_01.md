@@ -271,6 +271,10 @@ and possibly even work.
 ![Mood Diary](./storyboards/mood-diary.jpg)
 
 ## Storyboards Christian Kocher
+![Sharing Documents](./storyboards/sharing-documents.jpg)
+
+![Emergency Contact](./storyboards/finding-and-calling-emergency-numbers.jpg)
+
 ## Storbyboards Marc Häsler
 ![Information Page](./storyboards/information-page.jpg)
 
