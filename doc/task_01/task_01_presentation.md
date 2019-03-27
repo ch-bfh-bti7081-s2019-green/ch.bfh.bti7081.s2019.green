@@ -88,6 +88,7 @@ header-includes: |
 - Communication
   - Emergency Numbers
   - Suicide Hotline
+  - with doctor
 
 \col{50}
 
@@ -96,7 +97,6 @@ header-includes: |
 - Information Page
 - Communication
   - with other patients (self help)
-  - with doctor
 
 \colsend
 
@@ -149,3 +149,17 @@ header-includes: |
 ![](./prototypes/picking-up-prescription.png)
 
 # Validate
+
+## Methodology
+
+- Interview partners
+- Prototypes
+
+## Findings
+
+- The basic concept holds up
+- Medication Reminders & Chat system
+- Permissions from the doctor (patient-patient chat)
+- Good Inputs
+  - Mood rating system
+  - Quick status check of patient
