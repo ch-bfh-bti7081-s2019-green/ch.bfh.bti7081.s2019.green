@@ -41,6 +41,13 @@ header-includes: |
 
 # Research
 
+## Research
+- Interview with a Professor of Psychiatry by Helsana Health Insurance
+- Interviews with healthcare professionals (2x)
+- Wikipedia Articles on
+  * Major Depressive Disorder
+  * Management of Depresseion
+
 # Synthesize
 
 ## Persona: Mallorie Picconie (24)
@@ -150,12 +157,14 @@ header-includes: |
 
 # Validate
 
-## Methodology
+## Validate
+
+### Methodology
 
 - Interview partners
 - Prototypes
 
-## Findings
+### Findings
 
 - The basic concept holds up
 - Medication Reminders & Chat system
