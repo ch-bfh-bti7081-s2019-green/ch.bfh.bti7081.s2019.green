@@ -265,15 +265,15 @@ He hopes to get to a point where he can enjoy life with his family again,
 and possibly even work.
 
 # Design
-## Storyboards Fabio Caggiano
-![Communication with Health Care Professional](./storyboards/communication-with-health-care-professional.jpg)
-
-![Mood Diary](./storyboards/mood-diary.jpg)
-
 ## Storyboards Christian Kocher
 ![Sharing Documents](./storyboards/sharing-documents.jpg)
 
 ![Emergency Contact](./storyboards/finding-and-calling-emergency-numbers.jpg)
+
+## Storyboards Fabio Caggiano
+![Communication with Health Care Professional](./storyboards/communication-with-health-care-professional.jpg)
+
+![Mood Diary](./storyboards/mood-diary.jpg)
 
 ## Storbyboards Marc Häsler
 ![Information Page](./storyboards/information-page.jpg)
