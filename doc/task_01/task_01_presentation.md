@@ -72,6 +72,7 @@ header-includes: |
 \colsbegin
 \col{40}
 
+\centering
 ![](./assets/bob.png)
 
 \col{60}
