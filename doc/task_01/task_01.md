@@ -304,3 +304,18 @@ and possibly even work.
 ![Picking up Prescription](./prototypes/picking-up-prescription.png)
 
 # Validate
+
+For our validation it was hard to find a way to get a good opinion of our prototype without being 
+able to interview 
+someone who might require the services offered by our application. Instead we decided to ask the 
+interview candidates. 
+The idea being that they would be able to determine the usability based on their experiences with 
+their patients.
+
+## findings:
+- The base concept holds up. Both interviewees reacted positively to our concept.
+- The stand-out features were the chat system for doctor-patient, the medication reminders.
+- We realised that some features would require permissions from the doctor e.g. patient-patient 
+  chat system
+- We received good inputs a well such as a mood rating system that allows the doctor to quickly 
+  determine the status of a patient.
