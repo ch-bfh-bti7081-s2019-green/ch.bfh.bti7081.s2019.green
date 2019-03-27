@@ -1,3 +1,4 @@
+![](https://gitlab.com/severinkaderli/ch.bfh.bti7081.s2019.green/badges/master/build.svg)
 # Team Green
 
 ## Documentation
