@@ -256,46 +256,46 @@ zum Patienten nach Hause.
 #### Haben Patienten Mühe, Termine einzuhalten?
 Ja, Patienten haben eher Mühe, Termine einzuhalten.
 * Warum haben sie Mühe?
-Weil sie akute Phasen erleben. Patienten mit schweren Depressionen können/wollen meist gar nicht mehr 
-das Bett oder das Zuhause verlassen.
+> Weil sie akute Phasen erleben. Patienten mit schweren Depressionen können/wollen meist gar nicht mehr 
+> das Bett oder das Zuhause verlassen.
 * Wie könnte man Helfen, dass sie keine Mühe mehr haben?
-Vereinbarungen mit dem Patienten treffen oder z.B. bei Krisenzeiten eine Meldung auf dem Smartphone anzeigen
-lassen, dass er in diesem Moment einen bestimmte Betreuungsperson anrufen soll. Oder Skalierungsfragen
-aufpoppen lassen, wie seine Stimmung momentan ist und aufgrund dessen Lösungen anbieten.
+> Vereinbarungen mit dem Patienten treffen oder z.B. bei Krisenzeiten eine Meldung auf dem Smartphone anzeigen
+> lassen, dass er in diesem Moment einen bestimmte Betreuungsperson anrufen soll. Oder Skalierungsfragen
+> aufpoppen lassen, wie seine Stimmung momentan ist und aufgrund dessen Lösungen anbieten.
 
 ### Während dem Termin/Gespräch mit dem depressionskranken Patienten
 #### Was sind die zu erwartenden Resultate eines Gesprächs?
 * Was für Dokumentationen werden geführt (pers. Journal, Krankenakte/Patientendossier)?
-Unterschiedliche Protokolle werden geführt, die schlussendlich alle in eine persönliche Akte des Patienten
-gehen.
+> Unterschiedliche Protokolle werden geführt, die schlussendlich alle in eine persönliche Akte des Patienten
+> gehen.
 * Gibt es Anforderungen an die Art und Weise einer Dokumentation?
-Therapeuten sind meistens in Berufsverbänden Mitglieder und diese Berufsverbände geben dann gewisse
-Qualitätsanforderungen vor, woran sich Therapeuten halten müssen.
+> Therapeuten sind meistens in Berufsverbänden Mitglieder und diese Berufsverbände geben dann gewisse
+> Qualitätsanforderungen vor, woran sich Therapeuten halten müssen.
 * Irgendwelche Anhänge wie Bilder/Audioaufnahmen/Video die erstellt werden?
-Können auf jedenfall erstellt werde, einzige Bedingung ist die Einwilligung des Patienten. Auch für Therapeuten
-gilt ärztliche Schweigepflicht.
+> Können auf jedenfall erstellt werde, einzige Bedingung ist die Einwilligung des Patienten. Auch für Therapeuten
+> gilt ärztliche Schweigepflicht.
 * Gibt es eine strukturierte Vorgabe oder beruht alles auf Freitext?
-Der Therapeut macht sich seine Notizen selber und kann sie strukturieren, wie er möchte, solange sie mit den 
-Qualitätsanforderungen vereinbar sind.
+> Der Therapeut macht sich seine Notizen selber und kann sie strukturieren, wie er möchte, solange sie mit den 
+> Qualitätsanforderungen vereinbar sind.
 * Darf der Patient Einblicke in die erstellte Dokumentation haben?
-Ja, Akteneinsicht ist ein Recht des Patienten.
+> Ja, Akteneinsicht ist ein Recht des Patienten.
 
 ### Behandlungsablauf des Patienten
 #### Auf was für Informationsquellen werden zugegriffen, um eine Diagnose zu erstellen?
 * Wer meldete den Patienten?
-Patienten weisen sich meistens selber ein. Kommt auch immer auf den Zustand des Patienten drauf an. Es gibt auch
-Sorgentelefone, wo sich die Patienten melden können. Minderjährige werden durch ihren Vormund gemeldet.
+> Patienten weisen sich meistens selber ein. Kommt auch immer auf den Zustand des Patienten drauf an. Es gibt auch
+> Sorgentelefone, wo sich die Patienten melden können. Minderjährige werden durch ihren Vormund gemeldet.
 * Wie wird es dokumentiert?
-Diagnosen werden aufgrund der Standards der WTO (Weltgesundheitsorganisation) gemacht. Dort kann man bei bestimmten
-Symptomen den Grad der Depression ablesen.
+> Diagnosen werden aufgrund der Standards der WTO (Weltgesundheitsorganisation) gemacht. Dort kann man bei bestimmten
+> Symptomen den Grad der Depression ablesen.
   
 #### Wie werden Behandlungen ausgewählt und Erfolge überprüft?
 Der Therapeut macht Vorschläge aufgrund des Krankheitbilds des Patienten und dann werden mit Zielen gearbeitet.
 * Welche Faktoren sind relevant für die Dosierung/Rythmus einer Medikation?
-Man fängt zuerst mit einer geringen Dosis an, um herauszufinden, wie der Körper und Geist darauf reagiert.
+> Man fängt zuerst mit einer geringen Dosis an, um herauszufinden, wie der Körper und Geist darauf reagiert.
 * Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
-In der Regel ist nur ein Therapeut beteiligt, und dieser führt eine Akte des Patienten, die nach und nach zu 
-durch die Domumentierung zum Erfolg der Behandlung führen soll.
+> In der Regel ist nur ein Therapeut beteiligt, und dieser führt eine Akte des Patienten, die nach und nach zu 
+> durch die Domumentierung zum Erfolg der Behandlung führen soll.
 
 ### Zur Patienten-App
 #### Was ist Ihre Meinung zu den folgenden Features des Patienten-Apps?
@@ -314,10 +314,10 @@ durch die Domumentierung zum Erfolg der Behandlung führen soll.
 * Informationsseite zur Krankheit
 * Finanzielle Informationen (z.B. Versicherung)
 
-David Lieberherr: Im Grossen und Ganzen gefallen mir eure Ideen recht gut. Der Chat wird dem Patienten auch
-das Gefühl geben können, dass er sich bei Fragen schnell beim Therapeuten melden kann. Hilfreich wäre
-vielleicht auch noch, wenn ihr Skalierungsfragen einbauen könntet, die z.B. die aktuelle Stimmung von 1-10
-aufzeigt. Aber sonst super Möglichkeiten, die die App bieten würde.
+> David Lieberherr: Im Grossen und Ganzen gefallen mir eure Ideen recht gut. Der Chat wird dem Patienten auch
+> das Gefühl geben können, dass er sich bei Fragen schnell beim Therapeuten melden kann. Hilfreich wäre
+> vielleicht auch noch, wenn ihr Skalierungsfragen einbauen könntet, die z.B. die aktuelle Stimmung von 1-10
+> aufzeigt. Aber sonst super Möglichkeiten, die die App bieten würde.
 
 
 
