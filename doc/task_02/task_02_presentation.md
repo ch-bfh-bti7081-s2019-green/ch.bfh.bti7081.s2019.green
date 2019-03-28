@@ -7,7 +7,6 @@ author:
     - Marc Häsler
     - Marius Schär
     - Severin Kaderli
-rule-color: 00ba34
-link-color: 00ba34
+main-color: 00ba34
 lang: "en"
 ...
