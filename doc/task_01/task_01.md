@@ -93,42 +93,84 @@ Stichpunkte zum Thema Depression:
 * Man sollte den jemand mit Depression offen fragen, ob ihn etwas bedrückt, da er nicht mehr so ist, wie man ihn kennt. Und ihn darauf aufmerksam machen, dass es etwas ist, das häufig vorkommt und es eine Krankheit wie jede andere ist. Dabei geht man wie bei jeder Krankheit auch zum Arzt, um nach Rat zu fragen und folgt bei Überzeugung dem Rat. Der Arzt sucht auch gleich das passende Therapieschema und die passende Medikation in Verbindung einer Gesprächstherapie.
 
 ## Interview 1
-**Interviewpartner:** John Doe  
-**Datum:** Any day  
-**Ort:**  
+**Interviewpartner:** David Lieberherr (Arbeitsagoge)  
+**Datum:** 26.03.2019  
+**Ort:** Steinhölzli Bildungswege, 3097 Liebefeld
 
 ### Neue Patienten
 #### Wie und wann werden Daten eines Patienten gespeichert?
+Der Patient hat in der Regel eine Vorgeschichte. Der Therapeut erhält dabei alle Daten
+des Vorgängers. 
 #### Welche Informationen werden von einem neuen Patienten benötigt?
+Welche Ziele mit dem Patienten bereits vom Vorgänger-Therapeuten vereinbart wurden oder
+Resulte von Behandlungen oder ob der Patient irgendwelche schweren Krisen durchgemacht hat.
+Im grossen und ganzen alle bereits existierenden Daten zum Patienten. 
 #### Wie läuft eine erste Begutachtung eines Patienten ab?
+Zuerst probiert man herauszufinden, ob die Chemie zwischen dem Patienten und Therapeuten überhaupt
+stimmt. Der Patient muss sich nämlich auf den Therapeuten verlassen und ihm vertrauen können. Dann 
+ist der Weg gut geebnet, um mit dem Patienten arbeiten zu können.
 
 ### Vorbereitung auf einen Termin mit einem depressionskranken Patienten
 #### Wie bereitet sich ein Therapeut auf einen Termin mit einem Patienten vor?
+Der Therapeut befasst sich intensiv mit der Geschichte des Patienten. Dabei müssen alle Krisen, die
+der Patient hatte, wahrgenommen werden. Auch welche Ziele für den Patienten verfolgt werden sollen
+und welche Medikamente für seine Probleme am besten geeignet sind.
 #### Wie bereitet sich ein Patient auf den Termin vor, was wird von ihm verlangt?
+Oft entwickelt der Therapeut zusammen mit dem Patienten einen "Anti-Stress-Koffer", also Methoden die
+dem Patienten helfen sollen, mehr Gesundheit, Gelassenheit und Lebensfreude zu gewinnen. Der Patient
+sollte deshalb die angewandten Methoden beurteilen können und vielleicht ein Tagebuch mitnehmen, das
+beschreibt, ob ihm diese Methoden geholfen haben oder nicht. Wenn sie nichts gebracht haben, würde man 
+andere Methoden ausprobieren. 
 #### Wie machen Patienten Termine mit dem Therapeuten aus (Telefon, Mail, Online-Formular)?
+Termine werden meistens telefonisch gemacht. Mails sind zu unpersönlich. Oft geht der Therapeut auch
+zum Patienten nach Hause.
 #### Haben Patienten Mühe, Termine einzuhalten?
+Ja, Patienten haben eher Mühe, Termine einzuhalten.
 * Warum haben sie Mühe?
+Weil sie akute Phasen erleben. Patienten mit schweren Depressionen können/wollen meist gar nicht mehr 
+das Bett oder das Zuhause verlassen.
 * Wie könnte man Helfen, dass sie keine Mühe mehr haben?
+Vereinbarungen mit dem Patienten treffen oder z.B. bei Krisenzeiten eine Meldung auf dem Smartphone anzeigen
+lassen, dass er in diesem Moment einen bestimmte Betreuungsperson anrufen soll. Oder Skalierungsfragen
+aufpoppen lassen, wie seine Stimmung momentan ist und aufgrund dessen Lösungen anbieten.
 
 ### Während dem Termin/Gespräch mit dem depressionskranken Patienten
 #### Was sind die zu erwartenden Resultate eines Gesprächs?
 * Was für Dokumentationen werden geführt (pers. Journal, Krankenakte/Patientendossier)?
+Unterschiedliche Protokolle werden geführt, die schlussendlich alle in eine persönliche Akte des Patienten
+gehen.
 * Gibt es Anforderungen an die Art und Weise einer Dokumentation?
+Therapeuten sind meistens in Berufsverbänden Mitglieder und diese Berufsverbände geben dann gewisse
+Qualitätsanforderungen vor, woran sich Therapeuten halten müssen.
 * Irgendwelche Anhänge wie Bilder/Audioaufnahmen/Video die erstellt werden?
+Können auf jedenfall erstellt werde, einzige Bedingung ist die Einwilligung des Patienten. Auch für Therapeuten
+gilt ärztliche Schweigepflicht.
 * Gibt es eine strukturierte Vorgabe oder beruht alles auf Freitext?
+Der Therapeut macht sich seine Notizen selber und kann sie strukturieren, wie er möchte, solange sie mit den 
+Qualitätsanforderungen vereinbar sind.
 * Darf der Patient Einblicke in die erstellte Dokumentation haben?
+Ja, Akteneinsicht ist ein Recht des Patienten.
 
 ### Behandlungsablauf des Patienten
 #### Auf was für Informationsquellen werden zugegriffen, um eine Diagnose zu erstellen?
 * Wer meldete den Patienten?
+Patienten weisen sich meistens selber ein. Kommt auch immer auf den Zustand des Patienten drauf an. Es gibt auch
+Sorgentelefone, wo sich die Patienten melden können. Minderjährige werden durch ihren Vormund gemeldet.
 * Wie wird es dokumentiert?
+Diagnosen werden aufgrund der Standards der WTO (Weltgesundheitsorganisation) gemacht. Dort kann man bei bestimmten
+Symptomen den Grad der Depression ablesen.
   
 #### Wie werden Behandlungen ausgewählt und Erfolge überprüft?
+Der Therapeut macht Vorschläge aufgrund des Krankheitbilds des Patienten und dann werden mit Zielen gearbeitet.
 * Welche Faktoren sind relevant für die Dosierung/Rythmus einer Medikation?
+Man fängt zuerst mit einer geringen Dosis an, um herauszufinden, wie der Körper und Geist darauf reagiert.
 * Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
+In der Regel ist nur ein Therapeut beteiligt, und dieser führt eine Akte des Patienten, die nach und nach zu 
+durch die Domumentierung zum Erfolg der Behandlung führen soll.
 
 ### Zur Patienten-App
 #### Was ist Ihre Meinung zu den folgenden Features des Patienten-Apps?
+
 * Medikamenten-Einnahme Erinnerung
     * Eingenommene Medikation abhaken
 * Ausgestellte Rezepte
@@ -142,6 +184,11 @@ Stichpunkte zum Thema Depression:
 * Termine-Übersicht (Könnte der Patient Termine auch gleich über die App mit dem Therapeuten abmachen?)
 * Informationsseite zur Krankheit
 * Finanzielle Informationen (z.B. Versicherung)
+
+David Lieberherr: Im Grossen und Ganzen gefallen mir eure Ideen recht gut. Der Chat wird dem Patienten auch
+das Gefühl geben können, dass er sich bei Fragen schnell beim Therapeuten melden kann. Hilfreich wäre
+vielleicht auch noch, wenn ihr Skalierungsfragen einbauen könntet, die z.B. die aktuelle Stimmung von 1-10
+aufzeigt. Aber sonst super Möglichkeiten, die die App bieten würde.
 
 # Synthesize
 
