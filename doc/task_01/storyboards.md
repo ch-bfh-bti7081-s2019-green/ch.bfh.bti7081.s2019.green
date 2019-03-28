@@ -14,7 +14,9 @@ the item like so:
 - [x] [MS] Picking up a prescription
 - [x] [FC] Communication with health care professional
 - [x] [SK] Communication with other patients (self help)
-- [ ] Suicide hotline
+- [ ] ~~Suicide hotline~~
 - [x] [FC] Mood diary
 - [ ] [MH] Making an appointment
 - [x] [SK] Show invoice
+- [x] [CK] Sharing Documents
+- [x] [CK] Finding and contacting emergency numbers

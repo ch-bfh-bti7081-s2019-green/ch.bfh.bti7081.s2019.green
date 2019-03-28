@@ -5,3 +5,6 @@
 **/*.tmp
 
 *.pdf
+*.iml
+**/*.idea
+**/*.project
