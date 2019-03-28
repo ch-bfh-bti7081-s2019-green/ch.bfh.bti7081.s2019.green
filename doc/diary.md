@@ -105,4 +105,4 @@ Attending: CK, MH, MS, SK, FC
 
 ## Todo until 2019-03-29
 - [ ] [MS] Finish presentation
-- [ ] [MH] Check presentation and documentation for completeness
+- [X] [MH] Check presentation and documentation for completeness
