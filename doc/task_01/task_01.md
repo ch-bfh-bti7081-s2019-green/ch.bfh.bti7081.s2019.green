@@ -68,6 +68,7 @@ Wir haben uns folgende Stichworte zum Thema “Patient mit Depressionserkrankung
   * Informationsseite zur Krankheit
   * Finanzielle Informationen (z.B. Versicherung)
 
+
 # Research
 ## Informationssammlung
 Die Informationen zum Thema Depression haben wir grösstenteils aus dem Interview mit [Herr Professor Florian Holsboer und der Helsana Krankenkasse](https://www.helsana.ch/de/blog/eine-depression-kann-aus-heiterem-himmel-kommen) gesammelt, um eine bessere Vorstellung der Krankheit zu bekommen. Darauf aufbauend haben wir Interviewfragen zusammengestellt, um das Patientenmanagementsystem (PMS) aus der Sicht eines (ambulanten) Patienten entwickeln zu können. 
@@ -82,14 +83,15 @@ Stichpunkte zum Thema Depression:
 * Um eine Depression diagnostizieren zu können, müssen zuerst andere Krankheiten ausgeschlossen werden, denn Antriebslosigkeit, Müdigkeit und negative Stimmung können auch von anderen Krankheiten wie Parkinson oder Alzheimer herrühren.
 * Depression kann sich nicht von selbst heilen, deshalb stellt eine unzureichende oder gar keine Behandlung ein grosses Risiko für den Patienten dar. Die Depression könnte dauerhaft anhalten (Chronifizierung), was zu einer Frühinvalidität beim Patienten führen kann.
 * Suizid ist eine schwere Folge der Depression. Das Abgestumpft-Sein, Nichts-mehr-Wollen, Nichts-mehr-Empfinden ist weit schlimmer als eine Operation – oder eine Krebserkrankung, laut einem Patienten, der schon all das durchgemacht hat.
-* Depression ist also potenziell tödliche Krankheit, die jedes Jahr über eine Million Suizide weltweit auslöst. 
+* Depression ist also eine potenziell tödliche Krankheit, die jedes Jahr über eine Million Suizide weltweit auslöst. 
 * Depressionen sollten mit Medikamenten in Kombination mit einer Gesprächstherapie behandelt werden. Die Kriterien sind bei allen Patienten gleich, nur die Ursache variiert von Patient zu Patient. Deshalb sollte jeder Patient individuell behandelt werden und die Medikamente auf den Patienten abgestimmt sein, denn nicht jedes Medikament wirkt bei jedem gleich.
 * Heute ist es so, dass Psychiater aufgrund ihrer persönlichen Erfahrung und den bestimmten Symptomatiken, ein Medikament dem Patienten verschreiben. In Zukunft wird aber anhand der DNA vorausgesagt werden können, welche Medikamente den Patienten anspricht. Das ist der grosse Quantensprung in der psychiatrischen Behandlung.
 * Eine Gesprächstherapie reicht vor allem bei Patienten mit schweren Depressionen nicht aus. Jeder Fünfte schwer Depressive ist nur teilweise heilbar, jeder Zehnte bleibt chronisch depressiv. Mit den heutigen Medikamenten werden zu wenig Patienten erfolgreich behandelt, da sie zu lange dauern bis sie wirken und auch zu viele Nebenwirkungen aufweisen.
 * 10 – 14 Prozent erkranken der Bevölkerung erkrankt im Verlauf ihres Lebens an einer schweren Depression, dabei sind Männer und Frauen fast gleich betroffen. Es trifft vor allem die jüngeren Menschen und die Hauptursache für Frühinvalidät und Erwerbsunfähigkeit.
 * Die Symptome einer Depression festzustellen ist im Gegensatz einer Knieverletzung schwieriger, weil das Gehirn erkrankt ist und man deshalb nicht gut über dessen Heilung nachsinnen kann. Wer Veränderungen spürt, sollte die die Symptome beim Hausarzt abklären lassen.
-* Wenn bei einem Angehörigen Anzeichen einer Depression erkennt, sollte man ihm keinesfalls vorschlagen, auf eine schöne Reise zu gehen, da er ja seine Depression im Gepäck mitnimmt. Auch keine Vorwürfe wie «Reiss dich zusammen, dir geht’s doch gut, du hast doch alles, wieso bist du unzufrieden?» machen.
+* Wenn bei einem Angehörigen Anzeichen einer Depression erkannt wurden, sollte man ihm keinesfalls vorschlagen, auf eine schöne Reise zu gehen, da er ja seine Depression im Gepäck mitnimmt. Auch keine Vorwürfe wie «Reiss dich zusammen, dir geht’s doch gut, du hast doch alles, wieso bist du unzufrieden?» machen.
 * Man sollte den jemand mit Depression offen fragen, ob ihn etwas bedrückt, da er nicht mehr so ist, wie man ihn kennt. Und ihn darauf aufmerksam machen, dass es etwas ist, das häufig vorkommt und es eine Krankheit wie jede andere ist. Dabei geht man wie bei jeder Krankheit auch zum Arzt, um nach Rat zu fragen und folgt bei Überzeugung dem Rat. Der Arzt sucht auch gleich das passende Therapieschema und die passende Medikation in Verbindung einer Gesprächstherapie.
+
 
 ## Interview 1
 **Interviewpartner:** Chantal Gerber  
@@ -220,7 +222,8 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 * Finanzielle Informationen (z.B. Versicherung)
 
   > Gut
-  
+ 
+
 ## Interview 2
 **Interviewpartner:** David Lieberherr (Arbeitsagoge)  
 **Datum:** 26.03.2019  
@@ -349,6 +352,7 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 
 
 
+
 # Synthesize
 
 ## Persona: Mallorie Picconie (24)
@@ -391,6 +395,7 @@ Bob only recently entered therapy and has not yet settled into his new life.
 He hopes to get to a point where he can enjoy life with his family again,
 and possibly even work.
 
+
 # Design
 ## Storyboards Christian Kocher
 ![Sharing Documents](./storyboards/sharing-documents.jpg)
@@ -418,7 +423,6 @@ and possibly even work.
 ![Show Invoices](./storyboards/show-invoices.png)
 
 
-
 # Prototype
 ![Communication](./prototypes/communication.jpg)
 
@@ -429,6 +433,7 @@ and possibly even work.
 ![Medication Reminders](./prototypes/medication-reminders.jpg)
 
 ![Picking up Prescription](./prototypes/picking-up-prescription.png)
+
 
 # Validate
 
