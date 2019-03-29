@@ -111,7 +111,7 @@ Stichpunkte zum Thema Depression:
   Nichts-mehr-Wollen, Nichts-mehr-Empfinden ist weit schlimmer als eine
   Operation – oder eine Krebserkrankung, laut einem Patienten, der schon all das
   durchgemacht hat.
-* Depression ist also potenziell tödliche Krankheit, die jedes Jahr über eine
+* Depression ist also eine potenziell tödliche Krankheit, die jedes Jahr über eine
   Million Suizide weltweit auslöst. 
 * Depressionen sollten mit Medikamenten in Kombination mit einer
   Gesprächstherapie behandelt werden. Die Kriterien sind bei allen Patienten
@@ -136,7 +136,7 @@ Stichpunkte zum Thema Depression:
   Knieverletzung schwieriger, weil das Gehirn erkrankt ist und man deshalb nicht
   gut über dessen Heilung nachsinnen kann. Wer Veränderungen spürt, sollte die
   die Symptome beim Hausarzt abklären lassen.
-* Wenn bei einem Angehörigen Anzeichen einer Depression erkennt, sollte man ihm
+* Wenn bei einem Angehörigen Anzeichen einer Depression erkannt wurden, sollte man ihm
   keinesfalls vorschlagen, auf eine schöne Reise zu gehen, da er ja seine
   Depression im Gepäck mitnimmt. Auch keine Vorwürfe wie «Reiss dich zusammen,
   dir geht’s doch gut, du hast doch alles, wieso bist du unzufrieden?» machen.
