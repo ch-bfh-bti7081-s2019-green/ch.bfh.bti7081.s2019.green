@@ -1,0 +1,48 @@
+- Depressed Patient
+  - Problems
+    - Suicidal
+      - Emergency Contacts/Hotline
+    - No income
+      - public financial support
+    - missing knwoledge
+      - Contacts of specialists
+      - Information about Problem
+        - Search engine
+  - Broken family environment
+    - Contacts
+  - Therapy
+    - Appointment
+      - Reminder
+      - Regular sessions
+    - History
+  - Medication
+    - Prescription
+  - Insurance
+    - Cost Overview
+    - Bills
+  - Depression
+    - Duration of Episode >2 weeks
+    - Symptoms
+      - Loss of interest
+      - Low self-esteem
+      - Pain
+      - Suicidal (2-8% of patients die by suicide)
+      - Hallucinations (rare)
+    - Treatment
+      - Antidepressants
+      - Cognitive Behavioral Therapy
+      - Interpersonal Therapy
+  - Features
+    - Medication Reminders
+      - Tick off ingested medication
+    - Prescription Paperwork
+    - Communication
+      - with other patients (self help)
+      - with doctor
+      - Emergency Numbers
+      - Suicide Hotline
+    - *Document Share*
+    - Mood Diary
+    - *Appointment*
+    - *Information Pages*
+    - Financial Information (Insurance)

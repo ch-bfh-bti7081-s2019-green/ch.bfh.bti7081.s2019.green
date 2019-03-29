@@ -1,0 +1,10 @@
+# GIMP Files
+**/*.xcf
+
+# TMP Files
+**/*.tmp
+
+*.pdf
+*.iml
+**/*.idea
+**/*.project
