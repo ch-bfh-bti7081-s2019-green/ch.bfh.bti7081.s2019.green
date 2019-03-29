@@ -215,12 +215,12 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
   > Gut
 * Informationsseite zur Krankheit
 
-  > Gut, kommt auf den Patienten an, manche haben Probleme, wenn sie ihre
-  > Krankheit besser kennen.
+  > Gut, kommt auf den Patienten an
 * Finanzielle Informationen (z.B. Versicherung)
 
   > Gut
-  
+
+\newpage
 ## Interview 2
 **Interviewpartner:** David Lieberherr (Arbeitsagoge)  
 **Datum:** 26.03.2019  
@@ -241,7 +241,7 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 > stimmt. Der Patient muss sich nämlich auf den Therapeuten verlassen und ihm vertrauen können. Dann 
 > ist der Weg gut geebnet, um mit dem Patienten arbeiten zu können.
 
-### Vorbereitung auf einen Termin mit einem depressionskranken Patienten
+### Vorbereitung auf einen Termin
 #### Wie bereitet sich ein Therapeut auf einen Termin mit einem Patienten vor?
 
 > Der Therapeut befasst sich intensiv mit der Geschichte des Patienten. Dabei müssen alle Krisen, die
@@ -273,7 +273,7 @@ Wie könnte man Helfen, dass sie keine Mühe mehr haben?
 > lassen, dass er in diesem Moment einen bestimmte Betreuungsperson anrufen soll. Oder Skalierungsfragen
 > aufpoppen lassen, wie seine Stimmung momentan ist und aufgrund dessen Lösungen anbieten.
 
-### Während dem Termin/Gespräch mit dem depressionskranken Patienten
+### Während dem Termin
 
 #### Was sind die zu erwartenden Resultate eines Gesprächs?
 Was für Dokumentationen werden geführt (pers. Journal, Krankenakte/Patientendossier)?
@@ -417,8 +417,6 @@ and possibly even work.
 
 ![Show Invoices](./storyboards/show-invoices.png)
 
-
-
 # Prototype
 ![Communication](./prototypes/communication.jpg)
 
@@ -431,7 +429,6 @@ and possibly even work.
 ![Picking up Prescription](./prototypes/picking-up-prescription.png)
 
 # Validate
-
 For our validation it was hard to find a way to get a good opinion of our prototype without being 
 able to interview 
 someone who might require the services offered by our application. Instead we decided to ask the 
@@ -439,7 +436,7 @@ interview candidates.
 The idea being that they would be able to determine the usability based on their experiences with 
 their patients.
 
-### findings:
+### Findings:
 - The basic concept holds up. Both interviewees reacted positively to our concept.
 - The stand-out features were the chat system for doctor-patient and the medication reminders.
 - We realised that some features would require permissions from the doctor e.g. patient-patient 
