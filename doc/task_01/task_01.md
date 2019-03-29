@@ -281,7 +281,7 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 \newpage
 ## Interview 2
 **Interviewpartner:** David Lieberherr (Arbeitsagoge)  
-**Datum:** 26.03.2019  
+**Datum:** 2019-03-26  
 **Ort:** Steinhölzli Bildungswege, 3097 Liebefeld
 
 ### Neue Patienten

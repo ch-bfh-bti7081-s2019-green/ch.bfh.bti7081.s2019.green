@@ -25,7 +25,7 @@ lang: "de-CH"
 
 # 2019-03-15
 ## Attendees
-Attending: MH, MS, SK, FC  
+Attending: FC, MH, MS, SK
 Missing: CK
 
 ## Topics
@@ -39,21 +39,19 @@ Missing: CK
 - Preparing interview questions
 
 ## Todo until 2019-03-22
-- [ALL] Think of questions for the interview
+- [X] [ALL] Think of questions for the interview
 
 # 2019-03-20
 ## Attendees
-Attending: MH, MS, SK, FC  
+Attending: FC, MH, MS, SK
 Missing: CK
 
 ## Topics
 - Organisation
 
-## Done
-
 ## Todo until 2019-03-22
-- [ALL] Think of questions for the interview
-- [ALL] Think about scoping
+- [X] [ALL] Think of questions for the interview
+- [X] [ALL] Think about scoping
 
 # 2019-03-22
 ## Attendees
@@ -71,15 +69,15 @@ Missing: CK
 - Interview Questions
 
 ## Todo until 2019-03-25
-- [ALL] Storyboards (see storyboards.md for organization)
-- [MH] Prototype (Medication Reminders, Communication, Mood Diary)
+- [X] [ALL] Storyboards (see storyboards.md for organization)
+- [X] [MH] Prototype (Medication Reminders, Communication, Mood Diary)
 
 ## Todo until 2019-03-27
-- [FC,SK] Interview
+- [X] [FC,SK] Interview
 
 # 2019-03-25
 ## Attendees
-Attending: MH, MS, SK, FC  
+Attending: FC, MH, MS, SK
 Missing: CK
 
 ## Topics
@@ -95,15 +93,27 @@ Missing: CK
 
 # 2019-03-27
 ## Attendees
-Attending: CK, MH, MS, SK, FC  
+Attending: CK, FC, MH, MS, SK
 
 ## Topics
 - Validate completed
-- Prepared presentation for task01
-- Prepared documentation for task02
+- Prepare presentation for task 01
+- Prepare documentation for task 02
 
 ## Todo until 2019-03-29
 - [x] [MS] Finish presentation
 - [X] [MH] Check presentation and documentation for completeness
+
+# 2019-03-29
+Attending: CK, FC, MH, SK  
+Excused: MH
+
+## Topics
+- Presentation
+
+## Done
+- Presentation
+
+## Todo until 2019-04-01
 
 
