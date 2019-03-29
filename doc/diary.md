@@ -103,5 +103,7 @@ Attending: CK, MH, MS, SK, FC
 - Prepared documentation for task02
 
 ## Todo until 2019-03-29
-- [ ] [MS] Finish presentation
+- [x] [MS] Finish presentation
 - [X] [MH] Check presentation and documentation for completeness
+
+

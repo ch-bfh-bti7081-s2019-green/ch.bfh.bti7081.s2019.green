@@ -39,7 +39,7 @@ lang: "en"
 - Interviews with healthcare professionals (2x)
 - Wikipedia Articles on
   * Major Depressive Disorder
-  * Management of Depresseion
+  * Management of Depression
 
 # Synthesize
 
@@ -85,6 +85,7 @@ lang: "en"
   * Tick off ingested medication
 - Picking up Prescriptions
 - Mood Diary
+  * *Questions to quantify Mood*
 - Financial Information (Insurance)
 - Communication
   - Emergency Numbers
@@ -185,3 +186,7 @@ lang: "en"
 - Good Inputs
   - Mood rating system
   - Quick status check of patient
+
+# Questions?
+
+# Thank you!
