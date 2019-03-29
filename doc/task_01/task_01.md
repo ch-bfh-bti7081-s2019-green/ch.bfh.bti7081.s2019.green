@@ -147,7 +147,6 @@ Stichpunkte zum Thema Depression:
   fragen und folgt bei Überzeugung dem Rat. Der Arzt sucht auch gleich das
   passende Therapieschema und die passende Medikation in Verbindung einer
   Gesprächstherapie.
->>>>>>> 1a9ac6d1338423934089992acaeb1ac256dd08c0
 
 
 ## Interview 1
