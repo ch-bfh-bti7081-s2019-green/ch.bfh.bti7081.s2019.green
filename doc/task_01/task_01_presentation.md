@@ -85,6 +85,7 @@ lang: "en"
   * Tick off ingested medication
 - Picking up Prescriptions
 - Mood Diary
+  * *Questions to quantify Mood*
 - Financial Information (Insurance)
 - Communication
   - Emergency Numbers
