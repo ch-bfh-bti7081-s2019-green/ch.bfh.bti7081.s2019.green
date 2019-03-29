@@ -279,13 +279,8 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 * Finanzielle Informationen (z.B. Versicherung)
 
   > Gut
-<<<<<<< HEAD
- 
-
-=======
 
 \newpage
->>>>>>> 1a9ac6d1338423934089992acaeb1ac256dd08c0
 ## Interview 2
 **Interviewpartner:** David Lieberherr (Arbeitsagoge)  
 **Datum:** 2019-03-26  
@@ -496,10 +491,7 @@ where he can enjoy life with his family again, and possibly even work.
 
 ![Show Invoices](./storyboards/show-invoices.png)
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1a9ac6d1338423934089992acaeb1ac256dd08c0
 # Prototype
 ![Communication](./prototypes/communication.jpg)
 
