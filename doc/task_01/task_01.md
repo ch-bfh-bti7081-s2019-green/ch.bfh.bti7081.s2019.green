@@ -73,6 +73,7 @@ aufgeschrieben:
   * Informationsseite zur Krankheit
   * Finanzielle Informationen (z.B. Versicherung)
 
+
 # Research
 ## Informationssammlung
 Die Informationen zum Thema Depression haben wir grösstenteils aus dem Interview
@@ -110,7 +111,7 @@ Stichpunkte zum Thema Depression:
   Nichts-mehr-Wollen, Nichts-mehr-Empfinden ist weit schlimmer als eine
   Operation – oder eine Krebserkrankung, laut einem Patienten, der schon all das
   durchgemacht hat.
-* Depression ist also potenziell tödliche Krankheit, die jedes Jahr über eine
+* Depression ist also eine potenziell tödliche Krankheit, die jedes Jahr über eine
   Million Suizide weltweit auslöst. 
 * Depressionen sollten mit Medikamenten in Kombination mit einer
   Gesprächstherapie behandelt werden. Die Kriterien sind bei allen Patienten
@@ -135,7 +136,7 @@ Stichpunkte zum Thema Depression:
   Knieverletzung schwieriger, weil das Gehirn erkrankt ist und man deshalb nicht
   gut über dessen Heilung nachsinnen kann. Wer Veränderungen spürt, sollte die
   die Symptome beim Hausarzt abklären lassen.
-* Wenn bei einem Angehörigen Anzeichen einer Depression erkennt, sollte man ihm
+* Wenn bei einem Angehörigen Anzeichen einer Depression erkannt wurden, sollte man ihm
   keinesfalls vorschlagen, auf eine schöne Reise zu gehen, da er ja seine
   Depression im Gepäck mitnimmt. Auch keine Vorwürfe wie «Reiss dich zusammen,
   dir geht’s doch gut, du hast doch alles, wieso bist du unzufrieden?» machen.
@@ -146,6 +147,7 @@ Stichpunkte zum Thema Depression:
   fragen und folgt bei Überzeugung dem Rat. Der Arzt sucht auch gleich das
   passende Therapieschema und die passende Medikation in Verbindung einer
   Gesprächstherapie.
+
 
 ## Interview 1
 **Interviewpartner:** Chantal Gerber  
@@ -281,7 +283,7 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 \newpage
 ## Interview 2
 **Interviewpartner:** David Lieberherr (Arbeitsagoge)  
-**Datum:** 26.03.2019  
+**Datum:** 2019-03-26  
 **Ort:** Steinhölzli Bildungswege, 3097 Liebefeld
 
 ### Neue Patienten
@@ -421,6 +423,7 @@ Wie werden Daten zum Erfolg der Behandlung zusammengetragen?
 
 
 
+
 # Synthesize
 
 ## Persona: Mallorie Picconie (24)
@@ -461,6 +464,7 @@ fine thanks to savings and his wife still working. Bob only recently entered
 therapy and has not yet settled into his new life. He hopes to get to a point
 where he can enjoy life with his family again, and possibly even work.
 
+
 # Design
 ## Storyboards Christian Kocher
 ![Sharing Documents](./storyboards/sharing-documents.jpg)
@@ -487,6 +491,7 @@ where he can enjoy life with his family again, and possibly even work.
 
 ![Show Invoices](./storyboards/show-invoices.png)
 
+
 # Prototype
 ![Communication](./prototypes/communication.jpg)
 
@@ -497,6 +502,7 @@ where he can enjoy life with his family again, and possibly even work.
 ![Medication Reminders](./prototypes/medication-reminders.jpg)
 
 ![Picking up Prescription](./prototypes/picking-up-prescription.png)
+
 
 # Validate
 For our validation it was hard to find a way to get a good opinion of our
