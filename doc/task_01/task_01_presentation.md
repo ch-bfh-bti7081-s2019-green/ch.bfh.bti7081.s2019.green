@@ -186,3 +186,7 @@ lang: "en"
 - Good Inputs
   - Mood rating system
   - Quick status check of patient
+
+# Questions?
+
+# Thank you!
