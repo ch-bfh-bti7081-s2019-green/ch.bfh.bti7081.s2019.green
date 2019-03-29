@@ -25,7 +25,7 @@ lang: "de-CH"
 
 # 2019-03-15
 ## Attendees
-Attending: FC, MH, MS, SK
+Attending: FC, MH, MS, SK  
 Missing: CK
 
 ## Topics
@@ -43,7 +43,7 @@ Missing: CK
 
 # 2019-03-20
 ## Attendees
-Attending: FC, MH, MS, SK
+Attending: FC, MH, MS, SK  
 Missing: CK
 
 ## Topics
@@ -77,7 +77,7 @@ Missing: CK
 
 # 2019-03-25
 ## Attendees
-Attending: FC, MH, MS, SK
+Attending: FC, MH, MS, SK  
 Missing: CK
 
 ## Topics
