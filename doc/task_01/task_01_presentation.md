@@ -39,7 +39,7 @@ lang: "en"
 - Interviews with healthcare professionals (2x)
 - Wikipedia Articles on
   * Major Depressive Disorder
-  * Management of Depresseion
+  * Management of Depression
 
 # Synthesize
 
