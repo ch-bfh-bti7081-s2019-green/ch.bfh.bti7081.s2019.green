@@ -14,7 +14,8 @@ lof: true
 ...
 
 # Preface
-This document is for system engineers, end-users, system administrator and managers which
+This document is for system engineers, end-users,
+system administrator and managers which
 are involved in the project.
 
 ## History
