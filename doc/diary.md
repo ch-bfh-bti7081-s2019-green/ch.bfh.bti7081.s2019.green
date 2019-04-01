@@ -106,4 +106,22 @@ Attending: CK, MH, MS, SK, FC
 - [x] [MS] Finish presentation
 - [X] [MH] Check presentation and documentation for completeness
 
+# 2019-04-01
+## Attendees
+Attending: CK, FC, MS, SK  
+Excused: MH
 
+## Topics
+- Divide up work
+- Begin Task 02
+
+## Work Units for Task 02
+- [ ][S][FC] Preface
+- [ ][S][CK] Intro
+- [ ][S][SK] Glossary
+- [ ][L][MS]User Requirements
+- [ ][M][CK]System Architecture
+- [ ][S][CK]System Requirements
+- [ ][M][FC]System Models
+- [ ][S][FC]System Evolution
+- [ ][S][SK]Testing
