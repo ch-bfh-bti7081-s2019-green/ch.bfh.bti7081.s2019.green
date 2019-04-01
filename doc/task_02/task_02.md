@@ -11,6 +11,7 @@ rule-color: 00ba34
 link-color: 00ba34
 lang: "de-CH"
 lof: true
+lot: true
 ...
 
 # Preface
@@ -18,11 +19,15 @@ This document is for system engineers, end-users, system administrator and manag
 are involved in the project.
 
 ## History
+: History
+
 | Version | Author | Changelog        | Date       |
 |---------|--------|------------------|------------|
 | 0.1     | All    | Document created | 2019-03-27 |
 
 # Introduction
+: Introduction
+
 | Initial | Name             | Role                 |
 |---------|------------------|----------------------|
 | CK      | Christian Kocher | Student/Developer    |
@@ -56,13 +61,14 @@ ADD GLOSSARY
 | 1.0 | XXX         |
 
 ## Use-Case Szenarios
-|------|-----|
-|  **Nr. and Name** |  01 - XXX  |
-|  **Scene** |  XXX  |
-|  **Short description** |  XXX  |
-|  **Involved** |  XXX  |
-|  **Start-Event** |  XXX  |
-|  **Result** |  XXX  |
+|                       |          |
+|-----------------------|----------|
+| **Nr. and Name**      | 01 - XXX |
+| **Scene**             | XXX      |
+| **Short description** | XXX      |
+| **Involved**          | XXX      |
+| **Start-Event**       | XXX      |
+| **Result**            | XXX      |
 
 ### Steps
 | Number | Involved | Description |
