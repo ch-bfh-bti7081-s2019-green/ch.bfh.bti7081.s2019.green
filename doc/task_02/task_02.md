@@ -14,7 +14,7 @@ lof: true
 ...
 
 # Preface
-This document is for system engeneers, endusers, systemadministrator and manager which
+This document is for system engineers, end-users, system administrator and managers which
 are involved in the project.
 
 ## History
@@ -33,15 +33,15 @@ are involved in the project.
 |   JV |  Jürgen Vogel  |    Lecturer/Stakeholder   | 
 |   UK |  Urs Künzler  |    Lecturer/Stakeholder   | 
 
-This document describe the requirements for software that supports patients with
+This document describes the requirements for software that supports patients with
 depression in therapy. 
-A patient management system contents multiple individuals subsystem. This software
-should help patient with depression. We set the focus in this document to the patient role.
+A patient management system contains multiple individuals subsystem. This software
+should help patient with depression. We have set the focus of this document on the patient role.
 
 
 # Glossary
 
-ADD GLOSSAR
+ADD GLOSSARY
 
 # User requirements definition
 
