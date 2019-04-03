@@ -47,8 +47,6 @@ A patient management system contains multiple individual subsystems. This softwa
 should help patients with depression.
 We have set the focus of this document on the patient role.
 
-# Glossary
-
 # User requirements definition
 
 ## Functional User Requirements
