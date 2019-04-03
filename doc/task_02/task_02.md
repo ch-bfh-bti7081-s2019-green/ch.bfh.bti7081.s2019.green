@@ -27,7 +27,7 @@ are involved in the project.
 | 0.1     | All    | Document created | 2019-03-27 |
 
 # Introduction
-: Introduction
+: Roles
 
 | Initial | Name             | Role                 |
 |---------|------------------|----------------------|
