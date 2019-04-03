@@ -29,7 +29,7 @@ are involved in the project.
 |   0.2   | Severin Kaderli | Add glossary and testing | 2019-04-03 |
 
 # Introduction
-: Introduction
+: Roles
 
 | Initial | Name             | Role                   |
 |:-------:|------------------|------------------------|
