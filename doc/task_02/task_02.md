@@ -41,8 +41,9 @@ are involved in the project.
 
 This document describes the requirements for software that supports patients with
 depression in therapy. 
-A patient management system contains multiple individuals subsystem. This software
-should help patient with depression. We have set the focus of this document on the patient role.
+A patient management system contains multiple individual subsystems. This software
+should help patients with depression.
+We have set the focus of this document on the patient role.
 
 
 # Glossary
