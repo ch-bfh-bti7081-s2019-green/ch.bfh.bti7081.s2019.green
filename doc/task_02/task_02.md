@@ -9,9 +9,10 @@ author:
     - Severin Kaderli
 rule-color: 00ba34
 link-color: 00ba34
-lang: "de-CH"
 lof: true
 lot: true
+glossary: true
+glossary-file: "assets/glossary.tex"
 ...
 
 # Preface
@@ -22,22 +23,23 @@ are involved in the project.
 ## History
 : History
 
-| Version | Author | Changelog        | Date       |
-|---------|--------|------------------|------------|
-| 0.1     | All    | Document created | 2019-03-27 |
+| Version | Author          | Changelog                | Date       |
+|:-------:|-----------------|--------------------------|------------|
+|   0.1   | All             | Document created         | 2019-03-27 |
+|   0.2   | Severin Kaderli | Add glossary and testing | 2019-04-03 |
 
 # Introduction
 : Introduction
 
-| Initial | Name             | Role                 |
-|---------|------------------|----------------------|
-| CK      | Christian Kocher | Student/Developer    |
-| FC      | Fabio Caggiano   | Student/Developer    |
-| MH      | Marc Häsler      | Student/Developer    |
-| MS      | Marius Schär     | Student/Developer    |
-| SK      | Severin Kaderli  | Student/Developer    |
-| JV      | Jürgen Vogel     | Lecturer/Stakeholder |
-| UK      | Urs Künzler      | Lecturer/Stakeholder |
+| Initial | Name             | Role                   |
+|:-------:|------------------|------------------------|
+|   CK    | Christian Kocher | Student / Developer    |
+|   FC    | Fabio Caggiano   | Student / Developer    |
+|   MH    | Marc Häsler      | Student / Developer    |
+|   MS    | Marius Schär     | Student / Developer    |
+|   SK    | Severin Kaderli  | Student / Developer    |
+|   JV    | Jürgen Vogel     | Lecturer / Stakeholder |
+|   UK    | Urs Künzler      | Lecturer / Stakeholder |
 
 This document describes the requirements for software that supports patients with
 depression in therapy. 
@@ -45,22 +47,21 @@ A patient management system contains multiple individual subsystems. This softwa
 should help patients with depression.
 We have set the focus of this document on the patient role.
 
-
-# Glossary
-
-ADD GLOSSARY
-
 # User requirements definition
 
 ## Functional User Requirements
-| #   | Requirement |
-|-----|-------------|
-| 1.0 | XXX         |
+: Functional User Requirements
+
+| # | Requirement |
+|:-:|-------------|
+| 1 | XXX         |
 
 ## Non-Functional User Requirements
-| #   | Requirement |
-|-----|-------------|
-| 1.0 | XXX         |
+: Non-Functional User Requirements
+
+| # | Requirement |
+|:-:|-------------|
+| 1 | XXX         |
 
 ## Use-Case Szenarios
 |                       |          |
@@ -73,25 +74,33 @@ ADD GLOSSARY
 | **Result**            | XXX      |
 
 ### Steps
+: Steps
+
 | Number | Involved | Description |
 |--------|----------|-------------|
-| 1.0    | XXX      | XXX         |
+| 1      | XXX      | XXX         |
 
 ### Exceptions
+: Exceptions
+
 | Number | Involved | Description |
 |--------|----------|-------------|
-| 1.0    | XXX      | XXX         |
+| 1      | XXX      | XXX         |
 
 # System architecture
 
 # System requirements
 
 ## Functional System Requirements
+: Functional System Requirements
+
 | # | Requirement |
 |---|-------------|
 | 1 | XXX         |
 
 ## Non functional System Requirements
+: Non functional System Requirements
+
 | # | Requirement |
 |---|-------------|
 | 1 | XXX         |
@@ -101,23 +110,33 @@ ADD GLOSSARY
 # System evolution
 
 # Testing
+This application is meticulously tested using the following methods.
 
-## Component test
+## Component Tests
+The code of the application is gonna be tested using numerous methods including
+unit tests by the individual developers and code reviews. This way a high
+software quality can be ensured.
 
-## Integration test
+## Integration Tests
+To ensure all components are behaving correctly together they are thoroughly
+tested before deploying a new version.
 
-## System test
+## System Tests
+After the aforementioned integration tests the result is compared agains the
+specification to ensure that the requirements and functionality are correctly
+implemented and working.
 
-## Validation test
+## Validation Tests
+At the end of the project the application is tested together with the customer.
+This way it can be ensured the software is behaving exactly like the customer
+wants and that the user experience is acceptable
 
 # Appendices
  * System requirement
- >* User:
- >>* Devices with internet connection (Computer, Tablet, Phone)
- >>* Browser for example Firefox, Safari, Chrome
- 
- >* Server:
- >>* Enough space for data
- >>* Enough performance (Ram Memory, Processor)
- >>* Reliable and fast internet connection 
-# Index
+   * User:
+     * Devices with internet connection (Computer, Tablet, Phone)
+     * Browser for example Firefox, Safari, Chrome
+   * Server:
+     * Enough space for data
+     * Enough performance (Ram Memory, Processor)
+     * Reliable and fast internet connection 
