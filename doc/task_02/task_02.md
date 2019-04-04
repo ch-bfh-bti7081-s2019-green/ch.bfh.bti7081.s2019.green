@@ -61,7 +61,6 @@ We have set the focus of this document on the patient role.
 
 \newpage
 ## Use-Cases
-
 ### 001 - Medication Reminders
 ----------------------- --------------------------------------------------------
 **No.:**                001
@@ -107,15 +106,28 @@ We have set the focus of this document on the patient role.
 
 \newpage
 
-#### Steps
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1.0    | XXX      | XXX         |
+#### Exception UC.001.E.1
+As described in *UC.001.A.1* the patient may not be able to take their medication
+when the system reminds them to.  
+In this case, the patient can tell the system to "defer" the reminder.
+The system will then remind the patient at a later date.
 
-#### Exceptions
-| Number | Involved | Description                               |
-|--------|----------|-------------------------------------------|
-| 1.0    | Patient  | Cannot take their medication at this time. |
+#### Exception UC.001.E.2
+Similar to *UC.001.E.1*, but the patient may not be able to interact with
+the system, for example if they were driving.  
+If the patient does not interact with the system for 10 minutes after
+it reminded them, the system will automatically defer the reminder for
+some time. The patient will be reminded again after that time has passed.
+The time for which to defer a reminder should be set by the therapist,
+because some medication may be time-sensitive.
+
+\newpage
+
+#### Prototype UC.001.P.1
+This prototype is more detailed than the one in the last phase.
+It shows the defer-mechanism, as well as a more structured UI.
+
+![Prototype UC.001.P.1](assets/prototype_medication_reminder.png)
 
 \newpage
 
@@ -139,8 +151,8 @@ We have set the focus of this document on the patient role.
 
 **Involved Actors:**    Patient, Therapist
 
-**Pre-Condition:**      Patient wants to talk to their therapist.\
-                        $\lor$\
+**Pre-Condition:**      Patient wants to talk to their therapist.
+                        OR\
                         Therapist wants to talk to their patient.
 
 **Result:**             The patient and therapist communicated.
@@ -152,18 +164,6 @@ We have set the focus of this document on the patient role.
 ----------------------- --------------------------------------------------------
 
 : Use-Case 002: Patient-Therapist Communication
-
-\newpage
-
-#### Steps
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1.0    | XXX      | XXX         |
-
-#### Exceptions
-| Number | Involved | Description                               |
-|--------|----------|-------------------------------------------|
-| 1.0    | XXX      | XXX                                       |
 
 \newpage
 
@@ -209,7 +209,15 @@ We have set the focus of this document on the patient role.
 |--------|----------|-------------|
 | 1      | XXX      | XXX         |
 
-#### Exceptions
+#### Exception UC.003.E.1
+It's detrimental to the patient to spell out how they feel,
+or to see that they're not making the desired progress in their therapy.
+
+**Attention**
+
+The  desired solution to this problem has to be decided.
+
+#### Exception UC.003.E.2
 | Number | Involved | Description                                                          |
 |--------|----------|----------------------------------------------------------------------|
 | 1.0    | Patient  | It's detrimental to the patients progress to spell out how they feel |
