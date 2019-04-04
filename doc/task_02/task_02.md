@@ -110,7 +110,7 @@ We have set the focus of this document on the patient role.
 
 To following data-flow-diagram describes the interaction of different system components from the patient's perspective in the patient management system.
 
-![data-flow-diagram](./assets/system_model_dfd.png)
+![data-flow-diagram](./assets/system_model_dfd.PNG)
 
 You can read the above diagram like this: The patient enters the login details, the application server queries the database (patient table) if the right login credentials have been provided and either informs the patient that the username or password were invalid or forwards the patient to the main page of the application. From the main page, the user has the possibility to open the communication, mood diary, medication reminder or prescription overview tab. Each one of these features retrieve and write data to their corresponding database table.
 
