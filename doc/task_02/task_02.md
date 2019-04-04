@@ -23,10 +23,11 @@ are involved in the project.
 ## History
 : History
 
-| Version | Author          | Changelog                | Date       |
-|:-------:|-----------------|--------------------------|------------|
-|   0.1   | All             | Document created         | 2019-03-27 |
-|   0.2   | Severin Kaderli | Add glossary and testing | 2019-04-03 |
+| Version | Author          | Changelog                    | Date       |
+|:-------:|-----------------|------------------------------|------------|
+|   0.1   | All             | Document created             | 2019-03-27 |
+|   0.2   | Severin Kaderli | Add glossary and testing     | 2019-04-03 |
+|   0.3   | Fabio Caggiano  | Add system model & evolution | 2019-04-04 |
 
 # Introduction
 : Roles
@@ -245,7 +246,18 @@ The  desired solution to this problem has to be decided.
 
 # System models
 
+To following data-flow-diagram describes the interaction of different system components from the patient's perspective in the patient management system.
+
+![data-flow-diagram](./assets/system_model_dfd.PNG)
+
+You can read the above diagram like this: The patient enters the login details, the application server queries the database (patient table) if the right login credentials have been provided and either informs the patient that the username or password were invalid or forwards the patient to the main page of the application. From the main page, the user has the possibility to open the communication, mood diary, medication reminder or prescription overview tab. Each one of these features retrieve and write data to their corresponding database table.
+
+
 # System evolution
+
+After the development of this web application, patients should have all fundamental features to manage their data. For the time being there are no new features planned. However, new features requested by our customer could be integrated without any problems in the future because our development team preferably strives to write good structered generic code. 
+
+With growing patient data and workloads in the future, the hardware can be enhanced with load balancers for example to coordinate traffic and more servers to distribute the databases and link them together.
 
 # Testing
 This application is meticulously tested using the following methods.
