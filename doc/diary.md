@@ -127,9 +127,22 @@ Excused: MH
 - [ ][S][FC] Preface
 - [ ][S][CK] Intro
 - [ ][S][SK] Glossary
-- [ ][L][MS]User Requirements
-- [ ][M][CK]System Architecture
-- [ ][S][CK]System Requirements
-- [ ][M][FC]System Models
-- [ ][S][FC]System Evolution
-- [ ][S][SK]Testing
+- [ ][L][MS] User Requirements
+- [ ][M][CK] System Architecture
+- [ ][S][CK] System Requirements
+- [ ][M][FC] System Models
+- [ ][S][FC] System Evolution
+- [ ][S][SK] Testing
+
+# 2019-04-05
+## Attendees
+Attending: CK, MS
+Excused: FC, MH, SK
+
+## Topics
+- Reviewing current work status
+- Discussing uncertainties
+
+## Todo until 2019-04-08
+- Finish work units discussed on 2019-04-01
+- Finish presentation

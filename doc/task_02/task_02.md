@@ -28,20 +28,12 @@ are involved in the project.
 |   0.1   | All             | Document created             | 2019-03-27 |
 |   0.2   | Severin Kaderli | Add glossary and testing     | 2019-04-03 |
 |   0.3   | Fabio Caggiano  | Add system model & evolution | 2019-04-04 |
+|   0.4   | C. Kocher       | Added Introduction           | 2019-04-05 |
+|   0.5   | C. Kocher       | Added System Architecture    | 2019-04-05 |
+|   0.6   | C. Kocher       | Added System Requirements    | 2019-04-05 |
 
+\newpage
 # Introduction
-: Roles
-
-| Initial | Name             | Role                   |
-|:-------:|------------------|------------------------|
-|   CK    | Christian Kocher | Student / Developer    |
-|   FC    | Fabio Caggiano   | Student / Developer    |
-|   MH    | Marc Häsler      | Student / Developer    |
-|   MS    | Marius Schär     | Student / Developer    |
-|   SK    | Severin Kaderli  | Student / Developer    |
-|   JV    | Jürgen Vogel     | Lecturer / Stakeholder |
-|   UK    | Urs Künzler      | Lecturer / Stakeholder |
-
 
 This document describes the requirements for software that supports patients with
 depression in therapy as well as doctors in their day-to-day work with their 
@@ -70,6 +62,18 @@ keep track of medication intake and prescriptions, contact their doctor for help
 advice and provide information and emergency contacts. These are all things which, 
 according to our interviewees, can help a person suffering from depression in their 
 day-to-day lives.
+
+: Roles
+
+| Initial | Name             | Role                   |
+|:-------:|------------------|------------------------|
+|   CK    | Christian Kocher | Student / Developer    |
+|   FC    | Fabio Caggiano   | Student / Developer    |
+|   MH    | Marc Häsler      | Student / Developer    |
+|   MS    | Marius Schär     | Student / Developer    |
+|   SK    | Severin Kaderli  | Student / Developer    |
+|   JV    | Jürgen Vogel     | Lecturer / Stakeholder |
+|   UK    | Urs Künzler      | Lecturer / Stakeholder |
 
 # User requirements definition
 In this section we flesh out the use cases that we got especially good feedback
@@ -267,16 +271,22 @@ making process
 \newpage
 
 # System architecture
-![](.assets/system_architecture.png)
+\centering
+![](assets/system_architecture.png)
 
 ## Client
 A user of the system will access the application through a web-browser
 on their client device. All requests to the server will be made over an
 encrypted connection using HTTPS (SSL/TLS).
 
+## Web Server
+The web server will handle requests to and from the client. This server will 
+communicate directly with the application server allowing for data to be 
+passed back and forth.
+
 ## Application Server
-The application server will handle all client requests and generate the 
-required pages which are then sent back to the client. All business logic,
+The application server will handle all requests and data 
+which do not involve the user interface. All business logic,
 authentication and database queries are executed here. 
 
 ## Database
