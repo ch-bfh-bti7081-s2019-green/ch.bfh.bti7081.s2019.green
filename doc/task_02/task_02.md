@@ -42,11 +42,34 @@ are involved in the project.
 |   JV    | Jürgen Vogel     | Lecturer / Stakeholder |
 |   UK    | Urs Künzler      | Lecturer / Stakeholder |
 
+
 This document describes the requirements for software that supports patients with
-depression in therapy. 
-A patient management system contains multiple individual subsystems. This software
-should help patients with depression.
-We have set the focus of this document on the patient role.
+depression in therapy as well as doctors in their day-to-day work with their 
+patients.
+
+Our goal is to develop an application which allows for doctors and patients with
+depression to work closely together. The software is to provide assistance to the
+patient where needed and allow the doctors to grant access to information and help 
+where appropriate.
+Individuals suffering from depression should be able to have a source
+of information and help at their fingertips when they require it.
+
+The application's functions will be on a "permission" basis determined by the 
+patient's doctor. This means that the doctor will be able to decide which functions 
+are most helpful to his patients and which are not suited to certain cases.
+
+The doctor will be able to track a patient's progress through the system and monitor 
+any changes.
+
+The idea is to allow for a cooperative process between doctor and patient. It is not
+intended to replace any systems already in place but to support them, especially from
+the point of view of the patient.
+
+The application should help to support a patient by allowing them to write mood diaries,
+keep track of medication intake and prescriptions, contact their doctor for help and
+advice and provide information and emergency contacts. These are all things which, 
+according to our interviewees, can help a person suffering from depression in their 
+day-to-day lives.
 
 # User requirements definition
 
@@ -89,22 +112,71 @@ We have set the focus of this document on the patient role.
 | 1      | XXX      | XXX         |
 
 # System architecture
+![](.assets/system_architecture.png)
+
+##Client
+A user of the system will access the application through a web-browser
+on their client device. All requests to the server will be made over an
+encrypted connection using HTTPS (SSL/TLS).
+
+##Application Server
+The application server will handle all client requests and generate the 
+required pages which are then sent back to the client. All business logic,
+authentication and database queries are executed here. 
+
+##Database
+User information, patient information and all other required data will be 
+stored in the database. It is of utmost importance that the information stored
+and being sent to and from the database is extremely secure. The database will
+contain very sensitive patient information and all the users authentication 
+information.
 
 # System requirements
 
-## Functional System Requirements
-: Functional System Requirements
+##Functional System Requirements
 
-| # | Requirement |
-|---|-------------|
-| 1 | XXX         |
+###User Administration
+The system should allow for user management through an admin login. Here the
+system administrator will be able to add, remove and edit existing users. The
+system administrator will also be able to edit any available settings from here.
 
-## Non functional System Requirements
-: Non functional System Requirements
+###Login and Dashboard
+A user should be able to log into his/her account and have an overview of their
+profile. The user should be able to configure their profile wherever possible.
+This includes updating personal information and authentication details.
 
-| # | Requirement |
-|---|-------------|
-| 1 | XXX         |
+###Patient Management
+A doctor should be able to login and have an overview of his/her patients.
+A doctor should also be able to set certain permissions for patients.
+
+###Saving Data and Documents
+The system should allow all users to save relevant information and documents 
+to a database.
+The information stored should be secure and only visible to users with the 
+correct permissions.
+
+##Non-Functional System Requirements
+
+###Usability
+The application should be self-explanatory to use and it should be easy and clear 
+to navigate. Important information and links should stand out on the individual
+pages. Emergency numbers should be displayd clearly on all pages.
+
+###Availability
+The application should be accessible and usable at all times.
+
+###Security
+All information sent to and from the server should be secure and encrypted.
+The data stored in the database should not be accessible by any third party.
+
+###Performance
+The system should offer consistently high performance. This means pages and
+data should be loaded in less than 2 seconds.
+
+###Stability
+The application should remain stable. A user should never be interrupted 
+while on the site and data should never be lost due to faults in the application.
+
 
 # System models
 
