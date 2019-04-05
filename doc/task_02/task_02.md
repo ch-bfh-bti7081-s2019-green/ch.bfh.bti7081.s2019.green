@@ -114,17 +114,17 @@ day-to-day lives.
 # System architecture
 ![](.assets/system_architecture.png)
 
-##Client
+## Client
 A user of the system will access the application through a web-browser
 on their client device. All requests to the server will be made over an
 encrypted connection using HTTPS (SSL/TLS).
 
-##Application Server
+## Application Server
 The application server will handle all client requests and generate the 
 required pages which are then sent back to the client. All business logic,
 authentication and database queries are executed here. 
 
-##Database
+## Database
 User information, patient information and all other required data will be 
 stored in the database. It is of utmost importance that the information stored
 and being sent to and from the database is extremely secure. The database will
@@ -133,47 +133,47 @@ information.
 
 # System requirements
 
-##Functional System Requirements
+## Functional System Requirements
 
-###User Administration
+### User Administration
 The system should allow for user management through an admin login. Here the
 system administrator will be able to add, remove and edit existing users. The
 system administrator will also be able to edit any available settings from here.
 
-###Login and Dashboard
+### Login and Dashboard
 A user should be able to log into his/her account and have an overview of their
 profile. The user should be able to configure their profile wherever possible.
 This includes updating personal information and authentication details.
 
-###Patient Management
+### Patient Management
 A doctor should be able to login and have an overview of his/her patients.
 A doctor should also be able to set certain permissions for patients.
 
-###Saving Data and Documents
+### Saving Data and Documents
 The system should allow all users to save relevant information and documents 
 to a database.
 The information stored should be secure and only visible to users with the 
 correct permissions.
 
-##Non-Functional System Requirements
+## Non-Functional System Requirements
 
-###Usability
+### Usability
 The application should be self-explanatory to use and it should be easy and clear 
 to navigate. Important information and links should stand out on the individual
 pages. Emergency numbers should be displayd clearly on all pages.
 
-###Availability
+### Availability
 The application should be accessible and usable at all times.
 
-###Security
+### Security
 All information sent to and from the server should be secure and encrypted.
 The data stored in the database should not be accessible by any third party.
 
-###Performance
+### Performance
 The system should offer consistently high performance. This means pages and
 data should be loaded in less than 2 seconds.
 
-###Stability
+### Stability
 The application should remain stable. A user should never be interrupted 
 while on the site and data should never be lost due to faults in the application.
 
