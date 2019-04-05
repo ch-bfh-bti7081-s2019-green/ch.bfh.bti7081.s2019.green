@@ -72,18 +72,11 @@ according to our interviewees, can help a person suffering from depression in th
 day-to-day lives.
 
 # User requirements definition
-
-## Functional User Requirements
-| **No.** | **Requirement** |
-|-----|-------------|
-| 1.0 | XXX         |
-
-## Non-Functional User Requirements
-| **No.** | **Requirement** |
-|-----|-------------|
-| 1.0 | XXX         |
+In this section we flesh out the use cases that we got especially good feedback
+on during the interviews.
 
 \newpage
+
 ## Use-Cases
 ### 001 - Medication Reminders
 ----------------------- --------------------------------------------------------
@@ -119,9 +112,34 @@ day-to-day lives.
 
 **Side-Effects:**       -
 
------------------------ --------------------------------------------------------
+--------------------------------------------------------------------------------
 
 : Use-Case 001: Medication Reminders
+
+\newpage
+
+#### Steps
+
+--------------------------------------------------------------------------------
+  **No.** **Involved**         **Description**
+--------- -------------------- -------------------------------------------------
+        1  Therapist,           The therapist prescribes medication to the
+           Patient              patient and when to take it.
+
+        2  Patient,             The system reminds the patient to take their
+           System               prescribed medication at the correct time.
+
+      3.A  Patient,             The patient takes the medication and checks it
+           System               off in the system.
+
+      3.B  Patient,             The patient notices the system, but cannot take
+           System               the medication right now. He tells the system
+                                to defer the reminder until later.
+
+      3.C  Patient,             The patient doesn't notice the system, or
+           System               can't interact with it for another reason.
+                                The system automatically defers the reminder.
+--------------------------------------------------------------------------------
 
 \newpage
 
@@ -242,10 +260,9 @@ or to see that they're not making the desired progress in their therapy.
 The  desired solution to this problem has to be decided.
 
 #### Exception UC.003.E.2
-| Number | Involved | Description                                                          |
-|--------|----------|----------------------------------------------------------------------|
-| 1.0    | Patient  | It's detrimental to the patients progress to spell out how they feel |
-| 2.0    | Patient  | The patient forgets to write their mood diary or writes inaccurately |
+The patient forgets aspects of their day and fills them out inaccurately.
+This generates false data and may hinder the therapist in their decision
+making process
 
 \newpage
 
