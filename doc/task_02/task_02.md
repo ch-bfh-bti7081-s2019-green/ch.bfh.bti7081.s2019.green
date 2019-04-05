@@ -112,7 +112,8 @@ day-to-day lives.
 | 1      | XXX      | XXX         |
 
 # System architecture
-![](.assets/system_architecture.png)
+\centering
+![](assets/system_architecture.png)
 
 ## Client
 A user of the system will access the application through a web-browser
