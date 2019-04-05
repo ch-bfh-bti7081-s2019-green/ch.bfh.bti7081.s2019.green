@@ -120,9 +120,14 @@ A user of the system will access the application through a web-browser
 on their client device. All requests to the server will be made over an
 encrypted connection using HTTPS (SSL/TLS).
 
+## Web Server
+The web server will handle requests to and from the client. This server will 
+communicate directly with the application server allowing for data to be 
+passed back and forth.
+
 ## Application Server
-The application server will handle all client requests and generate the 
-required pages which are then sent back to the client. All business logic,
+The application server will handle all requests and data 
+which do not involve the user interface. All business logic,
 authentication and database queries are executed here. 
 
 ## Database
