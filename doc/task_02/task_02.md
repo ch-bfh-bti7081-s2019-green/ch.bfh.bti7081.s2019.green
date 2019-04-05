@@ -270,6 +270,50 @@ making process
 
 \newpage
 
+### 004 - Emergency Contacts
+----------------------- --------------------------------------------------------
+**No.:**                004
+
+**Name:**               Emergency Contacts
+
+**Short Description:**  The patient has quick access to a number of emergency
+                        contacts, such as: A suicide hotline, their therapist,
+                        some close family members
+                        
+**Scenario:**           Bob is experiencing a particularly heavy episode of
+                        depression. He wants to talk to his therapist
+                        immediately. He selects his contact details in the PMS
+                        and his phone automatically opens the phone app to call
+                        the therapist.
+
+**Involved Actors:**    Patient, Therapist/3rd Party
+
+**Pre-Condition:**      Patient wants to urgently communicate with someone.
+
+**Result:**             An appropriate communications channel is opened, and
+                        the patient can talk to the selected party.
+
+**Post-Condition:**     -
+
+**Side-Effects:**       -
+
+----------------------- --------------------------------------------------------
+
+: Use-Case 004: Emergency Contacts
+
+\newpage
+
+#### Steps
+| Number | Involved | Description |
+|--------|----------|-------------|
+| 1      | XXX      | XXX         |
+
+#### Exception UC.004.E.1
+The selected party is not reachable at this time, the PMS should suggest
+an alternative party to contact, such as a close family member.
+
+\newpage
+
 # System architecture
 \centering
 ![](assets/system_architecture.png)
