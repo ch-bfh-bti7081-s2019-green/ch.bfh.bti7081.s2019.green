@@ -11,8 +11,6 @@ main-color: 00ba34
 lang: "en"
 ...
 
-# Requirements
-
 ## Introduction
 
 - Support patients suffering from depression
@@ -20,14 +18,18 @@ lang: "en"
 - Not intended to replace existing systems
 - Support
 
+# User Requirements
+
 ## User Requirements
+
+# System Architecture
 
 ## System Architecture
 
 \centering
 ![](assets/system_architecture.png)
 
-## System Requirements
+# System Requirements
 
 ## Functional Requirements
 
