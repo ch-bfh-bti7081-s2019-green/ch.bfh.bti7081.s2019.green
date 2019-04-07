@@ -31,6 +31,7 @@ are involved in the project.
 |   0.4   | C. Kocher       | Added Introduction           | 2019-04-05 |
 |   0.5   | C. Kocher       | Added System Architecture    | 2019-04-05 |
 |   0.6   | C. Kocher       | Added System Requirements    | 2019-04-05 |
+|   0.7   | MS              | Added Use-Cases              | 2019-04-07 |
 
 \newpage
 # Introduction
