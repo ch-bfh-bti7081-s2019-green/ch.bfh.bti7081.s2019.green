@@ -20,7 +20,29 @@ lang: "en"
 
 # User Requirements
 
-## User Requirements
+## Use-Cases
+
+## Use-Case 001
+\colsbegin
+\col{40}
+
+\centering
+![](./assets/bob.png)
+
+\col{60}
+- Medication Reminders for Bob
+- Used to remind patients to take their medications
+- User is required to tick off the medication taken
+- Exception might be that the user cannot take meds
+
+## Activity Diagram
+
+\centering
+![Activity Diagram describing Use-Case 001](assets/activity_medication_reminders.png){ height=80% }
+
+## Prototype
+
+![Prototype UC.001.P.1](assets/prototype_medication_reminder.png)
 
 # System Architecture
 
