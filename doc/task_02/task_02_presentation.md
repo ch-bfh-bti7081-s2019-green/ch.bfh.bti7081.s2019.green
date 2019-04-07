@@ -45,3 +45,23 @@ lang: "en"
 - Security
 - Performance
 - Stability
+
+# System models
+
+\centering
+![](./assets/system_model_dfd.PNG)
+
+# System evolution
+
+- New features &rarr; No problem, because of already good structured generic code base
+- Scalability  &rarr; Load balancing and distributed database for increased traffic
+
+# Appendices
+
+   - User Requirements:
+     * Devices with internet connection (Computer, Tablet, Phone)
+     * Browser for example Firefox, Safari, Chrome
+   - System Requirements:
+     * Enough space for data
+     * Enough performance (Ram Memory, Processor)
+     * Reliable and fast internet connection 
