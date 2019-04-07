@@ -406,7 +406,7 @@ correct permissions.
 ### Usability
 The application should be self-explanatory to use and it should be easy and clear 
 to navigate. Important information and links should stand out on the individual
-pages. Emergency numbers should be displayd clearly on all pages.
+pages. Emergency numbers should be displayed clearly on all pages.
 
 ### Availability
 The application should be accessible and usable at all times.
