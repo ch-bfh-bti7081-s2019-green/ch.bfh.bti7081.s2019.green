@@ -31,6 +31,7 @@ are involved in the project.
 |   0.4   | C. Kocher       | Added Introduction           | 2019-04-05 |
 |   0.5   | C. Kocher       | Added System Architecture    | 2019-04-05 |
 |   0.6   | C. Kocher       | Added System Requirements    | 2019-04-05 |
+|   0.7   | MS              | Added Use-Cases              | 2019-04-07 |
 
 \newpage
 # Introduction
@@ -76,44 +77,280 @@ day-to-day lives.
 |   UK    | Urs Künzler      | Lecturer / Stakeholder |
 
 # User requirements definition
+In this section we flesh out the use cases that we got especially good feedback
+on during the interviews.
 
-## Functional User Requirements
-: Functional User Requirements
+\newpage
 
-| # | Requirement |
-|:-:|-------------|
-| 1 | XXX         |
+## Use-Cases
+### 001 - Medication Reminders
+----------------------- --------------------------------------------------------
+**No.:**                001
 
-## Non-Functional User Requirements
-: Non-Functional User Requirements
+**Name:**               Medication Reminders
 
-| # | Requirement |
-|:-:|-------------|
-| 1 | XXX         |
+**Short Description:**  The patient takes their medication when reminded
+                        by the system at the time that the therapist specified
+                        and ticks it off when taken.
 
-## Use-Case Szenarios
-|                       |          |
-|-----------------------|----------|
-| **Nr. and Name**      | 01 - XXX |
-| **Scene**             | XXX      |
-| **Short description** | XXX      |
-| **Involved**          | XXX      |
-| **Start-Event**       | XXX      |
-| **Result**            | XXX      |
+**Scenario A:**         Bob's Therapist prescribed him Fluoxetine to
+                        take daily before noon.
+                        The therapist entered these data into the PMS.
+                        Everyday at 11:30 Bob's devices buzz to remind
+                        him to take his medication.
+                        After he takes it,
+                        Bob checks off on his device
+                        that he has taken the medication.
 
-### Steps
-: Steps
+**Variant A.1:**        Today Bob cannot take his medication when his device
+                        reminds him because he is driving.
+                        The system automatically defers his reminder
+                        by 30 minutes for today and reminds him again then.
 
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1      | XXX      | XXX         |
+**Involved Actors:**    Patient, Therapist, System
 
-### Exceptions
-: Exceptions
+**Pre-Condition:**      Patient has medication assigned by therapist.
 
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1      | XXX      | XXX         |
+**Result:**             Patient is reminded about medication and takes it.
+
+**Post-Condition:**     Patient has taken medication, the system knows about it.
+
+**Side-Effects:**       -
+
+--------------------------------------------------------------------------------
+
+: Use-Case 001: Medication Reminders
+
+\newpage
+
+#### Steps
+
+--------------------------------------------------------------------------------
+  **No.** **Involved**         **Description**
+--------- -------------------- -------------------------------------------------
+        1  Therapist,           The therapist prescribes medication to the
+           Patient              patient and when to take it.
+
+        2  Patient,             The system reminds the patient to take their
+           System               prescribed medication at the correct time.
+
+      3.A  Patient,             The patient takes the medication and checks it
+           System               off in the system.
+
+      3.B  Patient,             The patient notices the system, but cannot take
+           System               the medication right now. He tells the system
+                                to defer the reminder until later.
+
+      3.C  Patient,             The patient doesn't notice the system, or
+           System               can't interact with it for another reason.
+                                The system automatically defers the reminder.
+--------------------------------------------------------------------------------
+
+\newpage
+
+#### Activity Diagram
+![Activity Diagram describing Use-Case 001](assets/activity_medication_reminders.png){ height=80% }
+
+\newpage
+
+#### Exception UC.001.E.1
+As described in *UC.001.A.1* the patient may not be able to take their medication
+when the system reminds them to.  
+In this case, the patient can tell the system to "defer" the reminder.
+The system will then remind the patient at a later date.
+
+#### Exception UC.001.E.2
+Similar to *UC.001.E.1*, but the patient may not be able to interact with
+the system, for example if they were driving.  
+If the patient does not interact with the system for 10 minutes after
+it reminded them, the system will automatically defer the reminder for
+some time. The patient will be reminded again after that time has passed.
+The time for which to defer a reminder should be set by the therapist,
+because some medication may be time-sensitive.
+
+\newpage
+
+#### Prototype UC.001.P.1
+This prototype is more detailed than the one in the last phase.
+It shows the defer-mechanism, as well as a more structured UI.
+
+![Prototype UC.001.P.1](assets/prototype_medication_reminder.png)
+
+\newpage
+
+### 002 - Patient-Therapist Communication
+----------------------- --------------------------------------------------------
+**No.:**                002
+
+**Name:**               Patient-Therapist Communication
+
+**Short Description:**  The patient wants to talk to their therapist
+                        and can do this quickly and asynchronously.
+
+**Scenario:**           Mallorie wants to talk to her therapist about some
+                        symptoms she's been experiencing.
+                        Through a text interface they can communicate
+                        quickly and asynchronously to discuss if and what
+                        further steps should be taken in order to mitigate
+                        Mallorie's symptoms.
+                        The therapist asks Mallorie to keep an eye on her mood
+                        in the coming days and report it to him.
+
+**Involved Actors:**    Patient, Therapist
+
+**Pre-Condition:**      Patient wants to talk to their therapist.
+                        OR\
+                        Therapist wants to talk to their patient.
+
+**Result:**             The patient and therapist communicated.
+
+**Post-Condition:**     -
+
+**Side-Effects:**       -
+
+----------------------- --------------------------------------------------------
+
+: Use-Case 002: Patient-Therapist Communication
+
+\newpage
+
+### 003 - Mood Diary
+----------------------- --------------------------------------------------------
+**No.:**                003
+
+**Name:**               Mood Diary    
+
+**Short Description:**  The patient can record their mood, activity, sleep,
+                        and food for any given date
+                        and share this information with their therapist.
+                        
+**Scenario:**           Her therapist has asked Mallorie to record her mood
+                        for two weeks in order to better gauge the success
+                        of a new medication.\
+                        Every evening, Mallorie rates how she felt today,
+                        writes down what she did, what she ate, how she slept
+                        and any other significant occurences.\
+                        Her therapist sees this information and can
+                        adjust her dosage relatively quickly.
+
+**Involved Actors:**    Patient
+
+**Pre-Condition:**      Therapist asks patient to track their mood.
+
+**Result:**             Therapist and patient see the progress of the patient.
+
+**Post-Condition:**     -
+
+**Side-Effects:**       It may be detrimental for some patients to have to write
+                        down how they feel. Thus the therapist should have to
+                        enable the feature for the patient.
+
+----------------------- --------------------------------------------------------
+
+: Use-Case 003: Mood Diary
+
+\newpage
+
+#### Steps
+
+-------------------------------------------------------------------------
+  **No.** **Involved**  **Description**
+--------- ------------- -------------------------------------------------
+        1 Patient       Patient opens the mood diary UI.
+
+        2 Patient       Patient rates their overall mood on a quick
+                        scale (See Prototype UC.003.P.1)
+
+      3.A Patient       If the patient rates their mood positively
+                        on the quick scale, all further inputs are
+                        optional
+
+      3.B Patient       The patient is asked how much they slept
+                        last night.
+
+        4 Patient       The patient is asked how much water they drank
+                        today.
+
+        5 Patient       The patient is asked what medication they took
+                        today. This is pre-filled from the medication
+                        that the system knows about.
+
+        6 Patient       The patient is asked what they ate today.
+
+        7 Patient       The patient is asked about any significant
+                        mood changes during the day.
+
+        8 Patient       The patient is asked about any activities or
+                        exercise they did today.
+
+        9 Patient       The patient can enter any general notes that
+                        they want the therapist to know, but didn't fit
+                        any of the previous categories.
+-------------------------------------------------------------------------
+
+\newpage
+
+#### Exception UC.003.E.1
+It's detrimental to the patient to spell out how they feel,
+or to see that they're not making the desired progress in their therapy.
+
+**Attention**
+
+The desired solution to this problem has to be decided.
+
+#### Exception UC.003.E.2
+The patient forgets aspects of their day and fills them out inaccurately.
+This generates false data and may hinder the therapist in their decision
+making process
+
+\newpage
+
+#### Prototype UC.003.P.1
+This is an updated prototype for "Mood Diary Part 2", the most significant
+change is the inclusion of a quick rating system at the top.
+
+![Mood Diary Part 2](assets/mood-diary.png)
+
+\newpage
+
+### 004 - Emergency Contacts
+----------------------- --------------------------------------------------------
+**No.:**                004
+
+**Name:**               Emergency Contacts
+
+**Short Description:**  The patient has quick access to a number of emergency
+                        contacts, such as: A suicide hotline, their therapist,
+                        some close family members.\
+                        It should be **obvious** how to reach the emergency
+                        contacts from any point in the application
+                        
+**Scenario:**           Bob is experiencing a particularly heavy episode of
+                        depression. He wants to talk to his therapist
+                        immediately. He selects his contact details in the PMS
+                        and his phone automatically opens the phone app to call
+                        the therapist.
+
+**Involved Actors:**    Patient, Therapist/3rd Party
+
+**Pre-Condition:**      Patient wants to urgently communicate with someone.
+
+**Result:**             An appropriate communications channel is opened, and
+                        the patient can talk to the selected party.
+
+**Post-Condition:**     -
+
+**Side-Effects:**       -
+
+----------------------- --------------------------------------------------------
+
+: Use-Case 004: Emergency Contacts
+
+#### Exception UC.004.E.1
+The selected party is not reachable at this time, the PMS should suggest
+an alternative party to contact, such as a close family member.
+
+\newpage
 
 # System architecture
 \centering
