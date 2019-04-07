@@ -238,7 +238,7 @@ It shows the defer-mechanism, as well as a more structured UI.
 
 **Result:**             Therapist and patient see the progress of the patient.
 
-**Post-Condition:**     
+**Post-Condition:**     -
 
 **Side-Effects:**       It may be detrimental for some patients to have to write
                         down how they feel. Thus the therapist should have to
@@ -251,9 +251,43 @@ It shows the defer-mechanism, as well as a more structured UI.
 \newpage
 
 #### Steps
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1      | XXX      | XXX         |
+
+-------------------------------------------------------------------------
+  **No.** **Involved**  **Description**
+--------- ------------- -------------------------------------------------
+        1 Patient       Patient opens the mood diary UI.
+
+        2 Patient       Patient rates their overall mood on a quick
+                        scale (See Prototype UC.003.P.1)
+
+      3.A Patient       If the patient rates their mood positively
+                        on the quick scale, all further inputs are
+                        optional
+
+      3.B Patient       The patient is asked how much they slept
+                        last night.
+
+        4 Patient       The patient is asked how much water they drank
+                        today.
+
+        5 Patient       The patient is asked what medication they took
+                        today. This is pre-filled from the medication
+                        that the system knows about.
+
+        6 Patient       The patient is asked what they ate today.
+
+        7 Patient       The patient is asked about any significant
+                        mood changes during the day.
+
+        8 Patient       The patient is asked about any activities or
+                        exercise they did today.
+
+        9 Patient       The patient can enter any general notes that
+                        they want the therapist to know, but didn't fit
+                        any of the previous categories.
+-------------------------------------------------------------------------
+
+\newpage
 
 #### Exception UC.003.E.1
 It's detrimental to the patient to spell out how they feel,
@@ -261,12 +295,20 @@ or to see that they're not making the desired progress in their therapy.
 
 **Attention**
 
-The  desired solution to this problem has to be decided.
+The desired solution to this problem has to be decided.
 
 #### Exception UC.003.E.2
 The patient forgets aspects of their day and fills them out inaccurately.
 This generates false data and may hinder the therapist in their decision
 making process
+
+\newpage
+
+#### Prototype UC.003.P.1
+This is an updated prototype for "Mood Diary Part 2", the most significant
+change is the inclusion of a quick rating system at the top.
+
+![Mood Diary Part 2](assets/mood-diary.png)
 
 \newpage
 
@@ -278,7 +320,9 @@ making process
 
 **Short Description:**  The patient has quick access to a number of emergency
                         contacts, such as: A suicide hotline, their therapist,
-                        some close family members
+                        some close family members.\
+                        It should be **obvious** how to reach the emergency
+                        contacts from any point in the application
                         
 **Scenario:**           Bob is experiencing a particularly heavy episode of
                         depression. He wants to talk to his therapist
@@ -300,13 +344,6 @@ making process
 ----------------------- --------------------------------------------------------
 
 : Use-Case 004: Emergency Contacts
-
-\newpage
-
-#### Steps
-| Number | Involved | Description |
-|--------|----------|-------------|
-| 1      | XXX      | XXX         |
 
 #### Exception UC.004.E.1
 The selected party is not reachable at this time, the PMS should suggest
