@@ -35,6 +35,8 @@ lang: "en"
 - User is required to tick off the medication taken
 - Exception might be that the user cannot take meds
 
+\colsend
+
 ## Activity Diagram
 
 \centering
