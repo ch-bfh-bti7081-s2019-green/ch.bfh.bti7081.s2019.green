@@ -24,7 +24,7 @@ are involved in the project.
 : History
 
 | Version | Author          | Changelog                    | Date       |
-|:-------:|-----------------|------------------------------|------------|
+| :-----: | --------------- | ---------------------------- | ---------- |
 |   0.1   | All             | Document created             | 2019-03-27 |
 |   0.2   | Severin Kaderli | Add glossary and testing     | 2019-04-03 |
 |   0.3   | Fabio Caggiano  | Add system model & evolution | 2019-04-04 |
@@ -67,7 +67,7 @@ day-to-day lives.
 : Roles
 
 | Initial | Name             | Role                   |
-|:-------:|------------------|------------------------|
+| :-----: | ---------------- | ---------------------- |
 |   CK    | Christian Kocher | Student / Developer    |
 |   FC    | Fabio Caggiano   | Student / Developer    |
 |   MH    | Marc Häsler      | Student / Developer    |
@@ -353,8 +353,7 @@ an alternative party to contact, such as a close family member.
 \newpage
 
 # System architecture
-\centering
-![](assets/system_architecture.png)
+![System Architecture](assets/system_architecture.png)
 
 ## Client
 A user of the system will access the application through a web-browser
