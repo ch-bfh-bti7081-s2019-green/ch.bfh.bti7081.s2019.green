@@ -105,7 +105,7 @@ Attending: CK, FC, MH, MS, SK
 - [X] [MH] Check presentation and documentation for completeness
 
 # 2019-03-29
-Attending: CK, FC, MH, SK  
+Attending: CK, FC, MS, SK  
 Excused: MH
 
 ## Topics
@@ -114,6 +114,44 @@ Excused: MH
 ## Done
 - Presentation
 
-## Todo until 2019-04-01
+# 2019-04-01
+## Attendees
+Attending: CK, FC, MS, SK  
+Excused: MH
 
+## Topics
+- Divide up work
+- Begin Task 02
+
+## Work Units for Task 02
+- [x][S][FC] Preface
+- [x][S][CK] Intro
+- [x][S][SK] Glossary
+- [x][L][MS] User Requirements
+- [x][M][CK] System Architecture
+- [x][S][CK] System Requirements
+- [x][M][FC] System Models
+- [x][S][FC] System Evolution
+- [x][S][SK] Testing
+
+# 2019-04-05
+## Attendees
+Attending: CK, MS
+Excused: FC, MH, SK
+
+## Topics
+- Reviewing current work status
+- Discussing uncertainties
+
+## Todo until 2019-04-08
+- Finish work units discussed on 2019-04-01
+- Finish presentation
+
+# 2019-04-08
+Attending: CK, FC, MS, SK
+Excused: MH
+
+## Topics
+- Polishing Document and Presentation
+- Presentation
 
