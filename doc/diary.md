@@ -124,15 +124,15 @@ Excused: MH
 - Begin Task 02
 
 ## Work Units for Task 02
-- [ ][S][FC] Preface
-- [ ][S][CK] Intro
-- [ ][S][SK] Glossary
-- [ ][L][MS] User Requirements
-- [ ][M][CK] System Architecture
-- [ ][S][CK] System Requirements
-- [ ][M][FC] System Models
-- [ ][S][FC] System Evolution
-- [ ][S][SK] Testing
+- [x][S][FC] Preface
+- [x][S][CK] Intro
+- [x][S][SK] Glossary
+- [x][L][MS] User Requirements
+- [x][M][CK] System Architecture
+- [x][S][CK] System Requirements
+- [x][M][FC] System Models
+- [x][S][FC] System Evolution
+- [x][S][SK] Testing
 
 # 2019-04-05
 ## Attendees
@@ -146,3 +146,12 @@ Excused: FC, MH, SK
 ## Todo until 2019-04-08
 - Finish work units discussed on 2019-04-01
 - Finish presentation
+
+# 2019-04-08
+Attending: CK, FC, MS, SK
+Excused: MH
+
+## Topics
+- Polishing Document and Presentation
+- Presentation
+
