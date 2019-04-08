@@ -11,7 +11,7 @@ main-color: 00ba34
 lang: "en"
 ...
 
-## Introduction
+# Introduction
 
 - Support patients suffering from depression
 - Allows doctors and patients to work closely together
