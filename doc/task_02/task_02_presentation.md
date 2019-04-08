@@ -84,19 +84,19 @@ lang: "en"
 This application is meticulously tested using the following methods.
 
 - Component Tests
- * Unit Tests
- * Code Reviews
+  * Unit Tests
+  * Code Reviews
 
 - Integration Tests
- * Each component gets tested thoroughly before deploying a new version
+  * Each component gets tested thoroughly before deploying a new version
 
 - System Tests
- * Compare results with specification
- * Test requirements and functionalities if correctly implemented and working
+  * Compare results with specification
+  * Test requirements and functionalities if correctly implemented and working
 
 - Validation Tests
- * Test the end application together with customer
- * Make sure functionalities and user experience meet customer's expectations
+  * Test the end application together with customer
+  * Make sure functionalities and user experience meet customer's expectations
 
 # Appendices
 
