@@ -40,7 +40,7 @@ lang: "en"
 ## Activity Diagram
 
 \centering
-![Activity Diagram describing Use-Case 001](assets/activity_medication_reminders.png){ height=80% }
+![Activity Diagram describing Use-Case 001](assets/activity_medication_reminders.png){ height=75% }
 
 ## Prototype
 
