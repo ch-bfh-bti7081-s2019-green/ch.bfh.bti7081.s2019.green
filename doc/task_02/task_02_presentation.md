@@ -89,3 +89,7 @@ lang: "en"
      * Enough space for data
      * Enough performance (Ram Memory, Processor)
      * Reliable and fast internet connection 
+
+# Questions?
+
+# Thank you!
