@@ -77,8 +77,8 @@ lang: "en"
 
 # System evolution
 
-- New features &rarr; No problem, because of already good structured generic code base
-- Scalability  &rarr; Load balancing and distributed database for increased traffic
+- New features $\rightarrow$ No problem, because of a well structured, generic codebase
+- Scalability  $\rightarrow$ Load balancing and distributed database for increased traffic
 
 # Appendices
 
