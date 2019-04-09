@@ -88,8 +88,8 @@ Missing: CK
 - [X] [FC,SK] Interview
 - [X] [ALL] Prepare for Validation Step
 - [X] [ALL] Research
-- [x] [MS] Prototype for "Picking up prescription"
-- [x] [MS/MH] Write patient stories
+- [X] [MS] Prototype for "Picking up prescription"
+- [X] [MS/MH] Write patient stories
 
 # 2019-03-27
 ## Attendees
@@ -101,7 +101,7 @@ Attending: CK, FC, MH, MS, SK
 - Prepare documentation for task 02
 
 ## Todo until 2019-03-29
-- [x] [MS] Finish presentation
+- [X] [MS] Finish presentation
 - [X] [MH] Check presentation and documentation for completeness
 
 # 2019-03-29
@@ -124,19 +124,28 @@ Excused: MH
 - Begin Task 02
 
 ## Work Units for Task 02
-- [x][S][FC] Preface
-- [x][S][CK] Intro
-- [x][S][SK] Glossary
-- [x][L][MS] User Requirements
-- [x][M][CK] System Architecture
-- [x][S][CK] System Requirements
-- [x][M][FC] System Models
-- [x][S][FC] System Evolution
-- [x][S][SK] Testing
+- [X] [S] [FC] Preface
+- [X] [S] [CK] Intro
+- [X] [S] [SK] Glossary
+- [X] [L] [MS] User Requirements
+- [X] [M] [CK] System Architecture
+- [X] [S] [CK] System Requirements
+- [X] [M] [FC] System Models
+- [X] [S] [FC] System Evolution
+- [X] [S] [SK] Testing
+
+# 2019-04-03
+## Attendees
+Attending: FC  
+Homeoffice: MS, SK  
+Excused: CK, MH
+
+## Topics
+- Work on work units discussed on 2019-04-01
 
 # 2019-04-05
 ## Attendees
-Attending: CK, MS
+Attending: CK, MS  
 Excused: FC, MH, SK
 
 ## Topics
@@ -148,10 +157,10 @@ Excused: FC, MH, SK
 - Finish presentation
 
 # 2019-04-08
-Attending: CK, FC, MS, SK
+Attending: CK, FC, MS, SK  
 Excused: MH
 
 ## Topics
-- Polishing Document and Presentation
+- Polishing document and presentation
 - Presentation
 
