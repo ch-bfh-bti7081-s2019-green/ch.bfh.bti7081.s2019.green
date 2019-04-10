@@ -9,10 +9,11 @@ PDF:
     - export GIT_SSL_NO_VERIFY=1
     - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
     - .latex/build.sh ./doc/diary.md
-    - .latex/build.sh ./doc/task_01/task_01.md
-    - .latex/build.sh ./doc/task_01/task_01_presentation.md beamer
-    - .latex/build.sh ./doc/task_02/task_02.md
-    - .latex/build.sh ./doc/task_02/task_02_presentation.md beamer
+#   - .latex/build.sh ./doc/task_01/task_01.md
+#   - .latex/build.sh ./doc/task_01/task_01_presentation.md beamer
+#   - .latex/build.sh ./doc/task_02/task_02.md
+#   - .latex/build.sh ./doc/task_02/task_02_presentation.md beamer
+    - .latex/build.sh ./doc/task_03/task_03.md
   artifacts:
     paths:
       - "*.pdf"
