@@ -24,6 +24,14 @@ With this document we review the Requirements Document for [Team Blue](https://g
                               add it to the introduction or to the indiviual
                               requirements.
 
+      4 + 5 Validity		      The Backoffice Client and Frontoffice Client seem to
+      						            provide all necessary requirements for the team leader
+      						            and staff member. No flaws.
+
+      4	+ 6 Consistency       By scheduling employees and patients services, it could
+                              be difficult to consider appointment changes at short
+                              notice. But on the whole, processes are clearly described.
+
           8 Comprehensibility Variants are hard to follow. An (activity) diagram or
                               multiple tables might be easier.
                               
@@ -38,12 +46,12 @@ With this document we review the Requirements Document for [Team Blue](https://g
                               backend via API. This means that changes may potentially
                               cause twice as much work to implement.                              
                              
-         14 Verifiability     Usablity: It is not definied for example how the\
+         14 Verifiability     Usablity: It is not definied for example how the
                               User Interface should be, that someone else is able to use
                               the PMS. 
         
-         14 Verifiability     Scalability: General formulation. It is not defined\ 
-                              how many Users, etc.
+         14 Verifiability     Scalability: General formulation. It is not defined\
+                              for how many Users, etc.
 -----------------------------------------------------------------------------------------
 
 The scope may be too large for the time constraints of this course,
