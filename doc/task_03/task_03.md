@@ -17,6 +17,14 @@ With this document we review the Requirements Document for [Team Blue](https://g
 -----------------------------------------------------------------------------------------
    **Page** **Criteria**      **Reason / Comment / Improvement suggestion**
 ----------- ----------------- -----------------------------------------------------------         
+      4 + 5 Validity		  The Backoffice Client and Frontoffice Client seem to\
+      						  provide all necessary requirements for the team leader\
+      						  and staff member. No flaws.
+
+      4	+ 6 Consistency       By scheduling employees and patients services, it could\
+                              be difficult to consider appointment changes at short
+                              notice. But on the whole, processes are clearly described.
+
           4 Traceability      The origin of the requirements is not explicitly stated
                               (in this case it would be the interviewees). Perhaps
                               add it to the introduction or to the indiviual
