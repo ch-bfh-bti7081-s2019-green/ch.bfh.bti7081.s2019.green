@@ -16,10 +16,22 @@ With this document we review the Requirements Document for [Team Blue](https://g
 
 -----------------------------------------------------------------------------------------
    **Page** **Criteria**      **Reason / Comment / Improvement suggestion**
------------ ---------------   -----------------------------------------------------------
-         1  Example           Lorem Ipsum Dolor sit amet
+----------- ----------------- -----------------------------------------------------------         
+          4 Traceability      The origin of the requirements is not explicitly stated
+                              (in this case it would be the interviewees). Perhaps
+                              add it to the introduction or to the indiviual
+                              requirements.
 
-         2  Diff              bla bla bla
+          8 Comprehensibility Variants are hard to follow. An (activity) diagram or
+                              multiple tables might be easier.
+                              
+      8 + 9 Adaptability      The defined requirements seem to be neatly organised and
+                              independent of each other.
+                              
+         11 Adaptability      Take note that any changes to the datamodel will likely
+                              require changes to both clients which connect to the
+                              backend via API. This means that changes may potentially
+                              cause twice as much work to implement.                              
          
                              
         14  Verifiability     Usablity: It is not definied for example how the\
@@ -34,3 +46,8 @@ With this document we review the Requirements Document for [Team Blue](https://g
          
          4  Completeness      Non Functional Use Cases are missing.       
 -----------------------------------------------------------------------------------------
+
+The scope may be too large for the time constraints of this course,
+but we don't view that as anything worth dockign points for.
+
+**We award Team Blue x / 10 points.**
