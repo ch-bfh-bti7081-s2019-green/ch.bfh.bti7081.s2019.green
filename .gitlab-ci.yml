@@ -14,7 +14,6 @@ PDF:
     - .latex/build.sh ./doc/task_02/task_02.md
     - .latex/build.sh ./doc/task_02/task_02_presentation.md beamer
     - .latex/build.sh ./doc/task_03/task_03.md
-    - .latex/build.sh ./doc/task_03/task_03_presentation.md beamer
   artifacts:
     paths:
       - "*.pdf"
