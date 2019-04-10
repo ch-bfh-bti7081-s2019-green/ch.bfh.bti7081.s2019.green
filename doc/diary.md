@@ -173,10 +173,10 @@ Excused: SK
 
 ## Todo Today
 - [x][(MS) Comprehensibility]
-- [ ][(FC) Validity]
-- [ ][(FC) Consistency]
-- [ ][(MH) Completeness]
+- [x][(FC) Validity]
+- [x][(FC) Consistency]
+- [x][(MH) Completeness]
 - [x][(MS) Realism]
-- [ ][(MH) Verifiability]
-- [ ][(CK) Traceability]
-- [ ][(CK) Adaptability]
+- [x][(MH) Verifiability]
+- [x][(CK) Traceability]
+- [x][(CK) Adaptability]
