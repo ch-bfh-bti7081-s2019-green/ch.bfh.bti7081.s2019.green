@@ -164,3 +164,19 @@ Excused: MH
 - Polishing document and presentation
 - Presentation
 
+# 2019-04-10
+Attending: CK, FC, MH, MS
+Excused: SK
+
+## Topics
+- Task 03 (Review of Team Blue)
+
+## Todo Today
+- [ ][(MS) Comprehensibility]
+- [ ][(FC) Validity]
+- [ ][(FC) Consistency]
+- [ ][(MH) Completeness]
+- [ ][(MS) Realism]
+- [ ][(MH) Verifiability]
+- [ ][(CK) Traceability]
+- [ ][(CK) Adaptability]

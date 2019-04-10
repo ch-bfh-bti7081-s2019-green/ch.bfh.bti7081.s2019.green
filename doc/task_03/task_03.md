@@ -15,7 +15,7 @@ link-color: 00ba34
 With this document we review the Requirements Document for [Team Blue](https://github.com/LucaRitz/ch.bfh.bti7081.s2019.blue).
 
 -----------------------------------------------------------------------------------------
-  **Seite** **Kriterium**     **Begründung / Kommentar / Verbesserungsvorschlag**
+   **Page** **Criteria**      **Reason / Comment / Improvement suggestion**
 ----------- ---------------   -----------------------------------------------------------
          1  Example           Lorem Ipsum Dolor sit amet
 
