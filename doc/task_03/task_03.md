@@ -49,4 +49,4 @@ With this document we review the Requirements Document for [Team Blue](https://g
 The scope may be too large for the time constraints of this course,
 but we don't view that as anything worth dockign points for.
 
-**We award Team Blue x / 10 points.**
+**We award Team Blue 8 / 10 points.**
