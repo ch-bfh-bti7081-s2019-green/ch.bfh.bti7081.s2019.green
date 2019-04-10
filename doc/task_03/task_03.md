@@ -9,6 +9,7 @@ author:
     - Severin Kaderli
 rule-color: 00ba34
 link-color: 00ba34
+toc: false
 ...
 
 # Requirement Review
@@ -53,8 +54,5 @@ With this document we review the Requirements Document for [Team Blue](https://g
          14 Verifiability     Scalability: General formulation. It is not defined\
                               for how many Users, etc.
 -----------------------------------------------------------------------------------------
-
-The scope may be too large for the time constraints of this course,
-but we don't view that as anything worth dockign points for.
 
 **We award Team Blue 8 / 10 points.**
