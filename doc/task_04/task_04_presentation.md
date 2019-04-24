@@ -1,6 +1,6 @@
 ---
-title: "Requirements Review"
-subtitle: "Task 03 - Team Green"
+title: "Domain Model and Sequence Diagram"
+subtitle: "Task 04 - Team Green"
 author:
     - Christian Kocher
     - Fabio Caggiano
@@ -11,3 +11,4 @@ main-color: 00ba34
 lang: "en"
 ...
 
+# Introduction

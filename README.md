@@ -13,5 +13,8 @@ The current PDF of the diary can be found [here](https://gitlab.com/severinkader
   * [Documentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_02/task_02.pdf)
   * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_02/task_02_presentation.pdf)
 * Task 03
-  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_03.pdf?job=PDF)
+  * [Documentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_03/task_03.pdf)
+* Task 04
+  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_04.pdf?job=PDF)
+  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_04_presentation.pdf?job=PDF)
 
