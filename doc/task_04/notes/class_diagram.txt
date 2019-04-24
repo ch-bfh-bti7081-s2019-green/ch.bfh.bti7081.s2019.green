@@ -7,15 +7,29 @@ class Person{
     Contact contactData
 }
 
+Person "1" *-- "1" Contact : is reachable at
+
 class Patient extends Person{
     Therapist therapist
     List<Person> emergencyContacts
     Optional<MoodDiary> diary
+    List<Prescription> prescriptions
+    Map<Prescription, Reminder> reminders
+    List<Intake> intakes
 }
+
+Patient "*" *-- "*" Person : has
+Patient "1" *-- "*" Prescription : has
+Patient "1" *-- "*" Reminder : is reminded by
+Patient "1" *-- "*" Intake : has taken
 
 class Therapist extends Person{
     List<Patient> patients
+    List<Prescription> prescriptions
 }
+
+Therapist "*" *-- "1" Patient : treats
+Therapist "1" *-- "*" Prescription : has
 
 class Contact{
     String phone
@@ -25,20 +39,20 @@ class Contact{
     String country
 }
 
-class Prescription{
-    Patient patient
-    Therapist therapist
-    Medication medication
-    LocalDate issueDate
-    LocalDate validFrom
-    LocalDate validUntil
-    Dose dose
+class Intake{
+    ZoneDateTime time
+    Prescription prescription
 }
 
-class Dose{
-    Unit unit
-    int amount
+Intake "1" --* "*" Prescription : pertains to
+
+class Reminder{
+    Prescription prescription
+    ZonedDateTime notificationTime
+    List<ZonedDateTime> deferTimes
 }
+
+Reminder "*" --* "1" Prescription : belongs to
 
 class MoodDiary{
     Patient patient
@@ -66,6 +80,13 @@ class Activity{
     String text
 }
 
+class Dose{
+    Unit unit
+    int amount
+}
+
+Dose "1" *-- "1" Unit : has
+
 enum Unit{
     String name
     String shorthand
@@ -76,8 +97,30 @@ class Medication{
     int EAN
 }
 
-Therapist "*" *-- "1" Patient : treats
-Person "1" *-- "1" Contact : has
-Patient "*" *-- "*" Person : has
+class Prescription{
+    Patient patient
+    Therapist therapist
+    Medication medication
+    Dose dose
+    LocalDate issueDate
+    LocalDate validFrom
+    LocalDate validUntil
+    List<Recurrence> recurrences
+    ZoneDateTime firstIntake
+}
+
+Prescription "1" --- "1" Medication : has
+Prescription "1" --- "1" Dose : has
+Prescription "1" --- "*" Recurrence : recurs every
+
+
+interface Recurrence{
+    calculateNext(Reminder) : Reminder
+    toDisplayString(): String
+}
+
+class WeekdayRecurrence implements Recurrence
+class EveryTimeUnitRecurrence<U> implements Recurrence
+
 
 @enduml
