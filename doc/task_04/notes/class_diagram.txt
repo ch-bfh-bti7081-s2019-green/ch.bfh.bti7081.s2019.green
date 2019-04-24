@@ -3,6 +3,7 @@
 class Person{
     String firstname
     String lastname
+    String username
     LocalDate birthdate
     Contact contactData
 }
@@ -122,5 +123,21 @@ interface Recurrence{
 class WeekdayRecurrence implements Recurrence
 class EveryTimeUnitRecurrence<U> implements Recurrence
 
+class Channel{
+    String name
+    List<Person> persons
+    List<Message> messages
+}
+
+Channel "1" *-- "*" Message : contains
+Person "1" *-- "*" Channel : member of
+
+class Message{
+    ZonedDateTime timestamp
+    Person author
+    String text
+}
+
+Person "1" *-- "*" Message : authored
 
 @enduml
