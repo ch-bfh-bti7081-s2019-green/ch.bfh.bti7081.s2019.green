@@ -1,0 +1,30 @@
+@startuml
+
+title "Mood Diary - User Update"
+
+actor Patient
+
+
+Patient -> MoodDiary : open(2019-04-29)
+activate MoodDiary
+    MoodDiary -> Entry : insertFood("Green Salad",12:00:18)
+    activate Entry
+        Entry --> Activity : Activity("Green Salad",12:00:18)
+        activate Activity
+        deactivate Activity
+    Entry --> MoodDiary : message()
+    deactivate Entry
+
+    MoodDiary -> Entry : insertMedication("Ecstasy",08:08:44)
+    activate Entry
+        Entry --> Activity : Activity("Ecstasy",08:08:44)
+        activate Activity
+        deactivate Activity
+    Entry --> MoodDiary : message()
+    deactivate Entry
+MoodDiary --> Patient : close()
+deactivate MoodDiary
+
+
+
+@enduml
