@@ -1,0 +1,83 @@
+@startuml
+
+class Person{
+    String firstname
+    String lastname
+    LocalDate birthdate
+    Contact contactData
+}
+
+class Patient extends Person{
+    Therapist therapist
+    List<Person> emergencyContacts
+    Optional<MoodDiary> diary
+}
+
+class Therapist extends Person{
+    List<Patient> patients
+}
+
+class Contact{
+    String phone
+    String email
+    String street
+    String city
+    String country
+}
+
+class Prescription{
+    Patient patient
+    Therapist therapist
+    Medication medication
+    LocalDate issueDate
+    LocalDate validFrom
+    LocalDate validUntil
+    Dose dose
+}
+
+class Dose{
+    Unit unit
+    int amount
+}
+
+class MoodDiary{
+    Patient patient
+    List<Entry>
+}
+
+Patient "1" *-- "1" MoodDiary : has
+MoodDiary "1" *-- "*" Entry : contains
+Entry "1" *-- "*" Activity : contains
+
+class Entry{
+    LocalDate date
+    int mood
+    double sleepHours
+    double waterDrunk
+    List<Activity> medication
+    List<Activity> foods
+    List<Activity> moodChanges
+    List<Activity> exercises
+    String notes
+}
+
+class Activity{
+    LocalTime time
+    String text
+}
+
+enum Unit{
+    String name
+    String shorthand
+}
+
+class Medication{
+    String name
+    int EAN
+}
+
+Therapist "*" *-- "1" Patient : treats
+Person "1" *-- "1" Contact : has
+Patient "*" *-- "*" Person : has
+
+@enduml
