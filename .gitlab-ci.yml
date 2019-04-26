@@ -31,5 +31,5 @@ Deploy:App:
   script:
     - cd calc
     - mvn clean install
-    - cat target/*.war | ssh $SSH_USER@$SSH_HOST "sudo tee -a $SSH_PATH/- ROOT.war"
-
+    - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
+    - ssh $SSH_USER@$SSH_HOST "bash -s" < deploy.sh
