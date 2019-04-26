@@ -1,7 +1,10 @@
 package dev.schaer.vaadin;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -10,43 +13,68 @@ import com.vaadin.flow.router.Route;
 import org.atmosphere.interceptor.AtmosphereResourceStateRecovery;
 
 import java.awt.*;
+import java.util.function.Consumer;
 
 /**
  * The main view contains a button and a click listener.
  */
 @Route
 @PWA(name = "My Application", shortName = "My Application")
-public class MainView extends VerticalLayout {
+public class MainView extends  VerticalLayout{
+
+    private final Calculator calculator = new Calculator();
+    private static final String LBL_TXT = "Result of // =";
+    private final Label label = new Label(LBL_TXT);
 
     public MainView() {
-        addNumberButton(1);
-        addNumberButton(2);
-        addNumberButton(3);
-        addNumberButton(4);
-        addNumberButton(5);
-        addNumberButton(6);
-        addNumberButton(7);
-        addNumberButton(8);
-        addNumberButton(9);
-        Button btnSum = new Button("Sum", event -> {
-            int sum = Calculator.numbers.stream()
-                    .mapToInt(Integer::intValue)
-                    .sum();
-            alert(String.format("sum=%d", sum));
-        });
-        add(btnSum);
+        HorizontalLayout firstRow = new HorizontalLayout(btn(Operator.RESET), btn(Operator.ADD), btn(Operator.SUBTRACT));
+        HorizontalLayout secondRow = new HorizontalLayout(btn(Operator.CLEAR), btn(Operator.MULTIPLY), btn(Operator.DIVIDE));
+        HorizontalLayout thirdRow = new HorizontalLayout(btn(Operator.SEVEN), btn(Operator.EIGHT), btn(Operator.NINE));
+        HorizontalLayout fourthRow = new HorizontalLayout(btn(Operator.FOUR), btn(Operator.FIVE), btn(Operator.SIX));
+        HorizontalLayout fifthRow = new HorizontalLayout(btn(Operator.ONE), btn(Operator.TWO), btn(Operator.THREE));
+        HorizontalLayout sixthRow = new HorizontalLayout(btn(Operator.ZERO), btn(Operator.COMMA), btn(Operator.CALC));
+
+        VerticalLayout layout = new VerticalLayout(
+                firstRow,
+                secondRow,
+                thirdRow,
+                fourthRow,
+                fifthRow,
+                sixthRow,
+                label
+        );
+
+        add(layout);
     }
 
-    private void addNumberButton(int n){
-        Button btn = new Button(Integer.toString(n), event -> {
-            alert(n + " added to stack");
-            Calculator.numbers.push(n);
-        });
-        add(btn);
+    private Button btn(final Operator op){
+        switch (op){
+            case RESET:
+                return new Button(op.getLabel(), e -> {
+                    calculator.reset();
+                    label.setText(LBL_TXT);
+                    alert("Calculator Reset!", 1500);
+                });
+            case CALC:
+                return new Button(op.getLabel(), e -> {
+                    String ops = calculator.getOperations();
+                    double result = calculator.calc();
+                    label.setText(String.format("Result of /%s/ = %s", ops, Calculator.format(result)));
+                });
+            default:
+                return new Button(op.getLabel(), e -> {
+                    calculator.push(op);
+                    alert(op.name().toLowerCase(), 500);
+                });
+        }
     }
 
     private void alert(String msg){
-        Notification n = new Notification(msg, 1000);
+        alert(msg, 1000);
+    }
+
+    private void alert(String msg, int durationInMS){
+        Notification n = new Notification(msg, durationInMS);
         n.open();
     }
 }
