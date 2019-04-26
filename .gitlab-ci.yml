@@ -23,7 +23,7 @@ Deploy:App:
   image: maven:3-jdk-8-alpine
   stage: Deploy
   before_script:
-    - apk add --update sshpass
+    - apk add --update sshpass openssh-client
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
