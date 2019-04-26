@@ -1,9 +1,9 @@
-image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
-
 stages:
   - Build
+  - Deploy
 
 PDF:
+  image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
   stage: Build
   script:
     - export GIT_SSL_NO_VERIFY=1
@@ -19,3 +19,14 @@ PDF:
   artifacts:
     paths:
       - "*.pdf"
+
+Deploy:
+  image: openjdk:8-jdk
+  stage: Deploy
+  script:
+    - cd calc
+    - mvn clean install
+    - mv target/*.war ..
+  artifacts:
+    paths:
+      - "*.war"

@@ -16,7 +16,7 @@ lang: "de-CH"
 ## Legend
 
 | Team Member      | Shorthand | GitHub Username                                           |
-| ---------------- | --------- | --------------------------------------------------------- |
+|------------------|-----------|-----------------------------------------------------------|
 | Christian Kocher | CK        | [\@christiankocher7](https://github.com/christiankocher7) |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                     |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)                   |
@@ -180,3 +180,12 @@ Excused: SK
 - [x][(MH) Verifiability]
 - [x][(CK) Traceability]
 - [x][(CK) Adaptability]
+
+# 2019-04-24
+Attending: CK, FC, MH, MS, SK
+
+## Topics
+- Task 04
+
+## Todo until 2019-04-26
+- [ ] [MS,SK] Domain model and class diagramm
