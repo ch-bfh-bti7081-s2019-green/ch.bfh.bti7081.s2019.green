@@ -6,6 +6,7 @@ Test:Java:
   image: maven:3-jdk-8-alpine
   stage: Test
   script:
+    - cd calc
     - mvn clean test
 
 Deploy:PDF:
