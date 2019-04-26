@@ -1,10 +1,9 @@
 stages:
-  - Build
   - Deploy
 
-PDF:
+Deploy:PDF:
   image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
-  stage: Build
+  stage: Deploy
   script:
     - export GIT_SSL_NO_VERIFY=1
     - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
@@ -20,7 +19,7 @@ PDF:
     paths:
       - "*.pdf"
 
-Deploy:
+Deploy:App:
   image: maven:3-jdk-8-alpine
   stage: Deploy
   script:
