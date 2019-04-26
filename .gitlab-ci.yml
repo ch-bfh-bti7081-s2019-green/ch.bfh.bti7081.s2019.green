@@ -21,7 +21,7 @@ PDF:
       - "*.pdf"
 
 Deploy:
-  image: openjdk:8-jdk
+  image: maven:3-jdk-8-alpine
   stage: Deploy
   script:
     - cd calc
