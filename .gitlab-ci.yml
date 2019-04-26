@@ -1,5 +1,12 @@
 stages:
+  - Test
   - Deploy
+
+Test:Java:
+  image: maven:3-jdk-8-alpine
+  stage: Test
+  script:
+    - mvn clean test
 
 Deploy:PDF:
   image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
