@@ -23,8 +23,8 @@ import java.util.function.Consumer;
 public class MainView extends  VerticalLayout{
 
     private final Calculator calculator = new Calculator();
-    private static final String LBL_TXT = "Result of // =";
-    private final Label label = new Label(LBL_TXT);
+    private static final String LBL_TXT = "Result of %s =";
+    private final Label label = new Label(String.format(LBL_TXT, ""));
 
     public MainView() {
         HorizontalLayout firstRow = new HorizontalLayout(btn(Operator.RESET), btn(Operator.ADD), btn(Operator.SUBTRACT));
@@ -52,18 +52,19 @@ public class MainView extends  VerticalLayout{
             case RESET:
                 return new Button(op.getLabel(), e -> {
                     calculator.reset();
-                    label.setText(LBL_TXT);
+                    label.setText(String.format(LBL_TXT, ""));
                     alert("Calculator Reset!", 1500);
                 });
             case CALC:
                 return new Button(op.getLabel(), e -> {
-                    String ops = calculator.getOperations();
                     double result = calculator.calc();
-                    label.setText(String.format("Result of /%s/ = %s", ops, Calculator.format(result)));
+                    label.setText(String.format(LBL_TXT + " %s", calculator.getInput(), Calculator.format(result)));
+                    calculator.reset();
                 });
             default:
                 return new Button(op.getLabel(), e -> {
                     calculator.push(op);
+                    label.setText(String.format(LBL_TXT, calculator.getInput()));
                     alert(op.name().toLowerCase(), 500);
                 });
         }
