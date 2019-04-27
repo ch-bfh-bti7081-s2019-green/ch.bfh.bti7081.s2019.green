@@ -8,7 +8,7 @@ public class TreeTest {
     private static final double DELTA = 0.001;
 
     @Test
-    public void testBasicCalculation(){
+    public void testBasicCalculation() {
         OperatorNode root = new OperatorNode(Operator.MULTIPLY);
         root.setLeft(new NumberNode(4.5));
         root.setRight(new NumberNode(2));
@@ -17,7 +17,7 @@ public class TreeTest {
     }
 
     @Test
-    public void testOrderOfOperations(){
+    public void testOrderOfOperations() {
         OperatorNode root = new OperatorNode(Operator.ADD);
         root.setLeft(new NumberNode(10));
         OperatorNode multiply = new OperatorNode(Operator.MULTIPLY);
