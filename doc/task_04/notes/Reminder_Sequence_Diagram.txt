@@ -1,0 +1,33 @@
+@startuml
+
+title "Prescription Reminders - Sequence Diagram"
+
+actor Patient
+actor Therapist
+
+Therapist -> Prescription : add prescription(with reminder)
+activate Prescription
+    Prescription -> Reminder : add reminder
+    deactivate Prescription
+    activate Reminder
+        Reminder -> Recurrence : add recurrence
+        deactivate Reminder
+        activate Recurrence
+        Recurrence --> Reminder : reminder triggered
+        deactivate Recurrence
+        activate Reminder
+    Reminder --> Patient : Remind patient
+Patient -> Reminder : patient delays reminder
+Reminder -> Recurrence : new recurrence added
+deactivate Reminder
+    activate Recurrence
+    Recurrence --> Reminder : reminder triggered
+    deactivate Recurrence
+    activate Reminder
+Reminder --> Patient : Remind patient
+    Patient -> Reminder : patient takes medication and deactivates reminder
+    deactivate Reminder
+
+
+
+@enduml
