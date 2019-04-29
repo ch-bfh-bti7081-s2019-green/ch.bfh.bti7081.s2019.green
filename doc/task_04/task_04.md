@@ -37,6 +37,6 @@ This sequence diagram shows the process of how the patient is reminded to take i
 
 # Extended Domain Model
 
-We extended our domain model by methods described in the sequence diagrams.
+We extended our domain model by classes described in the sequence diagrams.
 
 ![Extended Domain Model](notes/class_diagram.png){ height=75% }
