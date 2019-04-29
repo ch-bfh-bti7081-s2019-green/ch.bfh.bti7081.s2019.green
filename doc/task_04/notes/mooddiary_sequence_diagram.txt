@@ -1,30 +1,29 @@
 @startuml
-
-title "Mood Diary - User Update"
+title "Mood Diary - Create Entry"
 
 actor Patient
 
-
-Patient -> MoodDiary : open(2019-04-29)
 activate MoodDiary
-    MoodDiary -> Entry : insertFood("Green Salad",12:00:18)
-    activate Entry
-        Entry --> Activity : Activity("Green Salad",12:00:18)
+    alt !exists
+       Patient -> MoodDiary : create()
+       note right: Singleton
+    else exists
+    Patient -> MoodDiary: getInstance()
+    end
+
+activate Entry
+    MoodDiary -> Entry : create(date,mood,sleepHours,waterDrunk,notes)
         activate Activity
+             loop until done
+              Entry -> Activity : create(time,text)
+              Activity --> Entry: return
+              Entry -> Entry: addActivityList(activity)
+              end
+              Entry --> MoodDiary : return
         deactivate Activity
-    Entry --> MoodDiary : message()
+MoodDiary -> MoodDiary: addEntryList(entry)
     deactivate Entry
 
-    MoodDiary -> Entry : insertMedication("Ecstasy",08:08:44)
-    activate Entry
-        Entry --> Activity : Activity("Ecstasy",08:08:44)
-        activate Activity
-        deactivate Activity
-    Entry --> MoodDiary : message()
-    deactivate Entry
-MoodDiary --> Patient : close()
+MoodDiary --> Patient : message
 deactivate MoodDiary
-
-
-
 @enduml
