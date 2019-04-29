@@ -19,8 +19,8 @@ class Patient extends Person{
     List<Intake> intakes
 }
 
-Patient "*" *-- "*" Person : has
-Patient "1" *-- "*" Prescription : has
+Patient "*" *-- "*" Person : has emergency contacts
+Patient "1" *-- "*" Prescription : is prescribed
 Patient "1" *-- "*" Reminder : is reminded by
 Patient "1" *-- "*" Intake : has taken
 
@@ -30,7 +30,7 @@ class Therapist extends Person{
 }
 
 Therapist "*" *-- "1" Patient : treats
-Therapist "1" *-- "*" Prescription : has
+Therapist "1" *-- "*" Prescription : prescribed
 
 class Contact{
     String phone
@@ -60,9 +60,9 @@ class MoodDiary{
     List<Entry>
 }
 
-Patient "1" *-- "1" MoodDiary : has
-MoodDiary "1" *-- "*" Entry : contains
-Entry "1" *-- "*" Activity : contains
+Patient "1" *-- "1" MoodDiary : keeps
+MoodDiary "1" *-- "*" Entry : consists of
+Entry "1" *-- "*" Activity : consists of
 
 class Entry{
     LocalDate date
@@ -86,7 +86,7 @@ class Dose{
     int amount
 }
 
-Dose "1" *-- "1" Unit : has
+Dose "1" *-- "1" Unit : is in
 
 enum Unit{
     String name
@@ -110,8 +110,8 @@ class Prescription{
     ZoneDateTime firstIntake
 }
 
-Prescription "1" --- "1" Medication : has
-Prescription "1" --- "1" Dose : has
+Prescription "1" --- "1" Medication : prescribes
+Prescription "1" --- "1" Dose : has dosage
 Prescription "1" --- "*" Recurrence : recurs every
 
 
@@ -130,7 +130,7 @@ class Channel{
 }
 
 Channel "1" *-- "*" Message : contains
-Person "1" *-- "*" Channel : member of
+Person "1" *-- "*" Channel : is member of
 
 class Message{
     ZonedDateTime timestamp
@@ -141,3 +141,4 @@ class Message{
 Person "1" *-- "*" Message : authored
 
 @enduml
+
