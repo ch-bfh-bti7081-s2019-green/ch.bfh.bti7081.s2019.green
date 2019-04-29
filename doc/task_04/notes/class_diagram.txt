@@ -121,7 +121,7 @@ interface Recurrence{
 }
 
 class WeekdayRecurrence implements Recurrence
-class EveryTimeUnitRecurrence<U> implements Recurrence
+class EveryTimeUnitRecurrence implements Recurrence
 
 class Channel{
     String name
