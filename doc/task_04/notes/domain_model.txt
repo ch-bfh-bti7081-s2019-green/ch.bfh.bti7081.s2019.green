@@ -1,0 +1,73 @@
+@startuml
+
+class Person
+
+Person "1" *-- "1" Contact : is reachable at
+
+class Patient extends Person
+
+Patient "*" *-- "*" Person : has emergency contacts
+Patient "1" *-- "*" Prescription : is prescribed
+Patient "1" *-- "*" Reminder : is reminded by
+Patient "1" *-- "*" Intake : has taken
+
+class Therapist extends Person
+
+Therapist "*" *-- "1" Patient : treats
+Therapist "1" *-- "*" Prescription : prescribed
+
+class Contact
+
+class Intake
+
+Intake "1" --* "*" Prescription : pertains to
+
+class Reminder
+
+Reminder "*" --* "1" Prescription : belongs to
+
+class MoodDiary
+
+Patient "1" *-- "1" MoodDiary : keeps
+MoodDiary "1" *-- "*" Entry : consists of
+Entry "1" *-- "*" Activity : consists of
+
+class Entry
+
+class Activity
+
+Activity "1" *-- "1" ActivityType : is type
+
+enum ActivityType
+
+class Dose
+
+Dose "1" *-- "1" Unit : is in
+
+enum Unit
+
+class Medication
+
+class Prescription
+
+Prescription "1" --- "1" Medication : prescribes
+Prescription "1" --- "1" Dose : has dosage
+Prescription "1" --- "*" Recurrence : recurs every
+
+
+interface Recurrence
+
+class WeekdayRecurrence implements Recurrence
+class EveryTimeUnitRecurrence implements Recurrence
+
+class Channel
+
+Channel "1" *-- "*" Message : contains
+Person "1" *-- "*" Channel : is member of
+
+class Message
+
+Person "1" *-- "*" Message : authored
+
+@enduml
+
