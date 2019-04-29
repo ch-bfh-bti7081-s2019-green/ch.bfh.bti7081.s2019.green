@@ -15,7 +15,6 @@ class Patient extends Person{
     List<Person> emergencyContacts
     Optional<MoodDiary> diary
     List<Prescription> prescriptions
-    Map<Prescription, Reminder> reminders
     List<Intake> intakes
 }
 
@@ -51,6 +50,7 @@ class Reminder{
     Prescription prescription
     ZonedDateTime notificationTime
     List<ZonedDateTime> deferTimes
+    List<Recurrence> recurrences
 }
 
 Reminder "*" --* "1" Prescription : belongs to
@@ -114,7 +114,7 @@ class Prescription{
     LocalDate issueDate
     LocalDate validFrom
     LocalDate validUntil
-    List<Recurrence> recurrences
+    Reminder reminder
     ZoneDateTime firstIntake
 }
 
