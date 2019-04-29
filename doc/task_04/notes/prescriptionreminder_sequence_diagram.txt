@@ -1,0 +1,29 @@
+@startuml
+title "Prescription Reminders"
+
+actor Patient
+actor Therapist
+
+Therapist -> Prescription : create()
+activate Prescription
+    Prescription -> Reminder : addPrescription(prescription)
+    deactivate Prescription
+    activate Reminder
+        Reminder -> Recurrence : calculateNext(reminder)
+        deactivate Reminder
+        activate Recurrence
+        Recurrence --> Reminder : reminder triggered
+        deactivate Recurrence
+        activate Reminder
+    Reminder --> Patient : Remind patient
+Patient -> Reminder : patient delays reminder
+Reminder -> Recurrence : calculateNext(reminder)
+deactivate Reminder
+    activate Recurrence
+    Recurrence --> Reminder : reminder triggered
+    deactivate Recurrence
+    activate Reminder
+Reminder --> Patient : Remind patient
+    Patient -> Reminder : patient takes medication and deactivates reminder
+    deactivate Reminder
+@enduml

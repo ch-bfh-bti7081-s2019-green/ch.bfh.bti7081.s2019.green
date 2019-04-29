@@ -1,0 +1,152 @@
+@startuml
+
+class Person{
+    String firstname
+    String lastname
+    String username
+    LocalDate birthdate
+    Contact contactData
+}
+
+Person "1" *-- "1" Contact : is reachable at
+
+class Patient extends Person{
+    Therapist therapist
+    List<Person> emergencyContacts
+    Optional<MoodDiary> diary
+    List<Prescription> prescriptions
+    List<Intake> intakes
+}
+
+Patient "*" *-- "*" Person : has emergency contacts
+Patient "1" *-- "*" Prescription : is prescribed
+Patient "1" *-- "*" Reminder : is reminded by
+Patient "1" *-- "*" Intake : has taken
+
+class Therapist extends Person{
+    List<Patient> patients
+    List<Prescription> prescriptions
+}
+
+Therapist "*" *-- "1" Patient : treats
+Therapist "1" *-- "*" Prescription : prescribed
+
+class Contact{
+    String phone
+    String email
+    String street
+    String city
+    String country
+}
+
+class Intake{
+    ZoneDateTime time
+    Prescription prescription
+}
+
+Intake "1" --* "*" Prescription : pertains to
+
+class Reminder{
+    Prescription prescription
+    ZonedDateTime notificationTime
+    List<ZonedDateTime> deferTimes
+    List<Recurrence> recurrences
+}
+
+Reminder "*" --* "1" Prescription : belongs to
+
+class MoodDiary{
+    Patient patient
+    List<Entry>
+}
+
+Patient "1" *-- "1" MoodDiary : keeps
+MoodDiary "1" *-- "*" Entry : consists of
+Entry "1" *-- "*" Activity : consists of
+
+class Entry{
+    LocalDate date
+    int mood
+    double sleepHours
+    double waterDrunk
+    List<Activity> activities
+    String notes
+}
+
+class Activity{
+    ActivityType type
+    LocalTime time
+    String text
+}
+
+Activity "1" *-- "1" ActivityType : is type
+
+enum ActivityType{
+    MEDICATION,
+    FOOD,
+    MOOD_CHANGE,
+    EXERCISE,
+    ACTIVITY
+}
+
+class Dose{
+    Unit unit
+    int amount
+}
+
+Dose "1" *-- "1" Unit : is in
+
+enum Unit{
+    String name
+    String shorthand
+}
+
+class Medication{
+    String name
+    int EAN
+}
+
+class Prescription{
+    Patient patient
+    Therapist therapist
+    Medication medication
+    Dose dose
+    LocalDate issueDate
+    LocalDate validFrom
+    LocalDate validUntil
+    Reminder reminder
+    ZoneDateTime firstIntake
+}
+
+Prescription "1" --- "1" Medication : prescribes
+Prescription "1" --- "1" Dose : has dosage
+Prescription "1" --- "*" Recurrence : recurs every
+
+
+interface Recurrence{
+    calculateNext(Reminder) : Reminder
+    toDisplayString(): String
+}
+
+class WeekdayRecurrence implements Recurrence
+class EveryTimeUnitRecurrence implements Recurrence
+
+class Channel{
+    String name
+    List<Person> persons
+    List<Message> messages
+}
+
+Channel "1" *-- "*" Message : contains
+Person "1" *-- "*" Channel : is member of
+
+class Message{
+    ZonedDateTime timestamp
+    Person author
+    String text
+}
+
+Person "1" *-- "*" Message : authored
+
+@enduml
+

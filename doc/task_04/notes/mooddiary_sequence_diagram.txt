@@ -1,0 +1,29 @@
+@startuml
+title "Mood Diary - Create Entry"
+
+actor Patient
+
+activate MoodDiary
+    alt !exists
+       Patient -> MoodDiary : create()
+       note right: Singleton
+    else exists
+    Patient -> MoodDiary: getInstance()
+    end
+
+activate Entry
+    MoodDiary -> Entry : create(date,mood,sleepHours,waterDrunk,notes)
+        activate Activity
+             loop until done
+              Entry -> Activity : create(time,text)
+              Activity --> Entry: return
+              Entry -> Entry: addActivityList(activity)
+              end
+              Entry --> MoodDiary : return
+        deactivate Activity
+MoodDiary -> MoodDiary: addEntryList(entry)
+    deactivate Entry
+
+MoodDiary --> Patient : message
+deactivate MoodDiary
+@enduml
