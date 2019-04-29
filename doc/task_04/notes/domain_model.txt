@@ -36,6 +36,10 @@ class Entry
 
 class Activity
 
+Activity "1" *-- "1" ActivityType : is type
+
+enum ActivityType
+
 class Dose
 
 Dose "1" *-- "1" Unit : is in
