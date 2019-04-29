@@ -24,7 +24,7 @@ Our domain model is based on Responsive Driven Design, which helps encapsulating
 
 ## Mood Diary
 
-This sequence diagram shows the process of creating an entry in the mood diary. First it will be checked if a mood diary instance already exists. If yes, we get the instance or else we create a new one. Then we create a new entry with a date, mood enumeration from 1 to 5, how many ours the patient slept, how much water he drunk and with optional notes. After that, as many activity objects as wanted can be created with a time and a text as parameters. The activity object(s) are then added to the to the entry's object activity list and the entry object added to the mood diary's entry list. At the end, the patient receives a message.
+This sequence diagram shows the process of creating an entry in the mood diary. First it will be checked if a mood diary instance already exists. If yes, we get the instance or else we create a new one. Then we create a new entry with a date, mood enumeration from 1 to 5, how many hours the patient slept, how much water he drunk and with optional notes. After that, as many activity objects as wanted can be created with a time and a text as parameters. The activity object(s) are then added to the entry's object activity list and the entry object added to the mood diary's entry list. At the end, the patient receives a message.
 
 ![Sequence Diagram: Mood Diary](notes/mooddiary_sequence_diagram.png){ height=75% }
 
