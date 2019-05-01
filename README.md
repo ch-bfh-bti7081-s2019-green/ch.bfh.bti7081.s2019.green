@@ -1,7 +1,7 @@
 [![](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/badges/develop/build.svg)](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/pipelines)
 # Team Green
 ## Application
-The live version of the application can be found [here](https://vaadin-project.schaer.dev/).
+The live version of the application can be found [here](https://pms.schaer.dev/).
 
 ## Documentation
 ### Diary

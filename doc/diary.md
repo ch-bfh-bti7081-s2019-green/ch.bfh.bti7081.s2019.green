@@ -180,3 +180,13 @@ Excused: SK
 - [x][(MH) Verifiability]
 - [x][(CK) Traceability]
 - [x][(CK) Adaptability]
+
+# 2019-05-01
+Attending: FC, MH, MS, SK
+Excused: CK
+
+## Todo Until 2019-05-03
+- [ ][(CK) Component Diagram]
+- [ ][(SK) Deployment Diagram]
+- [ ][(MS, MH) Create Stories]
+- [ ][(FC) Class Diagram]
