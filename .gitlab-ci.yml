@@ -51,7 +51,7 @@ Doc:Java:
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
     - mvn ${MAVEN_CLI_OPTS} javadoc:javadoc
-    - rsyc -r target/site/apidocs/* $SSH_USER@$SSH_HOST:/tmp/apidocs
+    - rsync -r target/site/apidocs/ $SSH_USER@$SSH_HOST:/tmp/apidocs
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh doc
 
 Test:Java:
