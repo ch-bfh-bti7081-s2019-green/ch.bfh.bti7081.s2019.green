@@ -43,4 +43,4 @@ Deploy:App:
   script:
     - mvn clean install
     - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
-    - ssh $SSH_USER@$SSH_HOST "bash -s" < ../deploy.sh
+    - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh

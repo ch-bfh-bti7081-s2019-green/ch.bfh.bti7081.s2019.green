@@ -4,7 +4,7 @@
     <groupId>ch.bfh.bti7081.s2019.green</groupId>
     <artifactId>pms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>My Application</name>
+    <name>Patient Management System</name>
     <packaging>war</packaging>
 
     <properties>
