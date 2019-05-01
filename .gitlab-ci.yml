@@ -45,7 +45,7 @@ Test:Java:
   image: maven:3-jdk-8-alpine
   stage: Test
   script:
-    - mvn "${MAVEN_CLI_OPTS}" clean test
+    - mvn ${MAVEN_CLI_OPTS} clean test
 
 Deploy:App:
   image: maven:3-jdk-8-alpine
@@ -57,6 +57,6 @@ Deploy:App:
     - mkdir -p ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
-    - mvn "${MAVEN_CLI_OPTS}" clean install
+    - mvn ${MAVEN_CLI_OPTS} clean install
     - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh
