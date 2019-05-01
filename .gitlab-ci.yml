@@ -52,7 +52,7 @@ Doc:Java:
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
     - mvn ${MAVEN_CLI_OPTS} javadoc:javadoc
-    - scp -r target/site/apidocs $SSH_USER@$SSH_HOST:/tmp/apidocs
+    - scp -r target/site/apidocs $SSH_USER@$SSH_HOST:/tmp/
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh doc
 
 Test:Java:
