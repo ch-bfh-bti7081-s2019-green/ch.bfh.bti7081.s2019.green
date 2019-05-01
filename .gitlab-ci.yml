@@ -44,6 +44,12 @@ Doc:PDF:
 Doc:Java:
   image: maven:3-jdk-8-alpine
   stage: Doc
+  before_script:
+    - apk add --update sshpass openssh-client
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
     - mvn ${MAVEN_CLI_OPTS} javadoc:javadoc
     - scp -r target/site/apidocs $SSH_USER@$SSH_HOST:/tmp/apidocs
