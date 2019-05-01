@@ -41,6 +41,14 @@ Doc:PDF:
     paths:
       - "*.pdf"
 
+Doc:Java:
+  image: maven:3-jdk-8-alpine
+  stage: Doc
+  script:
+    - mvn ${MAVEN_CLI_OPTS} javadoc:javadoc
+    - scp -r target/site/apidocs $SSH_USER@$SSH_HOST:/tmp/apidocs
+    - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh doc
+
 Test:Java:
   image: maven:3-jdk-8-alpine
   stage: Test
