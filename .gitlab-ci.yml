@@ -1,10 +1,11 @@
-image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
-
 stages:
-  - Build
+  - Doc
+  - Test
+  - Deploy
 
-PDF:
-  stage: Build
+Doc:PDF:
+  image: registry.gitlab.com/severinkaderli/pandoc-docker:latest
+  stage: Doc
   script:
     - export GIT_SSL_NO_VERIFY=1
     - git clone https://gitlab.com/severinkaderli/pandoc-latex-templates .latex
@@ -14,8 +15,34 @@ PDF:
 #   - .latex/build.sh ./doc/task_02/task_02.md
 #   - .latex/build.sh ./doc/task_02/task_02_presentation.md beamer
 #    - .latex/build.sh ./doc/task_03/task_03.md
-    - .latex/build.sh ./doc/task_04/task_04.md
-    - .latex/build.sh ./doc/task_04/task_04_presentation.md beamer
+#    - .latex/build.sh ./doc/task_04/task_04.md
+#    - .latex/build.sh ./doc/task_04/task_04_presentation.md beamer
+    - .latex/build.sh ./doc/task_05/task_05.md
+    - .latex/build.sh ./doc/task_05/task_05_presentation.md beamer
+    - .latex/build.sh ./doc/task_06/task_06.md
+    - .latex/build.sh ./doc/task_06/task_06_presentation.md beamer
   artifacts:
     paths:
       - "*.pdf"
+
+Test:Java:
+  image: maven:3-jdk-8-alpine
+  stage: Test
+  script:
+    - cd src
+    - mvn clean test
+
+Deploy:App:
+  image: maven:3-jdk-8-alpine
+  stage: Deploy
+  before_script:
+    - apk add --update sshpass openssh-client
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - cd src
+    - mvn clean install
+    - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
+    - ssh $SSH_USER@$SSH_HOST "bash -s" < ../deploy.sh
