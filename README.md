@@ -7,6 +7,9 @@ The live version of the application can be found [here](https://pms.schaer.dev/)
 ### Diary
 The current PDF of the diary can be found [here](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/diary.pdf?job=PDF).
 
+### Javadoc
+The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/).
+
 ### Tasks
 * Task 01
   * [Documentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_01/task_01.pdf)
