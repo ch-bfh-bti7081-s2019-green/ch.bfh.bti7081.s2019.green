@@ -10,7 +10,7 @@ import com.vaadin.flow.server.PWA;
  * The main view contains a button and a click listener.
  */
 @Route
-@PWA(name = "My Application", shortName = "My Application")
+@PWA(name = "Patient Management System", shortName = "PMS")
 public class MainView extends VerticalLayout {
 
     public MainView() {
