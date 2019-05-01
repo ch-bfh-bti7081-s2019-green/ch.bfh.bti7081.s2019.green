@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.bfh.bti7081.s2019.green</groupId>
     <artifactId>pms</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>My Application</name>
     <packaging>war</packaging>
 
