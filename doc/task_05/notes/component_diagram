@@ -1,0 +1,42 @@
+@startuml
+
+skinparam componentStyle uml3
+
+title Component Diagram - PMS
+
+package "Front End" {
+    component [Graphic User\nInterface (View)] as GUI
+}
+
+cloud Internet {
+}
+
+interface VaadinFlow as VaadinFlow
+
+node "Jetty Server" {
+
+database "SQLite" {
+    [Data Model]
+    }
+
+    node "Back End" {
+        node "Presenter" {
+        [Presenters]
+        }
+        node "Model" {
+            [Business Logic]
+            [Services]
+            [Data Access] as DA
+        }
+    }
+}
+
+GUI -right-> Internet
+Internet -right-( VaadinFlow
+VaadinFlow -left- Presenter
+Model -up- Presenter
+[Services] -up- [Business Logic]
+DA -up- [Services]
+DA -right- SQLite
+
+@enduml
