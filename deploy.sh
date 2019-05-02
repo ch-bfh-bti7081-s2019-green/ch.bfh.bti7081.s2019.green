@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+set -e
+shopt -s extglob
+
 MODE="code"
 
 if [ -n "${1}" ]; then
@@ -7,8 +10,8 @@ fi
 
 if [ "${MODE}" == "doc" ]; then
     sudo mkdir -p "/opt/tomcat/webapps/docs"
-    sudo rm -rf "/opt/tomcat/webapps/docs/*"
-    sudo mv "/tmp/apidocs/*" "/opt/tomcat/webapps/docs"
+    sudo rm -rf "/opt/tomcat/webapps/docs/"*
+    sudo mv "/tmp/apidocs/"* "/opt/tomcat/webapps/docs"
     sudo chown -R tomcat:tomcat "/opt/tomcat/webapps/docs"
     sudo systemctl restart tomcat
 else
