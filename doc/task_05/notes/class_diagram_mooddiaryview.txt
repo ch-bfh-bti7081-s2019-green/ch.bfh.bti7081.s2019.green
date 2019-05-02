@@ -1,0 +1,37 @@
+@startuml
+MoodDiaryView <-- MoodDiaryViewListener
+MoodDiaryView <|-- MoodDiaryViewImpl
+MoodDiaryViewListener <|-- MoodDiaryPresenter  
+MoodDiaryPresenter o-- MoodDiaryManager
+MoodDiaryPresenter o-- MoodDiaryView
+
+
+
+interface MoodDiaryView {
+ +addListener(listener: MoodDiaryViewListener): void
+ +showEntries(entryList: ArrayList<Entry>, entriesListSize: int): void
+ +setPatient(patient: Patient): void
+}
+
+interface MoodDiaryViewListener {
+ +createEntryClicked(): void
+ +editEntryClicked(entry: Entry): void
+ +deleteEntryClicked(entry: Entry): void
+}
+
+class MoodDiaryViewImpl {
+ -listeners: ArrayList<MoodDiaryViewListener>
+ -patient: Patient
+}
+
+class MoodDiaryPresenter {
+ +MoodDiaryPresenter(view: MoodDiaryView, model: MoodDiaryManager): void
+}
+
+class MoodDiaryManager {
+ +createEntry(entry: Entry): void
+ +editEntry(entry: Entry): void
+ +deleteEntry(entry: Entry): void
+ +findAllEntries(patient: Patient): ArrayList<Entry>
+}
+@enduml
