@@ -8,6 +8,8 @@
 *.iml
 **/*.project
 
+**/.~lock*
+
 # Build Stuf
 **/*.latex
 
