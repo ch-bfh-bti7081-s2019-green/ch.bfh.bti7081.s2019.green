@@ -16,7 +16,7 @@ lang: "de-CH"
 ## Legend
 
 | Team Member      | Shorthand | GitHub Username                                           |
-| ---------------- | --------- | --------------------------------------------------------- |
+|------------------|-----------|-----------------------------------------------------------|
 | Christian Kocher | CK        | [\@christiankocher7](https://github.com/christiankocher7) |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                     |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)                   |
@@ -182,11 +182,17 @@ Excused: SK
 - [x][(CK) Adaptability]
 
 # 2019-05-01
-Attending: FC, MH, MS, SK
-Excused: CK
+Attending: CK, FC, MH, MS, SK
 
 ## Todo Until 2019-05-03
-- [ ][(CK) Component Diagram]
-- [ ][(SK) Deployment Diagram]
-- [ ][(MS, MH) Create Stories]
-- [ ][(FC) Class Diagram]
+- [x][(CK) Component Diagram]
+- [x][(SK) Deployment Diagram]
+- [x][(MS, MH) Create Stories]
+- [x][(FC) Class Diagram]
+
+# 2019-05-03
+Attending: CK, FC, MH, SK  
+Excused: MS
+
+## Topics
+- Presentation task 05 and 06
