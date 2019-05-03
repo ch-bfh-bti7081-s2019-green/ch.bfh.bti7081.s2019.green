@@ -58,6 +58,11 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.appreciated</groupId>
+            <artifactId>app-layout-addon</artifactId>
+            <version>3.0.0.beta5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -115,6 +120,11 @@
                         </executions>
                     </plugin>
                 </plugins>
+                <resources>
+                    <resource>
+                        <directory>src/main/webapp</directory>
+                    </resource>
+                </resources>
             </build>
         </profile>
     </profiles>
