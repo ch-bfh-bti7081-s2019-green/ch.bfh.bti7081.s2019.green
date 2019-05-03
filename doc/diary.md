@@ -16,7 +16,7 @@ lang: "de-CH"
 ## Legend
 
 | Team Member      | Shorthand | GitHub Username                                           |
-| ---------------- | --------- | --------------------------------------------------------- |
+|------------------|-----------|-----------------------------------------------------------|
 | Christian Kocher | CK        | [\@christiankocher7](https://github.com/christiankocher7) |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                     |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)                   |
@@ -172,11 +172,30 @@ Excused: SK
 - Task 03 (Review of Team Blue)
 
 ## Todo Today
-- [x][(MS) Comprehensibility]
-- [x][(FC) Validity]
-- [x][(FC) Consistency]
-- [x][(MH) Completeness]
-- [x][(MS) Realism]
-- [x][(MH) Verifiability]
-- [x][(CK) Traceability]
-- [x][(CK) Adaptability]
+- [x] [MS] Comprehensibility
+- [x] [FC] Validity
+- [x] [FC] Consistency
+- [x] [MH] Completeness
+- [x] [MS] Realism
+- [x] [MH] Verifiability
+- [x] [CK] Traceability
+- [x] [CK] Adaptability
+
+# 2019-05-01
+Attending: CK, FC, MH, MS, SK
+
+## Todo Until 2019-05-03
+- [x] [CK] Component Diagram
+- [x] [SK] Deployment Diagram
+- [x] [MS,MH] Create Stories
+- [x] [FC] Class Diagram
+
+# 2019-05-03
+Attending: CK, FC, MH, SK  
+Excused: MS
+
+## Topics
+- Work on presentation
+
+## Todo Until 2019-05-06
+- Finish presentation

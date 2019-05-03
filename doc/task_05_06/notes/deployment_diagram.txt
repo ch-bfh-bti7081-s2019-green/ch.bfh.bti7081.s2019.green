@@ -1,0 +1,10 @@
+@startuml
+skinparam defaultTextAlignment center
+node "Client\n{external, OS=Any}" as client
+node Firewall as firewall
+node "Application Server\nDatabase Server\n{internal, OS=Linux}" as tomcat
+
+client -- firewall
+tomcat -- firewall
+
+@enduml
