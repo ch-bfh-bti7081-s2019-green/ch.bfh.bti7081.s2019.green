@@ -26,8 +26,8 @@ The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/)
   * [Documentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_04/task_04.pdf)
   * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_04/task_04_presentation.pdf)
 * Task 05 & 06
-  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_06.pdf?job=Doc:PDF)
-  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_06_presentation.pdf?job=Doc:PDF)
+  * [Documentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_05_06/task_05_06.pdf)
+  * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_05_06/task_05_06_presentation.pdf)
 * Task 08
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08.pdf?job=Doc:PDF)
   * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08_presentation.pdf?job=Doc:PDF)

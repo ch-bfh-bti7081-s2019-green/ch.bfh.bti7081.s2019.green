@@ -32,8 +32,8 @@ Doc:PDF:
 #    - .latex/build.sh ./doc/task_03/task_03.md
 #    - .latex/build.sh ./doc/task_04/task_04.md
 #    - .latex/build.sh ./doc/task_04/task_04_presentation.md beamer
-    - .latex/build.sh ./doc/task_05_06/task_05_06.md
-    - .latex/build.sh ./doc/task_05_06/task_05_06_presentation.md beamer
+#    - .latex/build.sh ./doc/task_05_06/task_05_06.md
+#    - .latex/build.sh ./doc/task_05_06/task_05_06_presentation.md beamer
     - .latex/build.sh ./doc/task_08/task_08.md
     - .latex/build.sh ./doc/task_08/task_08_presentation.md beamer
     - .latex/build.sh ./doc/task_09/task_09.md
