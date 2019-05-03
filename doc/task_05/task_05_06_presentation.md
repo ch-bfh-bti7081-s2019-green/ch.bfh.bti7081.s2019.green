@@ -1,6 +1,6 @@
 ---
-title: "Architecture"
-subtitle: "Task 05 - Team Green"
+title: "Architecture & Scrum Setup"
+subtitle: "Task 05 & 06 - Team Green"
 author:
     - Christian Kocher
     - Fabio Caggiano

@@ -5,7 +5,7 @@ The live version of the application can be found [here](https://pms.schaer.dev/)
 
 ## Documentation
 ### Diary
-The current PDF of the diary can be found [here](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/diary.pdf?job=PDF).
+The current PDF of the diary can be found [here](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/diary.pdf).
 
 ### Javadoc
 The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/).
@@ -24,8 +24,7 @@ The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/)
   * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_04/task_04_presentation.pdf)
 * Task 05
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05.pdf?job=PDF)
-  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_presentation.pdf?job=PDF)
+  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_06_presentation.pdf?job=PDF)
 * Task 06
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_06.pdf?job=PDF)
-  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_06_presentation.pdf?job=PDF)
 
