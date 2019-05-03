@@ -28,4 +28,10 @@ The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/)
 * Task 05 & 06
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_06.pdf?job=Doc:PDF)
   * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_05_06_presentation.pdf?job=Doc:PDF)
+* Task 08
+  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08.pdf?job=Doc:PDF)
+  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08_presentation.pdf?job=Doc:PDF)
+* Task 09
+  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09.pdf?job=Doc:PDF)
+  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09_presentation.pdf?job=Doc:PDF)
 
