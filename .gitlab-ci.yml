@@ -33,9 +33,8 @@ Doc:PDF:
 #    - .latex/build.sh ./doc/task_04/task_04.md
 #    - .latex/build.sh ./doc/task_04/task_04_presentation.md beamer
     - .latex/build.sh ./doc/task_05/task_05.md
-    - .latex/build.sh ./doc/task_05/task_05_presentation.md beamer
+    - .latex/build.sh ./doc/task_05/task_05_06_presentation.md beamer
     - .latex/build.sh ./doc/task_06/task_06.md
-    - .latex/build.sh ./doc/task_06/task_06_presentation.md beamer
   artifacts:
     paths:
       - "*.pdf"
