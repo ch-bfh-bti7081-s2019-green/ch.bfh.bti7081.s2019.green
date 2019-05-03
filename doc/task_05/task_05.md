@@ -15,14 +15,19 @@ lot: true
 
 # Component Diagram
 
-![Component Diagram](notes/component_diagram.png){ height=75% }
+![Component Diagram](notes/component_diagram.png)
 
 # Deployment Diagram
 
-![Component Diagram](notes/deployment_diagram.png){ height=75% }
+![Deployment Diagram](notes/deployment_diagram.png)
 
 # Class Diagram for Mood Diary View
 
-The MoodDiaryViewImpl class implements the MoodDiaryView interface and additionally extends the UI classes from the Vaadin framework. Furthermore, the MoodDiaryPresenter implements all methods from the MoodDiaryViewListener with the result that the view can communicate with the MoodDiaryManager model. The MoodDiaryManager class is responsible for querying the database via the Java Persistence API (JPA).
+The MoodDiaryViewImpl class implements the MoodDiaryView interface and
+additionally extends the UI classes from the Vaadin framework. Furthermore, the
+MoodDiaryPresenter implements all methods from the MoodDiaryViewListener with
+the result that the view can communicate with the MoodDiaryManager model. The
+MoodDiaryManager class is responsible for querying the database via the Java
+Persistence API (JPA).
 
-![Component Diagram](notes/class_diagram_mooddiaryview.png){ height=75% }
+![Class Diagram](notes/class_diagram_mooddiaryview.png)

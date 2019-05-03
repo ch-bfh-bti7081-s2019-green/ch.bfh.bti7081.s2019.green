@@ -13,12 +13,12 @@ lang: "en"
 
 # Component Diagram
 
-![Component Diagram](notes/component_diagram.png){ height=75% }
+![Component Diagram](notes/component_diagram.png)
 
 # Deployment Diagram
 
-![Component Diagram](notes/deployment_diagram.png){ height=75% }
+![Deployment Diagram](notes/deployment_diagram.png)
 
 # Class Diagram for Mood Diary View
 
-![Component Diagram](notes/class_diagram_mooddiaryview.png){ height=75% }
+![Class Diagram](notes/class_diagram_mooddiaryview.png)
