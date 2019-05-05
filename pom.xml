@@ -45,6 +45,13 @@
             <artifactId>vaadin-core</artifactId>
         </dependency>
 
+        <!--Project Lombok for less boilerplate code-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.6</version>
+        </dependency>
+
         <!-- Added to provide logging output as Flow uses -->
         <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
         <dependency>

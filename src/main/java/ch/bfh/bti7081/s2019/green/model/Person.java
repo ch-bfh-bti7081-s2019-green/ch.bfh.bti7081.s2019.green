@@ -1,12 +1,13 @@
 package ch.bfh.bti7081.s2019.green.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity()
+@Data
+@Entity
 @Table(name = "PERSON")
 public class Person {
 
@@ -24,49 +25,13 @@ public class Person {
     private String username;
 
     @Column(name = "birth_date")
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate birthdate;
+
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    private Contact contactData;
 
     public Person(){
         // explicit empty constructor for hibernate
-    }
-
-    public Long getAhvNumber() {
-        return ahvNumber;
-    }
-
-    public void setAhvNumber(Long ahvNumber) {
-        this.ahvNumber = ahvNumber;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
     }
 }

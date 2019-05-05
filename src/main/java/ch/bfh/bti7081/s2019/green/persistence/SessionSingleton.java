@@ -1,6 +1,10 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
+import ch.bfh.bti7081.s2019.green.model.Contact;
 import ch.bfh.bti7081.s2019.green.model.Person;
+import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
+import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
+import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,8 +43,14 @@ public class SessionSingleton {
     private Configuration createConfig() {
         Configuration config = new Configuration();
 
+        // Register converters
+        config.addAnnotatedClass(LocalDateConverter.class);
+        config.addAnnotatedClass(LocalDateTimeConverter.class);
+        config.addAnnotatedClass(ZonedDateTimeConverter.class);
+
         // Register annotated classes
         config.addAnnotatedClass(Person.class);
+        config.addAnnotatedClass(Contact.class);
 
         return config;
     }
