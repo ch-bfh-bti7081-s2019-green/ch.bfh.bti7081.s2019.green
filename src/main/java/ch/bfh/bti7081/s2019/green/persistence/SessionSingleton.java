@@ -81,7 +81,7 @@ public class SessionSingleton {
         }
     }
 
-    public Optional executeInTransaction(Function<Session, Optional> runnable) {
+    public <T> Optional<T> executeInTransaction(Function<Session, Optional<T>> runnable) {
         try {
             return executeInTransaction(runnable, 10);
         } catch (HibernateException hex) {
@@ -90,12 +90,12 @@ public class SessionSingleton {
         return Optional.empty();
     }
 
-    public Optional executeInTransaction(Function<Session, Optional> runnable, int timeoutInSeconds) {
+    public <T> Optional<T> executeInTransaction(Function<Session, Optional<T>> runnable, int timeoutInSeconds) {
         try {
             Transaction transaction = session.getTransaction();
             transaction.setTimeout(timeoutInSeconds);
             transaction.begin();
-            Optional result = runnable.apply(session);
+            Optional<T> result = runnable.apply(session);
             transaction.commit();
             return result;
         } catch (HibernateException hex) {

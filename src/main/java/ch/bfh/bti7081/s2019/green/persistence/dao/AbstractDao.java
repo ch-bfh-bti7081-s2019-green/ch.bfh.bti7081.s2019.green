@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.persistence.dao;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import org.hibernate.Query;
 
+import javax.persistence.TypedQuery;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -16,15 +17,15 @@ public abstract class AbstractDao<T> {
     }
 
     public List<T> findAll(){
-        Optional result = SessionSingleton.getInstance().executeInTransaction(session -> {
-            Query query = session.createQuery(String.format("select t from %s t", clazz.getSimpleName()));
-            return Optional.ofNullable(query.list());
+        Optional<List<T>> result = SessionSingleton.getInstance().executeInTransaction(session -> {
+            TypedQuery<T> query = session.createQuery(String.format("select t from %s t", clazz.getSimpleName()), clazz);
+            return Optional.ofNullable(query.getResultList());
         });
 
-        return (List<T>) result.orElse(Collections.EMPTY_LIST);
+        return result.orElse(Collections.emptyList());
     }
 
-    public Optional findById(final Serializable id){
+    public Optional<T> findById(final Serializable id){
         return SessionSingleton.getInstance().executeInTransaction(session -> {
             return Optional.ofNullable(session.get(clazz, id));
         });
