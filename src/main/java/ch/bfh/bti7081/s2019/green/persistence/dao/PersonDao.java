@@ -17,9 +17,10 @@ public class PersonDao extends AbstractDao<Person>{
         return db.executeInTransaction(session -> {
             String queryString = "select p from Person p" +
                     " where lower(p.contactData.email) like" +
-                    " lower('%" + email + "%')";
+                    " lower(:email)";
             Query query = session.createQuery(queryString);
-            return Optional.ofNullable(query.getFirstResult());
+            query.setParameter("email", "%" + email + "%");
+            return Optional.ofNullable(query.uniqueResult());
         });
     }
 }

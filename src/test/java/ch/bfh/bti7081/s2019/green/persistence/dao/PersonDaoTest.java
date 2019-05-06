@@ -6,6 +6,8 @@ import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +21,7 @@ public class PersonDaoTest {
 
     private static PersonDao dao = new PersonDao();
     private static SessionSingleton db = SessionSingleton.getInstance();
+    private static final Logger LOGGER = LoggerFactory.getLogger(PersonDaoTest.class);
 
     @BeforeClass
     public static void setup(){
@@ -56,7 +59,7 @@ public class PersonDaoTest {
 
     @Test
     public void testFindByEmail(){
-        Optional<Person> result = dao.findByEmail("richard@stallman.org");
+        Optional<Person> result = dao.findByEmail("riCHard@stallman.org");
 
         assertThat(result.isPresent(), is(Boolean.TRUE));
         assertThat(result.get().getFirstname(), is("Richard"));
@@ -79,11 +82,11 @@ public class PersonDaoTest {
         contact.setCountry(address.split(" ")[2]);
         contact.setPerson(person);
 
+        db.executeInTransactionNoResult(s -> s.save(person));
+        person.setContactData(contact);
         db.executeInTransactionNoResult(s -> s.save(contact));
 
-        person.setContactData(contact);
 
-        db.executeInTransactionNoResult(s -> s.save(person));
 
         return person;
     }
