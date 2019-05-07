@@ -120,7 +120,7 @@ class Prescription{
 
 Prescription "1" --- "1" Medication : prescribes
 Prescription "1" --- "1" Dose : has dosage
-Prescription "1" --- "*" Recurrence : recurs every
+Reminder "1" --- "*" Recurrence : recurs every
 
 
 interface Recurrence{

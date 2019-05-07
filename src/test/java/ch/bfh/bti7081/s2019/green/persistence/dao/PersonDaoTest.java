@@ -25,7 +25,7 @@ public class PersonDaoTest {
 
     @BeforeClass
     public static void setup(){
-        Person james = savePerson(1337L,
+        Person james = savePerson(1337,
                 "James Gosling",
                 "iMadeJava",
                 "033 12 34 56",
@@ -33,7 +33,7 @@ public class PersonDaoTest {
                 "Coffestr Seattle US");
 
 
-        Person richard = savePerson(42L,
+        Person richard = savePerson(42,
                 "Richard Stallman",
                 "freeSoftwareIsCool",
                 "[redacted]",
@@ -51,7 +51,7 @@ public class PersonDaoTest {
 
     @Test
     public void testFindById(){
-        Optional<Person> result = dao.findById(42L);
+        Optional<Person> result = dao.findById(42);
 
         assertThat(result.isPresent(), is(Boolean.TRUE));
         assertThat(result.get().getFirstname(), is("Richard"));
@@ -65,7 +65,7 @@ public class PersonDaoTest {
         assertThat(result.get().getFirstname(), is("Richard"));
     }
 
-    private static Person savePerson(Long id, String name, String username, String phoneNumber, String email, String address){
+    private static Person savePerson(Integer id, String name, String username, String phoneNumber, String email, String address){
         Person person = new Person();
         person.setAhvNumber(id);
         person.setBirthdate(LocalDate.now());

@@ -7,11 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "CONTACT")
-public class Contact {
-
-    @Id
-    @Column(name = "ID")
-    private Long id;
+public class Contact extends AbstractBaseEntity{
 
     @Column(name = "PHONE")
     private String phone;

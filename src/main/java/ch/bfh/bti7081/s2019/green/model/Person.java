@@ -9,11 +9,10 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "PERSON")
-public class Person {
-
-    @Id
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Person extends AbstractBaseEntity{
     @Column(name = "AHV")
-    private Long ahvNumber;
+    private Integer ahvNumber;
 
     @Column(name = "first_name")
     private String firstname;
