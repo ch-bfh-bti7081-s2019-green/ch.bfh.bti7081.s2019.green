@@ -15,6 +15,8 @@ import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.PersistenceException;
+import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -62,7 +64,28 @@ public class SessionSingleton {
         return instance;
     }
 
-    public void executeInTransactionNoResult(Consumer<Session> runnable){
+    /**
+     * Saves your entity in the DB and returns the generated identifier.
+     */
+    public <T> Serializable save(final T entity){
+        return instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+    }
+
+    /**
+     * Makes your transient entity persistent, but doesn't guarantee assigning and identifier.
+     */
+    public <T> void persist(final T entity){
+        instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+    }
+
+    /**
+     * Deletes your entity from the database.
+     */
+    public <T> void delete(final T entity){
+        executeInTransactionNoResult(s -> s.delete(entity));
+    }
+
+    public void executeInTransactionNoResult(Consumer<Session> runnable) {
         try {
             executeInTransactionNoResult(runnable, 10);
         } catch (HibernateException hex) {
@@ -70,7 +93,7 @@ public class SessionSingleton {
         }
     }
 
-    public void executeInTransactionNoResult(Consumer<Session> runnable, int timeoutInSeconds){
+    public void executeInTransactionNoResult(Consumer<Session> runnable, int timeoutInSeconds) {
         try {
             executeInTransaction(s -> {
                 runnable.accept(s);

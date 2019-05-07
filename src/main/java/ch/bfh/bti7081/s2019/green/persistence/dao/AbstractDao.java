@@ -30,16 +30,4 @@ public abstract class AbstractDao<T> {
             return Optional.ofNullable(session.get(clazz, id));
         });
     }
-
-    public void save(T object){
-        SessionSingleton.getInstance().executeInTransactionNoResult(session -> {
-            session.persist(object);
-        });
-    }
-
-    public void delete(T object){
-        SessionSingleton.getInstance().executeInTransactionNoResult(session -> {
-            session.delete(object);
-        });
-    }
 }
