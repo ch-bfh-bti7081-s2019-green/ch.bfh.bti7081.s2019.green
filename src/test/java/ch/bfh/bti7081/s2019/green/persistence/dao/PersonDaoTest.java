@@ -57,9 +57,9 @@ public class PersonDaoTest {
         assertThat(result.get().getFirstname(), is("Richard"));
     }
 
-    private static Person savePerson(Integer id, String name, String username, String phoneNumber, String email, String address){
+    private static Person savePerson(Integer ahvNumber, String name, String username, String phoneNumber, String email, String address){
         Person person = new Person();
-        person.setAhvNumber(id);
+        person.setAhvNumber(ahvNumber);
         person.setBirthdate(LocalDate.now());
         person.setFirstname(name.split(" ")[0]);
         person.setLastname(name.split(" ")[1]);
