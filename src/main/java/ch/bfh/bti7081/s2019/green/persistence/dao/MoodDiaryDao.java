@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
 import ch.bfh.bti7081.s2019.green.model.MoodDiary;
+import ch.bfh.bti7081.s2019.green.model.Patient;
 import ch.bfh.bti7081.s2019.green.model.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import org.hibernate.query.Query;
@@ -14,13 +15,13 @@ public class MoodDiaryDao extends AbstractDao<MoodDiary> {
         super(MoodDiary.class);
     }
 
-    public Optional findByPatient(final String email) {
+    public Optional findByPatient(final Person patient) {
         return db.executeInTransaction(session -> {
-            String queryString = "select p from Person p" +
-                    " where lower(p.contactData.email) like" +
-                    " lower(:email)";
-            Query<Person> query = session.createQuery(queryString, Person.class);
-            query.setParameter("email", "%" + email + "%");
+            String queryString = "SELECT d FROM MoodDiary d" +
+                    " WHERE d.patient = :patient";
+            Query<MoodDiary> query = session.createQuery(queryString, MoodDiary.class);
+            query.setParameter("patient", patient);
+
             return Optional.ofNullable(query.uniqueResult());
         });
     }

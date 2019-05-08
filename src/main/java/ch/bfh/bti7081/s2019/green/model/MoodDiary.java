@@ -14,7 +14,11 @@ public class MoodDiary {
     @Column(name = "ID")
     private Long id;
 
-    @OneToMany(mappedBy = "MOOD_DIARY")
+    @OneToOne
+    @JoinColumn(name = "patient")
+    private Patient patient;
+
+    @OneToMany(mappedBy = "diary")
     private List<Entry> entries;
 
 

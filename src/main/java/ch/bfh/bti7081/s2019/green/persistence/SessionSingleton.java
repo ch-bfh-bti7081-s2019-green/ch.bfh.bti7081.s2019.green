@@ -1,9 +1,9 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
-import ch.bfh.bti7081.s2019.green.model.Contact;
-import ch.bfh.bti7081.s2019.green.model.Person;
+import ch.bfh.bti7081.s2019.green.model.*;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
+import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -47,12 +47,17 @@ public class SessionSingleton {
 
         // Register converters
         config.addAnnotatedClass(LocalDateConverter.class);
+        config.addAnnotatedClass(LocalTimeConverter.class);
         config.addAnnotatedClass(LocalDateTimeConverter.class);
         config.addAnnotatedClass(ZonedDateTimeConverter.class);
 
         // Register annotated classes
         config.addAnnotatedClass(Person.class);
         config.addAnnotatedClass(Contact.class);
+        config.addAnnotatedClass(Patient.class);
+        config.addAnnotatedClass(MoodDiary.class);
+        config.addAnnotatedClass(Activity.class);
+        config.addAnnotatedClass(Entry.class);
 
         return config;
     }

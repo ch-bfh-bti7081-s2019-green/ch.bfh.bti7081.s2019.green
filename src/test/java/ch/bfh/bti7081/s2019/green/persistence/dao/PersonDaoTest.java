@@ -54,7 +54,7 @@ public class PersonDaoTest {
         Optional<Person> result = dao.findById(42L);
 
         assertThat(result.isPresent(), is(Boolean.TRUE));
-        assertThat(result.get().getFirstname(), is("Richard"));
+        assertThat(result.get().getFirstName(), is("Richard"));
     }
 
     @Test
@@ -62,15 +62,15 @@ public class PersonDaoTest {
         Optional<Person> result = dao.findByEmail("riCHard@stallman.org");
 
         assertThat(result.isPresent(), is(Boolean.TRUE));
-        assertThat(result.get().getFirstname(), is("Richard"));
+        assertThat(result.get().getFirstName(), is("Richard"));
     }
 
     private static Person savePerson(Long id, String name, String username, String phoneNumber, String email, String address){
         Person person = new Person();
         person.setAhvNumber(id);
-        person.setBirthdate(LocalDate.now());
-        person.setFirstname(name.split(" ")[0]);
-        person.setLastname(name.split(" ")[1]);
+        person.setBirthDate(LocalDate.now());
+        person.setFirstName(name.split(" ")[0]);
+        person.setLastName(name.split(" ")[1]);
         person.setUsername(username);
 
         Contact contact = new Contact();

@@ -29,8 +29,12 @@ public class Entry {
     @Column(name = "WATER_DRUNK")
     private double waterDrunk;
 
-    @OneToMany(mappedBy = "ENTRY")
-    private List<Entry> activities;
+    @ManyToOne
+    @JoinColumn(name = "diary")
+    private MoodDiary diary;
+
+    @OneToMany(mappedBy = "entry")
+    private List<Activity> activities;
 
     @Column(name = "notes")
     private String notes;

@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "PERSON")
 public class Person {
 
