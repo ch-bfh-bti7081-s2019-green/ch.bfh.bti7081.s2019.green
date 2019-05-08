@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
-import ch.bfh.bti7081.s2019.green.model.Contact;
-import ch.bfh.bti7081.s2019.green.model.Person;
+import ch.bfh.bti7081.s2019.green.model.person.Contact;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
@@ -25,7 +25,7 @@ public class PersonDaoTest {
 
     @BeforeClass
     public static void setup(){
-        Person james = savePerson(1337L,
+        Person james = savePerson(1337,
                 "James Gosling",
                 "iMadeJava",
                 "033 12 34 56",
@@ -33,7 +33,7 @@ public class PersonDaoTest {
                 "Coffestr Seattle US");
 
 
-        Person richard = savePerson(42L,
+        Person richard = savePerson(42,
                 "Richard Stallman",
                 "freeSoftwareIsCool",
                 "[redacted]",
@@ -50,14 +50,6 @@ public class PersonDaoTest {
     }
 
     @Test
-    public void testFindById(){
-        Optional<Person> result = dao.findById(42L);
-
-        assertThat(result.isPresent(), is(Boolean.TRUE));
-        assertThat(result.get().getFirstname(), is("Richard"));
-    }
-
-    @Test
     public void testFindByEmail(){
         Optional<Person> result = dao.findByEmail("riCHard@stallman.org");
 
@@ -65,9 +57,9 @@ public class PersonDaoTest {
         assertThat(result.get().getFirstname(), is("Richard"));
     }
 
-    private static Person savePerson(Long id, String name, String username, String phoneNumber, String email, String address){
+    private static Person savePerson(Integer ahvNumber, String name, String username, String phoneNumber, String email, String address){
         Person person = new Person();
-        person.setAhvNumber(id);
+        person.setAhvNumber(ahvNumber);
         person.setBirthdate(LocalDate.now());
         person.setFirstname(name.split(" ")[0]);
         person.setLastname(name.split(" ")[1]);

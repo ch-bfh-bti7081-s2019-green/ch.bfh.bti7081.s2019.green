@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.person;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
 
@@ -9,11 +10,10 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "PERSON")
-public class Person {
-
-    @Id
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Person extends AbstractBaseEntity {
     @Column(name = "AHV")
-    private Long ahvNumber;
+    private Integer ahvNumber;
 
     @Column(name = "first_name")
     private String firstname;

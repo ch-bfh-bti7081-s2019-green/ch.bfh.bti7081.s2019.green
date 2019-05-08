@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
-import ch.bfh.bti7081.s2019.green.model.Contact;
-import ch.bfh.bti7081.s2019.green.model.Person;
+import ch.bfh.bti7081.s2019.green.model.person.Contact;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
@@ -15,7 +15,6 @@ import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.PersistenceException;
 import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
