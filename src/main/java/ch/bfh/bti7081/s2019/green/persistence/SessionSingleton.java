@@ -5,6 +5,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.model.prescription.*;
+import ch.bfh.bti7081.s2019.green.model.reminder.Recurrence;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
