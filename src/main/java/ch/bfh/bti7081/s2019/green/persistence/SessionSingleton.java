@@ -1,14 +1,16 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
 import ch.bfh.bti7081.s2019.green.model.person.Contact;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
+import ch.bfh.bti7081.s2019.green.model.person.Therapist;
+import ch.bfh.bti7081.s2019.green.model.prescription.*;
+import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -49,11 +51,28 @@ public class SessionSingleton {
         config.addAnnotatedClass(LocalDateTimeConverter.class);
         config.addAnnotatedClass(ZonedDateTimeConverter.class);
 
-        // Register annotated classes
-        config.addAnnotatedClass(Person.class);
-        config.addAnnotatedClass(Contact.class);
+        registerEntities(config);
 
         return config;
+    }
+
+    private void registerEntities(Configuration config){
+        // Person related entities
+        config.addAnnotatedClass(Contact.class);
+        config.addAnnotatedClass(Patient.class);
+        config.addAnnotatedClass(Person.class);
+        config.addAnnotatedClass(Therapist.class);
+
+        // Prescription related entities
+        config.addAnnotatedClass(Dose.class);
+        config.addAnnotatedClass(Intake.class);
+        config.addAnnotatedClass(Medication.class);
+        config.addAnnotatedClass(Prescription.class);
+        config.addAnnotatedClass(Unit.class);
+
+        // Reminder related entities
+        config.addAnnotatedClass(Reminder.class);
+        config.addAnnotatedClass(WeekdayRecurrence.class);
     }
 
     public static SessionSingleton getInstance() {
