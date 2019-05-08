@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
-import ch.bfh.bti7081.s2019.green.model.Contact;
-import ch.bfh.bti7081.s2019.green.model.Person;
+import ch.bfh.bti7081.s2019.green.model.person.Contact;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
@@ -47,14 +47,6 @@ public class PersonDaoTest {
 
         assertThat(result, notNullValue());
         assertThat(result.size(), is(2));
-    }
-
-    @Test
-    public void testFindById(){
-        Optional<Person> result = dao.findById(42);
-
-        assertThat(result.isPresent(), is(Boolean.TRUE));
-        assertThat(result.get().getFirstname(), is("Richard"));
     }
 
     @Test

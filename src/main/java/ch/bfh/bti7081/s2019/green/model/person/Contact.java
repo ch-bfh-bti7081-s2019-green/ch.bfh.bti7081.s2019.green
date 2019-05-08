@@ -1,5 +1,7 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.person;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,7 +9,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "CONTACT")
-public class Contact extends AbstractBaseEntity{
+public class Contact extends AbstractBaseEntity {
 
     @Column(name = "PHONE")
     private String phone;

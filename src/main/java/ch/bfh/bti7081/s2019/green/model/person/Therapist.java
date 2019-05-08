@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.person;
 
+import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +13,6 @@ public class Therapist extends Person{
     @OneToMany(mappedBy = "therapist")
     private List<Patient> patients;
 
-    //TODO SQL
     @OneToMany(mappedBy = "therapist")
     private List<Prescription> prescriptions;
 }

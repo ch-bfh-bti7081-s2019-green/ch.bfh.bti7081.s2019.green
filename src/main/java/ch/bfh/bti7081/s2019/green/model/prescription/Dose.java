@@ -1,13 +1,14 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.prescription;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-//TODO SQL
-public class Dose extends AbstractBaseEntity{
+@Table(name = "DOSE")
+public class Dose extends AbstractBaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "UNIT")

@@ -1,5 +1,9 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.prescription;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
+import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
@@ -10,8 +14,8 @@ import java.time.ZonedDateTime;
 
 @Data
 @Entity
-//TODO SQL
-public class Prescription extends AbstractBaseEntity{
+@Table(name = "PRESCRIPTION")
+public class Prescription extends AbstractBaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "PATIENT_ID")
@@ -37,7 +41,8 @@ public class Prescription extends AbstractBaseEntity{
     @Convert(converter = LocalDateConverter.class)
     private LocalDate validUntil;
 
-    @OneToMany(mappedBy = "prescription")
+    @OneToOne(mappedBy = "prescription")
+    @JoinColumn(name = "REMINDER_ID")
     private Reminder reminder;
 
     @Column(name = "FIRST_INTAKE")

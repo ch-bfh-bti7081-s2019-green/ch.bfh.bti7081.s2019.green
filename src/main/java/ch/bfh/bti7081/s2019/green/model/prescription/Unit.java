@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.prescription;
 
 public enum Unit {
     PILL("pill", "pcs"),

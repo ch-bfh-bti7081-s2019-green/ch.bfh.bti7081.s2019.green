@@ -1,16 +1,16 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.prescription;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 
 @Data
 @Entity
-//TODO SQL
-public class Intake extends AbstractBaseEntity{
+@Table(name = "INTAKE")
+public class Intake extends AbstractBaseEntity {
     @Column(name = "TIME")
     @Convert(converter = ZonedDateTimeConverter.class)
     ZonedDateTime time;
