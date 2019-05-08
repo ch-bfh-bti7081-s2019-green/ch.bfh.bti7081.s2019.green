@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
-import ch.bfh.bti7081.s2019.green.model.*;
+import ch.bfh.bti7081.s2019.green.model.person.Contact;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
@@ -15,7 +16,6 @@ import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.PersistenceException;
 import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -72,21 +72,21 @@ public class SessionSingleton {
     /**
      * Saves your entity in the DB and returns the generated identifier.
      */
-    public <T> Serializable save(final T entity){
+    public <T> Serializable save(final T entity) {
         return instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
     }
 
     /**
      * Makes your transient entity persistent, but doesn't guarantee assigning and identifier.
      */
-    public <T> void persist(final T entity){
+    public <T> void persist(final T entity) {
         instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
     }
 
     /**
      * Deletes your entity from the database.
      */
-    public <T> void delete(final T entity){
+    public <T> void delete(final T entity) {
         executeInTransactionNoResult(s -> s.delete(entity));
     }
 
