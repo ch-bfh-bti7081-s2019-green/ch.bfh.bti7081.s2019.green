@@ -1,6 +1,11 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
-import ch.bfh.bti7081.s2019.green.model.*;
+import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
+import ch.bfh.bti7081.s2019.green.model.diary.Entry;
+import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
@@ -23,7 +28,8 @@ public class MoodDiaryDaoTest {
 
     @BeforeClass
     public static void setup() {
-        Patient james = createPatientWithDiary(33L,
+        Patient james = createPatientWithDiary(
+                30,
                 "James Gosling",
                 "iMadeJava",
                 "033 12 34 56",
@@ -59,9 +65,9 @@ public class MoodDiaryDaoTest {
     }
 
 
-    private static Patient createPatientWithDiary(Long id, String name, String username, String phoneNumber, String email, String address) {
+    private static Patient createPatientWithDiary(int ahv, String name, String username, String phoneNumber, String email, String address) {
         Patient patient = new Patient();
-        patient.setAhvNumber(id);
+        patient.setAhvNumber(ahv);
         patient.setBirthDate(LocalDate.now());
         patient.setFirstName(name.split(" ")[0]);
         patient.setLastName(name.split(" ")[1]);

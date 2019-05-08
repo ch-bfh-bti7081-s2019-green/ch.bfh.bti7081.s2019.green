@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,5 +18,5 @@ public class Intake extends AbstractBaseEntity {
 
     @OneToMany
     @JoinColumn(name = "PRESCRIPTION_ID")
-    Prescription prescription;
+    List<Prescription> prescription;
 }

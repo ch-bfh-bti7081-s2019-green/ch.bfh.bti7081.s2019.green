@@ -1,10 +1,12 @@
 package ch.bfh.bti7081.s2019.green.model.person;
 
+import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -20,8 +22,9 @@ public class Patient extends Person {
             inverseJoinColumns = @JoinColumn(name = "EC_PERSON_ID", referencedColumnName = "ID"))
     private List<Person> emergencyContacts;
 
-    //TODO implement MoodDiary
-    //private Optional<MoodDiary> diary;
+    @OneToOne
+    @JoinColumn(name = "diary")
+    private MoodDiary diary;
 
     @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptions;

@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.diary;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import lombok.Data;
 
@@ -9,14 +10,9 @@ import java.time.LocalTime;
 @Data
 @Entity
 @Table(name = "ACTIVITIES")
-public class Activity {
-
-    @Id
-    @Column(name = "ID")
-    private Long id;
-
-    @Enumerated
-    @Column(columnDefinition = "smallint")
+public class Activity extends AbstractBaseEntity {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TYPE")
     private ActivityType type;
 
     @Column(name = "TIME")

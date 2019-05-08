@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.model;
+package ch.bfh.bti7081.s2019.green.model.diary;
 
+import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
 
@@ -10,12 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "ENTRIES")
-public class Entry {
-
-    @Id
-    @Column(name = "ID")
-    private Long id;
-
+public class Entry extends AbstractBaseEntity {
     @Column(name = "DATE")
     @Convert(converter = LocalDateConverter.class)
     private LocalDate date;
