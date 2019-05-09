@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2019.green.model.person;
 
+import ch.bfh.bti7081.s2019.green.model.prescription.Intake;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
 
@@ -14,7 +15,7 @@ public class Patient extends Person {
     @JoinColumn(name = "THERAPIST_ID")
     private Therapist therapist;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Person.class)
     @JoinTable(name = "EMERGENCY_CONTACT",
             joinColumns = @JoinColumn(name = "PATIENT_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "EC_PERSON_ID", referencedColumnName = "ID"))
@@ -26,5 +27,6 @@ public class Patient extends Person {
     @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptions;
 
-    //private List<Intake> intakes;
+    @OneToMany(mappedBy = "patient")
+    private List<Intake> intakes;
 }
