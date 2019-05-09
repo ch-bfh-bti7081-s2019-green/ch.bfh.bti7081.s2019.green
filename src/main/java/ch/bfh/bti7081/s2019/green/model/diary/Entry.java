@@ -3,12 +3,15 @@ package ch.bfh.bti7081.s2019.green.model.diary;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@ToString(exclude = {"diary", "activities"})
 @Entity
 @Table(name = "ENTRIES")
 public class Entry extends AbstractBaseEntity {
@@ -25,8 +28,8 @@ public class Entry extends AbstractBaseEntity {
     @Column(name = "WATER_DRUNK")
     private double waterDrunk;
 
-    @ManyToOne
-    @JoinColumn(name = "diary")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "DIARY_ID")
     private MoodDiary diary;
 
     @OneToMany(mappedBy = "entry")
@@ -34,6 +37,22 @@ public class Entry extends AbstractBaseEntity {
 
     @Column(name = "NOTES")
     private String notes;
+
+    public void addActivity(Activity activity) {
+        if (activities == null) {
+            activities = new ArrayList<>();
+        }
+        activities.add(activity);
+        activity.setEntry(this);
+    }
+
+    public void removeEntry(Activity activity) {
+        if (activities == null) {
+            activities = new ArrayList<>();
+        }
+        activities.remove(activity);
+        activity.setEntry(null);
+    }
 
     public Entry() {
         // explicit empty constructor for hibernate

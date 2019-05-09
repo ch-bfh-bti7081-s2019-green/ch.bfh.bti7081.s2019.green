@@ -4,11 +4,13 @@ import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.prescription.Intake;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
+@ToString(exclude = {"diary"})
 @Entity
 @Table(name = "PATIENT")
 public class Patient extends Person {

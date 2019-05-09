@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.vaadin.flow.internal.UsageStatistics.getEntries;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -72,13 +73,12 @@ public class MoodDiaryDaoTest {
         patient.setFirstName(name.split(" ")[0]);
         patient.setLastName(name.split(" ")[1]);
         patient.setUsername(username);
-        db.executeInTransactionNoResult(s -> s.save(patient));
+
 
         MoodDiary diary = new MoodDiary();
         diary.setId(IdUtil.next(MoodDiary.class));
         patient.setDiary(diary);
         diary.setPatient(patient);
-        db.executeInTransactionNoResult(s -> s.save(diary));
 
         Entry entry = new Entry();
         entry.setDate(LocalDate.now());
@@ -87,17 +87,20 @@ public class MoodDiaryDaoTest {
         entry.setSleepHours(7.5);
         entry.setWaterDrunk(3.1);
         entry.setMood(6);
-        entry.setDiary(diary);
-
-        db.executeInTransactionNoResult(s -> s.save(entry));
+        diary.addEntry(entry);
 
         Activity activity = new Activity();
         activity.setId(IdUtil.next(Activity.class));
         activity.setText("Hamburger");
         activity.setTime(LocalTime.now());
         activity.setType(ActivityType.FOOD);
-        activity.setEntry(entry);
+        entry.addActivity(activity);
+
+        db.executeInTransactionNoResult(s -> s.save(patient));
+        db.executeInTransactionNoResult(s -> s.save(diary));
+        db.executeInTransactionNoResult(s -> s.save(entry));
         db.executeInTransactionNoResult(s -> s.save(activity));
+
 
         return patient;
     }

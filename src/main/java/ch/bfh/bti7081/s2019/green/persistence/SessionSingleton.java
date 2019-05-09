@@ -99,7 +99,9 @@ public class SessionSingleton {
      * Saves your entity in the DB and returns the generated identifier.
      */
     public <T> Serializable save(final T entity) {
-        return instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+        Serializable res = instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+        session.getEntityManagerFactory().getCache().evictAll();
+        return res;
     }
 
     /**
