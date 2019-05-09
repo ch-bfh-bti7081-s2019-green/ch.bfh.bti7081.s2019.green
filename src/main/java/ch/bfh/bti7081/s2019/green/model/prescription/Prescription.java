@@ -41,7 +41,7 @@ public class Prescription extends AbstractBaseEntity {
     @Convert(converter = LocalDateConverter.class)
     private LocalDate validUntil;
 
-    @OneToOne(mappedBy = "prescription")
+    @OneToOne
     @JoinColumn(name = "REMINDER_ID")
     private Reminder reminder;
 

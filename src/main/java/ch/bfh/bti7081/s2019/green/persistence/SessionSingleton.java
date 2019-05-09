@@ -1,6 +1,5 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
-import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
@@ -8,12 +7,9 @@ import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
-import ch.bfh.bti7081.s2019.green.model.prescription.Dose;
-import ch.bfh.bti7081.s2019.green.model.prescription.Intake;
-import ch.bfh.bti7081.s2019.green.model.prescription.Medication;
-import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
-import ch.bfh.bti7081.s2019.green.model.reminder.Recurrence;
+import ch.bfh.bti7081.s2019.green.model.prescription.*;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
@@ -32,6 +28,10 @@ import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+<<<<<<<HEAD
+=======
+        >>>>>>>develop
 
 public class SessionSingleton {
     private static SessionSingleton instance = null;
@@ -62,25 +62,33 @@ public class SessionSingleton {
         config.addAnnotatedClass(LocalTimeConverter.class);
         config.addAnnotatedClass(LocalDateTimeConverter.class);
         config.addAnnotatedClass(ZonedDateTimeConverter.class);
+        registerEntities(config);
 
-        // Register annotated classes
-        config.addAnnotatedClass(Person.class);
+        return config;
+    }
+
+    private void registerEntities(Configuration config) {
+        // Person related entities
         config.addAnnotatedClass(Contact.class);
         config.addAnnotatedClass(Patient.class);
-        config.addAnnotatedClass(MoodDiary.class);
-        config.addAnnotatedClass(Activity.class);
+        config.addAnnotatedClass(Person.class);
         config.addAnnotatedClass(Therapist.class);
-        config.addAnnotatedClass(Entry.class);
+
+        // Prescription related entities
         config.addAnnotatedClass(Dose.class);
         config.addAnnotatedClass(Intake.class);
         config.addAnnotatedClass(Medication.class);
-        config.addAnnotatedClass(AbstractBaseEntity.class);
-        config.addAnnotatedClass(Recurrence.class);
-        config.addAnnotatedClass(Reminder.class);
         config.addAnnotatedClass(Prescription.class);
+        config.addAnnotatedClass(Unit.class);
 
+        // Reminder related entities
+        config.addAnnotatedClass(Reminder.class);
+        config.addAnnotatedClass(WeekdayRecurrence.class);
 
-        return config;
+        // Diary related entities
+        config.addAnnotatedClass(Activity.class);
+        config.addAnnotatedClass(Entry.class);
+        config.addAnnotatedClass(MoodDiary.class);
     }
 
     public static SessionSingleton getInstance() {
