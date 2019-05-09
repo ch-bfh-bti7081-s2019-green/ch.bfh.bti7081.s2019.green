@@ -29,9 +29,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-<<<<<<<HEAD
-=======
-        >>>>>>>develop
 
 public class SessionSingleton {
     private static SessionSingleton instance = null;
