@@ -48,7 +48,7 @@ public class MoodDiaryDaoTest {
     @Test
     public void testFindByPatient() {
         PersonDao personDao = new PersonDao();
-        Person james = personDao.findById(33).get();
+        Person james = personDao.findById(1).get();
         assertThat(james.getFirstName(), is("James"));
 
         Optional<MoodDiary> result = dao.findByPatient(james);
@@ -87,10 +87,8 @@ public class MoodDiaryDaoTest {
         entry.setSleepHours(7.5);
         entry.setWaterDrunk(3.1);
         entry.setMood(6);
-        List<Entry> entries = new ArrayList<>();
-        entries.add(entry);
+        entry.setDiary(diary);
 
-        diary.setEntries(entries);
         db.executeInTransactionNoResult(s -> s.save(entry));
 
         Activity activity = new Activity();
@@ -98,11 +96,7 @@ public class MoodDiaryDaoTest {
         activity.setText("Hamburger");
         activity.setTime(LocalTime.now());
         activity.setType(ActivityType.FOOD);
-
-        List<Activity> activities = new ArrayList<>();
-        activities.add(activity);
-
-        entry.setActivities(activities);
+        activity.setEntry(entry);
         db.executeInTransactionNoResult(s -> s.save(activity));
 
         return patient;

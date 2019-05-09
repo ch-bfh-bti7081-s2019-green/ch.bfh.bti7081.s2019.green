@@ -32,7 +32,7 @@ public class Entry extends AbstractBaseEntity {
     @OneToMany(mappedBy = "entry")
     private List<Activity> activities;
 
-    @Column(name = "notes")
+    @Column(name = "NOTES")
     private String notes;
 
     public Entry() {

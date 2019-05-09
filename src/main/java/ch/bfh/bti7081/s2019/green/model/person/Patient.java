@@ -23,7 +23,7 @@ public class Patient extends Person {
     private List<Person> emergencyContacts;
 
     @OneToOne
-    @JoinColumn(name = "diary")
+    @JoinColumn(name = "DIARY_ID")
     private MoodDiary diary;
 
     @OneToMany(mappedBy = "patient")
