@@ -48,7 +48,7 @@ public class MoodDiaryDaoTest {
     @Test
     public void testFindByPatient() {
         PersonDao personDao = new PersonDao();
-        Person james = personDao.findById(33L).get();
+        Person james = personDao.findById(33).get();
         assertThat(james.getFirstName(), is("James"));
 
         Optional<MoodDiary> result = dao.findByPatient(james);
