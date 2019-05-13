@@ -1,4 +1,6 @@
 [![](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/badges/develop/build.svg)](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/pipelines)
+[![Coverage Status](https://coveralls.io/repos/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/badge.svg?branch=develop)](https://coveralls.io/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green?branch=develop)
+
 # Team Green
 ## Application
 The live version of the application can be found [here](https://pms.schaer.dev/).
