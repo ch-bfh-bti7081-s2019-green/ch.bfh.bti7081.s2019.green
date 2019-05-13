@@ -16,7 +16,7 @@ lang: "de-CH"
 ## Legend
 
 | Team Member      | Shorthand | GitHub Username                                           |
-|------------------|-----------|-----------------------------------------------------------|
+| ---------------- | --------- | --------------------------------------------------------- |
 | Christian Kocher | CK        | [\@christiankocher7](https://github.com/christiankocher7) |
 | Fabio Caggiano   | FC        | [\@jmpout](https://github.com/jmpout)                     |
 | Marc Häsler      | MH        | [\@haesler](https://github.com/haesler)                   |
@@ -199,3 +199,45 @@ Excused: MS
 
 ## Todo Until 2019-05-06
 - Finish presentation
+
+# 2019-05-06
+Attending: CK, FC, MH, MS, SK
+
+## Topics
+- Presentation
+- Daily Scrum
+
+# 2019-05-08
+Attending or Homeoffice: CK, FC, MH, MS, SK
+
+## Topics
+- Daily Scrum
+- Work on project
+
+# 2019-05-10
+Attending or Homeoffice: CK, FC, MH, MS, SK
+
+## Topics
+- Daily Scrum
+- Work on project
+
+# 2019-05-13
+Attending or Homeoffice: CK, FC, MH, MS, SK
+
+## Topics
+- Daily Scrum
+- Work on project
+
+# 2019-05-15
+Attending or Homeoffice: CK, FC, MH, MS, SK
+
+## Topics
+- Daily Scrum
+- Work on project
+
+# 2019-05-17
+Attending or Homeoffice: CK, FC, MH, MS, SK
+
+## Topics
+- Daily Scrum
+- Work on project
