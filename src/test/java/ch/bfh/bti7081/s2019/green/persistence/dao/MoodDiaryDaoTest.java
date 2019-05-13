@@ -7,17 +7,16 @@ import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.vaadin.flow.internal.UsageStatistics.getEntries;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -29,6 +28,8 @@ public class MoodDiaryDaoTest {
 
     @BeforeClass
     public static void setup() {
+        DbTestUtil.reset(db, "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
+
         Patient james = createPatientWithDiary(
                 30,
                 "James Gosling",
