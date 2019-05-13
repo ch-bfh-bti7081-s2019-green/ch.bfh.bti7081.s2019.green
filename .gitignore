@@ -10,7 +10,7 @@
 
 **/.~lock*
 
-**/database/test.mv.db
+**/database/*.db
 
 # Build Stuf
 **/*.latex

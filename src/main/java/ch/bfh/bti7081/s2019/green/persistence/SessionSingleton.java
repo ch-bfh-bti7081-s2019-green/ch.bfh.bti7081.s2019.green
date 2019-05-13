@@ -95,6 +95,10 @@ public class SessionSingleton {
         return instance;
     }
 
+    public Session getRawSession(){
+        return this.session;
+    }
+
     /**
      * Saves your entity in the DB and returns the generated identifier.
      */
@@ -150,7 +154,11 @@ public class SessionSingleton {
         try {
             Transaction transaction = session.getTransaction();
             transaction.setTimeout(timeoutInSeconds);
-            transaction.begin();
+            if(!transaction.isActive()){
+                transaction.begin();
+            }else {
+                LOG.warn("Transaction is already active");
+            }
             Optional<T> result = runnable.apply(session);
             transaction.commit();
             return result;

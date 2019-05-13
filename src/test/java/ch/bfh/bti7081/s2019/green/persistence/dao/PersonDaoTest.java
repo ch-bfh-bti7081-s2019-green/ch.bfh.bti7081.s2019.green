@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.persistence.dao;
 import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,6 +26,8 @@ public class PersonDaoTest {
 
     @BeforeClass
     public static void setup() {
+        DbTestUtil.reset(db, "PERSON", "CONTACT");
+
         Person james = savePerson(1337,
                 "James Gosling",
                 "iMadeJava",
