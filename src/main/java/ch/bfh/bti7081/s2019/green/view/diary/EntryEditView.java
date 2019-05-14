@@ -19,7 +19,12 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
     private Entry entry;
 
-    public EntryEditView() {
+    @Override
+    public void setParameter(BeforeEvent event, Integer parameter) {
+        // TODO: Check for permissions and existence
+        EntryDao dao = new EntryDao();
+        this.entry = dao.findById(parameter).get();
+
         FormLayout form = new FormLayout();
         NumberField slider = new NumberField();
         slider.setValue(5.0);
@@ -30,17 +35,8 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
         form.addFormItem(slider, "Mood");
 
-
-        this.add(new H2("Edit Entry:"));
+        this.add(new H2("Edit Entry: " + this.entry.getDate()));
         this.add(form);
         this.add(new Button("Update"));
-    }
-
-
-    @Override
-    public void setParameter(BeforeEvent event, Integer parameter) {
-        // TODO: Check for permissions
-        EntryDao dao = new EntryDao();
-        this.entry = dao.findById(parameter).get();
     }
 }
