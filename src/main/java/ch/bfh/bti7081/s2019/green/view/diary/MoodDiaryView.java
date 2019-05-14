@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.view.diary;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
+import ch.bfh.bti7081.s2019.green.persistence.dao.MoodDiaryDao;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -26,19 +27,9 @@ public class MoodDiaryView extends VerticalLayout {
     }
 
     private MoodDiary getDiary() {
-        MoodDiary diary = new MoodDiary();
-        Entry entry = new Entry();
-        entry.setMood(10);
-        entry.setId(2);
-        entry.setDate(LocalDate.now());
-        diary.addEntry(entry);
-
-        Entry entry2 = new Entry();
-        entry2.setMood(5);
-        entry2.setId(3);
-        entry2.setDate(LocalDate.now().minusDays(1));
-        diary.addEntry(entry2);
-        return diary;
+        // TODO: Get the diary of the currently logged in patient
+        MoodDiaryDao dao = new MoodDiaryDao();
+        return dao.findById(1).get();
     }
 
     private void addHeading() {
@@ -52,7 +43,7 @@ public class MoodDiaryView extends VerticalLayout {
         grid.addComponentColumn(entry -> {
             Button button = new Button(VaadinIcon.PENCIL.create());
             button.addClickListener(event -> {
-                UI.getCurrent().navigate("entry/" + entry.getId());
+                UI.getCurrent().navigate("entry/edit/" + entry.getId());
             });
             return button;
         }).setHeader("Edit");
