@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.view;
+package ch.bfh.bti7081.s2019.green.view.diary;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
