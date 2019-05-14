@@ -15,23 +15,23 @@ public class Person extends AbstractBaseEntity {
     @Column(name = "AHV")
     private Integer ahvNumber;
 
-    @Column(name = "first_name")
-    private String firstname;
+    @Column(name = "FIRST_NAME")
+    private String firstName;
 
-    @Column(name = "last_name")
-    private String lastname;
+    @Column(name = "LAST_NAME")
+    private String lastName;
 
-    @Column(name = "user_name")
+    @Column(name = "USERNAME")
     private String username;
 
-    @Column(name = "birth_date")
+    @Column(name = "BIRTH_DATE")
     @Convert(converter = LocalDateConverter.class)
-    private LocalDate birthdate;
+    private LocalDate birthDate;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Contact contactData;
 
-    public Person(){
+    public Person() {
         // explicit empty constructor for hibernate
     }
 }

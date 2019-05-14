@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,4 +24,5 @@ public class Intake extends AbstractBaseEntity {
     @ManyToOne
     @JoinColumn(name = "PATIENT_ID")
     private Patient patient;
+
 }

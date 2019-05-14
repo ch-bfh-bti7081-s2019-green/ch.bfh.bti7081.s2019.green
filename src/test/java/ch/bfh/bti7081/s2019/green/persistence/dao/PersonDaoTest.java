@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.persistence.dao;
 import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,7 +25,9 @@ public class PersonDaoTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonDaoTest.class);
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
+        DbTestUtil.reset(db, "PERSON", "CONTACT");
+
         Person james = savePerson(1337,
                 "James Gosling",
                 "iMadeJava",
@@ -42,7 +45,7 @@ public class PersonDaoTest {
     }
 
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         List<Person> result = dao.findAll();
 
         assertThat(result, notNullValue());
@@ -50,19 +53,20 @@ public class PersonDaoTest {
     }
 
     @Test
-    public void testFindByEmail(){
+    public void testFindByEmail() {
         Optional<Person> result = dao.findByEmail("riCHard@stallman.org");
 
         assertThat(result.isPresent(), is(Boolean.TRUE));
-        assertThat(result.get().getFirstname(), is("Richard"));
+        assertThat(result.get().getFirstName(), is("Richard"));
     }
 
-    private static Person savePerson(Integer ahvNumber, String name, String username, String phoneNumber, String email, String address){
+    private static Person savePerson(Integer ahvNumber, String name, String username, String phoneNumber, String email, String address) {
         Person person = new Person();
+
         person.setAhvNumber(ahvNumber);
-        person.setBirthdate(LocalDate.now());
-        person.setFirstname(name.split(" ")[0]);
-        person.setLastname(name.split(" ")[1]);
+        person.setBirthDate(LocalDate.now());
+        person.setFirstName(name.split(" ")[0]);
+        person.setLastName(name.split(" ")[1]);
         person.setUsername(username);
 
         Contact contact = new Contact();
@@ -77,7 +81,6 @@ public class PersonDaoTest {
         db.executeInTransactionNoResult(s -> s.save(person));
         person.setContactData(contact);
         db.executeInTransactionNoResult(s -> s.save(contact));
-
 
 
         return person;
