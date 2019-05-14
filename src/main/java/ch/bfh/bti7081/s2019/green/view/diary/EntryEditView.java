@@ -31,7 +31,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         form.addFormItem(slider, "Mood");
 
 
-        this.add(new H2("Edit Entry: " + entry.getDate()));
+        this.add(new H2("Edit Entry:"));
         this.add(form);
         this.add(new Button("Update"));
     }
