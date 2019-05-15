@@ -57,4 +57,12 @@ public class Entry extends AbstractBaseEntity {
     public Entry() {
         // explicit empty constructor for hibernate
     }
+
+    public void setMood(double mood) {
+        this.mood = (int) mood;
+    }
+
+    public double getMood() {
+        return (double) this.mood;
+    }
 }
