@@ -1,6 +1,6 @@
 package ch.bfh.bti7081.s2019.green.persistence.scheduler;
 
-import ch.bfh.bti7081.s2019.green.model.scheduler.Scheduler;
+import ch.bfh.bti7081.s2019.green.scheduler.Scheduler;
 import org.junit.Assert;
 import org.junit.Test;
 
