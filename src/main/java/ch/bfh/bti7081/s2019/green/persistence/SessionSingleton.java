@@ -1,17 +1,23 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
+import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.Entry;
+import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.model.prescription.*;
-import ch.bfh.bti7081.s2019.green.model.reminder.Recurrence;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
+import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
-import org.hibernate.*;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,6 +28,7 @@ import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
 
 public class SessionSingleton {
     private static SessionSingleton instance = null;
@@ -49,15 +56,15 @@ public class SessionSingleton {
 
         // Register converters
         config.addAnnotatedClass(LocalDateConverter.class);
+        config.addAnnotatedClass(LocalTimeConverter.class);
         config.addAnnotatedClass(LocalDateTimeConverter.class);
         config.addAnnotatedClass(ZonedDateTimeConverter.class);
-
         registerEntities(config);
 
         return config;
     }
 
-    private void registerEntities(Configuration config){
+    private void registerEntities(Configuration config) {
         // Person related entities
         config.addAnnotatedClass(Contact.class);
         config.addAnnotatedClass(Patient.class);
@@ -74,6 +81,11 @@ public class SessionSingleton {
         // Reminder related entities
         config.addAnnotatedClass(Reminder.class);
         config.addAnnotatedClass(WeekdayRecurrence.class);
+
+        // Diary related entities
+        config.addAnnotatedClass(Activity.class);
+        config.addAnnotatedClass(Entry.class);
+        config.addAnnotatedClass(MoodDiary.class);
     }
 
     public static SessionSingleton getInstance() {
@@ -83,24 +95,30 @@ public class SessionSingleton {
         return instance;
     }
 
+    public Session getRawSession(){
+        return this.session;
+    }
+
     /**
      * Saves your entity in the DB and returns the generated identifier.
      */
-    public <T> Serializable save(final T entity){
-        return instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+    public <T> Serializable save(final T entity) {
+        Serializable res = instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
+        session.getEntityManagerFactory().getCache().evictAll();
+        return res;
     }
 
     /**
      * Makes your transient entity persistent, but doesn't guarantee assigning and identifier.
      */
-    public <T> void persist(final T entity){
+    public <T> void persist(final T entity) {
         instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
     }
 
     /**
      * Deletes your entity from the database.
      */
-    public <T> void delete(final T entity){
+    public <T> void delete(final T entity) {
         executeInTransactionNoResult(s -> s.delete(entity));
     }
 
@@ -136,7 +154,11 @@ public class SessionSingleton {
         try {
             Transaction transaction = session.getTransaction();
             transaction.setTimeout(timeoutInSeconds);
-            transaction.begin();
+            if(!transaction.isActive()){
+                transaction.begin();
+            }else {
+                LOG.warn("Transaction is already active");
+            }
             Optional<T> result = runnable.apply(session);
             transaction.commit();
             return result;
