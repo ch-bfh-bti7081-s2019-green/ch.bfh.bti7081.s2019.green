@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,5 +49,14 @@ public class MoodDiary extends AbstractBaseEntity {
 
     public MoodDiary() {
         // explicit empty constructor for hibernate
+    }
+
+    /**
+     * Checks whether an entry for the current day already exists in the diary.
+     *
+     * @return True if an entry exists, false otherwise
+     */
+    public boolean hasEntryForToday() {
+        return this.getEntries().stream().anyMatch(entry -> entry.getDate().equals(LocalDate.now()));
     }
 }
