@@ -46,7 +46,7 @@ public class Entry extends AbstractBaseEntity {
         activity.setEntry(this);
     }
 
-    public void removeEntry(Activity activity) {
+    public void removeActivity(Activity activity) {
         if (activities == null) {
             activities = new ArrayList<>();
         }
