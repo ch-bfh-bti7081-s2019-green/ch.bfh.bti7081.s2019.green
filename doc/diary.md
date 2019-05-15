@@ -224,7 +224,7 @@ Excused: CK, MS, SK
 
 # 2019-05-10
 Attending: MH
-Excused: CK, FC, MS, SK
+Work from home: CK, FC, MS, SK
 
 ## Topics
 - Daily scrum
@@ -235,7 +235,7 @@ Excused: CK, FC, MS, SK
 
 # 2019-05-13
 Attending: MH  
-Excused: CK, FC, MS, SK
+Work from home: CK, FC, MS, SK
 
 ## Topics
 - Daily scrum
