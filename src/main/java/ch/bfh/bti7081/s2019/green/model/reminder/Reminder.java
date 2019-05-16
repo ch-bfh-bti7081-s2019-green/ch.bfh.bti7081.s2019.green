@@ -29,4 +29,12 @@ public class Reminder extends AbstractBaseEntity {
     //TODO CK Implement this once you have implementations
     //@OneToMany(mappedBy = "reminder")
     //private List<Recurrence> recurrences;
+
+    public void setPrescription(Prescription prescription){
+        this.prescription = prescription;
+    }
+
+    public void setNotificationTime(ZonedDateTime time){
+        this.notificationTime = time;
+    }
 }
