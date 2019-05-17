@@ -65,11 +65,7 @@ public class RemindersLayout extends VerticalLayout {
 
         SingleSelect<Grid<Reminder>, Reminder> personSelect = remindersGrid.asSingleSelect();
         personSelect.addValueChangeListener(e -> {
-            if (e.getValue() != null) {
-                this.selectedReminder = e.getValue();
-            } else {
-                this.selectedReminder = null;
-            }
+            this.selectedReminder = e.getValue();
         });
 
         this.remindersGrid = remindersGrid;
