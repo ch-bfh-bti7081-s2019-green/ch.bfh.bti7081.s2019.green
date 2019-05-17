@@ -19,6 +19,6 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!--hibernate automatically generates the schema from the given model-->
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <!--<property name="hibernate.hbm2ddl.auto">validate</property>-->
     </session-factory>
 </hibernate-configuration>
