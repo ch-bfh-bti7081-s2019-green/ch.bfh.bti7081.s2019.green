@@ -6,6 +6,9 @@
 ## Application
 The live version of the application can be found [here](https://pms.schaer.dev/).
 
+### Usage
+`mvn jetty:run`
+
 ## Documentation
 ### Diary
 The current PDF of the diary can be found [here](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/diary.pdf?job=Doc:PDF).
