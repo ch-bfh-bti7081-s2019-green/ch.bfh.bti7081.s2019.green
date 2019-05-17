@@ -8,6 +8,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledFuture;
 
 public class SchedulerTest {
@@ -16,12 +17,17 @@ public class SchedulerTest {
     @Test(timeout = 5000)
     public void testSingleSchedule() throws Exception{
         final ZonedDateTime startTime = ZonedDateTime.now();
-        final ZonedDateTime scheduledTime = startTime.plusSeconds(3);
+        final ZonedDateTime scheduledTime = startTime.plusSeconds(4);
         Scheduler scheduler = Scheduler.getInstance();
         ScheduledFuture<ZonedDateTime> future = scheduler.schedule(scheduledTime, ZonedDateTime::now);
         ZonedDateTime endTime = future.get();
 
         assertTimeEqualsWithMargin(endTime, scheduledTime, 1, ChronoUnit.SECONDS);
+
+        Callable<String> c = () -> "Hello World!";
+        ScheduledFuture<String> schedule = scheduler.schedule(scheduledTime, c);
+
+        System.out.println(schedule.get());
     }
 
     @Test(timeout = 10000)
