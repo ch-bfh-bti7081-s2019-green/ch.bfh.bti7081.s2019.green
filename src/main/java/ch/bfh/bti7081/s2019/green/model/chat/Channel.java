@@ -15,16 +15,17 @@ import java.util.List;
 @Entity
 @Table(name = "CHANNELS")
 public class Channel extends AbstractBaseEntity{
-    @Column(name = "CHANNEL_NAME")
+    @Column(name = "NAME")
     private String name;
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToMany(targetEntity = Person.class)
     @JoinTable(name = "CHANNEL_MEMBERS",
             joinColumns = @JoinColumn(name = "CHANNEL_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "PERSON_ID", referencedColumnName = "ID"))
-    private List<Person> members = new ArrayList<>();
+    private List<Person> members;
 
     @OneToMany(mappedBy = "channel")
+    @OrderColumn(name = "AUTHOR_TIME")
     private List<Message> messages;
 
     // currently connected clients
@@ -48,6 +49,13 @@ public class Channel extends AbstractBaseEntity{
             messages = new ArrayList<>();
         }
         return messages;
+    }
+
+    public void addMember(Person memeber){
+        if(members == null){
+            members = new ArrayList<>();
+        }
+        members.add(memeber);
     }
 
     public List<Person> getMembers(){

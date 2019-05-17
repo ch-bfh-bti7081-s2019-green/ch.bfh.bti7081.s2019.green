@@ -4,10 +4,7 @@ import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 
 @Data
@@ -15,13 +12,14 @@ import java.time.ZonedDateTime;
 @Table(name = "MESSAGES")
 public class Message extends AbstractBaseEntity {
     @ManyToOne
-    @Column(name = "CHANNEL_ID")
+    @JoinColumn(name = "CHANNEL_ID")
     private Channel channel;
 
     @Column(name = "AUTHOR_TIME")
     private ZonedDateTime authorTime;
 
-    @Column(name = "AUTHOR")
+    @ManyToOne(targetEntity = Person.class)
+    @JoinColumn(name = "AUTHOR")
     private Person author;
 
     @Column(name = "CONTENT")

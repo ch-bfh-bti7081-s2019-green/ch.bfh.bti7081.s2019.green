@@ -13,6 +13,7 @@ import java.util.List;
 @ToString(exclude = {"diary"})
 @Entity
 @Table(name = "PATIENT")
+@PrimaryKeyJoinColumn(name = "ID")
 public class Patient extends Person {
     @ManyToOne
     @JoinColumn(name = "THERAPIST_ID")

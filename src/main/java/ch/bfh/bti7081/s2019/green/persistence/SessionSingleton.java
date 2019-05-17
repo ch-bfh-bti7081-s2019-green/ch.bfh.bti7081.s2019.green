@@ -1,5 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
+import ch.bfh.bti7081.s2019.green.model.chat.Channel;
+import ch.bfh.bti7081.s2019.green.model.chat.Message;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
@@ -86,6 +88,10 @@ public class SessionSingleton {
         config.addAnnotatedClass(Activity.class);
         config.addAnnotatedClass(Entry.class);
         config.addAnnotatedClass(MoodDiary.class);
+
+        // Chat related entities
+        config.addAnnotatedClass(Channel.class);
+        config.addAnnotatedClass(Message.class);
     }
 
     public static SessionSingleton getInstance() {
@@ -106,6 +112,10 @@ public class SessionSingleton {
         Serializable res = instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
         session.getEntityManagerFactory().getCache().evictAll();
         return res;
+    }
+
+    public <T> Object merge(final T entity){
+        return instance.executeInTransaction(s -> Optional.ofNullable(s.merge(entity))).orElseThrow(RuntimeException::new);
     }
 
     /**
