@@ -59,7 +59,7 @@ public class MoodDiaryDaoTest {
         assertThat(diary.getEntries().size(), is(1));
 
         Entry entry = diary.getEntries().get(0);
-        assertThat(entry.getMood(), is(6));
+        assertThat(entry.getMood(), is(6.0));
 
         assertThat(entry.getActivities().size(), is(1));
         Activity activity = entry.getActivities().get(0);

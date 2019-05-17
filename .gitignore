@@ -9,6 +9,7 @@
 **/*.project
 
 **/.~lock*
+.attach_pid*
 
 **/database/*.db
 
