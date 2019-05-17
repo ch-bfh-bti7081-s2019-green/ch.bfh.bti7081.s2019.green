@@ -42,7 +42,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), MainView.class), FOOTER)
+                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
                         .build())
                 .build());
     }
