@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.bfh.bti7081.s2019.green</groupId>
     <artifactId>pms</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>Patient Management System</name>
     <packaging>war</packaging>
 
