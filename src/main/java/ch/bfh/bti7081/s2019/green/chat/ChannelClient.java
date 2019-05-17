@@ -19,8 +19,6 @@ public class ChannelClient {
     private final Channel channel;
     private final NotifcationService service;
     private final SessionSingleton db = SessionSingleton.getInstance();
-    private final ChannelDao channelDao = new ChannelDao();
-    private final PersonDao personDao = new PersonDao();
 
     /**
      * @param person - the person using this client
