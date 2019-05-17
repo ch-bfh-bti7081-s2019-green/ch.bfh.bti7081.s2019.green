@@ -64,6 +64,12 @@ Test:Java:
   script:
     - mvn ${MAVEN_CLI_OPTS} -DrepoToken=$COVERAGE_TOKEN clean test jacoco:report coveralls:report
 
+Deploy:Database:
+  image: maven:3-jdk-8-alpine
+  stage: Deploy
+  script:
+    - mvn ${MAVEN_CLI_OPTS} mvn compile exec:java@seed
+
 Deploy:App:
   image: maven:3-jdk-8-alpine
   stage: Deploy
@@ -74,7 +80,7 @@ Deploy:App:
     - mkdir -p ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
-    - mvn ${MAVEN_CLI_OPTS} clean install
+    - mvn ${MAVEN_CLI_OPTS} clean package
     - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh
   only:

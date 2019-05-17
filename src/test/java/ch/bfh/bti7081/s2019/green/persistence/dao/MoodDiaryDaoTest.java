@@ -28,7 +28,7 @@ public class MoodDiaryDaoTest {
 
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
+        DbTestUtil.reset(db, "PERSON", "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
 
         Patient james = createPatientWithDiary(
                 30,
