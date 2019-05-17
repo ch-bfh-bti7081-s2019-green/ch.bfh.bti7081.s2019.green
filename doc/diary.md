@@ -244,3 +244,17 @@ Work from home: CK, FC, MS, SK
 ## Todo Until 2019-05-17
 - finish sprint 1
 
+# 2019-05-17
+Attending: CK, MH, SK
+Excused: FC, MS
+
+## Topics
+- Merge branches from sprint 1
+- finished sprint 1
+- plan sprint 2
+- Work on sprint 2
+
+## Todo Until 2019-05-20
+- Work on sprint 2
+
+

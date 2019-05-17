@@ -2,18 +2,19 @@ package ch.bfh.bti7081.s2019.green.persistence.converters;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Converter(autoApply = true)
-public class LocalTimeConverter implements AttributeConverter<LocalTime, Time> {
+public class LocalTimeConverter implements AttributeConverter<LocalTime, Timestamp> {
     @Override
-    public Time convertToDatabaseColumn(LocalTime attribute) {
-        return Time.valueOf(attribute);
+    public Timestamp convertToDatabaseColumn(LocalTime attribute) {
+        return Timestamp.valueOf(attribute.atDate(LocalDate.now()));
     }
 
     @Override
-    public LocalTime convertToEntityAttribute(Time dbData) {
-        return dbData.toLocalTime();
+    public LocalTime convertToEntityAttribute(Timestamp dbData) {
+        return dbData.toLocalDateTime().toLocalTime();
     }
 }
