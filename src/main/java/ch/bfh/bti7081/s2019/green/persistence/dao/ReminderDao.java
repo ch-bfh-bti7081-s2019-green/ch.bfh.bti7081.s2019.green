@@ -15,14 +15,6 @@ public class ReminderDao extends AbstractDao<Reminder> {
         super(Reminder.class);
     }
 
-    public Optional<List<Reminder>> getAllReminders() {
-        return db.executeInTransaction(session -> {
-            String queryString = "select r from Reminder r";
-            Query<Reminder> query = session.createQuery(queryString, Reminder.class);
-            return Optional.ofNullable(query.getResultList());
-        });
-    }
-
     public void addReminder(Reminder reminder) {
         db.executeInTransactionNoResult(s -> s.save(reminder));
     }

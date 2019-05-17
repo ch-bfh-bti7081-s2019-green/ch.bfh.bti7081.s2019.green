@@ -39,7 +39,7 @@ public class RemindersLayout extends VerticalLayout {
         removeButton.addClickListener(e -> {
             if (this.selectedReminder != null) {
                 reminderDao.removeReminder(this.selectedReminder);
-                remindersGrid.setItems(reminderDao.getAllReminders().get());
+                remindersGrid.setItems(reminderDao.findAll());
             }
         });
 
@@ -58,7 +58,7 @@ public class RemindersLayout extends VerticalLayout {
     private Grid initialiseRemindersGrid() {
         Grid<Reminder> remindersGrid = new Grid<>(Reminder.class);
 
-        remindersGrid.setItems(reminderDao.getAllReminders().get());
+        remindersGrid.setItems(reminderDao.findAll());
         remindersGrid.setColumns("prescription", "notificationTime");
 
         remindersGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
@@ -85,7 +85,7 @@ public class RemindersLayout extends VerticalLayout {
 
         NativeButton confirmButton = new NativeButton("Add", event -> {
             dialogLayout.saveNewReminder();
-            remindersGrid.setItems(reminderDao.getAllReminders().get());
+            remindersGrid.setItems(reminderDao.findAll());
             addReminderDialog.close();
         });
         NativeButton cancelButton = new NativeButton("Cancel", event -> {
