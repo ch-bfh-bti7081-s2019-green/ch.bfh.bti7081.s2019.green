@@ -1,6 +1,6 @@
-[![](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/badges/develop/build.svg)](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/pipelines)
+[![GitLab CI Build Status](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/badges/develop/build.svg)](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/pipelines)
 [![Coverage Status](https://coveralls.io/repos/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/badge.svg?branch=develop)](https://coveralls.io/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green?branch=develop)
-[![codebeat badge](https://codebeat.co/badges/829114c3-bfb4-45f7-a853-d1b0c264f46d)](https://codebeat.co/projects/github-com-ch-bfh-bti7081-s2019-green-ch-bfh-bti7081-s2019-green-develop)
+[![Codebeat Badge](https://codebeat.co/badges/829114c3-bfb4-45f7-a853-d1b0c264f46d)](https://codebeat.co/projects/github-com-ch-bfh-bti7081-s2019-green-ch-bfh-bti7081-s2019-green-develop)
 
 # Team Green
 ## Application

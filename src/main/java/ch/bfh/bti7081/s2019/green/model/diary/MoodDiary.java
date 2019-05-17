@@ -3,9 +3,11 @@ package ch.bfh.bti7081.s2019.green.model.diary;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class MoodDiary extends AbstractBaseEntity {
     private Patient patient;
 
     @OneToMany(mappedBy = "diary")
+    @EqualsAndHashCode.Exclude
     private List<Entry> entries;
 
     public List<Entry> getEntries() {
@@ -46,5 +49,14 @@ public class MoodDiary extends AbstractBaseEntity {
 
     public MoodDiary() {
         // explicit empty constructor for hibernate
+    }
+
+    /**
+     * Checks whether an entry for the current day already exists in the diary.
+     *
+     * @return True if an entry exists, false otherwise
+     */
+    public boolean hasEntryForToday() {
+        return this.getEntries().stream().anyMatch(entry -> entry.getDate().equals(LocalDate.now()));
     }
 }
