@@ -11,7 +11,7 @@
         <property name="connection.driver_class">org.sqlite.JDBC</property>
 
         <!--TODO configure this for dev/prod-->
-        <property name="connection.url">jdbc:sqlite:/resources/pms.db</property>
+        <property name="connection.url">jdbc:sqlite:src/main/resources/development/pms.db</property>
 
         <!--custom connection pool so SQLite isn't locked when we try to use it-->
         <property name="hibernate.c3p0.min_size">1</property>
