@@ -9,6 +9,9 @@
 **/*.project
 
 **/.~lock*
+.attach_pid*
+
+**/database/*.db
 
 # Build Stuf
 **/*.latex
@@ -29,6 +32,7 @@
 
 ## Sensitive or high-churn files
 .idea/**/dataSources/
+.idea/**/dataSources.xml
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
 .idea/**/sqlDataSources.xml

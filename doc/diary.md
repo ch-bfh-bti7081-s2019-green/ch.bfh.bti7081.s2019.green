@@ -199,3 +199,62 @@ Excused: MS
 
 ## Todo Until 2019-05-06
 - Finish presentation
+
+# 2019-05-06
+Attending: CK, FC, MH, MS, SK  
+
+## Topics
+- Present Task 05 and Task 06
+- Daily scrum
+- Work on sprint 1
+
+## Todo Until 2019-05-08
+- Work on sprint 1
+
+# 2019-05-08
+Attending: FC, MH 
+Excused: CK, MS, SK
+
+## Topics
+- Daily scrum
+- Work on sprint 1
+
+## Todo Until 2019-05-10
+- Work on sprint 1
+
+# 2019-05-10
+Attending: MH
+Work from home: CK, FC, MS, SK
+
+## Topics
+- Daily scrum
+- Work on sprint 1
+
+## Todo Until 2019-05-06
+- Work on sprint 1
+
+# 2019-05-13
+Attending: MH  
+Work from home: CK, FC, MS, SK
+
+## Topics
+- Daily scrum
+- Work on sprint 1
+
+## Todo Until 2019-05-17
+- finish sprint 1
+
+# 2019-05-17
+Attending: CK, MH, SK
+Excused: FC, MS
+
+## Topics
+- Merge branches from sprint 1
+- finished sprint 1
+- plan sprint 2
+- Work on sprint 2
+
+## Todo Until 2019-05-20
+- Work on sprint 2
+
+
