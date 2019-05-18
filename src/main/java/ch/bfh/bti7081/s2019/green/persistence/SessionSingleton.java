@@ -24,6 +24,7 @@ import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -34,6 +35,7 @@ public class SessionSingleton {
     private static SessionSingleton instance = null;
     private final SessionFactory sessionFactory;
     private final Session session;
+    private final EntityManager em;
 
     private static final Logger LOG = LoggerFactory.getLogger(SessionSingleton.class);
 
@@ -49,6 +51,7 @@ public class SessionSingleton {
 
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
+        em = session.getEntityManagerFactory().createEntityManager();
     }
 
     private Configuration createConfig() {
@@ -95,8 +98,12 @@ public class SessionSingleton {
         return instance;
     }
 
-    public Session getRawSession(){
+    public Session getRawSession() {
         return this.session;
+    }
+
+    public EntityManager getRawEntityManager() {
+        return this.em;
     }
 
     /**
@@ -106,6 +113,10 @@ public class SessionSingleton {
         Serializable res = instance.executeInTransaction(s -> Optional.ofNullable(s.save(entity))).orElseThrow(RuntimeException::new);
         session.getEntityManagerFactory().getCache().evictAll();
         return res;
+    }
+
+    public <T> Object merge(final T entity) {
+        return instance.executeInTransaction(s -> Optional.ofNullable(s.merge(entity))).orElseThrow(RuntimeException::new);
     }
 
     /**
@@ -151,20 +162,24 @@ public class SessionSingleton {
     }
 
     public <T> Optional<T> executeInTransaction(Function<Session, Optional<T>> runnable, int timeoutInSeconds) {
+        Transaction transaction = session.getTransaction();
+        transaction.setTimeout(timeoutInSeconds);
+        if (!transaction.isActive()) {
+            transaction.begin();
+        } else {
+            LOG.warn("Transaction is already active");
+        }
+
+        Optional<T> result = Optional.empty();
+
         try {
-            Transaction transaction = session.getTransaction();
-            transaction.setTimeout(timeoutInSeconds);
-            if(!transaction.isActive()){
-                transaction.begin();
-            }else {
-                LOG.warn("Transaction is already active");
-            }
-            Optional<T> result = runnable.apply(session);
-            transaction.commit();
-            return result;
+            result = runnable.apply(session);
         } catch (HibernateException hex) {
             LOG.error(hex.getMessage(), hex);
         }
-        return Optional.empty();
+
+        transaction.commit();
+
+        return result;
     }
 }
