@@ -9,7 +9,7 @@ public class DbTestUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(DbTestUtil.class);
 
     /**
-     * Nukes the database and creates a new one from scratch
+     * Nukes the database and creates a new one from scratch using the test_schema.sql file.
      */
     public static void nuke(final SessionSingleton db) {
         db.executeInTransactionNoResult(session -> {
