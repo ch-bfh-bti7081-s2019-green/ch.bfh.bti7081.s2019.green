@@ -173,6 +173,7 @@
                         </goals>
                         <configuration>
                             <mainClass>ch.bfh.bti7081.s2019.green.persistence.seed.DatabaseSeeder</mainClass>
+                            <cleanupDaemonThreads>false</cleanupDaemonThreads>
                         </configuration>
                     </execution>
                 </executions>
