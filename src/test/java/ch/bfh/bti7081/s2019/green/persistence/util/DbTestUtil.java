@@ -17,5 +17,6 @@ public class DbTestUtil {
             session.clear();
             session.flush();
         });
+        LOGGER.info("Cleared Database and re-applied schema.");
     }
 }

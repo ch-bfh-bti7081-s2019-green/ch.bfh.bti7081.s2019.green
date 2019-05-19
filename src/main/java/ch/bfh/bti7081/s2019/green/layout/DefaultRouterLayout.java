@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.view.diary.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
@@ -41,6 +42,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                         .add(new AppBarNotificationButton<>(VaadinIcon.BELL, notifications))
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
+                        .addToSection(new LeftNavigationItem("Chat", VaadinIcon.COMMENTS.create(), ChatView.class), HEADER)
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
                         .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
                         .build())

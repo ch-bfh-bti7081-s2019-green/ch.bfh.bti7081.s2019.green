@@ -4,9 +4,11 @@ import ch.bfh.bti7081.s2019.green.model.chat.Channel;
 import ch.bfh.bti7081.s2019.green.model.chat.Message;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import ch.bfh.bti7081.s2019.green.view.diary.ChatView;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Encapsulated ChannelClient.
@@ -15,37 +17,47 @@ import java.util.List;
 public class ChannelClient {
     private final Person person;
     private final Channel channel;
-    private final NotifcationService service;
+    private final ChatView view;
     private final SessionSingleton db = SessionSingleton.getInstance();
 
     /**
-     * @param person - the person using this client
+     * @param person  - the person using this client
      * @param channel - the channel to connect to
-     * @param notificationService placeholder for GUI service
      */
-    public ChannelClient(Person person, Channel channel, NotifcationService notificationService){
+    public ChannelClient(Person person, Channel channel, ChatView chatView) {
         this.person = person;
         this.channel = channel;
-        this.service = notificationService;
+        this.view = chatView;
     }
 
-    public List<Person> getChannelMembers(){
+    public List<Person> getChannelMembers() {
         return this.channel.getMembers();
     }
 
-    public boolean isMemberOnline(Person member){
+    public boolean isMemberOnline(Person member) {
         return channel.isConnected(member);
     }
 
-    public void onMessage(Message msg){
-        if(msg.getAuthor().equals(person)){
+    public void onMessage(Message msg) {
+        if (msg.getAuthor().equals(person)) {
             // we sent this message. ignore it.
             return;
         }
-        service.notify(msg);
+        view.notify(msg);
     }
 
-    public void sendMessage(String content){
+    public List<Message> getLatentMessages() {
+        return channel.getMessages();
+    }
+
+    public List<Message> getLatentMessages(ZonedDateTime since) {
+        return channel.getMessages().stream() //
+                .filter(msg -> msg.getAuthorTime().isAfter(since)) //
+                .collect(Collectors.toList());
+    }
+
+
+    public void sendMessage(String content) {
         Message msg = new Message();
         msg.setContent(content);
         msg.setAuthor(person);
