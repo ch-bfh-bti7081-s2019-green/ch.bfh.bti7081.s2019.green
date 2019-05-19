@@ -67,10 +67,8 @@ Test:Java:
 Deploy:Database:
   image: maven:3-jdk-8-alpine
   stage: Deploy
-  before_script:
-    - export HIBERNATE_PASSWORD=$HIBERNATE_PASSWORD
   script:
-    - mvn ${MAVEN_CLI_OPTS} compile exec:java@seed
+    - mvn ${MAVEN_CLI_OPTS} compile exec:java@seed -Pproduction
 
 Deploy:App:
   image: maven:3-jdk-8-alpine

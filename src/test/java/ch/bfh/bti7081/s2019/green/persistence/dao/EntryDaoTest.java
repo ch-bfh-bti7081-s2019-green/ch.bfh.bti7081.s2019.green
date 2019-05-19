@@ -5,6 +5,7 @@ import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,9 +21,13 @@ public class EntryDaoTest {
     private static EntryDao dao = new EntryDao();
     private static SessionSingleton db = SessionSingleton.getInstance();
 
+    @AfterClass
+    public static void cleanup() {
+        DbTestUtil.nuke(db);
+    }
+
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "ENTRIES");
 
         Entry entry = new Entry();
         entry.setId(IdUtil.next(Entry.class));
