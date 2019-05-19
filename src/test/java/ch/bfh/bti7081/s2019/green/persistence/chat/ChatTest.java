@@ -8,8 +8,8 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
+import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -31,9 +31,9 @@ public class ChatTest {
     @Mock
     private NotifcationService service;
 
-    @BeforeClass
-    public static void dbReset(){
-        DbTestUtil.reset(db, "MESSAGES", "CHANNELS", "PERSON", "PATIENT", "THERAPIST");
+    @AfterClass
+    public static void cleanup(){
+        DbTestUtil.nuke(db);
     }
 
     @Before

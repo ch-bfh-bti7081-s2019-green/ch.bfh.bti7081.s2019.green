@@ -4,8 +4,6 @@ import ch.bfh.bti7081.s2019.green.model.chat.Channel;
 import ch.bfh.bti7081.s2019.green.model.chat.Message;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
-import ch.bfh.bti7081.s2019.green.persistence.dao.ChannelDao;
-import ch.bfh.bti7081.s2019.green.persistence.dao.PersonDao;
 
 import java.time.ZonedDateTime;
 import java.util.List;
