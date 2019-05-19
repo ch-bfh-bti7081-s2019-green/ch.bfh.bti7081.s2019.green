@@ -5,6 +5,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -24,10 +25,13 @@ public class PersonDaoTest {
     private static SessionSingleton db = SessionSingleton.getInstance();
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonDaoTest.class);
 
+    @AfterClass
+    public static void cleanup() {
+        DbTestUtil.nuke(db);
+    }
+
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "PERSON", "CONTACT");
-
         Person james = savePerson(1337,
                 "James Gosling",
                 "iMadeJava",
