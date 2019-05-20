@@ -2,6 +2,7 @@ package ch.bfh.bti7081.s2019.green;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.login.LoginForm;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;

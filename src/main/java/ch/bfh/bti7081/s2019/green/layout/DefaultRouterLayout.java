@@ -1,6 +1,9 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
+import ch.bfh.bti7081.s2019.green.presenter.LoginPresenter;
+import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
 import com.github.appreciated.app.layout.component.appbar.AppBarBuilder;
@@ -12,11 +15,13 @@ import com.github.appreciated.app.layout.notification.component.AppBarNotificati
 import com.github.appreciated.app.layout.notification.entitiy.DefaultNotification;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.router.Route;
+import lombok.Builder;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
-
+@Route("home")
 public class DefaultRouterLayout extends AppLayoutRouterLayout {
     /**
      * Do not initialize here. This will lead to NPEs
