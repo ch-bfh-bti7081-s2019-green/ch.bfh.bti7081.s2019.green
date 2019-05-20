@@ -258,3 +258,14 @@ Excused: FC, MS
 - Work on sprint 2
 
 
+# 2019-05-20
+Attending: FC, MH, SK
+Work from home: SK
+Excused: CK
+
+## Topics
+- Daily scrum
+- Work on sprint 2
+
+## Todo Until 2019-05-22
+- Work on sprint 2
