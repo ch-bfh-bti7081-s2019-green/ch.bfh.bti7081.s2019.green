@@ -212,8 +212,8 @@ Attending: CK, FC, MH, MS, SK
 - Work on sprint 1
 
 # 2019-05-08
-Attending: FC, MH 
-Excused: CK, MS, SK
+Attending: FC, MH  
+Excused: CK, MS, SK  
 
 ## Topics
 - Daily scrum
@@ -223,8 +223,8 @@ Excused: CK, MS, SK
 - Work on sprint 1
 
 # 2019-05-10
-Attending: MH
-Work from home: CK, FC, MS, SK
+Attending: MH  
+Work from home: CK, FC, MS, SK  
 
 ## Topics
 - Daily scrum
@@ -235,7 +235,7 @@ Work from home: CK, FC, MS, SK
 
 # 2019-05-13
 Attending: MH  
-Work from home: CK, FC, MS, SK
+Work from home: CK, FC, MS, SK  
 
 ## Topics
 - Daily scrum
@@ -245,8 +245,8 @@ Work from home: CK, FC, MS, SK
 - finish sprint 1
 
 # 2019-05-17
-Attending: CK, MH, SK
-Excused: FC, MS
+Attending: CK, MH, SK  
+Excused: FC, MS  
 
 ## Topics
 - Merge branches from sprint 1
@@ -259,9 +259,9 @@ Excused: FC, MS
 
 
 # 2019-05-20
-Attending: FC, MH, SK
-Work from home: SK
-Excused: CK
+Attending: FC, MH, SK  
+Work from home: SK  
+Excused: CK  
 
 ## Topics
 - Daily scrum
