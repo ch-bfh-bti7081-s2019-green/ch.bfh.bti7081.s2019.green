@@ -271,7 +271,7 @@ Excused: CK
 - Work on sprint 2
 
 # 2019-05-22
-Attending: FC, MH 
+Attending: FC, MH  
 Work from home: CK, MS, SK    
 
 ## Topics
