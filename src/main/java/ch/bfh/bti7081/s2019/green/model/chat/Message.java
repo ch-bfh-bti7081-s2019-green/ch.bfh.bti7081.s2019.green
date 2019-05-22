@@ -2,6 +2,7 @@ package ch.bfh.bti7081.s2019.green.model.chat;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
+import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Message extends AbstractBaseEntity {
     private Channel channel;
 
     @Column(name = "AUTHOR_TIME")
+    @Convert(converter = ZonedDateTimeConverter.class)
     private ZonedDateTime authorTime;
 
     @ManyToOne(targetEntity = Person.class)

@@ -5,10 +5,12 @@ import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Data
 @ToString(exclude = "messages")
@@ -26,6 +28,7 @@ public class Channel extends AbstractBaseEntity{
 
     @OneToMany(mappedBy = "channel")
     @OrderColumn(name = "AUTHOR_TIME")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Message> messages;
 
     // currently connected clients
@@ -66,7 +69,7 @@ public class Channel extends AbstractBaseEntity{
     }
 
     public boolean isConnected(Person person){
-        return this.clients.stream().map(ChannelClient::getPerson).anyMatch(member -> member.equals(person));
+        return this.clients.stream().map(ChannelClient::getUser).anyMatch(member -> member.equals(person));
     }
 
     public void addClient(ChannelClient client){

@@ -1,11 +1,13 @@
-package ch.bfh.bti7081.s2019.green.view.diary;
+package ch.bfh.bti7081.s2019.green.view.chat;
 
+import ch.bfh.bti7081.s2019.green.chat.AuthServiceMock;
 import ch.bfh.bti7081.s2019.green.chat.ChannelClient;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.chat.Message;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
+import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.PersonDao;
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -15,71 +17,52 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 @Route(value = "chat", layout = DefaultRouterLayout.class)
 @PageTitle("Chat")
 public class ChatView extends VerticalLayout {
-    private PersonDao personDao = new PersonDao();
+    // TODO for dev only
+    private SessionSingleton db = SessionSingleton.getInstance();
+
     private ChannelClient client;
-    private List<Message> allMessages = new ArrayList<>();
     private VerticalLayout messageArea;
 
-    // Entering and sending the message
+    public ChatView() {
+        Person person = AuthServiceMock.getCurrentUser();
+        if (!(person instanceof Patient)) {
+            //TODO for dev only
+            throw new IllegalArgumentException("You're not a patient, you can't chat.");
+        }
+        Patient user = (Patient) person;
+        db.save(user.getTherapist());
+        db.save(user);
+        client = new ChannelClient(this, user, user.getTherapist());
 
-    Person me = new Person();
-    Person them = new Person();
-
-    {
-        me.setFirstName("John");
-        them.setFirstName("Adam");
-
-        Message msg = new Message();
-        msg.setAuthorTime(ZonedDateTime.now().minusMinutes(2));
-        msg.setAuthor(me);
-        msg.setContent("Hello");
-
-        Message msg2 = new Message();
-        msg2.setAuthorTime(ZonedDateTime.now().minusMinutes(1));
-        msg2.setAuthor(them);
-        msg2.setContent("Hi there");
-
-        Message msg3 = new Message();
-        msg3.setAuthorTime(ZonedDateTime.now());
-        msg3.setAuthor(me);
-        msg3.setContent("I'm texting again now in this conversation.\nThis is multiline.");
-
-        allMessages.add(msg);
-        allMessages.add(msg2);
-        allMessages.add(msg3);
+        init();
     }
 
-    public ChatView() {
-        //TODO currently logged in person, selected channel
-        //this.client = new ChannelClient(null, null, this);
+    private void init() {
         this.setHeightFull();
         this.setWidthFull();
         createMessageAreaSublayout();
         createMessageCompositionSublayout();
 
-        // work through missed messages
-        allMessages.forEach(msg -> notify(msg));
+        client.getLatentMessages().stream() //
+            .map(this::createMessageBubble) //
+            .forEach(layout -> messageArea.add(layout));
     }
 
-    public void notify(Message msg){
-        messageArea.add(createMessageBubbleSubLayout(msg));
+    public void notify(Message msg) {
+        messageArea.add(createMessageBubble(msg));
     }
 
-    private HorizontalLayout createMessageBubbleSubLayout(Message msg) {
+    private HorizontalLayout createMessageBubble(Message msg) {
         final HorizontalLayout container = new HorizontalLayout();
         container.setWidthFull();
 
-        if(msg.getAuthor().equals(me)){
+        if (msg.getAuthor().equals(client.getUser())) {
             // right align
             container.setJustifyContentMode(JustifyContentMode.END);
-        }else {
+        } else {
             // left align
             container.setJustifyContentMode(JustifyContentMode.START);
         }
@@ -111,8 +94,7 @@ public class ChatView extends VerticalLayout {
         sendButton.setWidth("10%");
         sendButton.setIcon(VaadinIcon.PAPERPLANE.create());
         sendButton.addClickListener(event -> {
-            //TODO send message
-            System.out.printf("Message=%s%n", textField.getValue());
+            client.sendMessage(textField.getValue());
             textField.clear();
         });
         sendButton.setEnabled(false); // will be enabled once textField has content
