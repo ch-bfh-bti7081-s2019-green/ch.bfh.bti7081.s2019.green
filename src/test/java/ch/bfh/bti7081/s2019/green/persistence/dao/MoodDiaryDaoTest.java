@@ -1,22 +1,18 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
-import ch.bfh.bti7081.s2019.green.LoginUtils;
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
-import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -31,7 +27,7 @@ public class MoodDiaryDaoTest {
     public static void setup() {
         DbTestUtil.reset(db, "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
 
-        String password = LoginUtils.getEncodedPassword("pass1234");
+        String password = AuthService.getEncodedPassword("pass1234");
         Patient james = createPatientWithDiary(
                 30,
                 "James Gosling",

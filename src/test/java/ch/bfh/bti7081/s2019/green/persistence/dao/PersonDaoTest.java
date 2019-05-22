@@ -1,19 +1,16 @@
 package ch.bfh.bti7081.s2019.green.persistence.dao;
 
-import ch.bfh.bti7081.s2019.green.LoginUtils;
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -29,7 +26,7 @@ public class PersonDaoTest {
     public static void setup() {
         DbTestUtil.reset(db, "PERSON", "CONTACT");
 
-        String password = LoginUtils.getEncodedPassword("pass123");
+        String password = AuthService.getEncodedPassword("pass123");
 
         Person james = savePerson(1337,
                 "James Gosling",
