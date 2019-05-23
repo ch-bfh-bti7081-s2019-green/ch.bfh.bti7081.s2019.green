@@ -34,7 +34,6 @@ public class MoodDiaryDaoTest {
 
     @BeforeClass
     public static void setup() {
-
         Patient james = createPatientWithDiary(
                 30,
                 "James Gosling",
