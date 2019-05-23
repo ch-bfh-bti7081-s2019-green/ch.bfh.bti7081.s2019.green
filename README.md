@@ -10,8 +10,8 @@ The live production version of the application can be found [here](https://pms.s
 This application is currently only compatible with [PostgreSQL](https://www.postgresql.org/). 
 
 1. Install PostgreSQL
-2. Create a user called `dbuser`
-3. Create a database called `pms`
+2. Create a user called `dbuser` (`createuser --interactive`)
+3. Create a database called `pms` (`createdb pms -O dbuser`)
 4. Run `mvn compile exec:java@seed` to seed the database
 5. Run `mvn jetty:run` to start the application on `localhost:8080`
 
