@@ -69,6 +69,8 @@ Deploy:Database:
   stage: Deploy
   script:
     - mvn ${MAVEN_CLI_OPTS} compile exec:java@seed
+  only:
+    - master
 
 Deploy:App:
   image: maven:3-jdk-8-alpine
