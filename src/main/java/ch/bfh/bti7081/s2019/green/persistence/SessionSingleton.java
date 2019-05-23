@@ -14,19 +14,25 @@ import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
+import ch.bfh.bti7081.s2019.green.persistence.seed.MetadataExtractorIntegrator;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.BootstrapServiceRegistry;
+import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.jpa.boot.spi.IntegratorProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -36,24 +42,26 @@ public class SessionSingleton {
     private final SessionFactory sessionFactory;
     private final Session session;
     private final EntityManager em;
-    private final Configuration conf;
 
     private static final Logger LOG = LoggerFactory.getLogger(SessionSingleton.class);
 
     private SessionSingleton() {
         Configuration config = createConfig();
 
+        BootstrapServiceRegistry bootstrapServiceRegistry =
+                new BootstrapServiceRegistryBuilder()
+                        .enableAutoClose()
+                        .applyIntegrator( MetadataExtractorIntegrator.INSTANCE )
+                        .build();
 
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder(bootstrapServiceRegistry)
                 .applySettings(config.getProperties())
                 .configure("hibernate.cfg.xml")
                 .build();
 
-
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
         em = session.getEntityManagerFactory().createEntityManager();
-        conf = config;
     }
 
     private Configuration createConfig() {
@@ -106,10 +114,6 @@ public class SessionSingleton {
 
     public EntityManager getRawEntityManager() {
         return this.em;
-    }
-
-    public Configuration getRawConfig() {
-        return this.conf;
     }
 
     /**
