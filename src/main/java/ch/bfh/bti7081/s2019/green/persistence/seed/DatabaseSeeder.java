@@ -1,11 +1,16 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
+import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import com.github.javafaker.Faker;
 import org.hibernate.boot.Metadata;
 import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -22,12 +27,36 @@ public class DatabaseSeeder {
 
     private static SessionSingleton db = SessionSingleton.getInstance();
     private static Metadata metadata = MetadataExtractorIntegrator.INSTANCE.getMetadata();
+    private static Faker faker = new Faker();
 
     public static void main(String[] args) {
         nukeDatabase();
         rebuildDatabase();
+        seed();
+    }
 
-        // TODO: Add seed code here
+    /**
+     * Seed the database with example data.
+     */
+    private static void seed() {
+        Patient patient = getRandomPatient();
+        db.save(patient);
+
+        MoodDiary diary = new MoodDiary();
+        patient.setDiary(diary);
+        db.save(diary);
+
+    }
+
+    private static Patient getRandomPatient() {
+        Patient patient = new Patient();
+        patient.setFirstName(faker.name().firstName());
+        patient.setLastName(faker.name().lastName());
+        patient.setAhvNumber((int) faker.number().randomNumber(13, true));
+        patient.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        patient.setUsername(faker.name().username());
+
+        return patient;
     }
 
     /**
@@ -86,6 +115,8 @@ public class DatabaseSeeder {
             sb.append(table);
             sb.append(" CASCADE;");
         }
+
+        sb.append("DROP SEQUENCE IF EXISTS hibernate_sequence CASCADE;");
 
         return sb.toString();
     }

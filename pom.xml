@@ -76,6 +76,11 @@
             <artifactId>app-layout-addon</artifactId>
             <version>3.0.0.beta5</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.18</version>
+        </dependency>
 
         <!-- persistency dependencies -->
         <dependency>
@@ -106,11 +111,6 @@
             <version>1.4.199</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.timols</groupId>
-            <version>0.1.0</version>
-            <artifactId>seeder</artifactId>
-        </dependency>
 
         <!--Testing dependencies-->
         <dependency>

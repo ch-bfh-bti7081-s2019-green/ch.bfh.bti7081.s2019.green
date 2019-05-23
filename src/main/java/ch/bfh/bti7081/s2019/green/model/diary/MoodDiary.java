@@ -18,6 +18,7 @@ import java.util.List;
 public class MoodDiary extends AbstractBaseEntity {
     @OneToOne
     @JoinColumn(name = "PATIENT_ID")
+    @EqualsAndHashCode.Exclude
     private Patient patient;
 
     @OneToMany(mappedBy = "diary")
