@@ -36,6 +36,7 @@ public class SessionSingleton {
     private final SessionFactory sessionFactory;
     private final Session session;
     private final EntityManager em;
+    private final Configuration conf;
 
     private static final Logger LOG = LoggerFactory.getLogger(SessionSingleton.class);
 
@@ -52,6 +53,7 @@ public class SessionSingleton {
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
         em = session.getEntityManagerFactory().createEntityManager();
+        conf = config;
     }
 
     private Configuration createConfig() {
@@ -104,6 +106,10 @@ public class SessionSingleton {
 
     public EntityManager getRawEntityManager() {
         return this.em;
+    }
+
+    public Configuration getRawConfig() {
+        return this.conf;
     }
 
     /**
