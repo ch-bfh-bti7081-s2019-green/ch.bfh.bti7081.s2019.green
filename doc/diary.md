@@ -289,5 +289,5 @@ Work from home: FC, MS
 - Daily scrum
 - Work on sprint 2
 
-## Todo Until 2019-05-24
+## Todo Until 2019-05-27
 - Work on sprint 2
