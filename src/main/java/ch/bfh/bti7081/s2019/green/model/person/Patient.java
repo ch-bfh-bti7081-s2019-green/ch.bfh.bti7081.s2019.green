@@ -33,4 +33,9 @@ public class Patient extends Person {
 
     @OneToMany(mappedBy = "patient")
     private List<Intake> intakes;
+
+    public void setDiary(MoodDiary diary) {
+        this.diary = diary;
+        diary.setPatient(this);
+    }
 }

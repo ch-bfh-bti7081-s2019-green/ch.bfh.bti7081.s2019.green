@@ -1,0 +1,27 @@
+@startuml
+skinparam packageStyle rectangle
+'Object <|-- Demo1
+
+package ch.bfh.bti7081.s2019.green {
+    package chat {
+        class ChatClient {
+            {field} Person user
+            {method} sendMessage(String text) : void
+            {method} onMessage(Message msg) : void
+            {method} getLatentMessages : List<Message>
+        }
+    }
+    note top of chat: Functional components for the chat feature.
+    
+    package scheduler << Singleton >>{
+        class Scheduler {
+            {field} Scheduler instance
+            {method} getInstance : Scheduler
+            {method} schedule(ZonedDateTime triggerTime, Callable<T> callable> : ScheduledFuture<T>
+        }
+    }
+    note top of scheduler: Scheduling component.\nAllows scheduling any Callable to run at a given time.
+}
+
+@enduml
+
