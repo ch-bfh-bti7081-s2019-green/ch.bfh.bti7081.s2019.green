@@ -280,3 +280,14 @@ Work from home: CK, MS, SK
 
 ## Todo Until 2019-05-24
 - Work on sprint 2
+
+# 2019-05-24
+Attending: CK, MH, SK  
+Work from home: FC, MS    
+
+## Topics
+- Daily scrum
+- Work on sprint 2
+
+## Todo Until 2019-05-24
+- Work on sprint 2
