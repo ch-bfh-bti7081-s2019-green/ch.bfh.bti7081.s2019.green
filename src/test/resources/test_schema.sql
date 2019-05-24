@@ -1,6 +1,7 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 -- to import this TO sqlite, use :%s/AUTO_INCREMENT/AUTO_INCREMENT/g
 -- to import FROM sqlite, use :%s/AUTOINCREMENT/AUTO_INCREMENT/g
+CREATE SEQUENCE hibernate_sequence;
 
 DROP TABLE IF EXISTS "DEFER_TIMES";
 CREATE TABLE IF NOT EXISTS "DEFER_TIMES"
