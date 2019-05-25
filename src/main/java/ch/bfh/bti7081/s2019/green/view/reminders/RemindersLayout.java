@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.layout;
+package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
 import com.vaadin.flow.component.button.Button;
