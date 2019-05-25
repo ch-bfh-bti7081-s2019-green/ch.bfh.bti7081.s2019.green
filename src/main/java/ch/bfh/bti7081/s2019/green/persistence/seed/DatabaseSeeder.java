@@ -2,9 +2,15 @@ package ch.bfh.bti7081.s2019.green.persistence.seed;
 
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Therapist;
+import ch.bfh.bti7081.s2019.green.model.prescription.Dose;
+import ch.bfh.bti7081.s2019.green.model.prescription.Medication;
+import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
+import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import com.github.javafaker.Faker;
 import org.hibernate.boot.Metadata;
+import org.hibernate.mapping.Array;
 import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
@@ -26,7 +32,6 @@ public class DatabaseSeeder {
 
     private static SessionSingleton db = SessionSingleton.getInstance();
     private static Metadata metadata = MetadataExtractorIntegrator.INSTANCE.getMetadata();
-    private static Faker faker = new Faker();
 
     public static void main(String[] args) {
         nukeDatabase();
@@ -38,24 +43,38 @@ public class DatabaseSeeder {
      * Seed the database with example data.
      */
     private static void seed() {
-        Patient patient = getRandomPatient();
+        DatabaseSeederService databaseSeederService = new DatabaseSeederService();
+        Patient patient = databaseSeederService.getRandomPatient();
+
+        Therapist therapist = databaseSeederService.getRandomTherapist();
+        ArrayList<Patient> patients = new ArrayList<>();
+        patients.add(patient);
+        therapist.setPatients(patients);
+        db.save(therapist);
+
+        patient.setTherapist(therapist);
         db.save(patient);
+
+        Dose dose = databaseSeederService.getRandomDose();
+        db.save(dose);
+
+        Medication medication = databaseSeederService.getRandomMedication();
+        db.save(medication);
+
+        Reminder reminder = databaseSeederService.getRandomReminder();
+        db.save(reminder);
+
+        Prescription prescription = databaseSeederService.getRandomPrescription();
+        prescription.setPatient(patient);
+        prescription.setTherapist(therapist);
+        prescription.setDose(dose);
+        prescription.setMedication(medication);
+        prescription.setReminder(reminder);
+        db.save(prescription);
 
         MoodDiary diary = new MoodDiary();
         patient.setDiary(diary);
         db.save(diary);
-
-    }
-
-    private static Patient getRandomPatient() {
-        Patient patient = new Patient();
-        patient.setFirstName(faker.name().firstName());
-        patient.setLastName(faker.name().lastName());
-        patient.setAhvNumber((int) faker.number().randomNumber(13, true));
-        patient.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        patient.setUsername(faker.name().username());
-
-        return patient;
     }
 
     /**
