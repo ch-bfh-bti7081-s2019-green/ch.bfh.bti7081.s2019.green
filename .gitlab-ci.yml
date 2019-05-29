@@ -59,6 +59,8 @@ Doc:Java:
 Test:Java:
   image: maven:3-jdk-8-alpine
   stage: Test
+  before_script:
+    - apk add --update yarn nodejs
   script:
     - mvn ${MAVEN_CLI_OPTS} -DrepoToken=$COVERAGE_TOKEN clean test jacoco:report coveralls:report
 
