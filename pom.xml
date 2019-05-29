@@ -224,6 +224,9 @@
                                     <goal>copy-production-files</goal>
                                     <goal>package-for-production</goal>
                                 </goals>
+                                <configuration>
+                                    <autodetectTools>true</autodetectTools>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
