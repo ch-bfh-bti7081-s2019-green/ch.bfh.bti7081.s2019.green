@@ -80,6 +80,6 @@ Deploy:App:
     - mkdir -p ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
-    - mvn ${MAVEN_CLI_OPTS} clean package
+    - mvn ${MAVEN_CLI_OPTS} clean verify package
     - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh
