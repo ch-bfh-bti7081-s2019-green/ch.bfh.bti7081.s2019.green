@@ -24,5 +24,16 @@ public class PersonDao extends AbstractDao<Person>{
         });
     }
 
+    public Optional findByUsername(final String username){
+        return db.executeInTransaction(session -> {
+            String queryString = "select p from Person p" +
+                    " where lower(p.username) like" +
+                    " lower(:username)";
+            Query<Person> query = session.createQuery(queryString, Person.class);
+            query.setParameter("username", "%" + username + "%");
+            return Optional.ofNullable(query.uniqueResult());
+        });
+    }
+
 
 }

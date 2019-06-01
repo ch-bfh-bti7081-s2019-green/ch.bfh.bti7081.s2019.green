@@ -7,10 +7,13 @@ import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
