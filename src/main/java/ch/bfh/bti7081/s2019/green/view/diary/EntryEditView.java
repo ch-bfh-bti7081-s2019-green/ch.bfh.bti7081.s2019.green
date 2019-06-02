@@ -98,14 +98,14 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         return createExerciseLayout(newActivity);
     }
 
-    private HorizontalLayout createExerciseLayout(Activity activity){
+    private HorizontalLayout createExerciseLayout(Activity activity) {
         HorizontalLayout exerciseLayout = new HorizontalLayout();
 
         TimePicker timePicker = new TimePicker();
         timePicker.addValueChangeListener(e -> {
             activity.setTime(e.getValue());
         });
-        if(activity.getTime() != null){
+        if (activity.getTime() != null) {
             timePicker.setValue(activity.getTime());
         }
 
@@ -113,7 +113,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         textField.addValueChangeListener(e -> {
             activity.setText(e.getValue());
         });
-        if(activity.getText() != null){
+        if (activity.getText() != null) {
             textField.setValue(activity.getText());
         }
         exerciseLayout.add(timePicker, textField);
