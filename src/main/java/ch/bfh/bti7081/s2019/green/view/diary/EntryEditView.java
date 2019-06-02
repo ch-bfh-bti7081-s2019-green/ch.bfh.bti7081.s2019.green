@@ -1,6 +1,8 @@
 package ch.bfh.bti7081.s2019.green.view.diary;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
+import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.EntryDao;
@@ -8,8 +10,11 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.BeforeEvent;
@@ -54,8 +59,21 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         binder.bind(slider, Entry::getMood, Entry::setMood);
         form.addFormItem(slider, "Mood");
 
+        VerticalLayout verticalLayout = new VerticalLayout();
+
+        Button addExerciseButton = new Button();
+        addExerciseButton.addClickListener(e -> {
+            verticalLayout.add(addNewActivity());
+        });
+        addExerciseButton.setText("Add Exercise");
+
         // Populate form with existing data
         binder.readBean(this.entry);
+        verticalLayout.add(addExerciseButton);
+        for (Activity activity : entry.getActivities()) {
+            verticalLayout.add(createExerciseLayout(activity));
+        }
+        form.addFormItem(verticalLayout, "Exercise");
         this.add(form);
     }
 
@@ -69,5 +87,37 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         });
 
         this.add(updateButton);
+    }
+
+    private HorizontalLayout addNewActivity() {
+        Activity newActivity = new Activity();
+        newActivity.setType(ActivityType.EXERCISE);
+        newActivity.setEntry(this.entry);
+        this.entry.addActivity(newActivity);
+
+        return createExerciseLayout(newActivity);
+    }
+
+    private HorizontalLayout createExerciseLayout(Activity activity){
+        HorizontalLayout exerciseLayout = new HorizontalLayout();
+
+        TimePicker timePicker = new TimePicker();
+        timePicker.addValueChangeListener(e -> {
+            activity.setTime(e.getValue());
+        });
+        if(activity.getTime() != null){
+            timePicker.setValue(activity.getTime());
+        }
+
+        TextField textField = new TextField();
+        textField.addValueChangeListener(e -> {
+            activity.setText(e.getValue());
+        });
+        if(activity.getText() != null){
+            textField.setValue(activity.getText());
+        }
+        exerciseLayout.add(timePicker, textField);
+
+        return exerciseLayout;
     }
 }
