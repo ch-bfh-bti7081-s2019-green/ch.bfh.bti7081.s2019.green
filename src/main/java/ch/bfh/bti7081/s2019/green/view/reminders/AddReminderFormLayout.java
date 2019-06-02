@@ -1,6 +1,8 @@
 package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.persistence.dao.PrescriptionDao;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.select.Select;
@@ -11,11 +13,13 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class AddReminderFormLayout extends FormLayout {
 
     private LocalDateTime selectedTime;
     private String selectedPrescription;
+    private PrescriptionDao prescriptionDao = new PrescriptionDao();
 
     public AddReminderFormLayout() {
         FormLayout formLayout = new FormLayout();
@@ -28,8 +32,7 @@ public class AddReminderFormLayout extends FormLayout {
         prescriptionSlect.setLabel("Prescription");
 
         Select prescriptionSelect = new Select();
-        List<String> prescriptions = new ArrayList<>();
-        prescriptions.add("Prescription Example");
+        Optional<List<Prescription>> prescriptions = prescriptionDao.getAllPrescriptions();
 
         prescriptionSelect.setItems(prescriptions);
 

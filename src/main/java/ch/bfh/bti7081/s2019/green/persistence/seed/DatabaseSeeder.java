@@ -69,7 +69,7 @@ public class DatabaseSeeder {
         prescription.setTherapist(therapist);
         prescription.setDose(dose);
         prescription.setMedication(medication);
-        prescription.setReminder(reminder);
+        //prescription.setReminder(reminder);
         db.save(prescription);
 
         MoodDiary diary = new MoodDiary();
