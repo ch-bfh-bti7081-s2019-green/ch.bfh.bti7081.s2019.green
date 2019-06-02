@@ -1,16 +1,22 @@
 package ch.bfh.bti7081.s2019.green.view.diary;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
+import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.EntryDao;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.converter.StringToDoubleConverter;
+import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
@@ -23,6 +29,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
     private Entry entry;
     private Binder<Entry> binder;
+    private FormLayout form;
 
     @Override
     public void setParameter(BeforeEvent event, Integer parameter) {
@@ -32,6 +39,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
         this.addHeading();
         this.addForm();
+        this.addActivitiesGrid();
         this.addUpdateButton();
     }
 
@@ -41,7 +49,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
     }
 
     private void addForm() {
-        FormLayout form = new FormLayout();
+        this.form = new FormLayout();
         this.binder = new Binder<>();
 
         // Mood slider
@@ -54,10 +62,30 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         binder.bind(slider, Entry::getMood, Entry::setMood);
         form.addFormItem(slider, "Mood");
 
+        //Water Drunk
+        TextField tf = new TextField();
+        tf.setWidth("80px");
+        binder.forField(tf)
+                .withConverter(new StringToDoubleConverter("Must be a Double"))
+                .bind(Entry::getWaterDrunk, Entry::setWaterDrunk);
+        form.addFormItem(tf, "Water drunk (in liter)");
+
         // Populate form with existing data
         binder.readBean(this.entry);
         this.add(form);
     }
+
+    private void addActivitiesGrid() {
+        Grid<Activity> grid = new Grid<>(Activity.class);
+        grid.setItems(this.entry.getActivities().stream().filter(a -> a.getType() == ActivityType.FOOD));
+        grid.removeColumnByKey("id");
+        grid.removeColumnByKey("entry");
+        grid.removeColumnByKey("type");
+        grid.setColumns("time","text");
+
+        this.add(grid);
+    }
+
 
     private void addUpdateButton() {
         Button updateButton = new Button("Update");
