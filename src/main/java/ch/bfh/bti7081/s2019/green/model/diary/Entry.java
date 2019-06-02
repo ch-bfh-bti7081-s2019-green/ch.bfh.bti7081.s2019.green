@@ -65,4 +65,20 @@ public class Entry extends AbstractBaseEntity {
     public double getMood() {
         return (double) this.mood;
     }
+
+    public void getSleepHours(double sleepHours) {
+        this.sleepHours = (double) sleepHours;
+    }
+
+    public double setSleepHours() {
+        return (double) this.sleepHours;
+    }
+
+    public void getNotes(String notes) {
+        this.notes = (String) notes;
+    }
+
+    public String setNotes() {
+        return (String) this.notes;
+    }
 }
