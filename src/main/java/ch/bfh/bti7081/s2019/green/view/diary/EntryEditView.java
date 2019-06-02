@@ -24,6 +24,9 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.timepicker.TimePicker;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -72,79 +75,13 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         binder.bind(sleephour, Entry::getSleepHours, Entry::setSleepHours);
         form.addFormItem(sleephour, "Sleep");
 
-        //----------------------------------------------
-
-        /*
-        Grid<Entry> grid = new Grid<>();
-
-
-        List<Activity> activities = getAlignItems();
-        List<Entry> activities = getItems();
-        grid.setItems(persons);
-        Grid.Column<Entry> nameColumn = grid.addColumn(Entry::getActivity)
-                .setHeader("First name");
-        Grid.Column<Entry> subscriberColumn = grid
-                .addColumn(Person::isSubscriber).setHeader("Subscriber");
-
-        Binder<Entry> binder = new Binder<>(Entry.class);
-        Editor<Entry> editor = grid.getEditor();
-        editor.setBinder(binder);
-        editor.setBuffered(true);
-
-        Div validationStatus = new Div();
-        validationStatus.setId("validation");
-
-        TextField field = new TextField();
-        binder.forField(field)
-                .withValidator(name -> !name.isEmpty(),
-                        "Name should not be empty")
-                .withStatusLabel(validationStatus).bind("firstName");
-       // nameColumn.setEditorComponent(field);
-
-        Checkbox checkbox = new Checkbox();
-        binder.bind(checkbox, "subscriber");
-        //subscriberColumn.setEditorComponent(checkbox);
-
-        Collection<Button> editButtons = Collections
-                .newSetFromMap(new WeakHashMap<>());
-
-        Grid.Column<Entry> editorColumn = grid.addComponentColumn(person -> {
-            Button edit = new Button("Edit");
-            edit.addClassName("edit");
-            edit.addClickListener(e -> {
-                editor.editItem(person);
-                field.focus();
-            });
-            edit.setEnabled(!editor.isOpen());
-            editButtons.add(edit);
-            return edit;
+        // Medication
+        VerticalLayout verticalLayout = new VerticalLayout();
+        Button addMedicationButton = new Button();
+        addMedicationButton.addClickListener(e -> {
+            verticalLayout.add(addNewActivity());
         });
-
-        editor.addOpenListener(e -> editButtons.stream()
-                .forEach(button -> button.setEnabled(!editor.isOpen())));
-        editor.addCloseListener(e -> editButtons.stream()
-                .forEach(button -> button.setEnabled(!editor.isOpen())));
-
-        Button save = new Button("Save", e -> editor.save());
-        save.addClassName("save");
-
-        Button cancel = new Button("Cancel", e -> editor.cancel());
-        cancel.addClassName("cancel");
-
-// Add a keypress listener that listens for an escape key up event.
-// Note! some browsers return key as Escape and some as Esc
-        grid.getElement().addEventListener("keyup", event -> editor.cancel())
-                .setFilter("event.key === 'Escape' || event.key === 'Esc'");
-
-        Div buttons = new Div(save, cancel);
-        editorColumn.setEditorComponent(buttons);
-
-       /* editor.addSaveListener(
-                event -> message.setText(event.getItem().getfirstName() + ", "
-                        + event.getItem().isSubscriber));
-*/
-
-        //----------------------------------------------
+        addMedicationButton.setText("Add Medication");
 
         // Notes
         TextArea notes = new TextArea();
@@ -153,6 +90,11 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
         // Populate form with existing data
         binder.readBean(this.entry);
+        verticalLayout.add(addMedicationButton);
+        for (Activity activity : entry.getActivities()) {
+            verticalLayout.add(createMedicationLayout(activity));
+        }
+        form.addFormItem(verticalLayout, "Medication");
         this.add(form);
     }
 
@@ -166,5 +108,36 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         });
 
         this.add(updateButton);
+    }
+    private HorizontalLayout addNewActivity() {
+        Activity newActivity = new Activity();
+        newActivity.setType(ActivityType.MEDICATION);
+        newActivity.setEntry(this.entry);
+        this.entry.addActivity(newActivity);
+
+        return createMedicationLayout(newActivity);
+    }
+
+    private HorizontalLayout createMedicationLayout(Activity activity) {
+        HorizontalLayout medicationLayout = new HorizontalLayout();
+
+        TimePicker timePicker = new TimePicker();
+        timePicker.addValueChangeListener(e -> {
+            activity.setTime(e.getValue());
+        });
+        if (activity.getTime() != null) {
+            timePicker.setValue(activity.getTime());
+        }
+
+        TextField textField = new TextField();
+        textField.addValueChangeListener(e -> {
+            activity.setText(e.getValue());
+        });
+        if (activity.getText() != null) {
+            textField.setValue(activity.getText());
+        }
+        medicationLayout.add(timePicker, textField);
+
+        return medicationLayout;
     }
 }
