@@ -90,6 +90,7 @@ public class DatabaseSeeder {
         List<String> tables = new ArrayList<>();
 
         for (PersistentClass persistentClass : metadata.getEntityBindings()) {
+            System.out.println(persistentClass.getTable().getName());
             tables.add(persistentClass.getTable().getName());
         }
 
