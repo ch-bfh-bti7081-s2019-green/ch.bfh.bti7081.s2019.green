@@ -27,8 +27,7 @@ public class Reminder extends AbstractBaseEntity {
     @JoinTable(name = "DEFER_TIMES", joinColumns = @JoinColumn(name = "REMINDER_ID", referencedColumnName = "ID"))
     private List<ZonedDateTime> deferTimes;
 
-    //TODO CK Implement this once you have implementations
-    @OneToMany(mappedBy = "reminder")
+    @OneToMany(mappedBy = "reminder", cascade = CascadeType.REMOVE)
     private List<ReminderRecurrence> recurrences;
 
     public void setPrescription(Prescription prescription) {

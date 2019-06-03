@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.view.reminders;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
+import ch.bfh.bti7081.s2019.green.scheduler.ReminderSchedulerService;
 import ch.bfh.bti7081.s2019.green.scheduler.Scheduler;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -42,11 +43,8 @@ public class RemindersLayout extends VerticalLayout {
         removeButton = removeButton;
 
         removeButton.addClickListener(e -> {
-            scheduler.schedule(ZonedDateTime.now(), () -> {
-                System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-                return null;
-            });
             if (this.selectedReminder != null) {
+                ReminderSchedulerService.getInstance().removeReminder(selectedReminder);
                 reminderDao.removeReminder(this.selectedReminder);
                 remindersGrid.setItems(reminderDao.getAllReminders().get());
             }
