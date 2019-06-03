@@ -39,8 +39,7 @@ public class MoodDiaryView extends VerticalLayout {
     private MoodDiary getDiary() {
         // TODO: Get the diary of the currently logged in patient
         MoodDiaryDao dao = new MoodDiaryDao();
-        // TODO this isn't safe, should check if present.
-        return dao.findById(1).get();
+        return dao.findAll().get(0);
     }
 
     private void addHeading() {

@@ -2,12 +2,14 @@ package ch.bfh.bti7081.s2019.green.model.person;
 
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@ToString(exclude = "patients")
 @Entity
 @Table(name = "THERAPIST")
 @PrimaryKeyJoinColumn(name = "ID")
