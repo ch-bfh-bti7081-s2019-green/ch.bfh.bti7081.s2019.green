@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@ToString(exclude = {"diary"})
+@ToString(exclude = {"diary", "therapist", "prescriptions"})
 @Entity
 @Table(name = "PATIENT")
 public class Patient extends Person {
@@ -33,4 +33,9 @@ public class Patient extends Person {
 
     @OneToMany(mappedBy = "patient")
     private List<Intake> intakes;
+
+    public void setDiary(MoodDiary diary) {
+        this.diary = diary;
+        diary.setPatient(this);
+    }
 }

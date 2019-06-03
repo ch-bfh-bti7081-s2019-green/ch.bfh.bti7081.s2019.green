@@ -1,0 +1,29 @@
+@startuml
+skinparam packageStyle rectangle
+'Object <|-- Demo1
+
+package ch.bfh.bti7081.s2019.green {
+    package layout {
+        class DefaultRouterLayout
+        note top of DefaultRouterLayout: Creates a sidebar navigation and bar with notificationstatus.
+    }
+    package view {
+        package diary {
+            class EntryEditView
+            class MoodDiaryView
+        }
+        package chat {
+            class ChatView
+        }
+        package login {
+            class LoginView
+        }
+        package reminder {
+            class RemindersView
+            class ReminderAddView
+        }
+    }
+}
+
+@enduml
+

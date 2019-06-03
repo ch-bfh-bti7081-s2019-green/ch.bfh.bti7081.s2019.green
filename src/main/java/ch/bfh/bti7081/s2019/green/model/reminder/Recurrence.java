@@ -16,15 +16,19 @@ public abstract class Recurrence extends AbstractBaseEntity {
     @JoinColumn(name = "REMINDER_ID")
     private Reminder reminder;
 
+    public void setReminder(Reminder reminder){
+        this.reminder = reminder;
+    }
+
     /**
      * Takes a reminder and calculates the "next instance" of that reminder.
      * Taking into account the entire list of recurrences in the reminder;
      */
-    public static Reminder calculateNext(Reminder reminder){
+    public static Reminder calculateNext(Reminder reminder) {
         throw new RuntimeException("Not yet implemented, have fun Christian");
     }
 
-    public static String toDisplayString(){
+    public static String toDisplayString() {
         throw new RuntimeException("Not yet implemented, have fun Christian");
     }
 }

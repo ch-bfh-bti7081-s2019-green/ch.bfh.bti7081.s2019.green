@@ -1,0 +1,43 @@
+@startuml
+skinparam packageStyle rectangle
+'Object <|-- Demo1
+
+package ch.bfh.bti7081.s2019.green {
+    package model {
+        class AbstractBaseEntity {
+            Integer id
+        }
+        package chat {
+            class Channel
+            class Message
+        }
+        package diary {
+            class Activity
+            enum ActivityType
+            class Entry
+            class MoodDiary
+        }
+        package person {
+            class Contact
+            class Person
+            class Patient extends Person
+            class Therapist extends Person
+        }
+        package prescription {
+            class Dose
+            class Intake
+            class Medication
+            class Prescription
+            class Unit
+        }
+        package reminder {
+            abstract class Recurrence
+            class Reminder
+            class WeekdayRecurrence extends Recurrence
+            class EveryTimeUnitRecurrence extends Recurrence
+        }
+    }
+}
+
+@enduml
+

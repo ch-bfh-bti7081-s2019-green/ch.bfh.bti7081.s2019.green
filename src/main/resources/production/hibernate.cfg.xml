@@ -4,21 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
-        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property> <!-- a custom hibernate dialect -->
-        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="dialect">org.hibernate.dialect.PostgresPlusDialect</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
 
-        <!--TODO configure this for dev/prod-->
-        <property name="connection.url">jdbc:sqlite:${catalina.base}/webapps/ROOT/WEB-INF/classes/pms.db</property>
+        <property name="connection.url">jdbc:postgresql://pms.schaer.dev:5432/pms</property>
+        <property name="hibernate.connection.username">dbuser</property>
+        <property name="hibernate.connection.password">${HIBERNATE_PASSWORD}</property>
 
         <!--custom connection pool so SQLite isn't locked when we try to use it-->
         <property name="hibernate.c3p0.min_size">1</property>
         <property name="hibernate.c3p0.max_size">1</property>
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
-
-        <!--hibernate automatically generates the schema from the given model-->
-        <!--<property name="hibernate.hbm2ddl.auto">validate</property>-->
     </session-factory>
 </hibernate-configuration>

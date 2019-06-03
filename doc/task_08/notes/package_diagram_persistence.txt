@@ -1,0 +1,47 @@
+@startuml
+skinparam packageStyle rectangle
+'Object <|-- Demo1
+
+package ch.bfh.bti7081.s2019.green {
+    package persistence {
+        class SessionSingleton << Singleton >>{
+            {field} SessionSingleton instance
+            {method} getInstance : SessionSingleton
+            {method} save(T entity) : Serializable
+            {method} delete(T entity) : void
+            {method} executeInTransaction(Consumer<Session> runnable) : Optional<T>
+        }
+        note left of SessionSingleton: Simplified access to the hibernate session.
+        
+        package converters {
+            class LocalTimeConverter
+            class LocalDateConverter
+            class LocalDateTimeConverter
+            class ZonedDateTimeConverter
+        }
+        note top of converters: Hibernate Converters for Java 8 Time API
+        
+        package dao {
+            abstract class AbstractDao <T> {
+                {method} findAll : List<T>
+                {method} findById(Serializable id) : Optional<T>
+            }
+            class EntryDao extends AbstractDao
+            class MoodDiaryDao extends AbstractDao
+            class PersonDao extends AbstractDao
+            class ReminderDao extends AbstractDao
+            class ChannelDao extends AbstractDao
+        }
+        note top of dao: DataAccessObjects for Entities
+        
+        package seed {
+            class DatabaseSeeder
+            class MetadataExtractorIntegrator
+            note top  of MetadataExtractorIntegrator: Gain access to the hibernate metadata.
+        }
+        note top of seed: Seeds the database to an initial state (callable from Maven)
+    }
+}
+
+@enduml
+

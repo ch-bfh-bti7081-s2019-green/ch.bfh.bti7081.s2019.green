@@ -17,6 +17,7 @@ if [ "${MODE}" == "doc" ]; then
 else
     sudo mv "/tmp/ROOT.war" "/opt/tomcat/webapps/ROOT.war"
     sudo chown tomcat:tomcat "/opt/tomcat/webapps/ROOT.war"
+    sudo rm -rf "/opt/tomcat/webapps/ROOT"
     sudo systemctl restart tomcat
 fi
 

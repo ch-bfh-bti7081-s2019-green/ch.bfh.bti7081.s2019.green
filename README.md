@@ -2,9 +2,18 @@
 [![Coverage Status](https://coveralls.io/repos/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/badge.svg?branch=develop)](https://coveralls.io/github/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green?branch=develop)
 [![Codebeat Badge](https://codebeat.co/badges/829114c3-bfb4-45f7-a853-d1b0c264f46d)](https://codebeat.co/projects/github-com-ch-bfh-bti7081-s2019-green-ch-bfh-bti7081-s2019-green-develop)
 
-# Team Green
+# Patient Management System - Team Green
 ## Application
-The live version of the application can be found [here](https://pms.schaer.dev/).
+The live production version of the application can be found [here](https://pms.schaer.dev/).
+
+## Usage
+This application is currently only compatible with [PostgreSQL](https://www.postgresql.org/). 
+
+1. Install PostgreSQL
+2. Create a user called `dbuser` (`createuser --interactive`)
+3. Create a database called `pms` (`createdb pms -O dbuser`)
+4. Run `mvn compile exec:java@seed` to seed the database
+5. Run `mvn jetty:run` to start the application on `localhost:8080`
 
 ## Documentation
 ### Diary
@@ -33,8 +42,6 @@ The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/)
   * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_05_06/task_05_06_presentation.pdf)
 * Task 08
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08.pdf?job=Doc:PDF)
-  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08_presentation.pdf?job=Doc:PDF)
 * Task 09
-  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09.pdf?job=Doc:PDF)
   * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09_presentation.pdf?job=Doc:PDF)
 

@@ -9,6 +9,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.util.DbTestUtil;
 import ch.bfh.bti7081.s2019.green.persistence.util.IdUtil;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -26,10 +27,13 @@ public class MoodDiaryDaoTest {
     private static MoodDiaryDao dao = new MoodDiaryDao();
     private static SessionSingleton db = SessionSingleton.getInstance();
 
+    @AfterClass
+    public static void cleanup() {
+        DbTestUtil.nuke(db);
+    }
+
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
-
         Patient james = createPatientWithDiary(
                 30,
                 "James Gosling",

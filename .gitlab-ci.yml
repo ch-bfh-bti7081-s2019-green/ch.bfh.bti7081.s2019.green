@@ -5,7 +5,7 @@ variables:
   # As of Maven 3.3.0 instead of this you may define these options in `.mvn/maven.config` so the same config is used
   # when running from the command line.
   # `installAtEnd` and `deployAtEnd` are only effective with recent version of the corresponding plugins.
-  MAVEN_CLI_OPTS: "-Pproduction --batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  MAVEN_CLI_OPTS: "-DHIBERNATE_PASSWORD=$HIBERNATE_PASSWORD -Pproduction --batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 
 # Cache downloaded dependencies and plugins between builds.
 # To keep cache across branches add 'key: "$CI_JOB_NAME"'
@@ -35,15 +35,13 @@ Doc:PDF:
 #    - .latex/build.sh ./doc/task_05_06/task_05_06.md
 #    - .latex/build.sh ./doc/task_05_06/task_05_06_presentation.md beamer
     - .latex/build.sh ./doc/task_08/task_08.md
-    - .latex/build.sh ./doc/task_08/task_08_presentation.md beamer
-    - .latex/build.sh ./doc/task_09/task_09.md
     - .latex/build.sh ./doc/task_09/task_09_presentation.md beamer
   artifacts:
     paths:
       - "*.pdf"
 
 Doc:Java:
-  image: maven:3-jdk-8-alpine
+  image: maven:3.5-jdk-8-alpine
   stage: Doc
   before_script:
     - apk add --update sshpass openssh-client rsync
@@ -59,22 +57,32 @@ Doc:Java:
     - master
 
 Test:Java:
-  image: maven:3-jdk-8-alpine
+  image: maven:3.5-jdk-8-alpine
   stage: Test
+  before_script:
+    - apk add --update yarn nodejs
   script:
     - mvn ${MAVEN_CLI_OPTS} -DrepoToken=$COVERAGE_TOKEN clean test jacoco:report coveralls:report
 
+Deploy:Database:
+  image: maven:3.5-jdk-8-alpine
+  stage: Deploy
+  script:
+    - mvn ${MAVEN_CLI_OPTS} compile exec:java@seed
+  only:
+    - master
+
 Deploy:App:
-  image: maven:3-jdk-8-alpine
+  image: maven:3.5-jdk-8-alpine
   stage: Deploy
   before_script:
-    - apk add --update sshpass openssh-client
+    - apk add --update sshpass openssh-client yarn nodejs
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
   script:
-    - mvn ${MAVEN_CLI_OPTS} clean install
+    - mvn ${MAVEN_CLI_OPTS} clean verify package
     - scp target/*.war $SSH_USER@$SSH_HOST:/tmp/ROOT.war
     - ssh $SSH_USER@$SSH_HOST "bash -s" < ./deploy.sh
   only:
