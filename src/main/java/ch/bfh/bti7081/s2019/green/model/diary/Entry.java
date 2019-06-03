@@ -46,6 +46,14 @@ public class Entry extends AbstractBaseEntity {
         activity.setEntry(this);
     }
 
+    public List<Activity> getActivities() {
+        if (activities == null) {
+            return new ArrayList<>();
+        }
+
+        return activities;
+    }
+
     public void removeActivity(Activity activity) {
         if (activities == null) {
             activities = new ArrayList<>();
@@ -64,5 +72,21 @@ public class Entry extends AbstractBaseEntity {
 
     public double getMood() {
         return (double) this.mood;
+    }
+
+    public void getSleepHours(double sleepHours) {
+        this.sleepHours = (double) sleepHours;
+    }
+
+    public double setSleepHours() {
+        return (double) this.sleepHours;
+    }
+
+    public void getNotes(String notes) {
+        this.notes = (String) notes;
+    }
+
+    public String setNotes() {
+        return (String) this.notes;
     }
 }

@@ -1,7 +1,10 @@
-package ch.bfh.bti7081.s2019.green.layout;
+package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
+import ch.bfh.bti7081.s2019.green.scheduler.ReminderSchedulerService;
+import ch.bfh.bti7081.s2019.green.scheduler.Scheduler;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
@@ -12,12 +15,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.selection.SingleSelect;
 import com.vaadin.flow.router.Route;
 
+import java.time.ZonedDateTime;
+
 @Route(layout = DefaultRouterLayout.class)
 public class RemindersLayout extends VerticalLayout {
 
     private ReminderDao reminderDao = new ReminderDao();
     private Grid remindersGrid;
     private Reminder selectedReminder;
+    private Scheduler scheduler = Scheduler.getInstance();
 
     public RemindersLayout() {
         initialiseLayout();
@@ -38,8 +44,9 @@ public class RemindersLayout extends VerticalLayout {
 
         removeButton.addClickListener(e -> {
             if (this.selectedReminder != null) {
+                ReminderSchedulerService.getInstance().removeReminder(selectedReminder);
                 reminderDao.removeReminder(this.selectedReminder);
-                remindersGrid.setItems(reminderDao.getAllReminders().get());
+                remindersGrid.setItems(reminderDao.findAll());
             }
         });
 
@@ -58,8 +65,17 @@ public class RemindersLayout extends VerticalLayout {
     private Grid initialiseRemindersGrid() {
         Grid<Reminder> remindersGrid = new Grid<>(Reminder.class);
 
-        remindersGrid.setItems(reminderDao.getAllReminders().get());
+        remindersGrid.setItems(reminderDao.findAll());
         remindersGrid.setColumns("prescription", "notificationTime");
+        remindersGrid.addComponentColumn(e -> {
+            Label hasRecurrenceLabel = new Label();
+            if(e.getRecurrences().isEmpty()){
+                hasRecurrenceLabel.setText("No");
+            }else{
+                hasRecurrenceLabel.setText("Yes");
+            }
+            return hasRecurrenceLabel;
+        }).setHeader("Has Recurrences");
 
         remindersGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
 
@@ -85,7 +101,7 @@ public class RemindersLayout extends VerticalLayout {
 
         NativeButton confirmButton = new NativeButton("Add", event -> {
             dialogLayout.saveNewReminder();
-            remindersGrid.setItems(reminderDao.getAllReminders().get());
+            remindersGrid.setItems(reminderDao.findAll());
             addReminderDialog.close();
         });
         NativeButton cancelButton = new NativeButton("Cancel", event -> {
