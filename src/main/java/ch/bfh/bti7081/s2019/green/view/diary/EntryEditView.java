@@ -13,6 +13,7 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.binder.Binder;
@@ -59,11 +60,36 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         binder.bind(slider, Entry::getMood, Entry::setMood);
         form.addFormItem(slider, "Mood");
 
+
+        // Sleep
+        NumberField sleephour = new NumberField();
+        binder.bind(sleephour, Entry::getSleepHours, Entry::setSleepHours);
+        form.addFormItem(sleephour, "Sleep");
+
+        // Medication
         VerticalLayout verticalLayout = new VerticalLayout();
+        Button addMedicationButton = new Button();
+        addMedicationButton.addClickListener(e -> {
+            verticalLayout.add(addNewMedication());
+        });
+        addMedicationButton.setText("Add Medication");
+
+        // Notes
+        TextArea notes = new TextArea();
+        binder.bind(notes, Entry::getNotes, Entry::setNotes);
+        form.addFormItem(notes, "Notes");
+
+        // Populate form with existing data
+        binder.readBean(this.entry);
+        verticalLayout.add(addMedicationButton);
+        for (Activity activity : entry.getActivities()) {
+            verticalLayout.add(createMedicationLayout(activity));
+        }
+        form.addFormItem(verticalLayout, "Medication");
 
         Button addExerciseButton = new Button();
         addExerciseButton.addClickListener(e -> {
-            verticalLayout.add(addNewActivity());
+            verticalLayout.add(addNewExercise());
         });
         addExerciseButton.setText("Add Exercise");
 
@@ -74,6 +100,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
             verticalLayout.add(createExerciseLayout(activity));
         }
         form.addFormItem(verticalLayout, "Exercise");
+
         this.add(form);
     }
 
@@ -89,7 +116,17 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         this.add(updateButton);
     }
 
-    private HorizontalLayout addNewActivity() {
+
+    private HorizontalLayout addNewMedication() {
+        Activity newActivity = new Activity();
+        newActivity.setType(ActivityType.MEDICATION);
+        newActivity.setEntry(this.entry);
+        this.entry.addActivity(newActivity);
+
+        return createMedicationLayout(newActivity);
+    }
+
+    private HorizontalLayout addNewExercise() {
         Activity newActivity = new Activity();
         newActivity.setType(ActivityType.EXERCISE);
         newActivity.setEntry(this.entry);
@@ -97,6 +134,30 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
         return createExerciseLayout(newActivity);
     }
+
+    private HorizontalLayout createMedicationLayout(Activity activity) {
+        HorizontalLayout medicationLayout = new HorizontalLayout();
+        TimePicker timePicker = new TimePicker();
+        timePicker.addValueChangeListener(e -> {
+            activity.setTime(e.getValue());
+        });
+        if (activity.getTime() != null) {
+            timePicker.setValue(activity.getTime());
+        }
+
+        TextField textField = new TextField();
+        textField.addValueChangeListener(e -> {
+            activity.setText(e.getValue());
+        });
+        if (activity.getText() != null) {
+            textField.setValue(activity.getText());
+        }
+
+        medicationLayout.add(timePicker, textField);
+
+        return medicationLayout;
+    }
+
 
     private HorizontalLayout createExerciseLayout(Activity activity) {
         HorizontalLayout exerciseLayout = new HorizontalLayout();
@@ -116,6 +177,8 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         if (activity.getText() != null) {
             textField.setValue(activity.getText());
         }
+
+
         exerciseLayout.add(timePicker, textField);
 
         return exerciseLayout;
