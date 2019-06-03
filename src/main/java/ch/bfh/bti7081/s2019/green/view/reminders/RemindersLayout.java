@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2019.green.view.reminders;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
+import ch.bfh.bti7081.s2019.green.scheduler.Scheduler;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
@@ -13,12 +14,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.selection.SingleSelect;
 import com.vaadin.flow.router.Route;
 
+import java.time.ZonedDateTime;
+
 @Route(layout = DefaultRouterLayout.class)
 public class RemindersLayout extends VerticalLayout {
 
     private ReminderDao reminderDao = new ReminderDao();
     private Grid remindersGrid;
     private Reminder selectedReminder;
+    private Scheduler scheduler = Scheduler.getInstance();
 
     public RemindersLayout() {
         initialiseLayout();
@@ -38,6 +42,10 @@ public class RemindersLayout extends VerticalLayout {
         removeButton = removeButton;
 
         removeButton.addClickListener(e -> {
+            scheduler.schedule(ZonedDateTime.now(), () -> {
+                System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+                return null;
+            });
             if (this.selectedReminder != null) {
                 reminderDao.removeReminder(this.selectedReminder);
                 remindersGrid.setItems(reminderDao.getAllReminders().get());

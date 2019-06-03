@@ -47,5 +47,10 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                         .build())
                 .build());
     }
+
+    //TODO schedule all existing reminder recurrences on start up
+    private void scheduleAllRecurrences(){
+
+    }
 }
 

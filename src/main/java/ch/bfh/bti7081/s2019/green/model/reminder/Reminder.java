@@ -13,7 +13,8 @@ import java.util.List;
 @Entity
 @Table(name = "REMINDER")
 public class Reminder extends AbstractBaseEntity {
-    @OneToOne(mappedBy = "reminder")
+
+    @ManyToOne
     private Prescription prescription;
 
     @Column(name = "NOTIFICATION_TIME")
@@ -27,14 +28,14 @@ public class Reminder extends AbstractBaseEntity {
     private List<ZonedDateTime> deferTimes;
 
     //TODO CK Implement this once you have implementations
-    //@OneToMany(mappedBy = "reminder")
-    //private List<Recurrence> recurrences;
+    @OneToMany(mappedBy = "reminder")
+    private List<ReminderRecurrence> recurrences;
 
-    public void setPrescription(Prescription prescription){
+    public void setPrescription(Prescription prescription) {
         this.prescription = prescription;
     }
 
-    public void setNotificationTime(ZonedDateTime time){
+    public void setNotificationTime(ZonedDateTime time) {
         this.notificationTime = time;
     }
 }

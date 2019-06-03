@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@ToString(exclude = {"diary"})
+@ToString(exclude = {"diary", "therapist", "prescriptions"})
 @Entity
 @Table(name = "PATIENT")
 public class Patient extends Person {

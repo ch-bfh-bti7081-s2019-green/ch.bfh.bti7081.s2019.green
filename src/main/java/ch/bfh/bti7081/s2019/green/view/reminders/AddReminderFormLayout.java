@@ -2,15 +2,27 @@ package ch.bfh.bti7081.s2019.green.view.reminders;
 
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.model.reminder.ReminderRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.dao.PrescriptionDao;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
+import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderRecurrenceDao;
+import ch.bfh.bti7081.s2019.green.scheduler.ReminderSchedulerService;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.timepicker.TimePicker;
+import com.vaadin.flow.data.value.ValueChangeMode;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,26 +30,28 @@ import java.util.Optional;
 public class AddReminderFormLayout extends FormLayout {
 
     private LocalDateTime selectedTime;
-    private String selectedPrescription;
+    private Prescription selectedPrescription;
     private PrescriptionDao prescriptionDao = new PrescriptionDao();
+    private Reminder newReminder;
 
     public AddReminderFormLayout() {
+        newReminder = new Reminder();
         FormLayout formLayout = new FormLayout();
         formLayout.add();
         initialiseLayout();
     }
 
     private void initialiseLayout() {
-        Select prescriptionSlect = new Select();
-        prescriptionSlect.setLabel("Prescription");
-
         Select prescriptionSelect = new Select();
+        prescriptionSelect.setLabel("Prescription");
         Optional<List<Prescription>> prescriptions = prescriptionDao.getAllPrescriptions();
 
-        prescriptionSelect.setItems(prescriptions);
+        if (prescriptions.isPresent()) {
+            prescriptionSelect.setItems(prescriptions.get());
+        }
 
         prescriptionSelect.addValueChangeListener(e -> {
-            this.selectedPrescription = e.getValue().toString();
+            this.selectedPrescription = (Prescription) e.getValue();
         });
 
         TimePicker timePicker = new TimePicker();
@@ -49,14 +63,80 @@ public class AddReminderFormLayout extends FormLayout {
             selectedTime = LocalDateTime.of(localDate, e.getValue());
         });
 
+        VerticalLayout recurrencesVerticalLayout = new VerticalLayout();
+        Button addRecurrenceButton = new Button();
+        addRecurrenceButton.setText("Add a recurrence");
+
+        addRecurrenceButton.addClickListener(e -> {
+            recurrencesVerticalLayout.add(addRecurrencesLayout(null));
+        });
+
+
+        /*for(ReminderRecurrence recurrence : newReminder.getRecurrences()){
+            recurrencesVerticalLayout.add(addRecurrencesLayout(recurrence));
+        }*/
+
         add(prescriptionSelect);
         add(timePicker);
+
+        add(addRecurrenceButton);
+        add(recurrencesVerticalLayout);
     }
 
     public void saveNewReminder() {
-        Reminder newReminder = new Reminder();
         newReminder.setNotificationTime(this.selectedTime.atZone(ZoneId.of("Europe/Paris")));
+        newReminder.setPrescription(this.selectedPrescription);
         ReminderDao reminderDao = new ReminderDao();
         reminderDao.addReminder(newReminder);
+        ReminderRecurrenceDao reminderRecurrenceDao = new ReminderRecurrenceDao();
+        for(ReminderRecurrence recurrence : newReminder.getRecurrences()){
+            recurrence.setReminder(newReminder);
+            reminderRecurrenceDao.addReminder(recurrence);
+        }
+        ReminderSchedulerService.getInstance().addReminder(newReminder);
+    }
+
+    private HorizontalLayout addRecurrencesLayout(ReminderRecurrence recurrence) {
+        HorizontalLayout horizontalLayout = new HorizontalLayout();
+        ReminderRecurrence newRecurrence;
+
+        if (recurrence == null) {
+            newRecurrence = new ReminderRecurrence();
+        } else {
+            newRecurrence = recurrence;
+        }
+
+        if (newReminder.getRecurrences() == null) {
+            newReminder.setRecurrences(new ArrayList<ReminderRecurrence>());
+        }
+
+        newReminder.getRecurrences().add(newRecurrence);
+
+        Button removeButton = new Button();
+        removeButton.setText("remove");
+        removeButton.addClickListener(e -> {
+            horizontalLayout.setVisible(false);
+            newReminder.getRecurrences().remove(newRecurrence);
+        });
+
+        NumberField slider = new NumberField();
+        slider.setMin(1);
+        slider.setMax(10);
+        slider.setHasControls(true);
+        slider.setStep(1);
+        slider.setValue(1.0);
+        slider.setValueChangeMode(ValueChangeMode.EAGER);
+
+        slider.addValueChangeListener(e -> {
+            newRecurrence.setDuration(Duration.of(new Double(e.getValue()).longValue(), ChronoUnit.HOURS));
+        });
+
+        horizontalLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+
+        horizontalLayout.add(slider);
+        horizontalLayout.add(new Label("h"));
+        horizontalLayout.add(removeButton);
+
+        return horizontalLayout;
     }
 }
