@@ -33,7 +33,7 @@ public class ReminderSchedulerService {
     public void removeReminder(Reminder reminder) {
         String reminderID = this.getIDForSchedulerMap(reminder, null);
         this.cancel(reminderID);
-        for(ReminderRecurrence recurrence : reminder.getRecurrences()){
+        for (ReminderRecurrence recurrence : reminder.getRecurrences()) {
             this.cancel(this.getIDForSchedulerMap(reminder, recurrence));
         }
     }

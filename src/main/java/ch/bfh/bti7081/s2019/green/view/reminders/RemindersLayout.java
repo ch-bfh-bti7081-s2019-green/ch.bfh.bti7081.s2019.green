@@ -67,6 +67,15 @@ public class RemindersLayout extends VerticalLayout {
 
         remindersGrid.setItems(reminderDao.getAllReminders().get());
         remindersGrid.setColumns("prescription", "notificationTime");
+        remindersGrid.addComponentColumn(e -> {
+            Label hasRecurrenceLabel = new Label();
+            if(e.getRecurrences().isEmpty()){
+                hasRecurrenceLabel.setText("No");
+            }else{
+                hasRecurrenceLabel.setText("Yes");
+            }
+            return hasRecurrenceLabel;
+        }).setHeader("Has Recurrences");
 
         remindersGrid.setSelectionMode(Grid.SelectionMode.SINGLE);
 
