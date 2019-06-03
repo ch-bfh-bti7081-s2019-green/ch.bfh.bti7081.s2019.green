@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.view.diary;
+package ch.bfh.bti7081.s2019.green.view.chat;
 
 import ch.bfh.bti7081.s2019.green.chat.ChannelClient;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
@@ -14,6 +14,7 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.VaadinSession;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;

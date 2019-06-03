@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.MainView;
-import ch.bfh.bti7081.s2019.green.view.diary.ChatView;
+import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
