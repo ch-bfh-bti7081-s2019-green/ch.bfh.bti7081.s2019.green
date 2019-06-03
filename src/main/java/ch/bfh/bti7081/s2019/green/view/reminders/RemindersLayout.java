@@ -15,9 +15,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.selection.SingleSelect;
 import com.vaadin.flow.router.Route;
 
-import java.time.ZonedDateTime;
-
-@Route(layout = DefaultRouterLayout.class)
+@Route(value = "reminders", layout = DefaultRouterLayout.class)
 public class RemindersLayout extends VerticalLayout {
 
     private ReminderDao reminderDao = new ReminderDao();
@@ -69,9 +67,9 @@ public class RemindersLayout extends VerticalLayout {
         remindersGrid.setColumns("prescription", "notificationTime");
         remindersGrid.addComponentColumn(e -> {
             Label hasRecurrenceLabel = new Label();
-            if(e.getRecurrences().isEmpty()){
+            if (e.getRecurrences().isEmpty()) {
                 hasRecurrenceLabel.setText("No");
-            }else{
+            } else {
                 hasRecurrenceLabel.setText("Yes");
             }
             return hasRecurrenceLabel;
