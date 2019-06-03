@@ -28,7 +28,6 @@ public class Scheduler {
 
     private Scheduler() {
         executorService = Executors.newScheduledThreadPool(10);
-
     }
 
     /**

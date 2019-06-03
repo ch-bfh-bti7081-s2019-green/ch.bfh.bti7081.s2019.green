@@ -190,8 +190,20 @@
 
     <profiles>
         <profile>
-            <!-- Production mode can be activated with either property or profile -->
-            <id>production-mode</id>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/development</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>production</id>
             <activation>
                 <property>
                     <name>vaadin.productionMode</name>
@@ -207,46 +219,25 @@
                     <artifactId>flow-server-production-mode</artifactId>
                 </dependency>
             </dependencies>
-
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.vaadin</groupId>
-                        <artifactId>vaadin-maven-plugin</artifactId>
-                        <version>${vaadin.version}</version>
+                        <artifactId>flow-maven-plugin</artifactId>
+                        <version>1.4.5</version>
                         <executions>
                             <execution>
                                 <goals>
                                     <goal>copy-production-files</goal>
                                     <goal>package-for-production</goal>
                                 </goals>
+                                <configuration>
+                                    <autodetectTools>true</autodetectTools>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
                 </plugins>
-                <resources>
-                    <resource>
-                        <directory>src/main/webapp</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-        <profile>
-            <id>development</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources/development</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-        <profile>
-            <id>production</id>
-            <build>
                 <resources>
                     <resource>
                         <directory>src/main/resources/production</directory>

@@ -10,8 +10,8 @@ The live production version of the application can be found [here](https://pms.s
 This application is currently only compatible with [PostgreSQL](https://www.postgresql.org/). 
 
 1. Install PostgreSQL
-2. Create a user called `dbuser`
-3. Create a database called `pms`
+2. Create a user called `dbuser` (`createuser --interactive`)
+3. Create a database called `pms` (`createdb pms -O dbuser`)
 4. Run `mvn compile exec:java@seed` to seed the database
 5. Run `mvn jetty:run` to start the application on `localhost:8080`
 
@@ -42,8 +42,6 @@ The Javadoc of the application can be found [here](https://pms.schaer.dev/docs/)
   * [Presentation](https://github.com/ch-bfh-bti7081-s2019-green/ch.bfh.bti7081.s2019.green/raw/develop/doc/task_05_06/task_05_06_presentation.pdf)
 * Task 08
   * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08.pdf?job=Doc:PDF)
-  * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_08_presentation.pdf?job=Doc:PDF)
 * Task 09
-  * [Documentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09.pdf?job=Doc:PDF)
   * [Presentation](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/task_09_presentation.pdf?job=Doc:PDF)
 

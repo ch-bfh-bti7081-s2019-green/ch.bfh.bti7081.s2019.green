@@ -1,7 +1,6 @@
 package ch.bfh.bti7081.s2019.green.model.prescription;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
-import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
@@ -40,10 +39,6 @@ public class Prescription extends AbstractBaseEntity {
     @Column(name = "VALID_UNTIL")
     @Convert(converter = LocalDateConverter.class)
     private LocalDate validUntil;
-
-    @OneToOne
-    @JoinColumn(name = "REMINDER_ID")
-    private Reminder reminder;
 
     @Column(name = "FIRST_INTAKE")
     @Convert(converter = ZonedDateTimeConverter.class)
