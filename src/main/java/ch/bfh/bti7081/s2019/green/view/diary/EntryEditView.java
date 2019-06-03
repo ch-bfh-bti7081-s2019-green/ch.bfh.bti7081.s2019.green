@@ -2,36 +2,26 @@ package ch.bfh.bti7081.s2019.green.view.diary;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
-import ch.bfh.bti7081.s2019.green.model.prescription.Medication;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.EntryDao;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.grid.editor.Editor;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.timepicker.TimePicker;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.WeakHashMap;
 
 @Route(value = "entry/edit", layout = DefaultRouterLayout.class)
 @PageTitle("Edit Entry")
@@ -70,6 +60,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         binder.bind(slider, Entry::getMood, Entry::setMood);
         form.addFormItem(slider, "Mood");
 
+
         // Sleep
         NumberField sleephour = new NumberField();
         binder.bind(sleephour, Entry::getSleepHours, Entry::setSleepHours);
@@ -79,7 +70,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         VerticalLayout verticalLayout = new VerticalLayout();
         Button addMedicationButton = new Button();
         addMedicationButton.addClickListener(e -> {
-            verticalLayout.add(addNewActivity());
+            verticalLayout.add(addNewMedication());
         });
         addMedicationButton.setText("Add Medication");
 
@@ -95,6 +86,21 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
             verticalLayout.add(createMedicationLayout(activity));
         }
         form.addFormItem(verticalLayout, "Medication");
+
+        Button addExerciseButton = new Button();
+        addExerciseButton.addClickListener(e -> {
+            verticalLayout.add(addNewExercise());
+        });
+        addExerciseButton.setText("Add Exercise");
+
+        // Populate form with existing data
+        binder.readBean(this.entry);
+        verticalLayout.add(addExerciseButton);
+        for (Activity activity : entry.getActivities()) {
+            verticalLayout.add(createExerciseLayout(activity));
+        }
+        form.addFormItem(verticalLayout, "Exercise");
+
         this.add(form);
     }
 
@@ -109,7 +115,9 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
 
         this.add(updateButton);
     }
-    private HorizontalLayout addNewActivity() {
+
+
+    private HorizontalLayout addNewMedication() {
         Activity newActivity = new Activity();
         newActivity.setType(ActivityType.MEDICATION);
         newActivity.setEntry(this.entry);
@@ -118,8 +126,41 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         return createMedicationLayout(newActivity);
     }
 
+    private HorizontalLayout addNewExercise() {
+        Activity newActivity = new Activity();
+        newActivity.setType(ActivityType.EXERCISE);
+        newActivity.setEntry(this.entry);
+        this.entry.addActivity(newActivity);
+
+        return createExerciseLayout(newActivity);
+    }
+
     private HorizontalLayout createMedicationLayout(Activity activity) {
         HorizontalLayout medicationLayout = new HorizontalLayout();
+        TimePicker timePicker = new TimePicker();
+        timePicker.addValueChangeListener(e -> {
+            activity.setTime(e.getValue());
+        });
+        if (activity.getTime() != null) {
+            timePicker.setValue(activity.getTime());
+        }
+
+        TextField textField = new TextField();
+        textField.addValueChangeListener(e -> {
+            activity.setText(e.getValue());
+        });
+        if (activity.getText() != null) {
+            textField.setValue(activity.getText());
+        }
+
+        medicationLayout.add(timePicker, textField);
+
+        return medicationLayout;
+    }
+
+
+    private HorizontalLayout createExerciseLayout(Activity activity) {
+        HorizontalLayout exerciseLayout = new HorizontalLayout();
 
         TimePicker timePicker = new TimePicker();
         timePicker.addValueChangeListener(e -> {
@@ -136,8 +177,10 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         if (activity.getText() != null) {
             textField.setValue(activity.getText());
         }
-        medicationLayout.add(timePicker, textField);
 
-        return medicationLayout;
+
+        exerciseLayout.add(timePicker, textField);
+
+        return exerciseLayout;
     }
 }
