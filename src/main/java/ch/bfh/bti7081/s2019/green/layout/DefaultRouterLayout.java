@@ -6,6 +6,7 @@ import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
 import com.github.appreciated.app.layout.behaviour.AppLayout;
+import ch.bfh.bti7081.s2019.green.view.reminders.RemindersLayout;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.behaviour.LeftLayouts;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
@@ -72,8 +73,10 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                             .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), MainView.class), FOOTER)
                             .build())
                     .build());
-        }
-    }
 
+    //TODO schedule all existing reminder recurrences on start up
+    private void scheduleAllRecurrences(){
+
+    }
 }
 

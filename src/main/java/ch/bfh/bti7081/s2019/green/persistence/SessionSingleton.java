@@ -11,6 +11,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.model.prescription.*;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
+import ch.bfh.bti7081.s2019.green.model.reminder.ReminderRecurrence;
 import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
@@ -96,6 +97,7 @@ public class SessionSingleton {
         // Reminder related entities
         config.addAnnotatedClass(Reminder.class);
         config.addAnnotatedClass(WeekdayRecurrence.class);
+        config.addAnnotatedClass(ReminderRecurrence.class);
 
         // Diary related entities
         config.addAnnotatedClass(Activity.class);

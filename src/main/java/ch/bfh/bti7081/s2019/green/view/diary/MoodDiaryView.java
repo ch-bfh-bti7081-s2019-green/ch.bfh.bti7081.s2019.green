@@ -57,8 +57,8 @@ public class MoodDiaryView extends VerticalLayout {
             newEntry.setSleepHours(0);
             newEntry.setNotes("");
 
-            this.diary.addEntry(newEntry);
             SessionSingleton.getInstance().save(newEntry);
+            this.diary.addEntry(newEntry);
             SessionSingleton.getInstance().save(this.diary);
 
             UI.getCurrent().getPage().reload();

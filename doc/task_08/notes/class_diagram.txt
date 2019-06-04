@@ -1,0 +1,132 @@
+@startuml
+
+class Person{
+    Integer ahvNumber
+    String firstname
+    String lastname
+    String username
+    LocalDate birthdate
+}
+
+Person "1" *-- "1" Contact : is reachable at
+Person "1" *-- "*" Channel : is member of
+
+class Patient extends Person{
+}
+
+Patient "*" *-- "*" Person : has emergency contacts
+Patient "1" *-- "*" Prescription : is prescribed
+Patient "1" *-- "*" Reminder : is reminded by
+Patient "1" *-- "*" Intake : has taken
+Patient "1" *-- "1" MoodDiary : keeps
+
+class Therapist extends Person{
+}
+
+Therapist "*" *-- "1" Patient : treats
+Therapist "1" *-- "*" Prescription : prescribed
+
+class Contact{
+    String phone
+    String email
+    String street
+    String city
+    String country
+}
+
+class Intake{
+    ZoneDateTime time
+}
+
+Intake "1" --* "*" Prescription : records intake of
+
+class Reminder{
+    ZonedDateTime notificationTime
+    List<ZonedDateTime> deferTimes
+}
+
+Reminder "*" --* "1" Prescription : belongs to
+Reminder "1" *-- "*" Recurrence : recurs every
+
+class MoodDiary{
+}
+
+MoodDiary "1" *-- "*" Entry : consists of
+
+class Entry{
+    LocalDate date
+    int mood
+    double sleepHours
+    double waterDrunk
+    String notes
+}
+
+Entry "1" *-- "*" Activity : consists of
+
+class Activity{
+    ActivityType type
+    LocalTime time
+    String text
+}
+
+Activity "1" *-- "1" ActivityType : is of type
+
+enum ActivityType{
+    MEDICATION,
+    FOOD,
+    MOOD_CHANGE,
+    EXERCISE,
+    ACTIVITY
+}
+
+class Dose{
+    Unit unit
+    int amount
+}
+
+Dose "1" *-- "1" Unit : is in
+
+enum Unit{
+    String name
+    String shorthand
+}
+
+class Medication{
+    String name
+    int EAN
+}
+
+class Prescription{
+    LocalDate issueDate
+    LocalDate validFrom
+    LocalDate validUntil
+    ZoneDateTime firstIntake
+}
+
+Prescription "1" --- "1" Medication : prescribes
+Prescription "1" --- "1" Dose : has dosage
+
+
+abstract class Recurrence{
+    calculateNext(Reminder) : Reminder
+    toDisplayString(): String
+}
+
+class WeekdayRecurrence extends Recurrence
+class EveryTimeUnitRecurrence extends Recurrence
+
+class Channel{
+    String name
+}
+
+Channel "1" *-- "*" Message : has transmitted
+
+class Message{
+    ZonedDateTime authorTime
+    String text
+}
+
+Person "1" *-- "*" Message : authored
+
+@enduml
+

@@ -9,7 +9,6 @@ import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * This class is used to nuke the current database, rebuild it and seed it
  * with predefined data.
- *
+ * <p>
  * This class can be directly executed using maven:
  * <code>mvn compile exec:java@seed</code>
  */
@@ -91,6 +90,7 @@ public class DatabaseSeeder {
         List<String> tables = new ArrayList<>();
 
         for (PersistentClass persistentClass : metadata.getEntityBindings()) {
+            System.out.println(persistentClass.getTable().getName());
             tables.add(persistentClass.getTable().getName());
         }
 
