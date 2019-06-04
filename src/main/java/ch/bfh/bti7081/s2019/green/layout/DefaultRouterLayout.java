@@ -2,13 +2,12 @@ package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.view.LoginView;
+import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
 import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
-import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
-import com.github.appreciated.app.layout.behaviour.AppLayout;
 import ch.bfh.bti7081.s2019.green.view.reminders.RemindersLayout;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
-import com.github.appreciated.app.layout.behaviour.LeftLayouts;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
 import com.github.appreciated.app.layout.component.appbar.AppBarBuilder;
 import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenuBuilder;
@@ -19,11 +18,6 @@ import com.github.appreciated.app.layout.notification.component.AppBarNotificati
 import com.github.appreciated.app.layout.notification.entitiy.DefaultNotification;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.BootstrapListener;
-import com.vaadin.flow.server.BootstrapPageResponse;
-
-
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
@@ -39,6 +33,8 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     public DefaultRouterLayout() {
 
         if (!AuthService.isLoggedIn()) {
+            getUI().ifPresent(ui -> ui.navigate("login"));
+            /*
             notifications = new DefaultNotificationHolder(newStatus -> {
             });
             badge = new DefaultBadgeHolder(5);
@@ -51,12 +47,15 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                     .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                     .withTitle("Patient Management System")
                     .build());
-        }
-        else {
+
+             */
+        } else {
             notifications = new DefaultNotificationHolder(newStatus -> {
             });
+
             badge = new DefaultBadgeHolder(5);
             for (int i = 1; i < 6; i++) {
+                // TODO replace this with actual reminders
                 notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
             }
             LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
@@ -69,13 +68,15 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                             .build())
                     .withAppMenu(LeftAppMenuBuilder.get()
                             .addToSection(new LeftNavigationItem("Chat", VaadinIcon.COMMENTS.create(), ChatView.class), HEADER)
-                            .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MainView.class), HEADER)
-                            .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), MainView.class), FOOTER)
+                            .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
+                            .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
                             .build())
                     .build());
+        }
+    }
 
     //TODO schedule all existing reminder recurrences on start up
-    private void scheduleAllRecurrences(){
+    private void scheduleAllRecurrences() {
 
     }
 }

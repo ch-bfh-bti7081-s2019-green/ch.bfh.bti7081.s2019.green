@@ -1,21 +1,24 @@
 package ch.bfh.bti7081.s2019.green;
 
-import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Page;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The main view contains a button and a click listener.
  */
-@Route(value = "home", layout = DefaultRouterLayout.class)
+@Route(value = "")
 public class MainView extends VerticalLayout {
+    Logger logger = LoggerFactory.getLogger(MainView.class);
 
     public MainView() {
-        Button button = new Button("Click me",
-                event -> Notification.show("You have clicked the 'Click me'-Button!"));
-        add(button);
+        if (AuthService.isLoggedIn()) {
+            UI.getCurrent().navigate("home");
+        } else {
+            UI.getCurrent().navigate("login");
+        }
     }
 }
