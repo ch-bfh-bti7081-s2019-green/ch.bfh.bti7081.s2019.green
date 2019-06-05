@@ -19,16 +19,17 @@ import com.vaadin.flow.router.Route;
 @Route(value = "reminders", layout = DefaultRouterLayout.class)
 public class ReminderView extends VerticalLayout {
 
-    private ReminderDao reminderDao = new ReminderDao();
+    private static final long serialVersionUID = 34561021601282002L;
+    private transient ReminderDao reminderDao = new ReminderDao();
     private Grid remindersGrid;
-    private Reminder selectedReminder;
-    private Scheduler scheduler = Scheduler.getInstance();
+    private transient Reminder selectedReminder;
+    private transient Scheduler scheduler = Scheduler.getInstance();
 
     public ReminderView() {
-        initialiseLayout();
+        initializeLayout();
     }
 
-    private void initialiseLayout() {
+    private void initializeLayout() {
         HorizontalLayout horizontalLayout = new HorizontalLayout();
 
         Label header = new Label();

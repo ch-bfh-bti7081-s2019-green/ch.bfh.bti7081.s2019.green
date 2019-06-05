@@ -29,10 +29,11 @@ import java.util.Optional;
 
 public class AddReminderFormLayout extends FormLayout {
 
+    private static final long serialVersionUID = 996391346322821484L;
     private LocalDateTime selectedTime;
-    private Prescription selectedPrescription;
-    private PrescriptionDao prescriptionDao = new PrescriptionDao();
-    private Reminder newReminder;
+    private transient Prescription selectedPrescription;
+    private transient PrescriptionDao prescriptionDao = new PrescriptionDao();
+    private transient Reminder newReminder;
 
     public AddReminderFormLayout() {
         newReminder = new Reminder();

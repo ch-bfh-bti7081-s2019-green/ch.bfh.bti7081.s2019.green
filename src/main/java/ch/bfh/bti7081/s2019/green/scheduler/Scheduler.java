@@ -15,7 +15,7 @@ import java.util.concurrent.*;
  */
 public class Scheduler {
     private final Logger LOGGER = LoggerFactory.getLogger(Scheduler.class);
-    private static Scheduler instance;
+    private static volatile Scheduler instance;
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final ScheduledExecutorService executorService;
 

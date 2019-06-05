@@ -20,26 +20,15 @@ import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
 
 public class DefaultRouterLayout extends AppLayoutRouterLayout {
-    /**
-     * Do not initialize here. This will lead to NPEs
-     */
-    private DefaultNotificationHolder notifications;
-    private DefaultBadgeHolder badge;
+
+    private static final long serialVersionUID = 8467451795454981736L;
 
     public DefaultRouterLayout() {
-        notifications = new DefaultNotificationHolder(newStatus -> {
-        });
-        badge = new DefaultBadgeHolder(5);
-        for (int i = 1; i < 6; i++) {
-            notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
-        }
-        LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
-        badge.bind(menuEntry.getBadge());
+        new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
         init(AppLayoutBuilder
                 .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                 .withTitle("Patient Management System")
                 .withAppBar(AppBarBuilder.get()
-                        .add(new AppBarNotificationButton<>(VaadinIcon.BELL, notifications))
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)

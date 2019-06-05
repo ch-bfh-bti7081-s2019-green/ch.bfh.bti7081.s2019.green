@@ -19,7 +19,6 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.converter.StringToDoubleConverter;
-import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
@@ -30,7 +29,8 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Edit Entry")
 public class EntryEditView extends VerticalLayout implements HasUrlParameter<Integer> {
 
-    private Entry entry;
+    private static final long serialVersionUID = -5760580106156198334L;
+    private transient Entry entry;
     private Binder<Entry> binder;
     private FormLayout form;
 
@@ -122,7 +122,7 @@ public class EntryEditView extends VerticalLayout implements HasUrlParameter<Int
         grid.removeColumnByKey("id");
         grid.removeColumnByKey("entry");
         grid.removeColumnByKey("type");
-        grid.setColumns("time","text");
+        grid.setColumns("time", "text");
 
         this.add(grid);
     }

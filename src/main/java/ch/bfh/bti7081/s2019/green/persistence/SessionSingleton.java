@@ -157,7 +157,7 @@ public class SessionSingleton {
         try {
             executeInTransaction(s -> {
                 runnable.accept(s);
-                return null;
+                return Optional.empty();
             }, 10);
         } catch (HibernateException hex) {
             LOG.error(hex.getMessage(), hex);

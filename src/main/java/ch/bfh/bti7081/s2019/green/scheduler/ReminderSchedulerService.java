@@ -9,7 +9,7 @@ import java.util.concurrent.ScheduledFuture;
 
 public class ReminderSchedulerService {
 
-    private static ReminderSchedulerService instance;
+    private static volatile ReminderSchedulerService instance;
     private HashMap<String, ScheduledFuture> schedulerMap;
 
     public static ReminderSchedulerService getInstance() {

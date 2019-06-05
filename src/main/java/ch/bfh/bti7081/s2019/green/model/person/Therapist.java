@@ -2,11 +2,15 @@ package ch.bfh.bti7081.s2019.green.model.person;
 
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "THERAPIST")
 public class Therapist extends Person{
