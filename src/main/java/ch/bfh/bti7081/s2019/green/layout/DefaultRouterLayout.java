@@ -17,7 +17,10 @@ import com.github.appreciated.app.layout.notification.DefaultNotificationHolder;
 import com.github.appreciated.app.layout.notification.component.AppBarNotificationButton;
 import com.github.appreciated.app.layout.notification.entitiy.DefaultNotification;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
+
+import javax.validation.constraints.Null;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
@@ -33,7 +36,11 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     public DefaultRouterLayout() {
 
         if (!AuthService.isLoggedIn()) {
-            getUI().ifPresent(ui -> ui.navigate("login"));
+            try {
+                //UI.getCurrent().navigate("login");
+            }catch (NullPointerException e){
+                System.out.println("NPE" + e.getMessage());
+            }
             /*
             notifications = new DefaultNotificationHolder(newStatus -> {
             });
