@@ -97,6 +97,7 @@ public class DatabaseSeeder {
         // TODO: Get names of join tables using the hibernate metadata
         tables.add("defer_times");
         tables.add("emergency_contact");
+        tables.add("channel_members");
 
         return tables;
     }

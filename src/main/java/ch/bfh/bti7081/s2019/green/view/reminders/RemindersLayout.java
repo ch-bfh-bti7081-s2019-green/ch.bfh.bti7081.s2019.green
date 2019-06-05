@@ -15,9 +15,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.selection.SingleSelect;
 import com.vaadin.flow.router.Route;
 
-import java.time.ZonedDateTime;
-
-@Route(layout = DefaultRouterLayout.class)
+@Route(value = "reminders", layout = DefaultRouterLayout.class)
 public class RemindersLayout extends VerticalLayout {
 
     private ReminderDao reminderDao = new ReminderDao();
@@ -46,7 +44,7 @@ public class RemindersLayout extends VerticalLayout {
             if (this.selectedReminder != null) {
                 ReminderSchedulerService.getInstance().removeReminder(selectedReminder);
                 reminderDao.removeReminder(this.selectedReminder);
-                remindersGrid.setItems(reminderDao.getAllReminders().get());
+                remindersGrid.setItems(reminderDao.findAll());
             }
         });
 
@@ -65,13 +63,13 @@ public class RemindersLayout extends VerticalLayout {
     private Grid initialiseRemindersGrid() {
         Grid<Reminder> remindersGrid = new Grid<>(Reminder.class);
 
-        remindersGrid.setItems(reminderDao.getAllReminders().get());
+        remindersGrid.setItems(reminderDao.findAll());
         remindersGrid.setColumns("prescription", "notificationTime");
         remindersGrid.addComponentColumn(e -> {
             Label hasRecurrenceLabel = new Label();
-            if(e.getRecurrences().isEmpty()){
+            if (e.getRecurrences().isEmpty()) {
                 hasRecurrenceLabel.setText("No");
-            }else{
+            } else {
                 hasRecurrenceLabel.setText("Yes");
             }
             return hasRecurrenceLabel;
@@ -101,7 +99,7 @@ public class RemindersLayout extends VerticalLayout {
 
         NativeButton confirmButton = new NativeButton("Add", event -> {
             dialogLayout.saveNewReminder();
-            remindersGrid.setItems(reminderDao.getAllReminders().get());
+            remindersGrid.setItems(reminderDao.findAll());
             addReminderDialog.close();
         });
         NativeButton cancelButton = new NativeButton("Cancel", event -> {

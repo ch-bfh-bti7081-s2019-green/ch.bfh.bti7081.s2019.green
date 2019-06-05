@@ -1,6 +1,9 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.view.LoginView;
+import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
 import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.reminders.RemindersLayout;
@@ -28,30 +31,52 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     private DefaultBadgeHolder badge;
 
     public DefaultRouterLayout() {
-        notifications = new DefaultNotificationHolder(newStatus -> {
-        });
-        badge = new DefaultBadgeHolder(5);
-        for (int i = 1; i < 6; i++) {
-            notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
+
+        if (!AuthService.isLoggedIn()) {
+            getUI().ifPresent(ui -> ui.navigate("login"));
+            /*
+            notifications = new DefaultNotificationHolder(newStatus -> {
+            });
+            badge = new DefaultBadgeHolder(5);
+            for (int i = 1; i < 6; i++) {
+                notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
+            }
+            LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), LoginViewImpl.class);
+            badge.bind(menuEntry.getBadge());
+            init(AppLayoutBuilder
+                    .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
+                    .withTitle("Patient Management System")
+                    .build());
+
+             */
+        } else {
+            notifications = new DefaultNotificationHolder(newStatus -> {
+            });
+
+            badge = new DefaultBadgeHolder(5);
+            for (int i = 1; i < 6; i++) {
+                // TODO replace this with actual reminders
+                notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
+            }
+            LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
+            badge.bind(menuEntry.getBadge());
+            init(AppLayoutBuilder
+                    .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
+                    .withTitle("Patient Management System")
+                    .withAppBar(AppBarBuilder.get()
+                            .add(new AppBarNotificationButton<>(VaadinIcon.BELL, notifications))
+                            .build())
+                    .withAppMenu(LeftAppMenuBuilder.get()
+                            .addToSection(new LeftNavigationItem("Chat", VaadinIcon.COMMENTS.create(), ChatView.class), HEADER)
+                            .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
+                            .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
+                            .build())
+                    .build());
         }
-        LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
-        badge.bind(menuEntry.getBadge());
-        init(AppLayoutBuilder
-                .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
-                .withTitle("Patient Management System")
-                .withAppBar(AppBarBuilder.get()
-                        .add(new AppBarNotificationButton<>(VaadinIcon.BELL, notifications))
-                        .build())
-                .withAppMenu(LeftAppMenuBuilder.get()
-                        .addToSection(new LeftNavigationItem("Chat", VaadinIcon.COMMENTS.create(), ChatView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
-                        .build())
-                .build());
     }
 
     //TODO schedule all existing reminder recurrences on start up
-    private void scheduleAllRecurrences(){
+    private void scheduleAllRecurrences() {
 
     }
 }

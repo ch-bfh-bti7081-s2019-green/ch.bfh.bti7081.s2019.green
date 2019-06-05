@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.bfh.bti7081.s2019.green</groupId>
     <artifactId>pms</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>Patient Management System</name>
     <packaging>war</packaging>
 
@@ -80,6 +80,18 @@
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>0.18</version>
+        </dependency>
+
+        <!--security dependencies from spring framework for password hashing -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
         </dependency>
 
         <!-- persistency dependencies -->
