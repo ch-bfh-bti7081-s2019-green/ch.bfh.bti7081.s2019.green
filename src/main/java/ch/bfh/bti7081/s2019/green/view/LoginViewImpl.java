@@ -10,7 +10,7 @@ import com.vaadin.flow.server.PWA;
 
 @Route(value = "login", layout = DefaultRouterLayout.class)
 @PWA(name = "Patient Management System", shortName = "PMS")
-public class LoginViewImpl extends VerticalLayout implements LoginView {
+public class LoginViewImpl extends VerticalLayout {
 
     private LoginForm loginForm;
 
@@ -31,7 +31,6 @@ public class LoginViewImpl extends VerticalLayout implements LoginView {
 
     }
 
-    @Override
     public void displayErrorMessage() {
         loginForm.setError(true);
     }
