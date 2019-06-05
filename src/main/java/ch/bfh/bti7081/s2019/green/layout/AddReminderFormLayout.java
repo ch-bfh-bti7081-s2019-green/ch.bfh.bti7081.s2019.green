@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.view.reminders;
+package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
@@ -59,7 +59,7 @@ public class AddReminderFormLayout extends FormLayout {
         timePicker.setLabel("Reminder Time");
 
         timePicker.addValueChangeListener(e -> {
-            LocalDate localDate = LocalDate.of(2019, 01, 01);
+            LocalDate localDate = LocalDate.of(2019, 1, 1);
             selectedTime = LocalDateTime.of(localDate, e.getValue());
         });
 
@@ -89,7 +89,7 @@ public class AddReminderFormLayout extends FormLayout {
         ReminderDao reminderDao = new ReminderDao();
         reminderDao.addReminder(newReminder);
         ReminderRecurrenceDao reminderRecurrenceDao = new ReminderRecurrenceDao();
-        for(ReminderRecurrence recurrence : newReminder.getRecurrences()){
+        for (ReminderRecurrence recurrence : newReminder.getRecurrences()) {
             recurrence.setReminder(newReminder);
             reminderRecurrenceDao.addReminder(recurrence);
         }
@@ -107,7 +107,7 @@ public class AddReminderFormLayout extends FormLayout {
         }
 
         if (newReminder.getRecurrences() == null) {
-            newReminder.setRecurrences(new ArrayList<ReminderRecurrence>());
+            newReminder.setRecurrences(new ArrayList<>());
         }
 
         newReminder.getRecurrences().add(newRecurrence);
@@ -128,7 +128,7 @@ public class AddReminderFormLayout extends FormLayout {
         slider.setValueChangeMode(ValueChangeMode.EAGER);
 
         slider.addValueChangeListener(e -> {
-            newRecurrence.setDuration(Duration.of(new Double(e.getValue()).longValue(), ChronoUnit.HOURS));
+            newRecurrence.setDuration(Duration.of(e.getValue().longValue(), ChronoUnit.HOURS));
         });
 
         horizontalLayout.setAlignItems(FlexComponent.Alignment.CENTER);

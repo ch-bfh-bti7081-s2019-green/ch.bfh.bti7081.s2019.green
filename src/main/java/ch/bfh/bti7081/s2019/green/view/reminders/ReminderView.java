@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import ch.bfh.bti7081.s2019.green.layout.AddReminderFormLayout;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
@@ -16,14 +17,14 @@ import com.vaadin.flow.data.selection.SingleSelect;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "reminders", layout = DefaultRouterLayout.class)
-public class RemindersLayout extends VerticalLayout {
+public class ReminderView extends VerticalLayout {
 
     private ReminderDao reminderDao = new ReminderDao();
     private Grid remindersGrid;
     private Reminder selectedReminder;
     private Scheduler scheduler = Scheduler.getInstance();
 
-    public RemindersLayout() {
+    public ReminderView() {
         initialiseLayout();
     }
 
@@ -38,7 +39,6 @@ public class RemindersLayout extends VerticalLayout {
 
         Button removeButton = new Button();
         removeButton.setText("Delete Reminder");
-        removeButton = removeButton;
 
         removeButton.addClickListener(e -> {
             if (this.selectedReminder != null) {
