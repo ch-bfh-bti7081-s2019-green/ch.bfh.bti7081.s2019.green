@@ -15,6 +15,12 @@ This application is currently only compatible with [PostgreSQL](https://www.post
 4. Run `mvn compile exec:java@seed` to seed the database
 5. Run `mvn jetty:run` to start the application on `localhost:8080`
 
+If you'd like to run PostgreSQL in a docker container, you can use this command:
+
+```{.bash}
+sudo docker run -d --rm --name pg-docker -e POSTGRES_USER=pg-docker -e POSTGRES_PASSWORD=pg-docker -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
+```
+
 ## Documentation
 ### Diary
 The current PDF of the diary can be found [here](https://gitlab.com/severinkaderli/ch-bfh-bti7081-s2019-green/builds/artifacts/develop/raw/diary.pdf?job=Doc:PDF).
