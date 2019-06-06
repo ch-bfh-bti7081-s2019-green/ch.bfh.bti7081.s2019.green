@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green;
 
 
-import ch.bfh.bti7081.s2019.green.view.LoginView;
+import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;

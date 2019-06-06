@@ -23,7 +23,6 @@ public class AuthService {
     }
 
     public static boolean isLoggedIn() {
-        System.out.println(VaadinSession.getCurrent().getAttribute(USER_SESSION));
         return VaadinSession.getCurrent().getAttribute(USER_SESSION) != null;
     }
 

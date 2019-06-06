@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.view;
+package ch.bfh.bti7081.s2019.green.view.login;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;

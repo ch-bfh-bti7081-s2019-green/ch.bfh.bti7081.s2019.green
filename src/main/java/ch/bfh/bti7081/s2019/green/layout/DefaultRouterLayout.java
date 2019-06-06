@@ -2,7 +2,7 @@ package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
-import ch.bfh.bti7081.s2019.green.view.LoginView;
+import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
