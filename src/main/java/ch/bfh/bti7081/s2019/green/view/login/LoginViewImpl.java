@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2019.green.view;
+package ch.bfh.bti7081.s2019.green.view.login;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
@@ -8,13 +8,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-@Route(value = "login", layout = DefaultRouterLayout.class)
+@Route(value = "login")
 @PWA(name = "Patient Management System", shortName = "PMS")
 public class LoginViewImpl extends VerticalLayout {
 
     private LoginForm loginForm;
 
     public LoginViewImpl() {
+
+        System.out.println("## -- login.called");
 
         // Create the login form
         loginForm = new LoginForm();
@@ -28,7 +30,6 @@ public class LoginViewImpl extends VerticalLayout {
                 }
         });
         add(loginForm);
-
     }
 
     public void displayErrorMessage() {

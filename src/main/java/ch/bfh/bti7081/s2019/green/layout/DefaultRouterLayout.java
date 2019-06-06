@@ -10,7 +10,6 @@ import com.github.appreciated.app.layout.component.appbar.AppBarBuilder;
 import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenuBuilder;
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
@@ -28,7 +27,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                     .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                     .withTitle("Patient Management System")
                     .build());
-            UI.getCurrent().navigate("login");
+            System.err.println("@@ -- nologin");
         } else {
             new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
             init(AppLayoutBuilder
