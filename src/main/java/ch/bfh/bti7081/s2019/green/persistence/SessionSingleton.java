@@ -25,26 +25,22 @@ import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.jpa.boot.spi.IntegratorProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 
 public class SessionSingleton {
+    private static final Logger LOG = LoggerFactory.getLogger(SessionSingleton.class);
     private static SessionSingleton instance = null;
     private final SessionFactory sessionFactory;
     private final Session session;
     private final EntityManager em;
-
-    private static final Logger LOG = LoggerFactory.getLogger(SessionSingleton.class);
 
     private SessionSingleton() {
         Configuration config = createConfig();
@@ -52,7 +48,7 @@ public class SessionSingleton {
         BootstrapServiceRegistry bootstrapServiceRegistry =
                 new BootstrapServiceRegistryBuilder()
                         .enableAutoClose()
-                        .applyIntegrator( MetadataExtractorIntegrator.INSTANCE )
+                        .applyIntegrator(MetadataExtractorIntegrator.INSTANCE)
                         .build();
 
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder(bootstrapServiceRegistry)
@@ -63,6 +59,13 @@ public class SessionSingleton {
         sessionFactory = config.buildSessionFactory(registry);
         session = sessionFactory.openSession();
         em = session.getEntityManagerFactory().createEntityManager();
+    }
+
+    public static SessionSingleton getInstance() {
+        if (instance == null) {
+            instance = new SessionSingleton();
+        }
+        return instance;
     }
 
     private Configuration createConfig() {
@@ -101,13 +104,6 @@ public class SessionSingleton {
         config.addAnnotatedClass(Activity.class);
         config.addAnnotatedClass(Entry.class);
         config.addAnnotatedClass(MoodDiary.class);
-    }
-
-    public static SessionSingleton getInstance() {
-        if (instance == null) {
-            instance = new SessionSingleton();
-        }
-        return instance;
     }
 
     public Session getRawSession() {

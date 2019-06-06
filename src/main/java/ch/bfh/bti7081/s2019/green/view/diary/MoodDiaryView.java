@@ -71,7 +71,8 @@ public class MoodDiaryView extends VerticalLayout {
         grid.addComponentColumn(entry -> {
             Button button = new Button(VaadinIcon.PENCIL.create());
             button.addClickListener(event -> {
-                UI.getCurrent().navigate("entry/edit/" + entry.getId());
+                EntryEditDialog dialog = new EntryEditDialog(entry.getId());
+                dialog.open();
             });
             return button;
         }).setHeader("Edit");

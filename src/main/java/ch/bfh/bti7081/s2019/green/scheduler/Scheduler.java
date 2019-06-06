@@ -14,20 +14,20 @@ import java.util.concurrent.*;
  * Keeps a pool of 10 threads, which will automatically expand when needed.
  */
 public class Scheduler {
-    private final Logger LOGGER = LoggerFactory.getLogger(Scheduler.class);
-    private static volatile Scheduler instance;
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static volatile Scheduler instance;
+    private final Logger LOGGER = LoggerFactory.getLogger(Scheduler.class);
     private final ScheduledExecutorService executorService;
+
+    private Scheduler() {
+        executorService = Executors.newScheduledThreadPool(10);
+    }
 
     public static Scheduler getInstance() {
         if (instance == null) {
             instance = new Scheduler();
         }
         return instance;
-    }
-
-    private Scheduler() {
-        executorService = Executors.newScheduledThreadPool(10);
     }
 
     /**

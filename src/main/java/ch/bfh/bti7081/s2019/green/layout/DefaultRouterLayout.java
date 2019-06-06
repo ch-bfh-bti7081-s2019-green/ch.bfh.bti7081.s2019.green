@@ -8,10 +8,6 @@ import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
 import com.github.appreciated.app.layout.component.appbar.AppBarBuilder;
 import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenuBuilder;
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
-import com.github.appreciated.app.layout.entity.DefaultBadgeHolder;
-import com.github.appreciated.app.layout.notification.DefaultNotificationHolder;
-import com.github.appreciated.app.layout.notification.component.AppBarNotificationButton;
-import com.github.appreciated.app.layout.notification.entitiy.DefaultNotification;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
 
@@ -38,7 +34,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     }
 
     //TODO schedule all existing reminder recurrences on start up
-    private void scheduleAllRecurrences(){
+    private void scheduleAllRecurrences() {
 
     }
 }

@@ -12,15 +12,15 @@ public class ReminderSchedulerService {
     private static volatile ReminderSchedulerService instance;
     private HashMap<String, ScheduledFuture> schedulerMap;
 
+    private ReminderSchedulerService() {
+        schedulerMap = new HashMap<>();
+    }
+
     public static ReminderSchedulerService getInstance() {
         if (instance == null) {
             instance = new ReminderSchedulerService();
         }
         return instance;
-    }
-
-    private ReminderSchedulerService() {
-        schedulerMap = new HashMap<>();
     }
 
     public void addReminder(Reminder reminder) {

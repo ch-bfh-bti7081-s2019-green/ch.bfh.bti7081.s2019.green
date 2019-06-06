@@ -1,6 +1,5 @@
 package ch.bfh.bti7081.s2019.green.view.reminders;
 
-import ch.bfh.bti7081.s2019.green.layout.AddReminderFormLayout;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
@@ -91,7 +90,7 @@ public class ReminderView extends VerticalLayout {
     private void openAddReminderDialog() {
         Dialog addReminderDialog = new Dialog();
 
-        AddReminderFormLayout dialogLayout = new AddReminderFormLayout();
+        ReminderAddFormLayout dialogLayout = new ReminderAddFormLayout();
 
         addReminderDialog.add(dialogLayout);
 

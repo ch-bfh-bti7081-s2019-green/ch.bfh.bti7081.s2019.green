@@ -13,7 +13,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "THERAPIST")
-public class Therapist extends Person{
+public class Therapist extends Person {
     @OneToMany(mappedBy = "therapist")
     private List<Patient> patients;
 

@@ -3,14 +3,17 @@ package ch.bfh.bti7081.s2019.green.model.diary;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(exclude = {"diary", "activities"})
 @Entity
 @Table(name = "ENTRIES")
@@ -38,13 +41,28 @@ public class Entry extends AbstractBaseEntity {
     @Column(name = "NOTES")
     private String notes;
 
+    public Entry() {
+    }
+
     public void addActivity(Activity activity) {
+        if (activities == null) {
+            activities = new ArrayList<>();
+        }
+
         activities.add(activity);
         activity.setEntry(this);
     }
 
     public List<Activity> getActivities() {
-         return activities;
+        if (activities == null) {
+            activities = new ArrayList<>();
+        }
+
+        return activities;
+    }
+
+    public List<Activity> getActivitiesByType(ActivityType activityType) {
+        return getActivities().stream().filter(a -> a.getType() == activityType).collect(Collectors.toList());
     }
 
     public void removeActivity(Activity activity) {
@@ -55,13 +73,11 @@ public class Entry extends AbstractBaseEntity {
         activity.setEntry(null);
     }
 
-    public Entry() {}
+    public double getMood() {
+        return (double) this.mood;
+    }
 
     public void setMood(double mood) {
         this.mood = (int) mood;
-    }
-
-    public double getMood() {
-        return (double) this.mood;
     }
 }

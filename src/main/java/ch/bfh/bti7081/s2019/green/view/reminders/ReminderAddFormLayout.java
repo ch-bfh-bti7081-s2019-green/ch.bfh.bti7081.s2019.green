@@ -1,5 +1,6 @@
-package ch.bfh.bti7081.s2019.green.layout;
+package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import ch.bfh.bti7081.s2019.green.components.CustomFormLayout;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.reminder.ReminderRecurrence;
@@ -27,15 +28,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class AddReminderFormLayout extends FormLayout {
+public class ReminderAddFormLayout extends CustomFormLayout {
 
-    private static final long serialVersionUID = 996391346322821484L;
     private LocalDateTime selectedTime;
     private transient Prescription selectedPrescription;
     private transient PrescriptionDao prescriptionDao = new PrescriptionDao();
     private transient Reminder newReminder;
 
-    public AddReminderFormLayout() {
+    public ReminderAddFormLayout() {
         newReminder = new Reminder();
         FormLayout formLayout = new FormLayout();
         formLayout.add();

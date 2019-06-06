@@ -2,8 +2,6 @@ package ch.bfh.bti7081.s2019.green.persistence.converters;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
