@@ -2,10 +2,6 @@ package ch.bfh.bti7081.s2019.green.persistence.dao;
 
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
-import org.hibernate.query.Query;
-
-import java.util.List;
-import java.util.Optional;
 
 public class ReminderDao extends AbstractDao<Reminder> {
 

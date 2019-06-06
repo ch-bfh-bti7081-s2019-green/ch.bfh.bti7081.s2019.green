@@ -11,10 +11,8 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Page;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.hibernate.Session;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,13 +21,14 @@ import java.util.List;
 @PageTitle("Diary")
 public class MoodDiaryView extends VerticalLayout {
 
-    private MoodDiary diary;
+    private static final long serialVersionUID = -3626045385294032611L;
+    private transient MoodDiary diary;
 
     public MoodDiaryView() {
         this.diary = this.getDiary();
         this.addHeading();
 
-        if(!diary.hasEntryForToday()) {
+        if (!diary.hasEntryForToday()) {
             this.addCreateButton();
         }
 
@@ -72,7 +71,8 @@ public class MoodDiaryView extends VerticalLayout {
         grid.addComponentColumn(entry -> {
             Button button = new Button(VaadinIcon.PENCIL.create());
             button.addClickListener(event -> {
-                UI.getCurrent().navigate("entry/edit/" + entry.getId());
+                EntryEditDialog dialog = new EntryEditDialog(entry.getId());
+                dialog.open();
             });
             return button;
         }).setHeader("Edit");

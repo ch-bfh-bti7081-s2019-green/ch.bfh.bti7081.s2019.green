@@ -6,14 +6,14 @@ import org.hibernate.query.Query;
 
 import java.util.Optional;
 
-public class PersonDao extends AbstractDao<Person>{
+public class PersonDao extends AbstractDao<Person> {
     private final SessionSingleton db = SessionSingleton.getInstance();
 
     public PersonDao() {
         super(Person.class);
     }
 
-    public Optional findByEmail(final String email){
+    public Optional findByEmail(final String email) {
         return db.executeInTransaction(session -> {
             String queryString = "select p from Person p" +
                     " where lower(p.contactData.email) like" +
