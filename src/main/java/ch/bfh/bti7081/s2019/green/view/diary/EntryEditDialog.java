@@ -23,6 +23,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.binder.Binder;
 
+import java.time.Duration;
 import java.time.LocalTime;
 
 
@@ -108,7 +109,7 @@ public class EntryEditDialog extends CustomDialog {
         NumberField sleepHoursField = new NumberField();
         sleepHoursField.setMin(0);
         sleepHoursField.setMax(24);
-        sleepHoursField.setStep(1);
+        sleepHoursField.setStep(0.5);
         sleepHoursField.setHasControls(true);
         sleepHoursField.setLabel("Slept hours");
         binder.bind(sleepHoursField, Entry::getSleepHours, Entry::setSleepHours);
@@ -164,6 +165,7 @@ public class EntryEditDialog extends CustomDialog {
     private HorizontalLayout getActivityRow(Activity activity, VerticalLayout parentLayout) {
         HorizontalLayout medicationLayout = new HorizontalLayout();
         TimePicker timePicker = new TimePicker();
+        timePicker.setStep(Duration.ofMinutes(15));
         timePicker.addValueChangeListener(e -> {
             activity.setTime(e.getValue());
         });
