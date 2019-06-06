@@ -13,18 +13,7 @@ public class PersonDao extends AbstractDao<Person> {
         super(Person.class);
     }
 
-    public Optional findByEmail(final String email) {
-        return db.executeInTransaction(session -> {
-            String queryString = "select p from Person p" +
-                    " where lower(p.contactData.email) like" +
-                    " lower(:email)";
-            Query<Person> query = session.createQuery(queryString, Person.class);
-            query.setParameter("email", "%" + email + "%");
-            return Optional.ofNullable(query.uniqueResult());
-        });
-    }
-
-    public Optional findByUsername(final String username){
+    public Optional<Person> findByUsername(final String username) {
         return db.executeInTransaction(session -> {
             String queryString = "select p from Person p" +
                     " where lower(p.username) like" +

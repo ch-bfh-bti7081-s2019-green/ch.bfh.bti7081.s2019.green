@@ -1,15 +1,10 @@
 package ch.bfh.bti7081.s2019.green;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
-import ch.bfh.bti7081.s2019.green.view.LoginViewImpl;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.Location;
-import com.vaadin.flow.router.NavigationTrigger;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
 
 /**
  * The main view contains a button and a click listener.

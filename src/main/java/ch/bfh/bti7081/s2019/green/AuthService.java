@@ -12,7 +12,7 @@ public class AuthService {
 
     private final PersonDao personDao;
     private static final PasswordEncoder encoder = new BCryptPasswordEncoder(12);
-    public static final String SESSION_USER = "username";
+    private static final String USER_SESSION = "USER_SESSION";
 
     public AuthService() {
         this.personDao = new PersonDao();
@@ -23,15 +23,22 @@ public class AuthService {
     }
 
     public static boolean isLoggedIn() {
-        return (VaadinSession.getCurrent().getAttribute(SESSION_USER) != null);
+        System.out.println(VaadinSession.getCurrent().getAttribute(USER_SESSION));
+        return VaadinSession.getCurrent().getAttribute(USER_SESSION) != null;
     }
 
     public boolean login(String username, String password) {
-        Optional<Person> p = personDao.findByUsername(username);
-        if (validatePassword(password, p.get().getPassword())) {
-            VaadinSession.getCurrent().setAttribute("username", username);
+        Optional<Person> user = personDao.findByUsername(username);
+
+        if (!user.isPresent()) {
+            return false;
+        }
+
+        if (validatePassword(password, user.get().getPassword())) {
+            VaadinSession.getCurrent().setAttribute(USER_SESSION, user.get());
             return true;
         }
+
         return false;
     }
 

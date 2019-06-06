@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
@@ -14,7 +15,6 @@ import org.hibernate.tool.schema.TargetType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -45,6 +45,8 @@ public class DatabaseSeeder {
      */
     private static void seed() {
         Patient patient = databaseSeederService.getRandomPatient();
+        patient.setUsername("patient");
+        patient.setPassword(AuthService.getEncodedPassword("patient"));
         db.save(patient);
 
         MoodDiary diary = new MoodDiary();
