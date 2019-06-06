@@ -31,8 +31,6 @@ public class MoodDiaryDaoTest {
 
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "PATIENT", "MOOD_DIARIES", "ENTRIES", "ACTIVITIES");
-
         String password = AuthService.getEncodedPassword("pass1234");
         Patient james = createPatientWithDiary(
                 30,
