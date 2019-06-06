@@ -30,11 +30,11 @@ import java.time.LocalTime;
 public class EntryEditDialog extends CustomDialog {
 
     private static final long serialVersionUID = -5760580106156198334L;
-    private SessionSingleton db = SessionSingleton.getInstance();
+    private transient SessionSingleton db = SessionSingleton.getInstance();
     private transient Entry entry;
     private Binder<Entry> binder;
     private FormLayout form;
-    private EntryDao dao = new EntryDao();
+    private transient EntryDao dao = new EntryDao();
     private int entryId;
 
     public EntryEditDialog(int entryId) {
