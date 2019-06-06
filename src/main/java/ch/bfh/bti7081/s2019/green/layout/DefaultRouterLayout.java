@@ -9,14 +9,9 @@ import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
 import com.github.appreciated.app.layout.component.appbar.AppBarBuilder;
 import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenuBuilder;
-import com.github.appreciated.app.layout.component.menu.left.items.LeftIconItem;
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
-import com.github.appreciated.app.layout.component.menu.left.items.LeftSectionItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
-import com.github.appreciated.card.content.IconItem;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 
@@ -29,6 +24,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
     private static final long serialVersionUID = 8467451795454981736L;
 
     public DefaultRouterLayout() {
+
         new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
         init(AppLayoutBuilder
                 .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
