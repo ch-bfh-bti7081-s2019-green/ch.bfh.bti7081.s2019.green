@@ -291,3 +291,38 @@ Work from home: FC, MS
 
 ## Todo Until 2019-05-27
 - Work on sprint 2
+
+# 2019-05-27
+Attending: FC, MH  
+Work from home: CK, MS, SK    
+
+## Topics
+- Daily scrum
+- Work on sprint 2
+
+## Todo Until 2019-05-29
+- Work on sprint 2
+
+# 2019-05-29
+Attending: 
+Work from home: CK, FC, MH, MS, SK  
+
+## Topics
+- Daily scrum
+- Work on sprint 2
+
+## Todo Until 2019-06-03
+- finish sprint 2
+
+# 2019-06-03
+Attending: CK, MH, MS, SK
+Excused: FC   
+
+## Topics
+- Daily scrum
+- finish sprint 2
+- plan sprint 3
+- Work on sprint 3
+
+## Todo Until 2019-06-03
+- Work on sprint 3

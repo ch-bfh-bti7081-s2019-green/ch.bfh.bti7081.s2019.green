@@ -1,5 +1,8 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
+import ch.bfh.bti7081.s2019.green.model.diary.Activity;
+import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
+import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
@@ -9,6 +12,8 @@ import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -25,6 +30,7 @@ import java.util.List;
 public class DatabaseSeeder {
 
     private static SessionSingleton db = SessionSingleton.getInstance();
+    private static DatabaseSeederService databaseSeederService = new DatabaseSeederService();
     private static Metadata metadata = MetadataExtractorIntegrator.INSTANCE.getMetadata();
     private static Faker faker = new Faker();
 
@@ -38,24 +44,39 @@ public class DatabaseSeeder {
      * Seed the database with example data.
      */
     private static void seed() {
-        Patient patient = getRandomPatient();
+        Patient patient = databaseSeederService.getRandomPatient();
         db.save(patient);
 
         MoodDiary diary = new MoodDiary();
         patient.setDiary(diary);
         db.save(diary);
 
-    }
+        Entry entry = new Entry();
+        entry.setDate(LocalDate.now());
+        entry.setMood(5);
+        entry.setWaterDrunk(1.5);
+        entry.setSleepHours(6.5);
+        entry.setNotes("This is an example note for an entry.");
+        diary.addEntry(entry);
+        db.save(entry);
 
-    private static Patient getRandomPatient() {
-        Patient patient = new Patient();
-        patient.setFirstName(faker.name().firstName());
-        patient.setLastName(faker.name().lastName());
-        patient.setAhvNumber((int) faker.number().randomNumber(13, true));
-        patient.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        patient.setUsername(faker.name().username());
+        Activity medicationActivity = new Activity(ActivityType.MEDICATION);
+        medicationActivity.setTime(LocalTime.of(8, 0));
+        medicationActivity.setText("Paracetamol 5mg");
+        entry.addActivity(medicationActivity);
+        db.save(medicationActivity);
 
-        return patient;
+        Activity foodActivity = new Activity(ActivityType.FOOD);
+        foodActivity.setTime(LocalTime.of(12, 15));
+        foodActivity.setText("Beef Burger");
+        entry.addActivity(foodActivity);
+        db.save(foodActivity);
+
+        Activity exerciseActivity = new Activity(ActivityType.EXERCISE);
+        exerciseActivity.setTime(LocalTime.of(17, 30));
+        exerciseActivity.setText("Ran 1km");
+        entry.addActivity(exerciseActivity);
+        db.save(exerciseActivity);
     }
 
     /**
@@ -90,6 +111,7 @@ public class DatabaseSeeder {
         List<String> tables = new ArrayList<>();
 
         for (PersistentClass persistentClass : metadata.getEntityBindings()) {
+            System.out.println(persistentClass.getTable().getName());
             tables.add(persistentClass.getTable().getName());
         }
 

@@ -3,12 +3,14 @@ package ch.bfh.bti7081.s2019.green.model.diary;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = {"entry"})
 @Entity
 @Table(name = "ACTIVITIES")
@@ -30,5 +32,9 @@ public class Activity extends AbstractBaseEntity {
 
     public Activity() {
         // explicit empty constructor for hibernate
+    }
+
+    public Activity(ActivityType type) {
+        this.type = type;
     }
 }

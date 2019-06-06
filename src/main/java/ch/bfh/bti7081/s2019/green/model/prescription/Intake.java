@@ -7,7 +7,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
-import java.util.List;
 
 @Data
 @Entity
