@@ -33,8 +33,6 @@ public class PersonDaoTest {
 
     @BeforeClass
     public static void setup() {
-        DbTestUtil.reset(db, "PERSON", "CONTACT");
-
         String password = AuthService.getEncodedPassword("pass123");
 
         Person james = savePerson(1337,
