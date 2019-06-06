@@ -17,6 +17,7 @@ import com.github.appreciated.app.layout.notification.DefaultNotificationHolder;
 import com.github.appreciated.app.layout.notification.component.AppBarNotificationButton;
 import com.github.appreciated.app.layout.notification.entitiy.DefaultNotification;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.BootstrapListener;
@@ -38,18 +39,11 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     public DefaultRouterLayout() {
 
         if (!AuthService.isLoggedIn()) {
-            notifications = new DefaultNotificationHolder(newStatus -> {
-            });
-            badge = new DefaultBadgeHolder(5);
-            for (int i = 1; i < 6; i++) {
-                notifications.addNotification(new DefaultNotification("Test title" + i, "A rather long test description ..............." + i));
-            }
-            LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), LoginViewImpl.class);
-            badge.bind(menuEntry.getBadge());
             init(AppLayoutBuilder
                     .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                     .withTitle("Patient Management System")
                     .build());
+            UI.getCurrent().navigate("login");
         } else {
             LeftNavigationItem menuEntry = new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
             badge.bind(menuEntry.getBadge());
@@ -60,8 +54,8 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                             .add(new AppBarNotificationButton<>(VaadinIcon.BELL, notifications))
                             .build())
                     .withAppMenu(LeftAppMenuBuilder.get()
-                            .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MainView.class), HEADER)
-                            .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), MainView.class), FOOTER)
+                            .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
+                            .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), RemindersLayout.class), FOOTER)
                             .build())
                     .build());
         }
