@@ -2,11 +2,14 @@ package ch.bfh.bti7081.s2019.green.model.person;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
 
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = "person")
 @Entity
 @Table(name = "CONTACT")
