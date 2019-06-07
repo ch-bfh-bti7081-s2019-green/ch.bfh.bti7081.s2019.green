@@ -25,6 +25,10 @@ public class MoodDiary extends AbstractBaseEntity {
     @EqualsAndHashCode.Exclude
     private List<Entry> entries;
 
+    public MoodDiary() {
+        // explicit empty constructor for hibernate
+    }
+
     public List<Entry> getEntries() {
         if (entries == null) {
             entries = new ArrayList<>();
@@ -46,10 +50,6 @@ public class MoodDiary extends AbstractBaseEntity {
         }
         entries.remove(entry);
         entry.setDiary(null);
-    }
-
-    public MoodDiary() {
-        // explicit empty constructor for hibernate
     }
 
     /**

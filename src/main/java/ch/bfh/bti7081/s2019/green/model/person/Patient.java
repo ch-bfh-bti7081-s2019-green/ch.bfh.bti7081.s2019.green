@@ -3,13 +3,13 @@ package ch.bfh.bti7081.s2019.green.model.person;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.prescription.Intake;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = {"diary", "therapist", "prescriptions"})
 @Entity
 @Table(name = "PATIENT")

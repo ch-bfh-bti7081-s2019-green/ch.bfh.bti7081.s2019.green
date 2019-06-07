@@ -7,7 +7,7 @@ import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
 /**
  * This class is used to get access to the hibernate metadata.
- *
+ * <p>
  * This is based on the following article:
  * https://vladmihalcea.com/how-to-get-access-to-database-table-metadata-with-hibernate-5/
  */
