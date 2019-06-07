@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -19,4 +20,19 @@ public class Therapist extends Person {
 
     @OneToMany(mappedBy = "therapist")
     private List<Prescription> prescriptions;
+
+    public void addPatient(Patient patient){
+        if(patients == null){
+            patients = new ArrayList<>();
+        }
+        patient.setTherapist(this);
+        patients.add(patient);
+    }
+
+    public List<Patient> getPatients(){
+        if(patients == null){
+            patients = new ArrayList<>();
+        }
+        return patients;
+    }
 }

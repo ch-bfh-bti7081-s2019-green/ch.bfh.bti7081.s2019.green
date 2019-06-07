@@ -6,6 +6,7 @@ import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import com.github.javafaker.Faker;
 import org.hibernate.boot.Metadata;
@@ -46,8 +47,12 @@ public class DatabaseSeeder {
     private static void seed() {
         Patient patient = databaseSeederService.getRandomPatient();
         patient.setUsername("patient");
-        patient.setPassword(AuthService.getEncodedPassword("patient"));
         db.save(patient);
+
+        Therapist therapist = databaseSeederService.getRandomTherapist();
+        therapist.setUsername("therapist");
+        therapist.addPatient(patient);
+        db.save(therapist);
 
         MoodDiary diary = new MoodDiary();
         patient.setDiary(diary);
@@ -120,6 +125,7 @@ public class DatabaseSeeder {
         // TODO: Get names of join tables using the hibernate metadata
         tables.add("defer_times");
         tables.add("emergency_contact");
+        tables.add("channel_members");
 
         return tables;
     }
