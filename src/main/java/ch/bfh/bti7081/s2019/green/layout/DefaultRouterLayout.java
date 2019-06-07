@@ -2,6 +2,7 @@ package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.view.about.AboutView;
 import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
@@ -33,7 +34,8 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), HEADER)
+                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), FOOTER)
+                        .addToSection(new LeftNavigationItem("About", VaadinIcon.INFO_CIRCLE.create(), AboutView.class), FOOTER)
                         .addToSection(getLogoutItem(), FOOTER)
                         .build())
                 .build());
