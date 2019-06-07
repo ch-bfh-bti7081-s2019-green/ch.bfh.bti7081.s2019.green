@@ -4,36 +4,30 @@ import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.chat.ChannelClient;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.chat.Message;
-import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
-import ch.bfh.bti7081.s2019.green.model.person.Therapist;
-import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
+import ch.bfh.bti7081.s2019.green.persistence.dao.PersonDao;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.router.AfterNavigationEvent;
-import com.vaadin.flow.router.AfterNavigationObserver;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
-
-import java.time.format.DateTimeFormatter;
-import java.util.Optional;
+import com.vaadin.flow.router.*;
 
 @Route(value = "chat", layout = DefaultRouterLayout.class)
 @PageTitle("Chat")
-public class ChatView extends VerticalLayout implements AfterNavigationObserver {
+public class ChatView extends VerticalLayout implements AfterNavigationObserver, HasUrlParameter<String> {
     private static final long serialVersionUID = -6432944384499835839L;
-    // TODO for dev only
-    private transient SessionSingleton db = SessionSingleton.getInstance();
     private transient ChannelClient client;
     private transient VerticalLayout messageArea;
+    private transient Person chatPartner;
+    private transient PersonDao personDao = new PersonDao();
 
     private void initializeLayout() {
         this.setHeightFull();
         this.setWidthFull();
+        this.add(new H2(chatPartner.getFullName()));
         createMessageAreaSublayout();
         createMessageCompositionSublayout();
 
@@ -58,7 +52,7 @@ public class ChatView extends VerticalLayout implements AfterNavigationObserver 
             container.setJustifyContentMode(JustifyContentMode.START);
         }
 
-        final TextArea messageText = new TextArea(msg.getAuthor().getFirstName());
+        final TextArea messageText = new TextArea(msg.getAuthor().getFullName());
         messageText.setValue(msg.getContent());
         messageText.setMaxWidth("90%");
         messageText.setMinWidth("30%");
@@ -108,16 +102,15 @@ public class ChatView extends VerticalLayout implements AfterNavigationObserver 
 
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
-        Optional<Person> optionalUser = AuthService.getCurrentUser();
+        Person user = AuthService.getCurrentUser();
 
-        Person user = optionalUser.get();
-
-        if (user instanceof Patient) {
-            client = new ChannelClient(this, user, ((Patient) user).getTherapist());
-        } else {
-            client = new ChannelClient(this, user, ((Therapist) user).getPatients().get(0));
-        }
+        client = new ChannelClient(this, user, chatPartner);
 
         initializeLayout();
+    }
+
+    @Override
+    public void setParameter(BeforeEvent beforeEvent, String userName) {
+        personDao.findByUsername(userName).ifPresent(person -> this.chatPartner = person);
     }
 }
