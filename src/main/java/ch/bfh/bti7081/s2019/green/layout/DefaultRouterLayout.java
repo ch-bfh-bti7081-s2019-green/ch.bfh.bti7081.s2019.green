@@ -1,6 +1,8 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
+import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
@@ -10,16 +12,19 @@ import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenu
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
 
-public class DefaultRouterLayout extends AppLayoutRouterLayout {
+public class DefaultRouterLayout extends AppLayoutRouterLayout implements BeforeEnterObserver {
 
     private static final long serialVersionUID = 8467451795454981736L;
 
     public DefaultRouterLayout() {
+
         new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
         init(AppLayoutBuilder
                 .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
@@ -28,14 +33,26 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), FOOTER)
+                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), HEADER)
+                        .addToSection(getLogoutItem(), FOOTER)
                         .build())
                 .build());
     }
 
-    //TODO schedule all existing reminder recurrences on start up
-    private void scheduleAllRecurrences() {
+    private LeftNavigationItem getLogoutItem() {
+        LeftNavigationItem logoutItem = new LeftNavigationItem("Logout", VaadinIcon.EXIT.create(), LoginView.class);
+        logoutItem.setClickListener(e -> {
+            AuthService authService = new AuthService();
+            authService.logout();
+        });
+        return logoutItem;
+    }
 
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        if (!AuthService.isLoggedIn()) {
+            beforeEnterEvent.forwardTo(LoginView.class);
+        }
     }
 }
 

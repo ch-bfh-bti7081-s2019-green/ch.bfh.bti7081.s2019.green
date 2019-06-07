@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
+import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.model.prescription.Dose;
@@ -23,6 +24,7 @@ public class DatabaseSeederService {
         Patient patient = new Patient();
         patient.setFirstName(faker.name().firstName());
         patient.setLastName(faker.name().lastName());
+        patient.setPassword(AuthService.getEncodedPassword("password"));
         patient.setAhvNumber((int) faker.number().randomNumber(13, true));
         patient.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         patient.setUsername(faker.name().username());
@@ -34,6 +36,7 @@ public class DatabaseSeederService {
         Therapist therapist = new Therapist();
         therapist.setFirstName(faker.name().firstName());
         therapist.setLastName(faker.name().lastName());
+        therapist.setPassword(AuthService.getEncodedPassword("password"));
         therapist.setAhvNumber((int) faker.number().randomNumber(13, true));
         therapist.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         therapist.setUsername(faker.name().username());
