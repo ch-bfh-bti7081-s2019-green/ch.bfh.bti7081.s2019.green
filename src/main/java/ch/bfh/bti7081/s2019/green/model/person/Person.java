@@ -24,6 +24,9 @@ public class Person extends AbstractBaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
+    @Column(name = "PASSWORD")
+    private String password;
+
     @Column(name = "BIRTH_DATE")
     @Convert(converter = LocalDateConverter.class)
     private LocalDate birthDate;
