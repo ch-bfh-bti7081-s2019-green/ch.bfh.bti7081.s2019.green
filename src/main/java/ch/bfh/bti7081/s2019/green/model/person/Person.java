@@ -37,4 +37,8 @@ public class Person extends AbstractBaseEntity {
     public Person() {
         // explicit empty constructor for hibernate
     }
+
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
 }

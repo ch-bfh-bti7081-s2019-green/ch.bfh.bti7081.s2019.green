@@ -41,14 +41,8 @@ public class AuthService {
         return false;
     }
 
-    public static Optional<Person> getCurrentUser() {
-        Object obj = VaadinSession.getCurrent().getAttribute(USER_SESSION);
-
-        if (obj instanceof Person) {
-            return Optional.ofNullable((Person) obj);
-        }
-
-        return Optional.empty();
+    public static Person getCurrentUser() {
+        return (Person) VaadinSession.getCurrent().getAttribute(USER_SESSION);
     }
 
     public void logout() {
