@@ -27,42 +27,11 @@ public class ChatView extends VerticalLayout implements AfterNavigationObserver,
     private transient Person chatPartner;
     private transient PersonDao personDao = new PersonDao();
 
-    private void initializeLayout() {
+    public ChatView() {
         this.setHeightFull();
         this.setWidthFull();
-        this.add(new H2(chatPartner.getFullName()));
         createMessageAreaSublayout();
         createMessageCompositionSublayout();
-
-        client.getLatentMessages().stream() //
-                .map(this::createMessageBubble) //
-                .forEach(layout -> messageArea.add(layout));
-    }
-
-    public void notifyUser(Message msg) {
-        messageArea.add(createMessageBubble(msg));
-    }
-
-    private HorizontalLayout createMessageBubble(Message msg) {
-        final HorizontalLayout container = new HorizontalLayout();
-        container.setWidthFull();
-
-        if (msg.getAuthor().equals(client.getUser())) {
-            // right align
-            container.setJustifyContentMode(JustifyContentMode.END);
-        } else {
-            // left align
-            container.setJustifyContentMode(JustifyContentMode.START);
-        }
-
-        final TextArea messageText = new TextArea(msg.getAuthor().getFullName());
-        messageText.setValue(msg.getContent());
-        messageText.setMaxWidth("90%");
-        messageText.setMinWidth("30%");
-        messageText.setReadOnly(true);
-        container.add(messageText);
-
-        return container;
     }
 
     private void createMessageAreaSublayout() {
@@ -102,6 +71,41 @@ public class ChatView extends VerticalLayout implements AfterNavigationObserver,
 
         this.add(messageField);
     }
+
+    private void initializeLayout() {
+        this.addComponentAsFirst(new H2(chatPartner.getFullName()));
+
+        client.getLatentMessages().stream() //
+                .map(this::createMessageBubble) //
+                .forEach(layout -> messageArea.add(layout));
+    }
+
+    public void notifyUser(Message msg) {
+        messageArea.add(createMessageBubble(msg));
+    }
+
+    private HorizontalLayout createMessageBubble(Message msg) {
+        final HorizontalLayout container = new HorizontalLayout();
+        container.setWidthFull();
+
+        if (msg.getAuthor().equals(client.getUser())) {
+            // right align
+            container.setJustifyContentMode(JustifyContentMode.END);
+        } else {
+            // left align
+            container.setJustifyContentMode(JustifyContentMode.START);
+        }
+
+        final TextArea messageText = new TextArea(msg.getAuthor().getFullName());
+        messageText.setValue(msg.getContent());
+        messageText.setMaxWidth("90%");
+        messageText.setMinWidth("30%");
+        messageText.setReadOnly(true);
+        container.add(messageText);
+
+        return container;
+    }
+
 
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
