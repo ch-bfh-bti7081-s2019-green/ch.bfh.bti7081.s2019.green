@@ -44,19 +44,15 @@ public class AuthService {
     public static Optional<Person> getCurrentUser() {
         Object obj = VaadinSession.getCurrent().getAttribute(USER_SESSION);
 
-        if(obj instanceof Person){
-            return Optional.ofNullable((Person)obj);
+        if (obj instanceof Person) {
+            return Optional.ofNullable((Person) obj);
         }
 
         return Optional.empty();
     }
 
-    public boolean logout() {
+    public void logout() {
         VaadinSession.getCurrent().close();
-        if (!AuthService.isLoggedIn()) {
-            return true;
-        }
-        return false;
     }
 
     //For testing purposes

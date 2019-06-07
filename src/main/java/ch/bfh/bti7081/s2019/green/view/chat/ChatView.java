@@ -14,39 +14,23 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.VaadinSession;
 
 import java.util.Optional;
 
 @Route(value = "chat", layout = DefaultRouterLayout.class)
 @PageTitle("Chat")
-public class ChatView extends VerticalLayout {
+public class ChatView extends VerticalLayout implements AfterNavigationObserver {
+    private static final long serialVersionUID = -6432944384499835839L;
     // TODO for dev only
-    private SessionSingleton db = SessionSingleton.getInstance();
+    private transient SessionSingleton db = SessionSingleton.getInstance();
+    private transient ChannelClient client;
+    private transient VerticalLayout messageArea;
 
-    private ChannelClient client;
-    private VerticalLayout messageArea;
-
-    public ChatView() {
-        Optional<Person> optionalUser = AuthService.getCurrentUser();
-        if(!optionalUser.isPresent()){
-            throw new IllegalStateException("No user is currently logged in!");
-        }
-
-        Person user = optionalUser.get();
-
-        if(user instanceof Patient){
-            client = new ChannelClient(this, user, ((Patient)user).getTherapist());
-        }else{
-            client = new ChannelClient(this, user, ((Therapist)user).getPatients().get(0));
-        }
-
-        init();
-    }
-
-    private void init() {
+    private void initializeLayout() {
         this.setHeightFull();
         this.setWidthFull();
         createMessageAreaSublayout();
@@ -57,7 +41,7 @@ public class ChatView extends VerticalLayout {
                 .forEach(layout -> messageArea.add(layout));
     }
 
-    public void notify(Message msg) {
+    public void notifyUser(Message msg) {
         messageArea.add(createMessageBubble(msg));
     }
 
@@ -119,5 +103,20 @@ public class ChatView extends VerticalLayout {
         messageField.add(sendButton);
 
         this.add(messageField);
+    }
+
+    @Override
+    public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
+        Optional<Person> optionalUser = AuthService.getCurrentUser();
+
+        Person user = optionalUser.get();
+
+        if (user instanceof Patient) {
+            client = new ChannelClient(this, user, ((Patient) user).getTherapist());
+        } else {
+            client = new ChannelClient(this, user, ((Therapist) user).getPatients().get(0));
+        }
+
+        initializeLayout();
     }
 }

@@ -11,6 +11,8 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -19,21 +21,10 @@ import java.util.List;
 
 @Route(value = "diary", layout = DefaultRouterLayout.class)
 @PageTitle("Diary")
-public class MoodDiaryView extends VerticalLayout {
-
+public class MoodDiaryView extends VerticalLayout implements AfterNavigationObserver {
     private static final long serialVersionUID = -3626045385294032611L;
     private transient MoodDiary diary;
 
-    public MoodDiaryView() {
-        this.diary = this.getDiary();
-        this.addHeading();
-
-        if (!diary.hasEntryForToday()) {
-            this.addCreateButton();
-        }
-
-        this.addGrid(diary.getEntries());
-    }
 
     private MoodDiary getDiary() {
         // TODO: Get the diary of the currently logged in patient
@@ -83,5 +74,17 @@ public class MoodDiaryView extends VerticalLayout {
         grid.removeColumnByKey("activities");
         grid.removeColumnByKey("notes");
         this.add(grid);
+    }
+
+    @Override
+    public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
+        this.diary = this.getDiary();
+        this.addHeading();
+
+        if (!diary.hasEntryForToday()) {
+            this.addCreateButton();
+        }
+
+        this.addGrid(diary.getEntries());
     }
 }

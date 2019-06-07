@@ -69,7 +69,7 @@ public class ChannelClient {
     }
 
     public void onMessage(Message msg) {
-        view.notify(msg);
+        view.notifyUser(msg);
     }
 
     public List<Message> getLatentMessages() {

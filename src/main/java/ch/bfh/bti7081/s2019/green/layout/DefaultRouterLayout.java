@@ -4,8 +4,8 @@ import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.MainView;
 import ch.bfh.bti7081.s2019.green.view.about.AboutView;
 import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
-import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
+import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
 import com.github.appreciated.app.layout.builder.AppLayoutBuilder;
@@ -36,9 +36,9 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Chat", VaadinIcon.COMMENTS.create(), ChatView.class), HEADER)
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
-                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), FOOTER)
-                        .addToSection(new LeftNavigationItem("About", VaadinIcon.INFO_CIRCLE.create(), AboutView.class), FOOTER)
-                        .addToSection(getLogoutItem(), FOOTER)
+                        .addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), HEADER)
+                        .addToSection(new LeftNavigationItem("About", VaadinIcon.INFO_CIRCLE.create(), AboutView.class), HEADER)
+                        .withStickyFooter().addToSection(getLogoutItem(), FOOTER)
                         .build())
                 .build());
     }
@@ -54,6 +54,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        System.out.println("Checking status:" + AuthService.isLoggedIn());
         if (!AuthService.isLoggedIn()) {
             beforeEnterEvent.forwardTo(LoginView.class);
         }
