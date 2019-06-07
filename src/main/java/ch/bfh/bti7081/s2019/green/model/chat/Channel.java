@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2019.green.chat.ChannelClient;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
@@ -13,10 +14,11 @@ import java.util.List;
 
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = "messages")
 @Entity
 @Table(name = "CHANNELS")
-public class Channel extends AbstractBaseEntity{
+public class Channel extends AbstractBaseEntity {
     @Column(name = "NAME")
     private String name;
 
@@ -27,7 +29,7 @@ public class Channel extends AbstractBaseEntity{
     private List<Person> members;
 
     @OneToMany(mappedBy = "channel")
-    @OrderColumn(name = "AUTHOR_TIME")
+    @OrderBy("AUTHOR_TIME")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Message> messages;
 
@@ -35,44 +37,42 @@ public class Channel extends AbstractBaseEntity{
     @Transient
     private List<ChannelClient> clients = new ArrayList<>();
 
-    public void addMessage(Message message){
+    public void addMessage(Message message) {
         if (messages == null) {
             messages = new ArrayList<>();
         }
-        // persistence
+
         message.setChannel(this);
         messages.add(message);
-
-        // notify clients
         this.clients.forEach(client -> client.onMessage(message));
     }
 
-    public List<Message> getMessages(){
+    public List<Message> getMessages() {
         if (messages == null) {
             messages = new ArrayList<>();
         }
         return messages;
     }
 
-    public void addMember(Person memeber){
-        if(members == null){
+    public void addMember(Person memeber) {
+        if (members == null) {
             members = new ArrayList<>();
         }
         members.add(memeber);
     }
 
-    public List<Person> getMembers(){
-        if(members == null){
+    public List<Person> getMembers() {
+        if (members == null) {
             members = new ArrayList<>();
         }
         return members;
     }
 
-    public boolean isConnected(Person person){
+    public boolean isConnected(Person person) {
         return this.clients.stream().map(ChannelClient::getUser).anyMatch(member -> member.equals(person));
     }
 
-    public void addClient(ChannelClient client){
+    public void addClient(ChannelClient client) {
         this.clients.add(client);
     }
 }

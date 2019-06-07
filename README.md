@@ -14,6 +14,7 @@ This application is currently only compatible with [PostgreSQL](https://www.post
 3. Create a database called `pms` (`createdb pms -O dbuser`)
 4. Run `mvn compile exec:java@seed` to seed the database
 5. Run `mvn jetty:run` to start the application on `localhost:8080`
+6. Login using `patient:password` or `therapist:password`
 
 If you'd like to run PostgreSQL in a docker container, you can use this command:
 

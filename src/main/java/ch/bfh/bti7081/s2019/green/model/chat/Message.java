@@ -2,13 +2,15 @@ package ch.bfh.bti7081.s2019.green.model.chat;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
-import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
+
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "MESSAGES")
 public class Message extends AbstractBaseEntity {
@@ -17,8 +19,7 @@ public class Message extends AbstractBaseEntity {
     private Channel channel;
 
     @Column(name = "AUTHOR_TIME")
-    @Convert(converter = ZonedDateTimeConverter.class)
-    private ZonedDateTime authorTime;
+    private OffsetDateTime authorTime;
 
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "AUTHOR")

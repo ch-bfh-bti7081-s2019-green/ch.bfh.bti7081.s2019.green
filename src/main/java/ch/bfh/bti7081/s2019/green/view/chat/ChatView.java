@@ -19,6 +19,7 @@ import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Route(value = "chat", layout = DefaultRouterLayout.class)

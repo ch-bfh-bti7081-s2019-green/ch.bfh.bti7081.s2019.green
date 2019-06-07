@@ -11,8 +11,8 @@ import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class DatabaseSeederService {
@@ -46,7 +46,7 @@ public class DatabaseSeederService {
 
     public Prescription getRandomPrescription() {
         Prescription prescription = new Prescription();
-        prescription.setFirstIntake(ZonedDateTime.now());
+        prescription.setFirstIntake(OffsetDateTime.now());
         prescription.setIssueDate(LocalDate.now());
         prescription.setValidUntil(LocalDate.of(2022, 12, 25));
         return prescription;
@@ -70,8 +70,8 @@ public class DatabaseSeederService {
 
     public Reminder getRandomReminder() {
         Reminder reminder = new Reminder();
-        reminder.setDeferTimes(new ArrayList<ZonedDateTime>());
-        reminder.setNotificationTime(ZonedDateTime.now());
+        reminder.setDeferTimes(new ArrayList<OffsetDateTime>());
+        reminder.setNotificationTime(OffsetDateTime.now());
         return reminder;
     }
 

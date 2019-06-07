@@ -7,7 +7,7 @@ import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ChannelDao;
 import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,8 +27,8 @@ public class ChannelClient {
 
     /**
      * @param chatView the view for displaying the chat
-     * @param user the user using this client
-     * @param members the other members of this channel
+     * @param user     the user using this client
+     * @param members  the other members of this channel
      */
     public ChannelClient(ChatView chatView, Person user, Person... members) {
         this.view = chatView;
@@ -36,7 +36,7 @@ public class ChannelClient {
         this.channel = initChannel(user, members);
     }
 
-    private Channel initChannel(Person user, Person... members){
+    private Channel initChannel(Person user, Person... members) {
         List<Person> m = new ArrayList<>();
         m.add(user);
         m.addAll(Arrays.asList(members));
@@ -76,7 +76,7 @@ public class ChannelClient {
         return channel.getMessages();
     }
 
-    public List<Message> getLatentMessages(ZonedDateTime since) {
+    public List<Message> getLatentMessages(OffsetDateTime since) {
         return channel.getMessages().stream() //
                 .filter(msg -> msg.getAuthorTime().isAfter(since)) //
                 .collect(Collectors.toList());
@@ -87,9 +87,10 @@ public class ChannelClient {
         Message msg = new Message();
         msg.setContent(content);
         msg.setAuthor(user);
-        msg.setAuthorTime(ZonedDateTime.now());
-        channel.addMessage(msg);
+        msg.setAuthorTime(OffsetDateTime.now());
         db.save(msg);
+
+        channel.addMessage(msg);
         db.save(channel);
     }
 

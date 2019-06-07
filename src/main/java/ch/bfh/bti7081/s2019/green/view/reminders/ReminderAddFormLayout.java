@@ -19,10 +19,7 @@ import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.timepicker.TimePicker;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +83,7 @@ public class ReminderAddFormLayout extends CustomFormLayout {
     }
 
     public void saveNewReminder() {
-        newReminder.setNotificationTime(this.selectedTime.atZone(ZoneId.of("Europe/Paris")));
+        newReminder.setNotificationTime(OffsetDateTime.now());
         newReminder.setPrescription(this.selectedPrescription);
         ReminderDao reminderDao = new ReminderDao();
         reminderDao.addReminder(newReminder);

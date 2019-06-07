@@ -21,16 +21,16 @@ public class Therapist extends Person {
     @OneToMany(mappedBy = "therapist")
     private List<Prescription> prescriptions;
 
-    public void addPatient(Patient patient){
-        if(patients == null){
+    public void addPatient(Patient patient) {
+        if (patients == null) {
             patients = new ArrayList<>();
         }
         patient.setTherapist(this);
         patients.add(patient);
     }
 
-    public List<Patient> getPatients(){
-        if(patients == null){
+    public List<Patient> getPatients() {
+        if (patients == null) {
             patients = new ArrayList<>();
         }
         return patients;
