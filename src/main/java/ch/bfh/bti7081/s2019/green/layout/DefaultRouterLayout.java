@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
+import ch.bfh.bti7081.s2019.green.Emergency;
 import ch.bfh.bti7081.s2019.green.MainView;
-import ch.bfh.bti7081.s2019.green.view.Emergency;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
 import com.github.appreciated.app.layout.behaviour.Behaviour;
@@ -27,13 +27,14 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout {
     public DefaultRouterLayout() {
         new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
         Button emergencybutton = new Button(new Icon(VaadinIcon.PHONE));
-        emergencybutton.addClickListener(Emergency.class);
+        emergencybutton.addClickListener(event -> {
+            new Emergency();
+        });
         init(AppLayoutBuilder
                 .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                 .withTitle("Patient Management System")
                 .withAppBar(AppBarBuilder.get()
                         .add(emergencybutton)
-                        .add( new TopNavigationItem(VaadinIcon.PHONE.create()),Emergency.class)
                         .build())
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER)
