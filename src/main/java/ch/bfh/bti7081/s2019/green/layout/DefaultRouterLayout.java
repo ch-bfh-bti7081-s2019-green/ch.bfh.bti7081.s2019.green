@@ -6,7 +6,6 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.view.about.AboutView;
-import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
@@ -19,18 +18,22 @@ import com.github.appreciated.app.layout.component.menu.left.items.LeftIconItem;
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.router.AfterNavigationEvent;
 import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
+import com.vaadin.flow.shared.communication.PushMode;
+import com.vaadin.flow.shared.ui.Transport;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
 
+// Configure push for updating the UI on events
+@Push(value = PushMode.MANUAL, transport = Transport.WEBSOCKET)
 public class DefaultRouterLayout extends AppLayoutRouterLayout implements BeforeEnterObserver, AfterNavigationObserver {
 
     private static final long serialVersionUID = 8467451795454981736L;
@@ -99,12 +102,10 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
         return null;
     }
 
-    private LeftIconItem createChatSubMenuItem(final Person chatPartner){
+    private LeftIconItem createChatSubMenuItem(final Person chatPartner) {
         LeftIconItem item = new LeftIconItem(chatPartner.getFullName(), VaadinIcon.COMMENT.create());
 
-        item.setClickListener(e -> {
-            UI.getCurrent().navigate("chat/" + chatPartner.getUsername());
-        });
+        item.setClickListener(e -> UI.getCurrent().navigate("chat/" + chatPartner.getUsername()));
 
         return item;
     }

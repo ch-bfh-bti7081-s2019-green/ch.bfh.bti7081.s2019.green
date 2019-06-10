@@ -70,7 +70,7 @@ public class DatabaseSeederService {
 
     public Reminder getRandomReminder() {
         Reminder reminder = new Reminder();
-        reminder.setDeferTimes(new ArrayList<OffsetDateTime>());
+        reminder.setDeferTimes(new ArrayList<>());
         reminder.setNotificationTime(OffsetDateTime.now());
         return reminder;
     }

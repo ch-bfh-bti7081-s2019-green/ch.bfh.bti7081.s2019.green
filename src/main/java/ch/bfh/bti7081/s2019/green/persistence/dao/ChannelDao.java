@@ -8,14 +8,14 @@ import org.hibernate.query.Query;
 import java.util.List;
 import java.util.Optional;
 
-public class ChannelDao extends AbstractDao<Channel>{
+public class ChannelDao extends AbstractDao<Channel> {
     private final SessionSingleton db = SessionSingleton.getInstance();
 
     public ChannelDao() {
         super(Channel.class);
     }
 
-    public Optional<Channel> findByMembers(List<Person> members){
+    public Optional<Channel> findByMembers(List<Person> members) {
         StringBuilder sql = new StringBuilder();
         sql.append("select ch from Channel ch") //
                 .append(" where 1=1"); //

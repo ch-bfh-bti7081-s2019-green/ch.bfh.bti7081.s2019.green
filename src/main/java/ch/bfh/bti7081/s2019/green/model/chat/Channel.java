@@ -1,20 +1,20 @@
 package ch.bfh.bti7081.s2019.green.model.chat;
 
 import ch.bfh.bti7081.s2019.green.chat.ChannelClient;
+import ch.bfh.bti7081.s2019.green.chat.NotificationService;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = "messages")
 @Entity
 @Table(name = "CHANNELS")
@@ -44,7 +44,7 @@ public class Channel extends AbstractBaseEntity {
 
         message.setChannel(this);
         messages.add(message);
-        this.clients.forEach(client -> client.onMessage(message));
+        NotificationService.notify(message);
     }
 
     public List<Message> getMessages() {
@@ -68,11 +68,22 @@ public class Channel extends AbstractBaseEntity {
         return members;
     }
 
-    public boolean isConnected(Person person) {
-        return this.clients.stream().map(ChannelClient::getUser).anyMatch(member -> member.equals(person));
-    }
-
     public void addClient(ChannelClient client) {
         this.clients.add(client);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Channel channel = (Channel) o;
+        return Objects.equals(name, channel.name) &&
+                Objects.equals(members, channel.members) &&
+                Objects.equals(messages, channel.messages);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, members, messages);
     }
 }

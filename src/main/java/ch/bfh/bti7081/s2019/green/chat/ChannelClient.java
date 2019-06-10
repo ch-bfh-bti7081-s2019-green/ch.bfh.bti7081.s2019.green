@@ -5,11 +5,9 @@ import ch.bfh.bti7081.s2019.green.model.chat.Message;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ChannelDao;
-import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,28 +19,25 @@ import java.util.stream.Collectors;
 public class ChannelClient {
     private final Person user;
     private final Channel channel;
-    private final ChatView view;
     private final SessionSingleton db = SessionSingleton.getInstance();
     private final ChannelDao channelDao = new ChannelDao();
 
     /**
-     * @param chatView the view for displaying the chat
-     * @param user     the user using this client
-     * @param members  the other members of this channel
+     * @param user    the user using this client
+     * @param partner the chat partner
      */
-    public ChannelClient(ChatView chatView, Person user, Person... members) {
-        this.view = chatView;
+    public ChannelClient(Person user, Person partner) {
         this.user = user;
-        this.channel = initChannel(user, members);
+        this.channel = initChannel(user, partner);
     }
 
-    private Channel initChannel(Person user, Person... members) {
+    private Channel initChannel(Person user, Person partner) {
         List<Person> m = new ArrayList<>();
         m.add(user);
-        m.addAll(Arrays.asList(members));
+        m.add(partner);
 
         // find channel
-        Optional<Channel> channelCandidate = channelDao.findByMembers(Arrays.asList(members));
+        Optional<Channel> channelCandidate = channelDao.findByMembers(m);
 
         // if not exist -> create new
         Channel chnnl = channelCandidate.orElseGet(() -> {
@@ -58,18 +53,6 @@ public class ChannelClient {
         // save
         db.save(chnnl);
         return chnnl;
-    }
-
-    public List<Person> getChannelMembers() {
-        return this.channel.getMembers();
-    }
-
-    public boolean isMemberOnline(Person member) {
-        return channel.isConnected(member);
-    }
-
-    public void onMessage(Message msg) {
-        view.notifyUser(msg);
     }
 
     public List<Message> getLatentMessages() {
@@ -96,5 +79,9 @@ public class ChannelClient {
 
     public Person getUser() {
         return user;
+    }
+
+    public Channel getChannel() {
+        return channel;
     }
 }
