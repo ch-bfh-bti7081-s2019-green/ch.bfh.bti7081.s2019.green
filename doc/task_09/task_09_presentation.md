@@ -85,16 +85,7 @@ lang: "en"
 - Use PostgreSQL instead of SQLite
 - First make the basic framework, then add features (ex. DB, Login, etc.)
 
-<<<<<<< HEAD
-- Never use Vaadin
-- Postgres is better than SQLite
-- plan less features, especially at the beginning
-- Never make a project with new technologies that nobody in the team knows
-- First make the basicframework, then the features(ex. Login)
-- Never ever use Vaadin!
-=======
 ### Don't
 - Attempt a project with completely unknown technologies.
 - Plan too many features at once
 - Choose a framework with lackluster docs
->>>>>>> 11bb378157431d0ef59adcc38ff72902e9b76695
