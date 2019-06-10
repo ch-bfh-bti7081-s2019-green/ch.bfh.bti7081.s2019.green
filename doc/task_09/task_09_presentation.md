@@ -20,7 +20,18 @@ lang: "en"
 
 # Design Thinking
 
-- What we have implemented vs. what we have planned with Task 1.
+- Implemented
+-- Reminder
+-- Mood Diary
+-- Chat
+
+- Planned
+-- Prescriptions from medications
+-- Chat with other patients (self help)
+-- Place for documentsharing
+-- Overview from appointments/Make appointment by a doctor
+-- Information page about the ilness
+-- Financial information (ex. Assurances)
 
 # Architecture
  - Hibernate
@@ -42,21 +53,25 @@ lang: "en"
 # List of personal contribution
 
 - Christian Kocher
-    - xxx
+    - Reminders
 - Fabio Caggiano
-    - xxx
+    - Login
+    - 
 - Marc Häsler
-    - xxx
+    - Parts of Mood Diary
+    - Emergency Page
+    - Scrum Master
 - Marius Schär
-    - xxx
+    - Scheduler for reminders
+    - 
 - Severin Kaderli
-    - xxx
+    - Database
 
 # Lesson learnt
 
-- Nie Vaadin verwenden
-- Postgres besser als SQLite
-- Weniger Features einplanen, vorallem am Anfang
-- Kein Projekt mit neuen Technologien, die keiner im Team kennt
-- Zuerst Grundframework, dann Features (Login)
-- Nie Vaadin verwenden
+- Never use Vaadin
+- Postgres is better than SQLite
+- plan less features, especially at the beginning
+- Never make a project with new technologies that nobody in the team knows
+- First make the basicframework, then the features(ex. Login)
+- Never ever use Vaadin!
