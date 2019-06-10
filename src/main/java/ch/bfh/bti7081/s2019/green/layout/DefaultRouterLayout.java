@@ -6,7 +6,6 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.view.about.AboutView;
-import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
@@ -19,7 +18,6 @@ import com.github.appreciated.app.layout.component.menu.left.items.LeftIconItem;
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.AfterNavigationEvent;
@@ -64,9 +62,11 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
 
         menuBuilder.addToSection(createChatItem(currentUser), HEADER);
 
-        // add patient-specific menu items
         if (currentUser instanceof Patient) {
-            menuBuilder.addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER);
+            if (((Patient) currentUser).hasDiary()) {
+                menuBuilder.addToSection(new LeftNavigationItem("Mood Diary", VaadinIcon.BOOK.create(), MoodDiaryView.class), HEADER);
+            }
+
             menuBuilder.addToSection(new LeftNavigationItem("Reminders", VaadinIcon.BELL.create(), ReminderView.class), HEADER);
         }
 
@@ -99,7 +99,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
         return null;
     }
 
-    private LeftIconItem createChatSubMenuItem(final Person chatPartner){
+    private LeftIconItem createChatSubMenuItem(final Person chatPartner) {
         LeftIconItem item = new LeftIconItem(chatPartner.getFullName(), VaadinIcon.COMMENT.create());
 
         item.setClickListener(e -> {

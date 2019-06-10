@@ -49,9 +49,15 @@ public class DatabaseSeeder {
         patient.setUsername("patient");
         db.save(patient);
 
+        // Patient without mood diary
+        Patient otherPatient = databaseSeederService.getRandomPatient();
+        otherPatient.setUsername("otherpatient");
+        db.save(otherPatient);
+
         Therapist therapist = databaseSeederService.getRandomTherapist();
         therapist.setUsername("therapist");
         therapist.addPatient(patient);
+        therapist.addPatient(otherPatient);
         db.save(therapist);
 
         MoodDiary diary = new MoodDiary();

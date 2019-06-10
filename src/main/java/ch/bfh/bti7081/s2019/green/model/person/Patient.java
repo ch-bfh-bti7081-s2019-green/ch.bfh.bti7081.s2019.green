@@ -40,4 +40,8 @@ public class Patient extends Person {
         this.diary = diary;
         diary.setPatient(this);
     }
+
+    public boolean hasDiary() {
+        return diary != null;
+    }
 }
