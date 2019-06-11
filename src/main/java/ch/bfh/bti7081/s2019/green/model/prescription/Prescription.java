@@ -3,15 +3,16 @@ package ch.bfh.bti7081.s2019.green.model.prescription;
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
-import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
+
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "PRESCRIPTION")
 public class Prescription extends AbstractBaseEntity {
@@ -33,14 +34,11 @@ public class Prescription extends AbstractBaseEntity {
     private Dose dose;
 
     @Column(name = "ISSUE_DATE")
-    @Convert(converter = LocalDateConverter.class)
     private LocalDate issueDate;
 
     @Column(name = "VALID_UNTIL")
-    @Convert(converter = LocalDateConverter.class)
     private LocalDate validUntil;
 
     @Column(name = "FIRST_INTAKE")
-    @Convert(converter = ZonedDateTimeConverter.class)
-    private ZonedDateTime firstIntake;
+    private OffsetDateTime firstIntake;
 }

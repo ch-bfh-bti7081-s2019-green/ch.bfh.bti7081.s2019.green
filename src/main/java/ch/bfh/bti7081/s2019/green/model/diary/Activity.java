@@ -1,7 +1,6 @@
 package ch.bfh.bti7081.s2019.green.model.diary;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -20,7 +19,6 @@ public class Activity extends AbstractBaseEntity {
     private ActivityType type;
 
     @Column(name = "TIME")
-    @Convert(converter = LocalTimeConverter.class)
     private LocalTime time;
 
     @Column(name = "TEXT")

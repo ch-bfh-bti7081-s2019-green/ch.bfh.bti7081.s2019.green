@@ -1,13 +1,15 @@
 package ch.bfh.bti7081.s2019.green.model.person;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "PERSON")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -24,8 +26,10 @@ public class Person extends AbstractBaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
+    @Column(name = "PASSWORD")
+    private String password;
+
     @Column(name = "BIRTH_DATE")
-    @Convert(converter = LocalDateConverter.class)
     private LocalDate birthDate;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
@@ -33,5 +37,9 @@ public class Person extends AbstractBaseEntity {
 
     public Person() {
         // explicit empty constructor for hibernate
+    }
+
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
     }
 }

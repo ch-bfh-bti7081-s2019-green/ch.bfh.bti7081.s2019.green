@@ -1,7 +1,6 @@
 package ch.bfh.bti7081.s2019.green.model.diary;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -19,7 +18,6 @@ import java.util.stream.Collectors;
 @Table(name = "ENTRIES")
 public class Entry extends AbstractBaseEntity {
     @Column(name = "DATE")
-    @Convert(converter = LocalDateConverter.class)
     private LocalDate date;
 
     @Column(name = "MOOD")
