@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.view.login;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
+import ch.bfh.bti7081.s2019.green.MainView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.login.LoginForm;
@@ -35,7 +36,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     }
 
     private void successfulLogin() {
-        UI.getCurrent().navigate(MoodDiaryView.class);
+        UI.getCurrent().navigate(MainView.class);
     }
 
     private void displayErrorMessage() {
@@ -45,7 +46,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
         if (AuthService.isLoggedIn()) {
-            beforeEnterEvent.forwardTo(MoodDiaryView.class);
+            beforeEnterEvent.forwardTo(MainView.class);
         }
     }
 }

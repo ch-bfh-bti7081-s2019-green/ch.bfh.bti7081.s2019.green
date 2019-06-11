@@ -1,45 +1,32 @@
 package ch.bfh.bti7081.s2019.green.view.diary;
 
+import ch.bfh.bti7081.s2019.green.AuthService;
+import ch.bfh.bti7081.s2019.green.MainView;
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
+import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import ch.bfh.bti7081.s2019.green.persistence.dao.MoodDiaryDao;
+import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Route(value = "diary", layout = DefaultRouterLayout.class)
 @PageTitle("Diary")
-public class MoodDiaryView extends VerticalLayout {
-
+public class MoodDiaryView extends VerticalLayout implements AfterNavigationObserver, BeforeEnterObserver {
     private static final long serialVersionUID = -3626045385294032611L;
     private transient MoodDiary diary;
-
-    public MoodDiaryView() {
-        this.diary = this.getDiary();
-        this.addHeading();
-
-        if (!diary.hasEntryForToday()) {
-            this.addCreateButton();
-        }
-
-        this.addGrid(diary.getEntries());
-    }
-
-    private MoodDiary getDiary() {
-        // TODO: Get the diary of the currently logged in patient
-        MoodDiaryDao dao = new MoodDiaryDao();
-        return dao.findAll().get(0);
-    }
+    private transient Patient patient;
 
     private void addHeading() {
         H2 heading = new H2("Entries");
@@ -83,5 +70,26 @@ public class MoodDiaryView extends VerticalLayout {
         grid.removeColumnByKey("activities");
         grid.removeColumnByKey("notes");
         this.add(grid);
+    }
+
+    @Override
+    public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
+        this.diary = patient.getDiary();
+        this.addHeading();
+
+        if (!diary.hasEntryForToday()) {
+            this.addCreateButton();
+        }
+
+        this.addGrid(diary.getEntries());
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
+        if(AuthService.getCurrentUser() instanceof Patient && ((Patient) AuthService.getCurrentUser()).hasDiary()) {
+            patient = (Patient) AuthService.getCurrentUser();
+        } else {
+            beforeEnterEvent.forwardTo(MainView.class);
+        }
     }
 }

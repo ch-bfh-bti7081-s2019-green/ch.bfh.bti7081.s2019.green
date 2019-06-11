@@ -15,10 +15,6 @@ import org.junit.BeforeClass;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
 public class MoodDiaryDaoTest {
 
     private static MoodDiaryDao dao = new MoodDiaryDao();
