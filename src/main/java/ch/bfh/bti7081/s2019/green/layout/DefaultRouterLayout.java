@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
+import ch.bfh.bti7081.s2019.green.view.emergency.EmergencyPopup;
 import ch.bfh.bti7081.s2019.green.MainView;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
@@ -20,6 +21,8 @@ import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigatio
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.router.AfterNavigationEvent;
@@ -51,10 +54,16 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
         new LeftNavigationItem("Menu", VaadinIcon.MENU.create(), MainView.class);
+
+        Button emergencybutton = new Button(new Icon(VaadinIcon.PHONE));
+        emergencybutton.addClickListener(event -> {
+            new EmergencyPopup();
+        });
+
         AppLayoutBuilder layoutBuilder = AppLayoutBuilder
                 .get(Behaviour.LEFT_RESPONSIVE_HYBRID)
                 .withTitle("Patient Management System")
-                .withAppBar(AppBarBuilder.get().build());
+                .withAppBar(AppBarBuilder.get().add(emergencybutton).build());
 
         layoutBuilder.withAppMenu(createMenu());
 
