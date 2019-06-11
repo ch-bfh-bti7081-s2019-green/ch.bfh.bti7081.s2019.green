@@ -10,14 +10,17 @@
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="connection.driver_class">org.h2.Driver</property>
         <property name="connection.username">sa</property>
-        <property name="connection.url"> jdbc:h2:./database/test;INIT=RUNSCRIPT FROM './src/test/resources/test_schema.sql';
+        <property name="connection.url">jdbc:h2:./database/test;INIT=RUNSCRIPT FROM
+            './src/test/resources/test_schema.sql';
         </property>
 
         <!--custom connection pool so SQLite isn't locked when we try to use it-->
         <property name="hibernate.c3p0.min_size">1</property>
         <property name="hibernate.c3p0.max_size">1</property>
         <property name="hibernate.c3p0.timeout">5</property>
-        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext
+        </property>
 
         <!--hibernate automatically generates the schema from the given model-->
         <property name="hibernate.hbm2ddl.auto">validate</property>

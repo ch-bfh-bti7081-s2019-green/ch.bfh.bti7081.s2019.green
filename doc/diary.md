@@ -320,9 +320,35 @@ Excused: FC
 
 ## Topics
 - Daily scrum
-- finish sprint 2
-- plan sprint 3
 - Work on sprint 3
 
-## Todo Until 2019-06-03
+## Todo Until 2019-06-05
 - Work on sprint 3
+
+# 2019-06-05
+Attending: CK,FC, MH, MS, SK
+
+## Topics
+- Daily scrum
+- Work on sprint 3
+
+## Todo Until 2019-06-07
+- Work on sprint 3
+
+# 2019-06-07
+Attending: MH  
+Work from home: CK, FC, MS, SK  
+
+## Topics
+- Work on sprint 3
+
+## Todo Until 2019-06-12
+- Finish sprint 3
+- prepare final presentation
+
+# 2019-06-12
+Attending: CK, FC, MH, MS, SK
+
+## Topics
+- finish sprint 3
+- final presentation

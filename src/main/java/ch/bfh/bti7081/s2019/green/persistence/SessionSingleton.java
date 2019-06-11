@@ -1,5 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence;
 
+import ch.bfh.bti7081.s2019.green.model.chat.Channel;
+import ch.bfh.bti7081.s2019.green.model.chat.Message;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
@@ -11,10 +13,6 @@ import ch.bfh.bti7081.s2019.green.model.prescription.*;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.reminder.ReminderRecurrence;
 import ch.bfh.bti7081.s2019.green.model.reminder.WeekdayRecurrence;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateConverter;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalDateTimeConverter;
-import ch.bfh.bti7081.s2019.green.persistence.converters.LocalTimeConverter;
-import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import ch.bfh.bti7081.s2019.green.persistence.seed.MetadataExtractorIntegrator;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -70,14 +68,7 @@ public class SessionSingleton {
 
     private Configuration createConfig() {
         Configuration config = new Configuration();
-
-        // Register converters
-        config.addAnnotatedClass(LocalDateConverter.class);
-        config.addAnnotatedClass(LocalTimeConverter.class);
-        config.addAnnotatedClass(LocalDateTimeConverter.class);
-        config.addAnnotatedClass(ZonedDateTimeConverter.class);
         registerEntities(config);
-
         return config;
     }
 
@@ -104,6 +95,10 @@ public class SessionSingleton {
         config.addAnnotatedClass(Activity.class);
         config.addAnnotatedClass(Entry.class);
         config.addAnnotatedClass(MoodDiary.class);
+
+        // Chat related entities
+        config.addAnnotatedClass(Channel.class);
+        config.addAnnotatedClass(Message.class);
     }
 
     public Session getRawSession() {

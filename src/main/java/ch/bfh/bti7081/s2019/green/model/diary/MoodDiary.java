@@ -11,7 +11,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(exclude = {"entries", "patient"})
 @Entity
 @Table(name = "MOOD_DIARIES")
