@@ -13,13 +13,14 @@ import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenu
 import com.github.appreciated.app.layout.component.menu.left.items.LeftNavigationItem;
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
-
+@Push
 public class DefaultRouterLayout extends AppLayoutRouterLayout implements BeforeEnterObserver {
 
     private static final long serialVersionUID = 8467451795454981736L;

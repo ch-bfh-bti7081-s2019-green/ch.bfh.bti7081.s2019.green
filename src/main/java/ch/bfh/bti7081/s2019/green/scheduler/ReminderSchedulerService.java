@@ -42,25 +42,34 @@ public class ReminderSchedulerService {
         String id = this.getIDForSchedulerMap(reminder, recurrence);
         this.cancel(id);
         if (isBaseReminderEntry) {
-            schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime(), () -> {
-                System.out.println("REMINDER with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-                //DIALOG SHOULD OPEN HERE
-                this.reschedule(reminder, recurrence, isBaseReminderEntry);
-                return null;
-            }));
+            if (isBeingRescheduled) {
+                schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime().plusHours(24), () -> {
+                    System.out.println("REMINDER with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+                    //DIALOG SHOULD OPEN HERE
+                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
+                    return null;
+                }));
+            } else {
+                schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime(), () -> {
+                    System.out.println("REMINDER with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+                    //DIALOG SHOULD OPEN HERE
+                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
+                    return null;
+                }));
+            }
         } else {
             if (isBeingRescheduled) {
                 schedulerMap.put(id, Scheduler.getInstance().schedule(ZonedDateTime.now().plus(recurrence.getDuration()), () -> {
                     System.out.println("RECURRENCE with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
                     //DIALOG SHOULD OPEN HERE
-                    this.reschedule(reminder, recurrence, isBaseReminderEntry);
+                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
                     return null;
                 }));
             } else {
                 schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime().plus(recurrence.getDuration()), () -> {
                     System.out.println("RECURRENCE with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
                     //DIALOG SHOULD OPEN HERE
-                    this.reschedule(reminder, recurrence, isBaseReminderEntry);
+                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
                     return null;
                 }));
             }
