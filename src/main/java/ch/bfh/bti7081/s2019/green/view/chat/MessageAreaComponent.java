@@ -18,6 +18,9 @@ public class MessageAreaComponent extends VerticalLayout {
     private transient Registration notificationRegistration;
     private final transient Person user;
     private final transient Channel channel;
+    private static final transient String JS_ID = "message_area_layout";
+    private static final transient String SCROLL_JS = "var target = document.getElementById(\"message_area_layout\");" +
+            "target.scrollTop = target.scrollHeight - target.clientHeight;";
 
     public MessageAreaComponent(Person user, Channel channel) {
         this.user = user;
@@ -25,7 +28,10 @@ public class MessageAreaComponent extends VerticalLayout {
         this.setWidthFull();
         this.setHeightFull();
         this.setAlignItems(Alignment.END);
+
+        // make sure messages are always scrolled to the bottom
         this.getStyle().set("overflow", "scroll");
+        this.setId(JS_ID);
     }
 
     @Override
@@ -35,6 +41,7 @@ public class MessageAreaComponent extends VerticalLayout {
             UI ui = attachEvent.getUI();
             ui.access(() -> {
                 this.add(createMessageBubble(msg));
+                ui.getPage().executeJavaScript(SCROLL_JS);
                 ui.push();
             });
         });
