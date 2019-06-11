@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2019.green.layout;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
-import ch.bfh.bti7081.s2019.green.Emergency;
+import ch.bfh.bti7081.s2019.green.view.emergency.EmergencyPopup;
 import ch.bfh.bti7081.s2019.green.MainView;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
@@ -57,7 +57,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
 
         Button emergencybutton = new Button(new Icon(VaadinIcon.PHONE));
         emergencybutton.addClickListener(event -> {
-            new Emergency();
+            new EmergencyPopup();
         });
 
         AppLayoutBuilder layoutBuilder = AppLayoutBuilder

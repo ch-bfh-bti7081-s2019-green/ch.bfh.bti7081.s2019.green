@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
 import ch.bfh.bti7081.s2019.green.AuthService;
+import ch.bfh.bti7081.s2019.green.model.person.Contact;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.model.prescription.Dose;
@@ -40,8 +41,23 @@ public class DatabaseSeederService {
         therapist.setAhvNumber((int) faker.number().randomNumber(13, true));
         therapist.setBirthDate(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         therapist.setUsername(faker.name().username());
+        Contact contactData = getRandomContact();
+        contactData.setPerson(therapist);
+        therapist.setContactData(contactData);
+
 
         return therapist;
+    }
+
+    public Contact getRandomContact() {
+        Contact contact = new Contact();
+        contact.setCity(faker.address().cityName());
+        contact.setCountry(faker.address().country());
+        contact.setStreet(faker.address().streetAddress());
+        contact.setEmail(faker.internet().emailAddress());
+        contact.setPhone(faker.phoneNumber().phoneNumber());
+
+        return contact;
     }
 
     public Prescription getRandomPrescription() {
