@@ -32,7 +32,6 @@ public class MessageAreaComponent extends VerticalLayout {
     protected void onAttach(final AttachEvent attachEvent) {
         // register for NotificationService
         notificationRegistration = NotificationService.register(channel, msg -> {
-            System.err.printf("Updating for @%s with \"%s\"%n", user.getFullName(), msg.getContent());
             UI ui = attachEvent.getUI();
             ui.access(() -> {
                 this.add(createMessageBubble(msg));
@@ -68,6 +67,7 @@ public class MessageAreaComponent extends VerticalLayout {
 
         final TextArea messageText = new TextArea(msg.getAuthor().getFullName());
         messageText.setValue(msg.getContent());
+        messageText.setWidthFull();
         messageText.setMaxWidth("90%");
         messageText.setMinWidth("30%");
         messageText.setReadOnly(true);

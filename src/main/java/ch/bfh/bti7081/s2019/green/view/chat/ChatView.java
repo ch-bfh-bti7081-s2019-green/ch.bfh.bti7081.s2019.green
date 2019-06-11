@@ -28,6 +28,8 @@ public class ChatView extends VerticalLayout implements AfterNavigationObserver,
 
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
+        this.removeAll();
+
         Person user = AuthService.getCurrentUser();
 
         client = new ChannelClient(user, chatPartner);

@@ -6,6 +6,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Person;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.view.about.AboutView;
+import ch.bfh.bti7081.s2019.green.view.chat.ChatView;
 import ch.bfh.bti7081.s2019.green.view.diary.MoodDiaryView;
 import ch.bfh.bti7081.s2019.green.view.login.LoginView;
 import ch.bfh.bti7081.s2019.green.view.reminders.ReminderView;
@@ -107,7 +108,7 @@ public class DefaultRouterLayout extends AppLayoutRouterLayout implements Before
     private LeftIconItem createChatSubMenuItem(final Person chatPartner) {
         LeftIconItem item = new LeftIconItem(chatPartner.getFullName(), VaadinIcon.COMMENT.create());
 
-        item.setClickListener(e -> UI.getCurrent().navigate("chat/" + chatPartner.getUsername()));
+        item.setClickListener(e -> UI.getCurrent().navigate(ChatView.class, chatPartner.getUsername()));
 
         return item;
     }
