@@ -2,7 +2,6 @@ package ch.bfh.bti7081.s2019.green.scheduler;
 
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.model.reminder.ReminderRecurrence;
-import com.vaadin.flow.component.notification.Notification;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
@@ -45,24 +44,23 @@ public class ReminderSchedulerService {
         if (isBaseReminderEntry) {
             schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime(), () -> {
                 System.out.println("REMINDER with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-                Notification.show("This is a reminder to take your prescription: " + reminder.getPrescription().toString());
+                //DIALOG SHOULD OPEN HERE
                 this.reschedule(reminder, recurrence, isBaseReminderEntry);
                 return null;
             }));
         } else {
-            //TODO rechedules always from reminder base time, should reschedule from now plus duration
             if (isBeingRescheduled) {
                 schedulerMap.put(id, Scheduler.getInstance().schedule(ZonedDateTime.now().plus(recurrence.getDuration()), () -> {
                     System.out.println("RECURRENCE with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-                    //Notification.show("This is a reminder to take your prescription: " + reminder.getPrescription().toString());
-                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
+                    //DIALOG SHOULD OPEN HERE
+                    this.reschedule(reminder, recurrence, isBaseReminderEntry);
                     return null;
                 }));
             } else {
                 schedulerMap.put(id, Scheduler.getInstance().schedule(reminder.getNotificationTime().plus(recurrence.getDuration()), () -> {
                     System.out.println("RECURRENCE with ID: " + id + " says HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-                    //Notification.show("This is a reminder to take your prescription: " + reminder.getPrescription().toString());
-                    ReminderSchedulerService.getInstance().reschedule(reminder, recurrence, isBaseReminderEntry);
+                    //DIALOG SHOULD OPEN HERE
+                    this.reschedule(reminder, recurrence, isBaseReminderEntry);
                     return null;
                 }));
             }

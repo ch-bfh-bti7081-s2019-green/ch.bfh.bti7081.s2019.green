@@ -143,7 +143,6 @@ public class ReminderAddFormLayout extends CustomFormLayout {
     }
 
     private void addDemoReminder() {
-        Notification.show("biaedbfkejhbvkilerb");
         Reminder reminder = new Reminder();
         reminder.setPrescription(null);
         reminder.setId(123456789);

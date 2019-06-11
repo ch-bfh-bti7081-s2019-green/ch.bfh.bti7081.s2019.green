@@ -4,7 +4,6 @@ import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
 import ch.bfh.bti7081.s2019.green.model.reminder.Reminder;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
 import ch.bfh.bti7081.s2019.green.scheduler.ReminderSchedulerService;
-import ch.bfh.bti7081.s2019.green.scheduler.Scheduler;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
@@ -22,7 +21,6 @@ public class ReminderView extends VerticalLayout {
     private transient ReminderDao reminderDao = new ReminderDao();
     private Grid remindersGrid;
     private transient Reminder selectedReminder;
-    private transient Scheduler scheduler = Scheduler.getInstance();
 
     public ReminderView() {
         initializeLayout();
