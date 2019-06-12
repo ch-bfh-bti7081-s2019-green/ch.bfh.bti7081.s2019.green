@@ -1,11 +1,11 @@
 package ch.bfh.bti7081.s2019.green.persistence.seed;
 
-import ch.bfh.bti7081.s2019.green.AuthService;
 import ch.bfh.bti7081.s2019.green.model.diary.Activity;
 import ch.bfh.bti7081.s2019.green.model.diary.ActivityType;
 import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
+import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import com.github.javafaker.Faker;
 import org.hibernate.boot.Metadata;
@@ -48,6 +48,17 @@ public class DatabaseSeeder {
         patient.setUsername("patient");
         patient.setPassword(AuthService.getEncodedPassword("patient"));
         db.save(patient);
+
+        // Patient without mood diary
+        Patient otherPatient = databaseSeederService.getRandomPatient();
+        otherPatient.setUsername("otherpatient");
+        db.save(otherPatient);
+
+        Therapist therapist = databaseSeederService.getRandomTherapist();
+        therapist.setUsername("therapist");
+        therapist.addPatient(patient);
+        therapist.addPatient(otherPatient);
+        db.save(therapist);
 
         Patient patient1 = databaseSeederService.getRandomPatient();
         patient1.setUsername("patient1");
@@ -125,6 +136,7 @@ public class DatabaseSeeder {
         // TODO: Get names of join tables using the hibernate metadata
         tables.add("defer_times");
         tables.add("emergency_contact");
+        tables.add("channel_members");
 
         return tables;
     }

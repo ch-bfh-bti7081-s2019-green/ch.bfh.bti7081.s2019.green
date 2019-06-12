@@ -86,7 +86,7 @@ public class ReminderAddFormLayout extends CustomFormLayout {
     }
 
     public void saveNewReminder() {
-        newReminder.setNotificationTime(this.selectedTime.atZone(ZoneId.of("Europe/Paris")));
+        newReminder.setNotificationTime(OffsetDateTime.now());
         newReminder.setPrescription(this.selectedPrescription);
         ReminderDao reminderDao = new ReminderDao();
         reminderDao.addReminder(newReminder);

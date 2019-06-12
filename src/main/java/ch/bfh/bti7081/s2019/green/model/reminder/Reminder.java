@@ -2,14 +2,16 @@ package ch.bfh.bti7081.s2019.green.model.reminder;
 
 import ch.bfh.bti7081.s2019.green.model.AbstractBaseEntity;
 import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
-import ch.bfh.bti7081.s2019.green.persistence.converters.ZonedDateTimeConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "REMINDER")
 public class Reminder extends AbstractBaseEntity {
@@ -18,23 +20,13 @@ public class Reminder extends AbstractBaseEntity {
     private Prescription prescription;
 
     @Column(name = "NOTIFICATION_TIME")
-    @Convert(converter = ZonedDateTimeConverter.class)
-    private ZonedDateTime notificationTime;
+    private OffsetDateTime notificationTime;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "DEFER_TIME")
-    @Convert(converter = ZonedDateTimeConverter.class)
     @JoinTable(name = "DEFER_TIMES", joinColumns = @JoinColumn(name = "REMINDER_ID", referencedColumnName = "ID"))
-    private List<ZonedDateTime> deferTimes;
+    private List<OffsetDateTime> deferTimes;
 
     @OneToMany(mappedBy = "reminder", cascade = CascadeType.REMOVE)
     private List<ReminderRecurrence> recurrences;
-
-    public void setPrescription(Prescription prescription) {
-        this.prescription = prescription;
-    }
-
-    public void setNotificationTime(ZonedDateTime time) {
-        this.notificationTime = time;
-    }
 }

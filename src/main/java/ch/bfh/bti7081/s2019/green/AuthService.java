@@ -41,12 +41,12 @@ public class AuthService {
         return false;
     }
 
-    public boolean logout() {
+    public static Person getCurrentUser() {
+        return (Person) VaadinSession.getCurrent().getAttribute(USER_SESSION);
+    }
+
+    public void logout() {
         VaadinSession.getCurrent().close();
-        if (!AuthService.isLoggedIn()) {
-            return true;
-        }
-        return false;
     }
 
     //For testing purposes

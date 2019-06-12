@@ -17,6 +17,8 @@
         <!--custom connection pool so SQLite isn't locked when we try to use it-->
         <property name="hibernate.c3p0.min_size">1</property>
         <property name="hibernate.c3p0.max_size">1</property>
-        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext
+        </property>
     </session-factory>
 </hibernate-configuration>

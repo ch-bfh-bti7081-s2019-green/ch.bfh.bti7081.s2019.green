@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class IdUtil {
     private static final Map<Class<?>, AtomicInteger> idsByClass = new ConcurrentHashMap<>();
 
-    public static Integer next(Class<?> clazz){
+    public static Integer next(Class<?> clazz) {
         return idsByClass.computeIfAbsent(clazz, c -> new AtomicInteger()).incrementAndGet();
     }
 }
