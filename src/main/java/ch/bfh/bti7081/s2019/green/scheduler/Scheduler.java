@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.time.ZonedDateTime;
+import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.*;
 
@@ -37,8 +37,8 @@ public class Scheduler {
      *
      * @return A ScheduledFuture for cancelling or getting the result of the callable.
      */
-    public <T> ScheduledFuture<T> schedule(ZonedDateTime triggerTime, Callable<T> callable) {
-        final ZonedDateTime now = ZonedDateTime.now();
+    public <T> ScheduledFuture<T> schedule(OffsetDateTime triggerTime, Callable<T> callable) {
+        final OffsetDateTime now = OffsetDateTime.now();
 
         Duration untilTriggerTime = Duration.between(now, triggerTime);
 

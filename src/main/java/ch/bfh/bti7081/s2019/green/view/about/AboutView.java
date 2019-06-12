@@ -1,7 +1,6 @@
 package ch.bfh.bti7081.s2019.green.view.about;
 
 import ch.bfh.bti7081.s2019.green.layout.DefaultRouterLayout;
-import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H2;

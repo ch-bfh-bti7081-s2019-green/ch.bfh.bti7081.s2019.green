@@ -54,8 +54,11 @@ lang: "en"
 \col{50}
 - Christian Kocher
     - Reminders
+
 - Fabio Caggiano
     - Login
+    - Little Part of Mood Diary Entry Edit
+
 - Marc Häsler
     - Parts of Mood Diary
     - Emergency Page
