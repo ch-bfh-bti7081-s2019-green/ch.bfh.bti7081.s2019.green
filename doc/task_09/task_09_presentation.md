@@ -35,7 +35,7 @@ lang: "en"
 
 # Architecture
  - Hibernate
- - PostreSQL
+ - PostgreSQL
  - Vaadin
 
 # Code Highlights
