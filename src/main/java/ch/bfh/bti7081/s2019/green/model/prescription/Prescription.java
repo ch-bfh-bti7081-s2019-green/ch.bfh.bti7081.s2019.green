@@ -5,6 +5,7 @@ import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ import java.time.OffsetDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "PRESCRIPTION")
+@ToString(exclude = {"patient", "therapist", "issueDate", "validUntil", "firstIntake"})
 public class Prescription extends AbstractBaseEntity {
 
     @ManyToOne

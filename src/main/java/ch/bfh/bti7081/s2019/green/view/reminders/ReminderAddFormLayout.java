@@ -8,6 +8,7 @@ import ch.bfh.bti7081.s2019.green.persistence.dao.PrescriptionDao;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderDao;
 import ch.bfh.bti7081.s2019.green.persistence.dao.ReminderRecurrenceDao;
 import ch.bfh.bti7081.s2019.green.scheduler.ReminderSchedulerService;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Label;
@@ -73,16 +74,18 @@ public class ReminderAddFormLayout extends CustomFormLayout {
             recurrencesVerticalLayout.add(addRecurrencesLayout(null));
         });
 
-
-        /*for(ReminderRecurrence recurrence : newReminder.getRecurrences()){
-            recurrencesVerticalLayout.add(addRecurrencesLayout(recurrence));
-        }*/
+        Button demReminderButton = new Button();
+        demReminderButton.setText("Demo Reminder with Recurrence");
+        demReminderButton.addClickListener(e -> {
+            addDemoReminder();
+        });
 
         add(prescriptionSelect);
         add(timePicker);
 
         add(addRecurrenceButton);
         add(recurrencesVerticalLayout);
+        add(demReminderButton);
     }
 
     public void saveNewReminder() {
@@ -95,7 +98,7 @@ public class ReminderAddFormLayout extends CustomFormLayout {
             recurrence.setReminder(newReminder);
             reminderRecurrenceDao.addReminder(recurrence);
         }
-        ReminderSchedulerService.getInstance().addReminder(newReminder);
+        ReminderSchedulerService.getInstance().addReminder(newReminder, UI.getCurrent());
     }
 
     private HorizontalLayout addRecurrencesLayout(ReminderRecurrence recurrence) {
@@ -141,4 +144,20 @@ public class ReminderAddFormLayout extends CustomFormLayout {
 
         return horizontalLayout;
     }
+
+    private void addDemoReminder() {
+        UI ui = UI.getCurrent();
+        Reminder reminder = new Reminder();
+        reminder.setPrescription(null);
+        reminder.setId(123456789);
+        reminder.setNotificationTime(OffsetDateTime.now().plusSeconds(5));
+        ReminderRecurrence reminderRecurrence = new ReminderRecurrence();
+        reminderRecurrence.setId(1111111);
+        reminderRecurrence.setReminder(reminder);
+        reminderRecurrence.setDuration(Duration.ofSeconds(10));
+        reminder.setRecurrences(new ArrayList<ReminderRecurrence>());
+        reminder.getRecurrences().add(reminderRecurrence);
+        ReminderSchedulerService.getInstance().addReminder(reminder, ui);
+    }
+
 }
