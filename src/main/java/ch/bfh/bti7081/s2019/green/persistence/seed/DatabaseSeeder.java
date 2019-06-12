@@ -7,6 +7,7 @@ import ch.bfh.bti7081.s2019.green.model.diary.Entry;
 import ch.bfh.bti7081.s2019.green.model.diary.MoodDiary;
 import ch.bfh.bti7081.s2019.green.model.person.Patient;
 import ch.bfh.bti7081.s2019.green.model.person.Therapist;
+import ch.bfh.bti7081.s2019.green.model.prescription.Prescription;
 import ch.bfh.bti7081.s2019.green.persistence.SessionSingleton;
 import com.github.javafaker.Faker;
 import org.hibernate.boot.Metadata;
@@ -96,6 +97,11 @@ public class DatabaseSeeder {
         exerciseActivity.setText("Ran 1km");
         entry.addActivity(exerciseActivity);
         db.save(exerciseActivity);
+
+        Prescription prescription1 = databaseSeederService.getRandomPrescription();
+        Prescription prescription2 = databaseSeederService.getRandomPrescription();
+        db.save(prescription1);
+        db.save(prescription2);
     }
 
     /**
