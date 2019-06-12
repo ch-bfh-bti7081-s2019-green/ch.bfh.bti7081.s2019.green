@@ -10,6 +10,7 @@ public class ReminderDialog extends Dialog {
     public ReminderDialog() {
         super();
         initialiseLayout();
+        this.open();
     }
 
     private void initialiseLayout() {

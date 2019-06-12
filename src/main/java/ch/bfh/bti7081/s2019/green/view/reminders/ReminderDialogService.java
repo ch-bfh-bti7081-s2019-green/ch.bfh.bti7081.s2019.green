@@ -1,5 +1,7 @@
 package ch.bfh.bti7081.s2019.green.view.reminders;
 
+import com.vaadin.flow.component.UI;
+
 public class ReminderDialogService {
 
     private static volatile ReminderDialogService instance;
@@ -15,7 +17,9 @@ public class ReminderDialogService {
     }
 
     public void showReminder() {
+        UI ui = UI.getCurrent();
         ReminderDialog dialog = new ReminderDialog();
         dialog.open();
+        ui.push();
     }
 }
