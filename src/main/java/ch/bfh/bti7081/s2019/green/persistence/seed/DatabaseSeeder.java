@@ -47,7 +47,6 @@ public class DatabaseSeeder {
     private static void seed() {
         Patient patient = databaseSeederService.getRandomPatient();
         patient.setUsername("patient");
-        patient.setPassword(AuthService.getEncodedPassword("patient"));
         db.save(patient);
 
         // Patient without mood diary
@@ -63,7 +62,6 @@ public class DatabaseSeeder {
 
         Patient patient1 = databaseSeederService.getRandomPatient();
         patient1.setUsername("patient1");
-        patient1.setPassword(AuthService.getEncodedPassword("123456"));
         db.save(patient1);
 
         MoodDiary diary = new MoodDiary();
